@@ -28,7 +28,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
   
 ### 💻 Visite
 
-[https://be-the-hero-oficial.netlify.com/](https://ialexanderbrito.com.br/)
+[Acesse aqui](https://ialexanderbrito.com.br/)
 
 
 ### 📱 Social
