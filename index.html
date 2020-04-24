@@ -48,6 +48,7 @@
       <script src="js/selectivizr-min.js"></script>
     <![endif]-->
 
+    <link rel="stylesheet" type="text/css" href="style-switcher/style.css" />
     <link rel="stylesheet" class="base-skin" type="text/css" href="#" />
 </head>
 
@@ -317,7 +318,7 @@
                                 <!-- .skill-unit -->
                                 <div class="skill-unit">
                                     <h4>HTML/CSS</h4>
-                                    <div class="bar" data-percent="50">
+                                    <div class="bar" data-percent="74">
                                         <div class="progress"></div>
                                     </div>
                                 </div>
@@ -326,7 +327,7 @@
                                 <!-- .skill-unit -->
                                 <div class="skill-unit">
                                     <h4>JavaScript</h4>
-                                    <div class="bar" data-percent="40">
+                                    <div class="bar" data-percent="60">
                                         <div class="progress"></div>
                                     </div>
                                 </div>
@@ -335,7 +336,25 @@
                                 <!-- .skill-unit -->
                                 <div class="skill-unit">
                                     <h4>React</h4>
-                                    <div class="bar" data-percent="35">
+                                    <div class="bar" data-percent="42">
+                                        <div class="progress"></div>
+                                    </div>
+                                </div>
+                                <!-- .skill-unit -->
+
+                                <!-- .skill-unit -->
+                                <div class="skill-unit">
+                                    <h4>React Native</h4>
+                                    <div class="bar" data-percent="40">
+                                        <div class="progress"></div>
+                                    </div>
+                                </div>
+                                <!-- .skill-unit -->
+
+                                <!-- .skill-unit -->
+                                <div class="skill-unit">
+                                    <h4>Node.js</h4>
+                                    <div class="bar" data-percent="24">
                                         <div class="progress"></div>
                                     </div>
                                 </div>
@@ -678,9 +697,24 @@
     <script src="js/mediaelement/mediaelement-and-player.min.js"></script>
     <script src="js/send-mail.js"></script>
     <script src="js/classie.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
     <script src="js/main.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/app.js"></script>
+
+    <!-- STYLE SWITCHER -->
+    <script src="style-switcher/jquery.cookie.js"></script>
+    <script src="style-switcher/style.switcher.js"></script>
+
+    <div id="skin-select">
+        <a id="toggle"></a>
+
+        <div class="skin-part" data-linkClass="base-skin">
+            <ul>
+                <li><a href="#" class="active">Dark Mode</a></li>
+                <li><a href="css/skins/light.css">Light Mode</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- STYLE SWITCHER -->
 </body>
 
 </html>

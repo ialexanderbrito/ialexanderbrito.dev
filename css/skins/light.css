@@ -47,6 +47,7 @@ html {
 
 html,
 body {
+    background-color: #fff;
     position: relative;
     width: 100%;
     height: 100%;
@@ -59,7 +60,7 @@ body {
 }
 
 a {
-    color: #161625;
+    color: #096;
     text-decoration: none;
     outline: none;
 }
@@ -71,7 +72,7 @@ a:focus {
 }
 
 a:hover {
-    color: #818cab
+    color: #5BCF80
 }
 
 iframe {
@@ -278,7 +279,7 @@ code {
     display: inline-block;
     margin: 0 .4em;
     padding: 1px 6px;
-    background: #161625;
+    background: #fff;
     border: 1px solid #DDE4E6;
     box-shadow: 1px 1px 0 #fff, 2px 2px 0 #DDE4E6;
 }
@@ -355,7 +356,7 @@ select {
     color: #6A7686;
     border: 2px solid #e9eeee;
     border-radius: 4px;
-    background: #161625;
+    background: #fff;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
     -moz-box-sizing: border-box;
@@ -407,7 +408,7 @@ div.selector {
     line-height: 55px;
     height: 55px;
     padding-left: 1em;
-    background: #161625;
+    background: #fff;
     border: 2px solid #e9eeee;
     border-radius: 4px;
 }
@@ -516,7 +517,7 @@ div.radio span.checked:before {
 div.uploader {
     width: 262px;
     height: 55px;
-    background: #161625;
+    background: #fff;
     border: 2px solid #e9eeee;
     border-radius: 4px;
 }
@@ -531,6 +532,7 @@ div.uploader input {
 div.uploader span.filename {
     padding: 0 12px;
     width: 100%;
+    100;
     line-height: 50px;
     min-height: 55px;
     border-left: 0;
@@ -541,7 +543,7 @@ div.uploader span.filename {
 div.uploader span.action {
     width: 10px;
     text-indent: -999em;
-    background: #161625;
+    background: #fff;
     padding: 8px 16px 8px 36px;
     position: absolute;
     top: 0;
@@ -744,7 +746,7 @@ a.more-link,
     padding: 2em;
     width: 100%;
     text-align: center;
-    -webkit-backface-visibility: cover;
+    -webkit-backface-visibility: hidden;
 }
 
 .header h1 {
@@ -768,7 +770,7 @@ a.more-link,
     font-style: italic;
     padding: 6px 10px;
     background: #FAF46A;
-    color: #e1e1ff;
+    color: #345;
     color: rgba(0, 0, 0, .7);
     border-radius: 4px;
     line-height: 1;
@@ -792,7 +794,7 @@ a.more-link,
     border-radius: 50%;
     color: #6A7686;
     border: 2px solid #ECF0F1;
-    background: #161625;
+    background: #fff;
 }
 
 .single-page-layout .vs-nav li i:hover,
@@ -850,7 +852,7 @@ a.more-link,
 .vs-nav li.current_page_item a,
 .container.vs-move-left .vs-nav-right a,
 .container.vs-move-right .vs-nav-left a {
-    color: #e1e1ff;
+    color: #345;
 }
 
 .container.vs-move-left .vs-nav-current a,
@@ -934,7 +936,7 @@ a.more-link,
     margin: 0 auto;
     padding: 0 0 30px;
     width: 100%;
-    background: #161625;
+    background: #fff;
 }
 
 .vs-triplelayout .wrapper>section {
@@ -1115,7 +1117,7 @@ a.more-link,
 .classic-layout .vs-nav li a:hover,
 .classic-layout .vs-nav li.current_page_item a {
     color: #fff;
-    background: #e1e1ff;
+    background: #345;
     border-color: transparent;
 }
 
@@ -1181,7 +1183,7 @@ h2 i.fa {
     line-height: 39px;
     text-align: center;
     color: #B7C6C9;
-    background: #161625;
+    background: #fff;
     border-radius: 50%;
     border: 4px solid #F4F6F7;
     display: inline-block;
@@ -1221,7 +1223,7 @@ h2 i.fa:before {
     position: relative;
     display: inline-block;
     padding-right: 1.4em;
-    background: #161625;
+    background: #fff;
 }
 
 .row+.section-title {
@@ -1455,7 +1457,7 @@ h2 i.fa:before {
     height: 120px;
     padding: 24px 10px;
     margin: 1em auto 3em;
-    background: #818cab;
+    background: #EAEEEF;
     border-radius: 50%;
 }
 
@@ -1566,7 +1568,7 @@ h2 i.fa:before {
     position: relative;
     padding: 26px 32px;
     margin-bottom: 3em;
-    background: #161625;
+    background: #ffffff;
     border: 3px solid #EDF1F3;
     border-radius: 6px;
 }
@@ -1603,7 +1605,7 @@ h2 i.fa:before {
     width: 68px;
     line-height: 58px;
     text-align: center;
-    background: #818cab;
+    background: #5BCF80;
     display: block;
     z-index: 120;
     color: #fff;
@@ -1616,8 +1618,9 @@ h2 i.fa:before {
 }
 
 .event.current .date {
-    border-color: #e1e1ff;
-    background-color: #818cab;
+    border-color: #345;
+    outline: 5px solid #FFF;
+    background-color: #345;
 }
 
 .timeline+.timeline .event:last-child p:before {
@@ -2176,14 +2179,14 @@ h2 i.fa:before {
 }
 
 .filters li a:hover {
-    color: #e1e1ff;
-    border-color: #e1e1ff;
+    color: #345;
+    border-color: #345;
 }
 
 .filters .current a,
 .filters .current a:hover {
     color: #fff;
-    background: #818cab;
+    background: #345;
     border-color: transparent;
 }
 
@@ -2222,8 +2225,8 @@ h2 i.fa:before {
     padding: 28px 40px;
     border-style: solid;
     border-width: 1px;
-    background: #161625;
-    border-color: #818cab;
+    background: #fff;
+    border-color: #EAEDEF;
     border-radius: 0 0 4px 4px;
 }
 
@@ -2267,7 +2270,7 @@ h2 i.fa:before {
     border-radius: 2px;
     margin-top: -66px;
     position: relative;
-    background: #161625;
+    background: #FFF;
     margin-left: 0%;
     background: #5BCF80;
     ;
@@ -2300,7 +2303,7 @@ h2 i.fa:before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #161625;
+    background: #fff;
     opacity: 0;
     filter: alpha(opacity=0);
 }
@@ -2347,7 +2350,7 @@ h2 i.fa:before {
     text-align: center;
     content: "\f0ca";
     color: #fff;
-    background: #818cab;
+    background: #096;
     border-radius: 50%;
 }
 
@@ -2361,7 +2364,7 @@ h2 i.fa:before {
 }
 
 .hentry.image .mask:before {
-    content: "\f16d"
+    content: "\f03e"
 }
 
 .hentry.url .mask:before {
@@ -2400,7 +2403,7 @@ h2 i.fa:before {
     letter-spacing: .03em;
     line-height: 1;
     color: #eee;
-    text-shadow: 11px 12px 12px rgba(0, 0, 0, 0.2), -1px -1px 1px #e1e1ff, 1px 1px 0 #e1e1ff, 3px 3px 0 #e1e1ff, 4px 4px 0 #e1e1ff, 5px 5px 0 #e1e1ff, 6px 6px 0 #e1e1ff, 7px 7px 0 #e1e1ff, 8px 8px 0 #e1e1ff, 9px 9px 0 #e1e1ff, 10px 10px 0 #e1e1ff, 11px 11px 0 #e1e1ff;
+    text-shadow: 11px 12px 12px rgba(0, 0, 0, 0.2), -1px -1px 1px #345, 1px 1px 0 #345, 3px 3px 0 #345, 4px 4px 0 #345, 5px 5px 0 #345, 6px 6px 0 #345, 7px 7px 0 #345, 8px 8px 0 #345, 9px 9px 0 #345, 10px 10px 0 #345, 11px 11px 0 #345;
 }
 
 .http-alert p {
@@ -2479,7 +2482,7 @@ a.button {
     line-height: 1.2;
     border: 0;
     outline: 0;
-    background: #161625;
+    background: #fff;
     border: 2px solid #6A7686;
     color: #6A7686;
     text-shadow: none;
@@ -2495,7 +2498,7 @@ input[type=button],
 button.colored,
 a.button.colored {
     color: #fff;
-    background-color: #161625;
+    background-color: #096;
     border-color: transparent;
 }
 
@@ -3106,7 +3109,7 @@ a.button.colored {
     line-height: 100%;
     font-size: 8px;
     color: #333;
-    background: #161625;
+    background: #fff;
     border-radius: 4px;
 }
 
@@ -3189,7 +3192,7 @@ a.button.colored {
     min-height: 100%;
     min-height: 100vh;
     overflow: auto;
-    background: #161625;
+    background: #fff;
 }
 
 .portfolio-single {
@@ -3278,7 +3281,7 @@ a.button.colored {
 
 .tags a,
 .tags a:hover {
-    color: #161625;
+    color: #345;
 }
 
 .tags a:before {
@@ -3304,7 +3307,7 @@ a.button.colored {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #161625;
+    background: #fff;
 }
 
 
@@ -3382,7 +3385,7 @@ a.button.colored {
 }
 
 .entry-title a {
-    color: #e1e1ff
+    color: #345
 }
 
 .entry-title a:hover {
@@ -3413,7 +3416,7 @@ a.button.colored {
     width: 53px;
     line-height: 46px;
     padding: 0;
-    background: #161625;
+    background: #fff;
     color: #6A7686;
     border: 3px solid #DDE4E6;
     border-radius: 50%;
@@ -3746,7 +3749,7 @@ a.more-link:hover {
     padding: .5em 1em;
     font-size: 14px;
     color: #333;
-    background: #161625;
+    background: #fff;
     background: rgba(255, 255, 255, 0.95);
 }
 
@@ -3788,7 +3791,7 @@ a.more-link:hover {
     font-family: Georgia, "Times New Roman", Times, serif;
     color: #5a4f43;
     text-shadow: 0 1px 0 white;
-    background: #161625;
+    background: #FFFFF4;
     border: 1px solid #E0DACE;
 }
 
@@ -3868,7 +3871,7 @@ a.more-link:hover {
 .post-pagination li.current a:hover {
     border-color: #6A7686;
     font-weight: 800;
-    background: #161625;
+    background: #fff;
     color: #6A7686;
     cursor: default;
 }
@@ -4629,7 +4632,7 @@ a.more-link:hover {
     .skill-unit h4 {
         font-size: 14px;
         margin: 1em 0 0 0;
-        color: #e1e1ff;
+        color: #345;
         padding: 0;
         font-weight: 400;
     }
@@ -4816,18 +4819,18 @@ a.more-link:hover {
     -------------------------------------------- */
 
 body {
-    color: #e1e1ff;
+    color: #345;
 }
 
 
 /* Links */
 
 a {
-    color: #161625;
+    color: #096;
 }
 
 a:hover {
-    color: #818cab;
+    color: #5BCF80;
 }
 
 
@@ -4836,13 +4839,13 @@ a:hover {
 ::selection {
     text-shadow: none;
     color: #333;
-    background: #161625;
+    background: #FFFFCF;
 }
 
 ::-moz-selection {
     text-shadow: none;
     color: #333;
-    background: #161625;
+    background: #FFFFCF;
 }
 
 
@@ -4857,7 +4860,7 @@ a:hover {
 }
 
 .color3 i {
-    background: #818cab;
+    background: #5BCF80;
 }
 
 .color4 i {
@@ -4865,7 +4868,7 @@ a:hover {
 }
 
 
-/* PRIMARY COLOR : #818cab
+/* PRIMARY COLOR : #21B572
    ================================================== */
 
 .navigation a:hover,
@@ -4878,7 +4881,7 @@ a.more-link:hover,
 .flex-control-paging li a.flex-active,
 .mejs-controls .mejs-time-rail .mejs-time-current,
 .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current {
-    background: #818cab
+    background: #21B572
 }
 
 .entry-title a:hover,
@@ -4888,14 +4891,14 @@ a.more-link:hover,
 .comment-meta a:hover,
 .comment-meta .fn+a:hover,
 .comment-reply-link:hover {
-    color: #818cab
+    color: #21B572
 }
 
 .portfolio-nav a.button:hover,
 .format-link .link-content>a:first-child:hover,
 .flex-control-paging li a:hover,
 .bypostauthor>article {
-    border-color: #818cab
+    border-color: #21B572
 }
 
 
@@ -4909,12 +4912,12 @@ a.more-link:hover,
 #nprogress .bar,
 #fancybox-close,
 .portfolio-nav a.button.back {
-    background: #818cab;
+    background: #5BCF80;
 }
 
 #nprogress .spinner-icon {
-    border-top-color: #818cab;
-    border-left-color: #818cab;
+    border-top-color: #5BCF80;
+    border-left-color: #5BCF80;
 }
 
 
@@ -4933,8 +4936,4 @@ a.more-link:hover,
     z-index: 10000000;
     width: 60px;
     cursor: pointer;
-}
-
-#particles-js {
-    background: #161625;
 }

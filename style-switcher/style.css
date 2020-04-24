@@ -1,0 +1,118 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900);
+
+/* SKIN SELECT */
+
+#skin-select h3,
+#skin-select h4 {
+    font-family: 'Lato', sans-serif;
+}
+
+#skin-select {
+    position: fixed;
+    top: 60px;
+    width: 290px;
+    z-index: 9000;
+    background: #fff;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+#skin-select #toggle {
+    position: absolute;
+    top: 0;
+    right: -40px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: #222 url(img/style-toggle.png) 0 0 no-repeat;
+}
+
+#skin-select #toggle.active {
+    background-position: 0 -40px;
+}
+
+#skin-select ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#skin-select ul li {
+    display: inline-block;
+    margin-right: 1px;
+    margin-bottom: 4px;
+}
+
+#skin-select ul li a {
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 0 3px 3px 0;
+    font-size: 10px;
+    letter-spacing: .07em;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: none;
+    color: #000;
+    border: 2px solid rgba(0, 0, 0, .1);
+    border-radius: 4px;
+}
+
+#skin-select ul li a:hover {
+    text-decoration: none;
+    border-color: rgba(0, 0, 0, .2);
+}
+
+#skin-select ul li a.active,
+#skin-select ul li a.active:hover {
+    border-color: rgba(0, 0, 0, 1);
+}
+
+#skin-select .colors li {
+    margin-bottom: 0;
+}
+
+#skin-select .colors a {
+    display: block;
+    width: 4px;
+    height: 6px;
+    line-height: 100%;
+    border: 1px solid rgba(0, 0, 0, .2);
+}
+
+#skin-select .colors a:hover {
+    outline: 2px solid #ccc;
+}
+
+.skin-part {
+    padding: 12px 15px;
+}
+
+.skin-part h3 {
+    color: #234;
+    text-shadow: none;
+    margin: 10px 0;
+    font-size: 2.3em;
+    font-weight: 900;
+}
+
+.skin-part h3 small {
+    margin-left: 6px;
+    color: #999;
+}
+
+.skin-part h4 {
+    font-size: 1em;
+    margin: 4px 0;
+}
+
+@media screen and (max-height: 800px) {
+    #skin-select {
+        top: 0px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #skin-select {
+        display: none;
+    }
+}
