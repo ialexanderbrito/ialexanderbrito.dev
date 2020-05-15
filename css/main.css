@@ -2494,14 +2494,14 @@ input[type="submit"].blue.colored,
 input[type="button"].blue.colored,
 button.blue.colored,
 a.button.blue.colored {
-  background: #7db7ce;
+  background: #163db7;
 }
 
 input[type="submit"].blue.colored:hover,
 input[type="button"].blue.colored:hover,
 button.blue.colored:hover,
 a.button.blue.colored:hover {
-  background: #70adc5;
+  background: #3a5bc2;
 }
 
 input[type="submit"].blue:active,
@@ -2512,7 +2512,7 @@ input[type="submit"].blue.colored:active,
 input[type="button"].blue.colored:active,
 button.blue.colored:active,
 a.button.blue.colored:active {
-  background: #5e9bb3;
+  background: #6688f2;
 }
 
 /* red buttons  */
