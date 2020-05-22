@@ -2128,35 +2128,6 @@ h2 i.fa:before {
 }
 
 
-/* MAP */
-
-.map {
-    margin: 1.6em 0 3em 0;
-    line-height: 0;
-    padding: 8px;
-    border: 1px solid #E9EEEE;
-}
-
-.map iframe {
-    width: 100%;
-    border-width: 0;
-    outline: none;
-    height: 350px;
-    border-radius: 4px;
-}
-
-.map-canvas {
-    height: 342px;
-    margin: 0px;
-    padding: 0px;
-    line-height: 1.6;
-}
-
-.map-canvas img {
-    max-width: none;
-}
-
-
 /* FILTERS */
 
 .filters {
