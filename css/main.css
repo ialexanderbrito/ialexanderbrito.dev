@@ -1571,7 +1571,7 @@ h2 i.fa:before {
     padding: 26px 32px;
     margin-bottom: 3em;
     background: #ebebeb;
-    border: 3px solid #EDF1F3;
+    border: 3px solid #1b1b1b;
     border-radius: 6px;
 }
 
@@ -1594,7 +1594,7 @@ h2 i.fa:before {
 }
 
 .event:before {
-    border-right-color: #EDF1F3;
+    border-right-color: #1b1b1b;
     border-width: 15px;
     margin-top: -15px;
 }
@@ -1620,9 +1620,9 @@ h2 i.fa:before {
 }
 
 .event.current .date {
-    border-color: #345;
+    border-color: rgb(144, 148, 153);
     outline: 5px solid #ebebeb;
-    background-color: #345;
+    background-color: #1b1b1b;
 }
 
 .timeline+.timeline .event:last-child p:before {
@@ -1641,7 +1641,7 @@ h2 i.fa:before {
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 700;
-    color: #C9D5D6;
+    color: #1b1b1b;
 }
 
 .event p {
@@ -1658,7 +1658,7 @@ h2 i.fa:before {
     left: -72px;
     height: 160%;
     width: 4px;
-    background: #F4F6F7;
+    background: #345;
 }
 
 
