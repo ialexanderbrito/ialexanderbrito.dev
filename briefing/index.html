@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Site Alexander">
+	<meta name="author" content="Alexander">
+	<title>Briefing | Alexander</title>
+
+	<!-- Favicons-->
+	<link rel="shortcut icon" href="images/ico/favicon.ico" />
+	<link rel="apple-touch-icon" href="images/ico/apple-touch-icon.png" />
+
+	<!-- GOOGLE WEB FONT -->
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
+
+	<!-- BASE CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/menu.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/vendors.css" rel="stylesheet">
+
+	<!-- YOUR CUSTOM CSS -->
+	<link href="css/custom.css" rel="stylesheet">
+
+	<!-- MODERNIZR MENU -->
+	<script src="js/modernizr.js"></script>
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-11097556-8']);
+		_gaq.push(['_trackPageview']);
+
+		(function () {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+				'.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+</head>
+
+<body>
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div><!-- /Preload -->
+
+	<div id="loader_form">
+		<div data-loader="circle-side-2"></div>
+	</div><!-- /loader_form -->
+
+	<!-- /menu -->
+
+	<div class="container-fluid full-height">
+		<div class="row row-height">
+			<div class="col-lg-6 content-left">
+				<div class="content-left-wrapper">
+					<!-- /social -->
+					<div>
+						<figure><img src="img/webbriefing.png" alt="" class="img-fluid"></figure>
+						<h2>Briefing</h2>
+						<a href="#start" class="btn_1 rounded mobile_btn">Começar</a>
+					</div>
+				</div>
+				<!-- /content-left-wrapper -->
+			</div>
+			<!-- /content-left -->
+
+			<div class="col-lg-6 content-right" id="start">
+				<div id="wizard_container">
+					<div id="top-wizard">
+						<div id="progressbar"></div>
+					</div>
+					<!-- /top-wizard -->
+					<form action="https://formspree.io/ialexanderbrito@gmail.com" method="POST">
+						<!--<form id="wrapped" method="POST">-->
+						<input id="website" name="website" type="text" value="">
+						<!-- Leave for security protection, read docs for details -->
+						<div id="middle-wizard">
+							<div class="step">
+								<h3 class="main_question"><strong>1/7</strong>Olá. Suas respostas irão ajudar a criar um
+									site incrível e memorável para seus clientes. Tudo pronto? Vamos lá!</h3>
+								<div class="form-group">
+									<input type="text" name="nome" class="form-control required"
+										placeholder="Seu primeiro nome">
+								</div>
+								<div class="form-group">
+									<input type="text" name="empresa" class="form-control required"
+										placeholder="Nome da sua empresa">
+								</div>
+								<div class="form-group">
+									<input type="email" name="email" class="form-control required email"
+										placeholder="Seu Email">
+								</div>
+								<div class="form-group">
+									<input type="text" name="cpf-cnpj" class="form-control required number"
+										placeholder="Seu CPF ou CNPJ da empresa">
+								</div>
+								<div class="form-group">
+									<input type="text" name="telefone" class="form-control required number"
+										placeholder="Seu telefone: (DD)XXXXX-XXXX">
+								</div>
+								<div class="form-group">
+									<input type="text" name="encontrou" class="form-control"
+										placeholder="Como me encontrou?">
+								</div>
+
+
+								<!-- /row -->
+							</div>
+							<!-- /step-->
+							<div class="step">
+								<h3 class="main_question"><strong>2/7</strong>Agora que falamos um pouco sobre você,
+									vamos falarum pouco da sua empresa.</h3>
+								<div class="form-group">
+									<label></label>
+									<input type="text" name="site" class="form-control"
+										placeholder="Já possui um site? (ex: www.empresa.com). Caso não qual seria o nome ideal?">
+								</div>
+								<div class="form-group">
+									<textarea name="objetivo_site" class="form-control required" style="height:80px;"
+										placeholder="Descreva seus principais objetivos com este novo site, identifique os conceitos, produtos e/ou serviços que deseja promover ou expor."
+										onkeyup="getVals(this, 'objetivo_site');"></textarea>
+								</div>
+								<div class="form-group">
+									<textarea name="pontos_pos_neg" class="form-control" style="height:50px;"
+										placeholder="Caso já tenha um site, indique os principais pontos negativos e positivos do mesmo."
+										onkeyup="getVals(this, 'pontos_pos_neg');"></textarea>
+								</div>
+								<div class="form-group">
+									<textarea name="visualizar_primeiro" class="form-control required"
+										style="height:80px;"
+										placeholder="Qual ação primária que seu usuário deve ter quando visitar o site (Visualizar os produtos, Banners Promocionais)?"
+										onkeyup="getVals(this, 'visualizar_primeiro');"></textarea>
+								</div>
+								<div class="form-group">
+									<textarea name="referencias" class="form-control" style="height:80px;"
+										placeholder="Cite alguns lojas virtuais que possamos usar como referência para criação do seu site. Se possível insira os links."
+										onkeyup="getVals(this, 'referencias');"></textarea>
+								</div>
+
+
+								<!--
+								</div>
+								<div class="form-group">
+									<label class="container_radio version_2">Not Satisfied
+										<input type="radio" name="question_1" value="Not Satisfied" class="required"
+											onchange="getVals(this, 'question_1');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="row">
+									<div class="col-3">
+										<div class="form-group">
+											<input type="text" name="age" class="form-control" placeholder="Age">
+										</div>
+									</div>
+
+								</div>
+								<div class="col-9">
+									<div class="form-group radio_input">
+										<label class="container_radio">Male
+											<input type="radio" name="gender" value="Male" class="required">
+											<span class="checkmark"></span>
+										</label>
+										<label class="container_radio">Female
+											<input type="radio" name="gender" value="Female" class="required">
+											<span class="checkmark"></span>
+										</label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="container_radio version_2">Quite Satisfied
+										<input type="radio" name="question_1" value="Quite Satisfied" class="required"
+											onchange="getVals(this, 'question_1');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_radio version_2">Satisfied
+										<input type="radio" name="question_1" value="Satisfied" class="required"
+											onchange="getVals(this, 'question_1');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_radio version_2">Completely Satisfied
+										<input type="radio" name="question_1" value="Completely Satisfied"
+											class="required" onchange="getVals(this, 'question_1');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+
+								<div class="form-group">
+									<label class="container_radio version_2">Extremely Satisfied
+										<input type="radio" name="question_1" value="Extremely Satisfied"
+											class="required" onchange="getVals(this, 'question_1');">
+										<span class="checkmark"></span>
+									</label>
+								</div>-->
+							</div>
+							<!-- /step-->
+							<div class="step">
+								<h3 class="main_question"><strong>3/7</strong>Conte mais um pouco da sua empresa.</h3>
+								<div class="form-group">
+									<textarea name="historia_empresa" class="form-control required"
+										style="height:100px;"
+										placeholder="Me conte um pouco da história da sua empresa."
+										onkeyup="getVals(this, 'historia_empresa');"></textarea>
+								</div>
+								<div class="form-group">
+									<div class="styled-select clearfix">
+										<select class="wide" name="estado">
+											<option value="">Qual seu estado?</option>
+											<option value="AC">Acre</option>
+											<option value="AL">Alagoas</option>
+											<option value="AP">Amapá</option>
+											<option value="AM">Amazonas</option>
+											<option value="BA">Bahia</option>
+											<option value="CE">Ceará</option>
+											<option value="DF">Distrito Federal</option>
+											<option value="ES">Espírito Santo</option>
+											<option value="GO">Goiás</option>
+											<option value="MA">Maranhão</option>
+											<option value="MT">Mato Grosso</option>
+											<option value="MS">Mato Grosso do Sul</option>
+											<option value="MG">Minas Gerais</option>
+											<option value="PA">Pará</option>
+											<option value="PB">Paraíba</option>
+											<option value="PR">Paraná</option>
+											<option value="PE">Pernambuco</option>
+											<option value="PI">Piauí</option>
+											<option value="RJ">Rio de Janeiro</option>
+											<option value="RN">Rio Grande do Norte</option>
+											<option value="RS">Rio Grande do Sul</option>
+											<option value="RO">Rondônia</option>
+											<option value="RR">Roraima</option>
+											<option value="SC">Santa Catarina</option>
+											<option value="SP">São Paulo</option>
+											<option value="SE">Sergipe</option>
+											<option value="TO">Tocantins</option>
+										</select>
+									</div>
+
+								</div>
+							</div>
+							<!-- /step-->
+							<div class="step">
+								<h3 class="main_question"><strong>4/7</strong>Agora, vamos falar um pouco sobre seus
+									clientes.</h3>
+								<div class="form-group">
+									<label>Qual gênero do seu público alvo?</label>
+									<label class="container_radio version_2">Totalmente masculino.
+										<input type="radio" name="publico_alvo" value="masculino" class="required"
+											onchange="getVals(this, 'publico_alvo');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_radio version_2">Totalmente feminino.
+										<input type="radio" name="publico_alvo" value="feminino" class="required"
+											onchange="getVals(this, 'publico_alvo');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_radio version_2">Masculino predominante, pouco feminino.
+										<input type="radio" name="publico_alvo" value="masculino_predominante"
+											class="required" onchange="getVals(this, 'publico_alvo');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_radio version_2">Feminino predominante, pouco masculino.
+										<input type="radio" name="publico_alvo" value="femino_predominante"
+											class="required" onchange="getVals(this, 'publico_alvo');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_radio version_2">Ambos os gêneros.
+										<input type="radio" name="publico_alvo" value="ambos" class="required"
+											onchange="getVals(this, 'publico_alvo');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label>Que mensagens sua marca NÃO deve transmitir para seus clientes?</label>
+									<textarea name="naodeve_transitir" class="form-control required"
+										style="height:100px;"
+										placeholder="Exemplo: Não somos conservadores ou engraçados."
+										onkeyup="getVals(this, 'naodeve_transitir');"></textarea>
+								</div>
+
+								<!--<div class="form-group">
+									<label class="container_check version_2">Google Search Engine
+										<input type="checkbox" name="question_2[]" value="Google Search Engine"
+											class="required" onchange="getVals(this, 'question_2');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_check version_2">A friend of mine
+										<input type="checkbox" name="question_2[]" value="A friend of mine"
+											class="required" onchange="getVals(this, 'question_2');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_check version_2">Print Advertise
+										<input type="checkbox" name="question_2[]" value="Print Advertise"
+											class="required" onchange="getVals(this, 'question_2');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_check version_2">Newspaper
+										<input type="checkbox" name="question_2[]" value="Newspaper" class="required"
+											onchange="getVals(this, 'question_2');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_check version_2">Other
+										<input type="checkbox" name="question_2[]" value="Other" class="required"
+											onchange="getVals(this, 'question_2');">
+										<span class="checkmark"></span>
+									</label>
+								</div>-->
+							</div>
+							<!-- /step-->
+							<div class="step">
+								<h3 class="main_question"><strong>5/7</strong>Sobre seus concorrentes</h3>
+								<div class="form-group">
+									<textarea name="lista_concorrente" class="form-control" style="height:80px;"
+										placeholder="Liste seus concorrentes locais, regionais e/ou mundiais. Forneça URL's (links) se possível."
+										onkeyup="getVals(this, 'lista_concorrente');"></textarea>
+								</div>
+								<div class="form-group">
+									<textarea name="diferenca_concorrentes" class="form-control" style="height:80px;"
+										placeholder="O que o difere dos seus concorrentes?"
+										onkeyup="getVals(this, 'diferenca_concorrentes');"></textarea>
+								</div>
+
+
+
+								<!--
+								
+								<div class="summary">
+									<ul>
+										<li><strong>1</strong>
+											<h5>How do rate your overall satisfaction about the service provided?
+											</h5>
+											<p id="publico_alvo"></p>
+										</li>
+										<li><strong>2</strong>
+											<h5>How did you hear about our company?</h5>
+											<p id="question_2"></p>
+										</li>
+										<li><strong>3</strong>
+											<h5>Do you think to suggest our company to a friend or parent?</h5>
+											<p id="question_3"></p>
+											<p id="additional_message"></p>
+										</li>
+									</ul>
+								</div>-->
+							</div>
+							<!-- /step-->
+							<div class="step">
+								<h3 class="main_question"><strong>6/7</strong>Imagem a ser projeta da sua empresa.</h3>
+								<!--<label>Me ajude a entender como sua marca deve se comportar visualmente fornecendo
+									algumas características.
+								</label>-->
+								<div class="form-group">
+									<label class="container_check version_2">Moderno
+										<input type="checkbox" name="caract_marca[]" value="Moderno" class="required"
+											onchange="getVals(this, 'caract_marca');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_check version_2">Sério
+										<input type="checkbox" name="caract_marca[]" value="Sério" class="required"
+											onchange="getVals(this, 'caract_marca');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_check version_2">Popular
+										<input type="checkbox" name="caract_marca[]" value="Popular" class="required"
+											onchange="getVals(this, 'caract_marca');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_check version_2">Pesado
+										<input type="checkbox" name="caract_marca[]" value="Pesado" class="required"
+											onchange="getVals(this, 'caract_marca');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_check version_2">Conservador
+										<input type="checkbox" name="caract_marca[]" value="Conservador"
+											class="required" onchange="getVals(this, 'caract_marca');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_check version_2">Descontraído
+										<input type="checkbox" name="caract_marca[]" value="Descontraído"
+											class="required" onchange="getVals(this, 'caract_marca');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_check version_2">Singular
+										<input type="checkbox" name="caract_marca[]" value="Singular" class="required"
+											onchange="getVals(this, 'caract_marca');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<label class="container_check version_2">Leve
+										<input type="checkbox" name="caract_marca[]" value="Leve" class="required"
+											onchange="getVals(this, 'caract_marca');">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="form-group">
+									<textarea name="cores" class="form-control" style="height:80px;"
+										placeholder="Cores Desejadas para utilização do site, se possível insira links de imagens com referências de cores."
+										onkeyup="getVals(this, 'cores');"></textarea>
+								</div>
+
+
+							</div>
+							<!-- /step-->
+							<div class="submit step">
+								<h3 class="main_question"><strong>7/7</strong>Tá tudo certinho? Então é só enviar.</h3>
+								<h2>Obrigado pela confiança. 🤙🏾</h2>
+							</div>
+						</div>
+						<!-- /middle-wizard -->
+						<div id="bottom-wizard">
+							<button type="button" name="backward" class="backward">Voltar</button>
+							<button type="button" name="forward" class="forward">Avançar</button>
+							<button type="submit" name="process" class="submit">Enviar</button>
+						</div>
+						<!-- /bottom-wizard -->
+					</form>
+				</div>
+				<!-- /Wizard container -->
+			</div>
+			<!-- /content-right-->
+		</div>
+		<!-- /row-->
+	</div>
+	<!-- /container-fluid -->
+
+	<div class="cd-overlay-nav">
+		<span></span>
+	</div>
+	<!-- /cd-overlay-nav -->
+
+	<div class="cd-overlay-content">
+		<span></span>
+	</div>
+	<!-- /cd-overlay-content -->
+
+	<!-- Modal terms -->
+	<div class="modal fade" id="terms-txt" tabindex="-1" role="dialog" aria-labelledby="termsLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="termsLabel">Terms and conditions</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in <strong>nec quod novum accumsan</strong>,
+						mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus,
+						pro ne quod dicunt sensibus.</p>
+					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam
+						dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt
+						sensibus. Lorem ipsum dolor sit amet, <strong>in porro albucius qui</strong>, in nec quod novum
+						accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum
+						sanctus, pro ne quod dicunt sensibus.</p>
+					<p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam
+						dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt
+						sensibus.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn_1" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+
+	<!-- COMMON SCRIPTS -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/common_scripts.min.js"></script>
+	<script src="js/velocity.min.js"></script>
+	<script src="js/functions.js"></script>
+
+	<!-- Wizard script -->
+	<script src="js/survey_func.js"></script>
+
+</body>
+
+</html>
