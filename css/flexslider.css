@@ -166,7 +166,7 @@ html[xmlns] .slides {
 }
 
 .flex-direction-nav .flex-disabled {
-    opacity: .3!important;
+    opacity: .3 !important;
     filter: alpha(opacity=30);
     cursor: default;
 }
