@@ -1,5 +1,5 @@
 <h4 align="center">
-<img src="./images/ico/apple-touch-icon.png" width="60px" /><br>
+
  <b>Meu portfólio!</b> 🤙🏾
 </h4>
 <p align="center">
