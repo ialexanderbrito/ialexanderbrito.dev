@@ -15,7 +15,7 @@ export default function Routes() {
         <Route path="/about" component={About} />
         <Route path="/projects" component={Projects} />
         <Route path="/links" component={Links} />
-        <Route component={NotFound} />
+        <Route path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>
   );
