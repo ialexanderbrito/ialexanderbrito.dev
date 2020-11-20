@@ -14,6 +14,7 @@ import proffy from '../../assets/images/proffy.png';
 import happy from '../../assets/images/happy.png';
 import marvel from '../../assets/images/marvel.png';
 import twitch from '../../assets/images/twitch.png';
+import finances from '../../assets/images/finances.png';
 
 import './styles.css';
 
@@ -32,6 +33,22 @@ export default function Projects() {
           </div>
           <h2 className="section-title">Projetos</h2>
           <div className="work__container bd-grid">
+            <div className="work__img">
+              <img src={finances} alt="Projeto" />
+              <p />
+              <h3 className="work__text">Finanças App</h3>
+              <a
+                href="https://github.com/ialexanderbrito/finances"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h4 className="work__description">
+                  Visitar o projeto
+                  <i className="bx bx-link-external space" />
+                </h4>
+              </a>
+            </div>
+
             <div className="work__img">
               <img src={twitch} alt="Projeto" />
               <p />
