@@ -52,7 +52,7 @@ export default function Projects() {
             <div className="work__img">
               <img src={twitch} alt="Projeto" />
               <p />
-              <h3 className="work__text">Twitch Clone</h3>
+              <h3 className="work__text">Twitch · Clone</h3>
               <a
                 href="https://github.com/ialexanderbrito/twitch-clone"
                 target="_blank"
@@ -164,7 +164,7 @@ export default function Projects() {
             <div className="work__img">
               <img src={picpay} alt="Projeto" />
               <p />
-              <h3 className="work__text">PicPay Clone</h3>
+              <h3 className="work__text">PicPay · Clone</h3>
               <a
                 href="https://github.com/ialexanderbrito/picpay-clone"
                 target="_blank"
