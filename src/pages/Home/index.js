@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { BiMobileAlt, BiDesktop } from 'react-icons/bi';
 
@@ -7,6 +8,9 @@ import './styles.css';
 export default function Home() {
   return (
     <>
+    <Helmet>
+        <title>Alexander</title>
+      </Helmet>
       <body>
         <main className="l-main">
           <section className="home bd-grid" id="home">
@@ -36,7 +40,7 @@ export default function Home() {
                   >
                     Github
                   </a>{' '}
-                  ou na aba <a href="#work">Projetos</a>.
+                  ou na aba <a href="/projects">Projetos</a>.
                 </span>
               </div>
             </div>
