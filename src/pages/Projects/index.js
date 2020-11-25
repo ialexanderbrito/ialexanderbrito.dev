@@ -1,6 +1,15 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import {
+  SiTypescript,
+  SiReact,
+  SiNodeDotJs,
+  SiExpo,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+} from 'react-icons/si';
 
 import hospitalscore from '../../assets/images/hospitalscore.png';
 import covid19 from '../../assets/images/covid19.png';
@@ -15,6 +24,7 @@ import happy from '../../assets/images/happy.png';
 import marvel from '../../assets/images/marvel.png';
 import twitch from '../../assets/images/twitch.png';
 import finances from '../../assets/images/finances.png';
+import menuria from '../../assets/images/menuria.png';
 
 import './styles.css';
 
@@ -34,6 +44,41 @@ export default function Projects() {
           <h2 className="section-title">Projetos</h2>
           <div className="work__container bd-grid">
             <div className="work__img">
+              <img src={menuria} alt="Projeto" />
+              <p />
+
+              <h3 className="work__text">Menuria</h3>
+              <a
+                href="https://github.com/ialexanderbrito/menuria"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h4 className="work__description">
+                  Visitar o projeto
+                  <i className="bx bx-link-external space" />
+                </h4>
+              </a>
+              <h4 className="work__description">
+                <SiExpo size={18} alt="Expo" />
+                <SiReact
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="React Native"
+                />
+                <SiTypescript
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Typescript"
+                />
+                <SiNodeDotJs
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Node.js"
+                />
+              </h4>
+            </div>
+
+            <div className="work__img">
               <img src={finances} alt="Projeto" />
               <p />
               <h3 className="work__text">Finanças App</h3>
@@ -47,6 +92,19 @@ export default function Projects() {
                   <i className="bx bx-link-external space" />
                 </h4>
               </a>
+              <h4 className="work__description">
+                <SiExpo size={18} alt="Expo" />
+                <SiReact
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="React Native"
+                />
+                <SiTypescript
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Typescript"
+                />
+              </h4>
             </div>
 
             <div className="work__img">
@@ -63,6 +121,19 @@ export default function Projects() {
                   <i className="bx bx-link-external space" />
                 </h4>
               </a>
+              <h4 className="work__description">
+                <SiExpo size={18} alt="Expo" />
+                <SiReact
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="React Native"
+                />
+                <SiTypescript
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Typescript"
+                />
+              </h4>
             </div>
 
             <div className="work__img">
@@ -79,6 +150,19 @@ export default function Projects() {
                   <i className="bx bx-link-external space" />
                 </h4>
               </a>
+              <h4 className="work__description">
+                <SiExpo size={18} alt="Expo" />
+                <SiReact
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="React Native"
+                />
+                <SiTypescript
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Typescript"
+                />
+              </h4>
             </div>
 
             <div className="work__img">
@@ -95,6 +179,24 @@ export default function Projects() {
                   <i className="bx bx-link-external space" />
                 </h4>
               </a>
+              <h4 className="work__description">
+                <SiExpo size={18} alt="Expo" />
+                <SiReact
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="React Native"
+                />
+                <SiTypescript
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Typescript"
+                />
+                <SiNodeDotJs
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Node.js"
+                />
+              </h4>
             </div>
 
             <div className="work__img">
@@ -111,6 +213,24 @@ export default function Projects() {
                   <i className="bx bx-link-external space" />
                 </h4>
               </a>
+              <h4 className="work__description">
+                <SiExpo size={18} alt="Expo" />
+                <SiReact
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="React Native"
+                />
+                <SiTypescript
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Typescript"
+                />
+                <SiNodeDotJs
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Node.js"
+                />
+              </h4>
             </div>
 
             <div className="work__img">
@@ -127,6 +247,24 @@ export default function Projects() {
                   <i className="bx bx-link-external space" />
                 </h4>
               </a>
+              <h4 className="work__description">
+                <SiExpo size={18} alt="Expo" />
+                <SiReact
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="React Native"
+                />
+                <SiTypescript
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Typescript"
+                />
+                <SiNodeDotJs
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Node.js"
+                />
+              </h4>
             </div>
 
             <div className="work__img">
@@ -144,6 +282,19 @@ export default function Projects() {
                   <i className="bx bx-code-alt space" />
                 </h4>
               </a>
+              <h4 className="work__description">
+                <SiExpo size={18} alt="Expo" />
+                <SiJavascript
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Javascript"
+                />
+                <SiNodeDotJs
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Node.js"
+                />
+              </h4>
             </div>
 
             <div className="work__img">
@@ -159,6 +310,14 @@ export default function Projects() {
                   Visitar o projeto <i className="bx bx-link-external space" />
                 </h4>
               </a>
+              <h4 className="work__description">
+                <SiExpo size={18} alt="Expo" />
+                <SiJavascript
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Javascript"
+                />
+              </h4>
             </div>
 
             <div className="work__img">
@@ -175,6 +334,14 @@ export default function Projects() {
                   <i className="bx bx-link-external space" />
                 </h4>
               </a>
+              <h4 className="work__description">
+                <SiExpo size={18} alt="Expo" />
+                <SiJavascript
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Javascript"
+                />
+              </h4>
             </div>
 
             <div className="work__img">
@@ -191,6 +358,10 @@ export default function Projects() {
                   <i className="bx bx-link-external space" />
                 </h4>
               </a>
+              <h4 className="work__description">
+                <SiHtml5 size={18} alt="HTML" />
+                <SiCss3 size={18} style={{ marginLeft: 6 }} alt="CSS" />
+              </h4>
             </div>
 
             <div className="work__img">
@@ -207,6 +378,24 @@ export default function Projects() {
                   <i className="bx bx-link-external space" />
                 </h4>
               </a>
+              <h4 className="work__description">
+                <SiExpo size={18} alt="Expo" />
+                <SiReact
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="React Native"
+                />
+                <SiJavascript
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Typescript"
+                />
+                <SiNodeDotJs
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Node.js"
+                />
+              </h4>
             </div>
 
             <div className="work__img">
@@ -223,6 +412,24 @@ export default function Projects() {
                   <i className="bx bx-link-external space" />
                 </h4>
               </a>
+              <h4 className="work__description">
+                <SiExpo size={18} alt="Expo" />
+                <SiReact
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="React Native"
+                />
+                <SiJavascript
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Typescript"
+                />
+                <SiNodeDotJs
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Node.js"
+                />
+              </h4>
             </div>
 
             <div className="work__img">
@@ -239,6 +446,24 @@ export default function Projects() {
                   <i className="bx bx-link-external space" />
                 </h4>
               </a>
+              <h4 className="work__description">
+                <SiExpo size={18} alt="Expo" />
+                <SiReact
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="React Native"
+                />
+                <SiJavascript
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Typescript"
+                />
+                <SiNodeDotJs
+                  size={18}
+                  style={{ marginLeft: 6 }}
+                  alt="Node.js"
+                />
+              </h4>
             </div>
           </div>
         </section>
