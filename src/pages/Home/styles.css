@@ -95,6 +95,8 @@
   font-size: var(--normal-font-size);
 }
 .home__social {
+  height: 30px;
+  margin-bottom: -45px;
   display: block;
   /* display: flex; */
   flex-direction: column;

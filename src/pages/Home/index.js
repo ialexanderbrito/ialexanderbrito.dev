@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { BiMobileAlt, BiDesktop } from 'react-icons/bi';
@@ -6,6 +7,17 @@ import { BiMobileAlt, BiDesktop } from 'react-icons/bi';
 import './styles.css';
 
 export default function Home() {
+  function handleInfo() {
+    toast.success('🤙🏽 Abrindo seu app de email favorito!', {
+      position: 'top-right',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
   return (
     <>
       <Helmet>
@@ -92,7 +104,11 @@ export default function Home() {
                   Projetos
                 </Link>
 
-                <a className="link" href="mailto:ialexanderbrito@gmail.com">
+                <a
+                  onClick={() => handleInfo()}
+                  className="link"
+                  href="mailto:ialexanderbrito@gmail.com"
+                >
                   <i className="bx bx-mail-send logo" />
                   Contato
                 </a>
