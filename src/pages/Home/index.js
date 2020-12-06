@@ -8,7 +8,7 @@ import './styles.css';
 export default function Home() {
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Alexander</title>
       </Helmet>
       <body>
