@@ -41,8 +41,8 @@ export default function Home() {
               <div className="home__about">
                 <span className="about__text">
                   Sou desenvolvedor front-end com foco em ReactJS e React
-                  Native, atualmente moro no Rio de Janeiro e estou em busca de
-                  uma vaga na área. <br />
+                  Native, atualmente moro no Rio de Janeiro e sou formado em
+                  Sistemas de Informação pela Universidade Unigranrio. <br />
                   Tem alguns projetos desenvolvidos que podem ser visualizados
                   no meu{' '}
                   <a

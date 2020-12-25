@@ -228,7 +228,7 @@
   }
   .home__social {
     padding-top: 0;
-    padding-bottom: 2.5rem;
+    padding-bottom: 6.5rem;
     flex-direction: row;
     align-self: flex-end;
   }
@@ -242,7 +242,7 @@
   }
   .home__links {
     width: 400px;
-    bottom: 33%;
+    bottom: 30%;
     position: absolute;
     left: 550px;
   }
