@@ -7,6 +7,8 @@ import {
   SiJavascript,
   SiHtml5,
   SiCss3,
+  SiFirebase,
+  SiArduino,
 } from 'react-icons/si';
 
 import hospitalscore from '../../assets/images/hospitalscore.png';
@@ -23,6 +25,7 @@ import marvel from '../../assets/images/marvel.png';
 import twitch from '../../assets/images/twitch.png';
 import finances from '../../assets/images/finances.png';
 import menuria from '../../assets/images/menuria.png';
+import hello from '../../assets/images/hello.png';
 
 import './styles.css';
 
@@ -30,6 +33,34 @@ export default function Portfolio() {
   return (
     <>
       <div className="work__container bd-grid">
+        <div className="work__img">
+          <img src={hello} alt="Projeto" />
+          <p />
+
+          <h3 className="work__text">Hello · TCC</h3>
+          <a
+            href="https://github.com/ialexanderbrito/hello"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h4 className="work__description">
+              Visitar o projeto
+              <i className="bx bx-link-external space" />
+            </h4>
+          </a>
+          <h4 className="work__description">
+            <SiReact size={18} alt="ReactJS" />
+            <SiJavascript
+              size={18}
+              style={{ marginLeft: 6 }}
+              alt="JavaScript"
+            />
+            <SiFirebase size={18} style={{ marginLeft: 6 }} alt="Firebase" />
+            <SiNodeDotJs size={18} style={{ marginLeft: 6 }} alt="Node.js" />
+            <SiArduino size={18} style={{ marginLeft: 6 }} alt="Arduino" />
+          </h4>
+        </div>
+
         <div className="work__img">
           <img src={menuria} alt="Projeto" />
           <p />
