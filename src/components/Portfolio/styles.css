@@ -1,3 +1,44 @@
+.filters {
+  list-style: none;
+  padding: 0;
+  margin: 2em 0;
+  text-align: center;
+}
+
+.filters a {
+  display: inline-block;
+  margin: 0.6em 0.4em;
+}
+
+.filters a {
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  padding: 7px 12px;
+}
+
+.filters a:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(119, 118, 255, 1) 0%,
+    rgba(174, 44, 241, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+.filters a:focus {
+  background: linear-gradient(
+    90deg,
+    rgba(119, 118, 255, 1) 0%,
+    rgba(174, 44, 241, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
 .work__container {
   row-gap: 2rem;
 }
@@ -32,6 +73,23 @@
   margin-bottom: 23px;
   color: #ebebeb;
   font-size: 12px;
+}
+.tag__container {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.projects__tag {
+  padding: 2px 10px;
+  background-color: rgb(32, 32, 36);
+  font-size: 11px;
+  border-radius: 30px;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+.projects__tagnull {
+  background-color: #000;
 }
 
 @media screen and (min-width: 839px) {
