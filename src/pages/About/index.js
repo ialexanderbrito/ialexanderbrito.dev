@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import { BiTrophy } from 'react-icons/bi';
+import { BiTrophy, BiMedal } from 'react-icons/bi';
 
 import './styles.css';
 
@@ -43,8 +43,8 @@ export default function About() {
                 <h2 className="section-title">Premiação</h2>
 
                 <span className="about__text">
-                  <BiTrophy size={16} color="#FFF" /> · Medalha de Ouro MOBFOG -
-                  Foguete Virtual - 2020
+                  <BiMedal size={16} color="#FFF" /> · Ouro MOBFOG - Foguete
+                  Virtual - 2020
                   <br />
                   <BiTrophy size={16} color="#FFF" /> · 5º Lugar IoT Talks
                   Unigranrio - 2019
