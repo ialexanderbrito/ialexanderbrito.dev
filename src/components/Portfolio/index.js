@@ -1,15 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import {
-  SiTypescript,
-  SiReact,
-  SiNodeDotJs,
-  SiExpo,
-  SiJavascript,
-  SiHtml5,
-  SiCss3,
-  SiFirebase,
-  SiArduino,
-} from 'react-icons/si';
 
 import { portfolio } from './portfolio';
 
