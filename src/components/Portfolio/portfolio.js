@@ -98,7 +98,7 @@ export const portfolio = [
     name: 'Hospital Score',
     image: hospitalscore,
     uri: 'hospital-score',
-    category: ['all', 'mobile'],
+    category: ['all', 'mobile', 'ux-ui'],
     item1: 'expo',
     item2: 'react-native',
     item3: 'js',
