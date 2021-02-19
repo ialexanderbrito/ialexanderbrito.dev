@@ -33,7 +33,7 @@ export default function Links() {
             </span>
 
             <a
-              className="links"
+              className="links link-github"
               href="https://github.com/ialexanderbrito"
               target="_blank"
               rel="noopener noreferrer"
@@ -42,7 +42,7 @@ export default function Links() {
               Github
             </a>
             <a
-              className="links"
+              className="links link-linkedin"
               href="https://www.linkedin.com/in/ialexanderbrito/"
               target="_blank"
               rel="noopener noreferrer"
@@ -51,7 +51,7 @@ export default function Links() {
               Linkedin
             </a>
             <a
-              className="links"
+              className="links link-twitter"
               href="https://twitter.com/ialexanderbrito"
               target="_blank"
               rel="noopener noreferrer"
@@ -60,7 +60,7 @@ export default function Links() {
               Twitter
             </a>
             <a
-              className="links"
+              className="links link-instagram"
               href="https://www.instagram.com/ialexanderbrito/"
               target="_blank"
               rel="noopener noreferrer"
@@ -69,7 +69,16 @@ export default function Links() {
               Instagram
             </a>
             <a
-              className="links"
+              className="links link-twitch"
+              href="https://www.twitch.tv/ialexanderbrito/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="bx bxl-twitch logo" />
+              Twitch
+            </a>
+            <a
+              className="links link-gmail"
               href="mailto:ialexanderbrito@gmail.com"
               target="_blank"
               rel="noopener noreferrer"

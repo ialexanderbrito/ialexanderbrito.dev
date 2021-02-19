@@ -111,6 +111,70 @@ body {
   );
 }
 
+.link-github {
+  color: #ffffff;
+  background-color: #24292e;
+}
+.link-github:hover {
+  transform: translateY(-3px);
+  max-width: 380px;
+  background: linear-gradient(
+    90deg,
+    rgba(36, 41, 46, 1) 0%,
+    rgb(81, 90, 100) 100%
+  );
+}
+
+.link-linkedin {
+  color: #ffffff;
+  background-color: #0a66c2;
+}
+.link-linkedin:hover {
+  transform: translateY(-3px);
+  max-width: 380px;
+  background: linear-gradient(90deg, #0a66c2 0%, #1a91da 100%);
+}
+
+.link-twitter {
+  color: #ffffff;
+  background-color: #00aced;
+}
+.link-twitter:hover {
+  transform: translateY(-3px);
+  max-width: 380px;
+  background: linear-gradient(90deg, #0084b4 0%, #1dcaff 100%);
+}
+
+.link-instagram {
+  color: #ffffff;
+  background-color: #b900b4;
+}
+.link-instagram:hover {
+  transform: translateY(-3px);
+  max-width: 380px;
+  background: linear-gradient(-135deg, #1400c8, #b900b4, #f50000);
+}
+
+.link-twitch {
+  color: #ffffff;
+  background-color: #9147fe;
+}
+.link-twitch:hover {
+  transform: translateY(-3px);
+  max-width: 380px;
+  background: linear-gradient(90deg, #451094 0%, #9147ff 100%);
+}
+
+.link-gmail {
+  color: #ffffff;
+  background-color: #ea4335;
+}
+.link-gmail:hover {
+  transform: translateY(-3px);
+  max-width: 380px;
+  background: linear-gradient(90deg, #be1d1c 0%, #ea3a31 100%);
+}
+
 .links + .links {
   margin-top: 24px;
 }
