@@ -1,28 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 import Portfolio from '../../components/Portfolio';
+import Skeleton from '../../components/Skeleton';
 
 import './styles.css';
 
 export default function Projects() {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 700)
+
+  },[]);
+
   return (
     <>
       <Helmet>
         <title>Alexander · Projetos</title>
       </Helmet>
-      <main className="l-main">
-        <section className="work section" id="work">
-          <div className="about__back">
-            <Link to="/">
-              <i className="bx bx-arrow-back" />
-            </Link>
-          </div>
-          <h2 className="section-title">Projetos</h2>
-          <Portfolio />
-        </section>
-      </main>
+      {loading
+      ? (
+        <>
+        <main className="l-main">
+            <section className="work section" id="work">
+              <div className="about__back">
+                <Link to="/">
+                  <i className="bx bx-arrow-back" />
+                </Link>
+              </div>
+              <h2 className="section-title">Projetos</h2>
+              <Skeleton />
+            </section>
+          </main>
+
+        </>
+      )
+      : (
+        <>
+          <main className="l-main">
+            <section className="work section" id="work">
+              <div className="about__back">
+                <Link to="/">
+                  <i className="bx bx-arrow-back" />
+                </Link>
+              </div>
+              <h2 className="section-title">Projetos</h2>
+              <Portfolio />
+            </section>
+          </main>
+        </>
+      )}
     </>
   );
 }
