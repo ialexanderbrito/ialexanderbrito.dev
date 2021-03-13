@@ -37,7 +37,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  position: fixed;
+  position: absolute;
+    display: flex;
 }
 
 @media screen and (min-width: 839px) {
@@ -60,6 +61,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    position: fixed;
+    position: absolute;
+    display: flex;
   }
 }

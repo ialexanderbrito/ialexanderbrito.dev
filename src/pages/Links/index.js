@@ -26,7 +26,7 @@ export default function Links() {
 
           <div className="links-container">
             <span className="description">
-              Fale comigo!{' '}
+              Brota!{' '}
               <span role="img" aria-label="call-me-hand">
                 🤙🏾
               </span>
@@ -78,13 +78,22 @@ export default function Links() {
               Twitch
             </a>
             <a
+              className="links link-discord"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="bx bxl-discord logo" />
+              ialexanderbrito#3926
+            </a>
+            <a
               className="links link-gmail"
               href="mailto:ialexanderbrito@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >
               <i className="bx bx-mail-send logo" />
-              E-mail
+              Email
             </a>
           </div>
 

@@ -52,8 +52,8 @@ body {
 
 #container_link .profile {
   border-radius: 50%;
-  height: 175px;
-  width: 175px;
+  height: 105px;
+  width: 105px;
 
   border: 3px solid rgba(119, 118, 255, 1);
   background: var(--primary);
@@ -163,6 +163,16 @@ body {
   transform: translateY(-3px);
   max-width: 380px;
   background: linear-gradient(90deg, #451094 0%, #9147ff 100%);
+}
+
+.link-discord {
+  color: #ffffff;
+  background-color: #7289DA;
+}
+.link-discord:hover {
+  transform: translateY(-3px);
+  max-width: 380px;
+  background: linear-gradient(90deg, #7289DA 0%, #99AAB5 100%);
 }
 
 .link-gmail {

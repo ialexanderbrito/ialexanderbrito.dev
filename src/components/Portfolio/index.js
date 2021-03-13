@@ -52,65 +52,84 @@ export default function Portfolio() {
       <div className="work__container bd-grid">
         {projects.map((item) =>
           item.filtered === true ? (
-            <div className="work__img">
-              <img src={item.image} alt="Projeto" />
-              <p />
+            <>
+              <div className="work__img">
+                <img src={item.image} alt="Projeto" />
+                <p />
 
-              <h3 className="work__text">{item.name}</h3>
-              <a
-                href={`https://github.com/ialexanderbrito/${item.uri}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h4 className="work__description">
-                  Visitar o projeto
-                  <i className="bx bx-link-external space" />
-                </h4>
-              </a>
-              <h4 className="work__description">
-                <div className="tag__container">
-                  <div classsName="projects__tag">
-                    {item.item1 ? (
-                      <div className="projects__tag">{item.item1}</div>
-                    ) : (
-                      <div className="projects__tagnull" />
-                    )}
-                  </div>
-
-                  <div classsName="projects__tag">
-                    {item.item2 ? (
-                      <div className="projects__tag">{item.item2}</div>
-                    ) : (
-                      <div className="projects__tagnull" />
-                    )}
-                  </div>
-
-                  <div classsName="projects__tag">
-                    {item.item3 ? (
-                      <div className="projects__tag">{item.item3}</div>
-                    ) : (
-                      <div className="projects__tagnull" />
-                    )}
-                  </div>
-
-                  <div classsName="projects__tag">
-                    {item.item4 ? (
-                      <div className="projects__tag">{item.item4}</div>
-                    ) : (
-                      <div className="projects__tagnull" />
-                    )}
-                  </div>
-
-                  <div classsName="projects__tag">
-                    {item.item5 ? (
-                      <div className="projects__tag">{item.item5}</div>
-                    ) : (
-                      <div className="projects__tagnull" />
-                    )}
-                  </div>
+                <h3 className="work__text">{item.name}</h3>
+                <div className="work__description_links">
+                  <a
+                    href={`https://github.com/ialexanderbrito/${item.uri}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <h4 className="work__description">
+                      <i className="bx bxl-github space" />
+                      Visitar o projeto
+                    </h4>
+                  </a>
+                  {item.deploy ? (
+                    <>
+                      <h4 className="work__description"> | </h4>
+                      <a
+                        href={`${item.deploy}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <h4 className="work__description">
+                          Deploy
+                          <i className="bx bx-link-external space" />
+                        </h4>
+                      </a>
+                    </>
+                  ) : null}
                 </div>
-              </h4>
-            </div>
+                <h4 className="work__description">
+                  <div className="tag__container">
+                    <div classsName="projects__tag">
+                      {item.item1 ? (
+                        <div className="projects__tag">{item.item1}</div>
+                      ) : (
+                        <div className="projects__tagnull" />
+                      )}
+                    </div>
+
+                    <div classsName="projects__tag">
+                      {item.item2 ? (
+                        <div className="projects__tag">{item.item2}</div>
+                      ) : (
+                        <div className="projects__tagnull" />
+                      )}
+                    </div>
+
+                    <div classsName="projects__tag">
+                      {item.item3 ? (
+                        <div className="projects__tag">{item.item3}</div>
+                      ) : (
+                        <div className="projects__tagnull" />
+                      )}
+                    </div>
+
+                    <div classsName="projects__tag">
+                      {item.item4 ? (
+                        <div className="projects__tag">{item.item4}</div>
+                      ) : (
+                        <div className="projects__tagnull" />
+                      )}
+                    </div>
+
+                    <div classsName="projects__tag">
+                      {item.item5 ? (
+                        <div className="projects__tag">{item.item5}</div>
+                      ) : (
+                        <div className="projects__tagnull" />
+                      )}
+                    </div>
+                  </div>
+                </h4>
+              </div>
+            </>
           ) : (
             ''
           )

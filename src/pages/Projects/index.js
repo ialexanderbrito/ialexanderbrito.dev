@@ -15,19 +15,17 @@ export default function Projects() {
 
     setTimeout(() => {
       setLoading(false);
-    }, 700)
-
-  },[]);
+    }, 700);
+  }, []);
 
   return (
     <>
       <Helmet>
         <title>Alexander · Projetos</title>
       </Helmet>
-      {loading
-      ? (
+      {loading ? (
         <>
-        <main className="l-main">
+          <main className="l-main">
             <section className="work section" id="work">
               <div className="about__back">
                 <Link to="/">
@@ -38,10 +36,8 @@ export default function Projects() {
               <Skeleton />
             </section>
           </main>
-
         </>
-      )
-      : (
+      ) : (
         <>
           <main className="l-main">
             <section className="work section" id="work">

@@ -64,8 +64,14 @@
   -webkit-text-fill-color: transparent;
   margin-left: 2px;
 }
+.work__description_links{
+  flex-direction: row;
+  display: flex;
+
+}
 .space {
   margin-left: 6px;
+  margin-right: 6px;
 }
 .work__description {
   margin-top: -15px;
