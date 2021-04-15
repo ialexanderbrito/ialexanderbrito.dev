@@ -14,8 +14,19 @@ import finances from '../../assets/images/finances.png';
 import menuria from '../../assets/images/menuria.png';
 import hello from '../../assets/images/hello.png';
 import moveit from '../../assets/images/moveit.png';
+import neon from '../../assets/images/neon.png';
 
 export const portfolio = [
+  {
+    name: 'Banco Neon · Clone',
+    image: neon,
+    uri: 'neon',
+    deploy: 'https://neon-clone.vercel.app/',
+    category: ['all', 'frontend'],
+    item1: 'react',
+    item2: 'nextjs',
+    item3: 'js',
+  },
   {
     name: 'Happy · NLW#4',
     image: moveit,
@@ -23,7 +34,7 @@ export const portfolio = [
     deploy: 'https://moveit-oficial.netlify.app/',
     category: ['all', 'frontend'],
     item1: 'react',
-    item3: 'js',
+    item2: 'js',
   },
   {
     name: 'Hello · TCC',
