@@ -49,7 +49,7 @@
 }
 .work__img img {
   transition: 1s;
-  cursor: pointer;
+  cursor: default;
 }
 .work__img img:hover {
   transform: scale(1.1);
@@ -64,10 +64,9 @@
   -webkit-text-fill-color: transparent;
   margin-left: 2px;
 }
-.work__description_links{
+.work__description_links {
   flex-direction: row;
   display: flex;
-
 }
 .space {
   margin-left: 6px;
