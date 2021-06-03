@@ -15,8 +15,19 @@ import menuria from '../../assets/images/menuria.png';
 import hello from '../../assets/images/hello.png';
 import moveit from '../../assets/images/moveit.png';
 import neon from '../../assets/images/neon.png';
+import plantmanager from '../../assets/images/plantmanager.png';
 
 export const portfolio = [
+  {
+    name: 'Plant Manager · NLW#5',
+    image: plantmanager,
+    uri: 'plantmanager',
+    deploy: 'https://expo.io/@ialexanderbrito/plantmanager',
+    category: ['all', 'mobile'],
+    item1: 'expo',
+    item2: 'react-native',
+    item3: 'ts',
+  },
   {
     name: 'Banco Neon · Clone',
     image: neon,
