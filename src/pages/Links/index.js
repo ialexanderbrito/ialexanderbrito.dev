@@ -79,21 +79,12 @@ export default function Links() {
             </a>
             <a
               className="links link-discord"
-              href="#"
+              href="https://discordapp.com/users/348275303400996864/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <i className="bx bxl-discord logo" />
               ialexanderbrito#3926
-            </a>
-            <a
-              className="links link-gmail"
-              href="mailto:ialexanderbrito@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="bx bx-mail-send logo" />
-              Email
             </a>
           </div>
 
