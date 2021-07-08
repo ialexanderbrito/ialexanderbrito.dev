@@ -55,13 +55,13 @@ body {
   height: 105px;
   width: 105px;
 
-  border: 3px solid rgba(119, 118, 255, 1);
+  border: 3px solid rgb(115, 152, 50);
   background: var(--primary);
   transition: border-color 0.5s, box-shadow 0.5s;
 }
 
 #container_link .profile:hover {
-  box-shadow: 0px 0px 20px 0px rgba(174, 44, 241, 1);
+  box-shadow: 0px 0px 20px 0px rgb(115, 152, 50);
 }
 
 #container_link .links-container {
@@ -104,11 +104,7 @@ body {
 .links:hover {
   transform: translateY(-3px);
   max-width: 380px;
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
 }
 
 .link-github {
@@ -167,12 +163,12 @@ body {
 
 .link-discord {
   color: #ffffff;
-  background-color: #7289DA;
+  background-color: #7289da;
 }
 .link-discord:hover {
   transform: translateY(-3px);
   max-width: 380px;
-  background: linear-gradient(90deg, #7289DA 0%, #99AAB5 100%);
+  background: linear-gradient(90deg, #7289da 0%, #99aab5 100%);
 }
 
 .link-gmail {
@@ -215,5 +211,5 @@ body {
 }
 
 #container_link footer a:hover {
-  color: #ab89fa;
+  color: rgb(115, 152, 50);
 }

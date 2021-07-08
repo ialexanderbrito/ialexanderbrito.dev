@@ -35,9 +35,11 @@ export default function About() {
                 </div>
                 <p className="about__text">
                   Desenvolvedor front-end Web e Mobile, formado em Sistemas de
-                  Informação na Universidade Unigranrio. Nas horas vagas gosto
-                  de desenvolver aplicações e clonar apps que já estão no
-                  mercado para aperfeiçoar meus estudos.
+                  Informação na Universidade Unigranrio. Atualmente trabalhando
+                  na IK Solution com desenvedor Front-end Jr. Nas horas vagas
+                  gosto de desenvolver aplicações, clonar apps que já estão no
+                  mercado para aperfeiçoar meus estudos e também focando os
+                  estudos na parte UI/UX Design.
                 </p>
                 <br />
                 <h2 className="section-title">Premiação</h2>

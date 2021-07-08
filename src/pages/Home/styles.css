@@ -2,11 +2,7 @@
 .section-title {
   position: relative;
   font-size: var(--h2-font-size);
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-top: var(--mb-2);
@@ -22,11 +18,7 @@
   right: 0;
   margin: auto;
   top: 2rem;
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
 }
 .section {
   padding-top: 3rem;
@@ -60,11 +52,7 @@
 .home__data a {
   text-decoration: none;
   font-weight: 700;
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: color 0.3s;
@@ -75,21 +63,13 @@
   color: #fff;
 }
 .home__title-color {
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .home__description-color {
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: var(--normal-font-size);
@@ -108,11 +88,7 @@
   color: #fff;
 }
 .home__social-icon:hover {
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -173,11 +149,7 @@
 .link:hover {
   transform: translateY(-3px);
   max-width: 380px;
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
 }
 
 .link + .link {
@@ -191,11 +163,7 @@
 /*BUTTONS*/
 .button {
   display: inline-block;
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
   color: #fff;
   padding: 0.75rem 2.5rem;
   font-weight: var(--font-semi);
@@ -296,11 +264,7 @@
   .link:hover {
     transform: translateY(-3px);
     max-width: 380px;
-    background: linear-gradient(
-      90deg,
-      rgba(119, 118, 255, 1) 0%,
-      rgba(174, 44, 241, 1) 100%
-    );
+    background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
   }
 
   .link + .link {
