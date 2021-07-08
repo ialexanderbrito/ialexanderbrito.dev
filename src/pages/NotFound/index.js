@@ -14,7 +14,8 @@ export default function NotFound() {
           <div className="notfound">
             <div className="notfound-404">
               <h1>404</h1>
-              <h2>Ops, error!</h2>
+              <h2>Ops</h2>
+              <h4>não tem nada aqui!</h4>
             </div>
             <a href="/">Inicio</a>
           </div>
