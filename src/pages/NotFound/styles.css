@@ -42,8 +42,7 @@
   margin-left: -12px;
   color: #030005;
   text-transform: uppercase;
-  text-shadow: -1px -1px 0px rgba(119, 118, 255, 1),
-    1px 1px 0px rgba(174, 44, 241, 1);
+  text-shadow: -1px -1px 0px rgb(115, 152, 50), 1px 1px 0px rgb(8, 127, 163);
   letter-spacing: -20px;
 }
 
@@ -52,13 +51,28 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 110px;
+  top: 40px;
   font-size: 42px;
   font-weight: 700;
   color: #fff;
-  text-transform: uppercase;
-  text-shadow: 0px 2px 0px #8400ff;
-  letter-spacing: 13px;
+  /* text-transform: uppercase; */
+  text-shadow: 0px 2px 0px rgb(115, 152, 50);
+  letter-spacing: 10px;
+  margin: 0;
+}
+
+.notfound .notfound-404 h4 {
+  font-family: 'Poppins', sans-serif;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  /* text-transform: uppercase; */
+  text-shadow: 0px 2px 0px rgb(115, 152, 50);
+  letter-spacing: 7px;
   margin: 0;
 }
 
@@ -66,15 +80,12 @@
   font-family: 'Poppins', sans-serif;
   display: inline-block;
   text-transform: uppercase;
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
-  -webkit-background-clip: text;
+  color: #fff;
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
+  /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
-  border: 2px solid;
+  border: 2px solid; */
 
   padding: 10px 40px;
   border-radius: 6px;
@@ -85,12 +96,15 @@
 }
 
 .notfound a:hover {
-  color: #8400ff;
+  color: rgb(115, 152, 50);
 }
 
 @media only screen and (max-width: 767px) {
   .notfound .notfound-404 h2 {
     font-size: 24px;
+  }
+  .notfound .notfound-404 h4 {
+    font-size: 18px;
   }
 }
 

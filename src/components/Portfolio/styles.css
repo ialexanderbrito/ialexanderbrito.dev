@@ -19,21 +19,13 @@
 }
 
 .filters a:hover {
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
 .filters a:focus {
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
@@ -55,11 +47,7 @@
   transform: scale(1.1);
 }
 .work__text {
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-left: 2px;

@@ -10,11 +10,7 @@
   color: #fff;
 }
 .about__subtitle {
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: var(--mb-2);
@@ -29,16 +25,12 @@
 .about__back {
   margin-left: 2rem;
   font-size: var(--h2-font-size);
-  background: linear-gradient(
-    90deg,
-    rgba(119, 118, 255, 1) 0%,
-    rgba(174, 44, 241, 1) 100%
-  );
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
   position: absolute;
-    display: flex;
+  display: flex;
 }
 
 @media screen and (min-width: 839px) {
@@ -53,11 +45,7 @@
   .about__back {
     margin-left: 8rem;
     font-size: var(--h2-font-size);
-    background: linear-gradient(
-      90deg,
-      rgba(119, 118, 255, 1) 0%,
-      rgba(174, 44, 241, 1) 100%
-    );
+    background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
