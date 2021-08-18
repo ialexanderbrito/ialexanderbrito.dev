@@ -1,5 +1,7 @@
 import { Helmet } from 'react-helmet';
 
+import profileImg from 'assets/images/profile.png';
+
 import './styles.css';
 
 export default function Bio() {
@@ -16,11 +18,7 @@ export default function Bio() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              className="profile"
-              src="https://github.com/ialexanderbrito.png"
-              alt="Profile"
-            />
+            <img className="profile" src={profileImg} alt="Alexander" />
           </a>
 
           <div className="links-container">

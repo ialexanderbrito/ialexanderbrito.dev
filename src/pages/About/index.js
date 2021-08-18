@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet';
 import { BiTrophy, BiMedal } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
+import profileImg from 'assets/images/profile.png';
+
 import './styles.css';
 
 export default function About() {
@@ -22,10 +24,7 @@ export default function About() {
 
             <div className="about__container bd-grid">
               <div className="about__img">
-                <img
-                  src="https://github.com/ialexanderbrito.png"
-                  alt="Alexander"
-                />
+                <img src={profileImg} alt="Alexander" />
               </div>
 
               <div className="about__container">
