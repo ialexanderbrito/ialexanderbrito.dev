@@ -1,8 +1,7 @@
-import React from 'react';
-import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
 import { BiMobileAlt, BiDesktop } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import './styles.css';
 

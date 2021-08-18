@@ -1,7 +1,6 @@
-import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
 import { BiTrophy, BiMedal } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
