@@ -4,17 +4,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-content-loader": "^6.0.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.2",
+    "react-content-loader": "^6.0.3",
+    "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "react-icons": "^3.9.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
-    "react-toastify": "^6.1.0"
+    "react-icons": "^4.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-toastify": "^7.0.4",
+    "web-vitals": "^0.2.4",
+    "workbox-background-sync": "^5.1.3",
+    "workbox-broadcast-update": "^5.1.3",
+    "workbox-cacheable-response": "^5.1.3",
+    "workbox-core": "^5.1.3",
+    "workbox-expiration": "^5.1.3",
+    "workbox-google-analytics": "^5.1.3",
+    "workbox-navigation-preload": "^5.1.3",
+    "workbox-precaching": "^5.1.3",
+    "workbox-range-requests": "^5.1.3",
+    "workbox-routing": "^5.1.3",
+    "workbox-strategies": "^5.1.3",
+    "workbox-streams": "^5.1.3"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -22,7 +32,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "./node_modules/.bin/eslint src/ --fix"
   },
   "browserslist": {
     "production": [
@@ -38,15 +49,16 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.6.0",
+    "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "2.22.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "2.24.0",
     "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "7.24.0",
     "eslint-plugin-react-hooks": "4",
-    "gh-pages": "^3.1.0",
-    "prettier": "^2.1.2"
+    "eslint-plugin-import-helpers": "^1.1.0",
+    "gh-pages": "^3.2.3",
+    "prettier": "^2.3.2"
   }
 }
