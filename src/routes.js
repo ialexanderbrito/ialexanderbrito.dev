@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Home from './pages/Home';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import Bio from './pages/Bio';
-import NotFound from './pages/NotFound';
+import About from 'pages/About';
+import Bio from 'pages/Bio';
+import Home from 'pages/Home';
+import NotFound from 'pages/NotFound';
+import Projects from 'pages/Projects';
 
 export default function Routes() {
   return (
