@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+// import Skeleton from 'react-loading-skeleton';
 import { Link } from 'react-router-dom';
 
 import Portfolio from 'components/Portfolio';
@@ -15,7 +16,7 @@ export default function Projects() {
 
     setTimeout(() => {
       setLoading(false);
-    }, 700);
+    }, 800);
   }, []);
 
   return (
