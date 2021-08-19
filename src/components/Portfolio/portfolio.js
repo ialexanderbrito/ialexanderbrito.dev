@@ -7,6 +7,7 @@ import finances from 'assets/images/finances.png';
 import happy from 'assets/images/happy.png';
 import hello from 'assets/images/hello.png';
 import hospitalscore from 'assets/images/hospitalscore.png';
+import letmeask from 'assets/images/letmeask.png';
 import marvel from 'assets/images/marvel.png';
 import menuria from 'assets/images/menuria.png';
 import moveit from 'assets/images/moveit.png';
@@ -18,6 +19,16 @@ import proffy from 'assets/images/proffy.png';
 import twitch from 'assets/images/twitch.png';
 
 export const portfolio = [
+  {
+    name: 'Letmeask · NLW#6',
+    image: letmeask,
+    uri: 'letmeask',
+    deploy: 'https://letmeask-oficial.web.app/',
+    category: ['all', 'frontend'],
+    item1: 'react',
+    item2: 'firebase',
+    item3: 'ts',
+  },
   {
     name: 'Plant Manager · NLW#5',
     image: plantmanager,
@@ -45,7 +56,7 @@ export const portfolio = [
     deploy: 'https://moveit-oficial.netlify.app/',
     category: ['all', 'frontend'],
     item1: 'react',
-    item2: 'js',
+    item2: 'ts',
   },
   {
     name: 'Hello · TCC',
