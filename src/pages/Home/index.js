@@ -62,6 +62,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="home__social-icon"
+                aria-label="Github"
               >
                 <i className="bx bxl-github" />
               </a>
@@ -70,6 +71,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="home__social-icon"
+                aria-label="Linkedin"
               >
                 <i className="bx bxl-linkedin" />
               </a>
@@ -78,6 +80,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="home__social-icon"
+                aria-label="Twitter"
               >
                 <i className="bx bxl-twitter" />
               </a>
@@ -86,6 +89,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="home__social-icon"
+                aria-label="Instagram"
               >
                 <i className="bx bxl-instagram" />
               </a>
