@@ -76,10 +76,10 @@
 }
 .home__social {
   height: 30px;
-  margin-bottom: -45px;
+  margin-bottom: 5px;
   display: block;
-  /* display: flex; */
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
 }
 .home__social-icon {
   width: max-content;
@@ -198,7 +198,7 @@
     padding-top: 0;
     padding-bottom: 6.5rem;
     flex-direction: row;
-    align-self: flex-end;
+    align-self: center;
   }
   .home__social-icon {
     margin-bottom: 0;
