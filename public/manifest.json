@@ -75,7 +75,7 @@
     {
        "name": "Bio",
        "description": "Links importantes",
-       "url": "/projects",
+       "url": "/bio",
        "icons": [
         {
             "src": "/icon-192x192.png",
