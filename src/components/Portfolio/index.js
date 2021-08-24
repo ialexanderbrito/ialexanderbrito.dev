@@ -54,7 +54,7 @@ export default function Portfolio() {
           item.filtered === true ? (
             <>
               <div className="work__img">
-                <img src={item.image} alt="Projeto" />
+                <img src={item.image} alt="Projeto" loading="lazy" />
                 <p />
 
                 <h3 className="work__text">{item.name}</h3>
