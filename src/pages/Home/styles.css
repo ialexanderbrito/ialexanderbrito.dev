@@ -104,7 +104,11 @@
   /* right: 0;
   bottom: 0;
   width: 295px; */
+
   align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 .home__about {
   row-gap: 2rem;
@@ -213,6 +217,11 @@
     bottom: 30%;
     position: absolute;
     left: 550px;
+
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
   .home__about {
     row-gap: 2rem;
@@ -282,5 +291,10 @@
   }
   .home__links {
     left: 55%;
+
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
 }
