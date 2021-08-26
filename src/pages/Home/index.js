@@ -96,26 +96,24 @@ export default function Home() {
             </div>
 
             <div className="home__links">
-              <div>
-                <Link className="link" to="/about">
-                  <i className="bx bx-user logo" />
-                  Sobre
-                </Link>
+              <Link className="link" to="/about">
+                <i className="bx bx-user logo" />
+                Sobre
+              </Link>
 
-                <Link className="link" to="/projects">
-                  <i className="bx bx-rocket logo" />
-                  Projetos
-                </Link>
+              <Link className="link" to="/projects">
+                <i className="bx bx-rocket logo" />
+                Projetos
+              </Link>
 
-                <a
-                  onClick={() => handleInfo()}
-                  className="link"
-                  href="mailto:ialexanderbrito@gmail.com"
-                >
-                  <i className="bx bx-mail-send logo" />
-                  Contato
-                </a>
-              </div>
+              <a
+                onClick={() => handleInfo()}
+                className="link"
+                href="mailto:ialexanderbrito@gmail.com"
+              >
+                <i className="bx bx-mail-send logo" />
+                Contato
+              </a>
             </div>
           </section>
         </main>
