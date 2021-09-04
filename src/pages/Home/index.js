@@ -3,6 +3,8 @@ import { BiMobileAlt, BiDesktop } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+import { tecnologias } from './tecnologias';
+
 import './styles.css';
 
 export default function Home() {
@@ -53,6 +55,22 @@ export default function Home() {
                   </a>{' '}
                   ou na aba <a href="/projects">Projetos</a>.
                 </span>
+              </div>
+              <div className="home__tecnologies">
+                {tecnologias.map((tecnologia) => (
+                  <a
+                    className="tecnologies__link"
+                    href={tecnologia.uri}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={tecnologia.image}
+                      alt={tecnologia.name}
+                      className="tecnologies__icons"
+                    />
+                  </a>
+                ))}
               </div>
             </div>
 
