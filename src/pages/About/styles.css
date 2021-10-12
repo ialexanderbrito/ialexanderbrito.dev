@@ -30,6 +30,7 @@
   border-radius: 0.5rem;
 }
 .about__back {
+  margin-top: 1rem;
   margin-left: 2rem;
   font-size: var(--h2-font-size);
   background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
@@ -51,6 +52,7 @@
     width: 300px;
   }
   .about__back {
+    margin-top: 1rem;
     margin-left: 8rem;
     font-size: var(--h2-font-size);
     background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
