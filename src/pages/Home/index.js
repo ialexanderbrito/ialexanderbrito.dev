@@ -75,42 +75,46 @@ export default function Home() {
             </div>
 
             <div className="home__social">
-              <a
-                href="https://github.com/ialexanderbrito"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="home__social-icon"
-                aria-label="Github"
-              >
-                <i className="bx bxl-github" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/ialexanderbrito/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="home__social-icon"
-                aria-label="Linkedin"
-              >
-                <i className="bx bxl-linkedin" />
-              </a>
-              <a
-                href="https://twitter.com/ialexanderbrito"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="home__social-icon"
-                aria-label="Twitter"
-              >
-                <i className="bx bxl-twitter" />
-              </a>
-              <a
-                href="https://www.instagram.com/ialexanderbrito/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="home__social-icon"
-                aria-label="Instagram"
-              >
-                <i className="bx bxl-instagram" />
-              </a>
+              <div className="icons">
+                <a
+                  href="https://github.com/ialexanderbrito"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Github"
+                >
+                  <i className="bx bxl-github" style={{ fontSize: '24px' }} />
+                </a>
+              </div>
+              <div className="icons">
+                <a
+                  href="https://www.linkedin.com/in/ialexanderbrito/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Linkedin"
+                >
+                  <i className="bx bxl-linkedin" style={{ fontSize: '24px' }} />
+                </a>
+              </div>
+              <div className="icons">
+                <a
+                  href="https://twitter.com/ialexanderbrito"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                >
+                  <i className="bx bxl-twitter" style={{ fontSize: '24px' }} />
+                </a>
+              </div>
+              <div className="icons">
+                <a
+                  href="https://www.instagram.com/ialexanderbrito/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                >
+                  <i className="bx bxl-instagram" style={{ fontSize: '24px' }} />
+                </a>
+              </div>
             </div>
 
             <div className="home__links">
