@@ -2,6 +2,7 @@ import aircnc from 'assets/images/aircnc.png';
 import bethehero from 'assets/images/be-the-hero.png';
 import covid19 from 'assets/images/covid19.png';
 import devradar from 'assets/images/devradar.png';
+import dowhile from 'assets/images/dowhile.png';
 import ecoleta from 'assets/images/ecoleta.png';
 import finances from 'assets/images/finances.png';
 import happy from 'assets/images/happy.png';
@@ -19,6 +20,16 @@ import proffy from 'assets/images/proffy.png';
 import twitch from 'assets/images/twitch.png';
 
 export const portfolio = [
+  {
+    name: 'DoWhile · NLW#7',
+    image: dowhile,
+    uri: 'dowhile',
+    deploy: 'https://dowhile-oficial.vercel.app',
+    category: ['all', 'frontend'],
+    item1: 'react',
+    item2: 'vite',
+    item3: 'ts',
+  },
   {
     name: 'Letmeask · NLW#6',
     image: letmeask,
@@ -42,22 +53,14 @@ export const portfolio = [
   {
     name: 'Banco Neon · Clone',
     image: neon,
-    uri: 'neon',
+    uri: 'neon-clone',
     deploy: 'https://neon-clone.vercel.app/',
     category: ['all', 'frontend'],
     item1: 'react',
     item2: 'nextjs',
     item3: 'js',
   },
-  {
-    name: 'Happy · NLW#4',
-    image: moveit,
-    uri: 'moveit',
-    deploy: 'https://moveit-oficial.netlify.app/',
-    category: ['all', 'frontend'],
-    item1: 'react',
-    item2: 'ts',
-  },
+
   {
     name: 'Hello · TCC',
     image: hello,
@@ -110,6 +113,15 @@ export const portfolio = [
     item2: 'react-native',
     item3: 'ts',
     item4: 'node.js',
+  },
+  {
+    name: 'Happy · NLW#4',
+    image: moveit,
+    uri: 'moveit',
+    deploy: 'https://moveit-oficial.netlify.app/',
+    category: ['all', 'frontend'],
+    item1: 'react',
+    item2: 'ts',
   },
   {
     name: 'Happy · NLW#3',
