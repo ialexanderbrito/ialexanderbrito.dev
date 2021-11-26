@@ -4,6 +4,7 @@ import covid19 from 'assets/images/covid19.png';
 import devradar from 'assets/images/devradar.png';
 import dowhile from 'assets/images/dowhile.png';
 import ecoleta from 'assets/images/ecoleta.png';
+import faltas from 'assets/images/faltas.png';
 import finances from 'assets/images/finances.png';
 import happy from 'assets/images/happy.png';
 import hello from 'assets/images/hello.png';
@@ -20,6 +21,16 @@ import proffy from 'assets/images/proffy.png';
 import twitch from 'assets/images/twitch.png';
 
 export const portfolio = [
+  {
+    name: 'Faltas · Poliedro',
+    image: faltas,
+    uri: '#',
+    deploy: '#',
+    category: ['all', 'frontend'],
+    item1: 'react',
+    item2: 'nextjs',
+    item3: 'js',
+  },
   {
     name: 'DoWhile · NLW#7',
     image: dowhile,
