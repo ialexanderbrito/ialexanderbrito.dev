@@ -58,33 +58,42 @@ export default function Portfolio() {
                 <p />
 
                 <h3 className="work__text">{item.name}</h3>
-                <div className="work__description_links">
-                  <a
-                    href={`https://github.com/ialexanderbrito/${item.uri}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                {item.uri === '#' ? (
+                  <div className="work__description_links">
                     <h4 className="work__description">
-                      <i className="bx bxl-github space" />
-                      Visitar o projeto
+                      <i className="bx bxs-lock-alt space" />
+                      Projeto privado · IK Solution
                     </h4>
-                  </a>
-                  {item.deploy ? (
-                    <>
-                      <h4 className="work__description"> | </h4>
-                      <a
-                        href={`${item.deploy}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <h4 className="work__description">
-                          Deploy
-                          <i className="bx bx-link-external space" />
-                        </h4>
-                      </a>
-                    </>
-                  ) : null}
-                </div>
+                  </div>
+                ) : (
+                  <div className="work__description_links">
+                    <a
+                      href={`https://github.com/ialexanderbrito/${item.uri}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <h4 className="work__description">
+                        <i className="bx bxl-github space" />
+                        Visitar o projeto
+                      </h4>
+                    </a>
+                    {item.deploy && (
+                      <>
+                        <h4 className="work__description"> | </h4>
+                        <a
+                          href={`${item.deploy}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <h4 className="work__description">
+                            Deploy
+                            <i className="bx bx-link-external space" />
+                          </h4>
+                        </a>
+                      </>
+                    )}
+                  </div>
+                )}
                 <h4 className="work__description">
                   <div className="tag__container">
                     <div classsName="projects__tag">
