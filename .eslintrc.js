@@ -17,6 +17,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', 'prettier', 'eslint-plugin-import-helpers'],
+  ignorePatterns: ['service-worker.js', 'serviceWorkerRegistration.js'],
   rules: {
     'prettier/prettier': 'warn',
     'import-helpers/order-imports': [
@@ -44,5 +45,7 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/anchor-has-content': 'off',
     'import/no-unresolved': 'off',
+    'react/prop-types': 'off',
+    'react/forbid-prop-types': 'off',
   },
 };
