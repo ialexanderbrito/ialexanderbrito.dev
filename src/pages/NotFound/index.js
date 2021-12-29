@@ -1,12 +1,12 @@
 import { Helmet } from 'react-helmet';
 
-import './styles.css';
+import './styles.scss';
 
-export default function NotFound() {
+export function NotFound() {
   return (
     <>
       <Helmet>
-        <title>Error!</title>
+        <title>Error</title>
       </Helmet>
       <body>
         <div id="notfound">
