@@ -1,15 +1,36 @@
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { BiMobileAlt, BiDesktop } from 'react-icons/bi';
+import {
+  FaTwitter,
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitch,
+  FaMobileAlt,
+  FaDesktop,
+} from 'react-icons/fa';
+import { MdOutlineMail } from 'react-icons/md';
+import { RiRocket2Line } from 'react-icons/ri';
+import { SiAboutdotme } from 'react-icons/si';
 import { Link } from 'react-router-dom';
+import Typist from 'react-text-typist';
 import { toast } from 'react-toastify';
 
-import { tecnologias } from './tecnologias';
+import { PopupPwa } from 'components/PopupPwa';
+import { SwitchTheme } from 'components/SwitchTheme';
 
-import './styles.css';
+import { useTheme } from 'contexts/Theme';
+import { useTwitch } from 'contexts/Twitch';
+import { tecnologias } from 'database/tecnologias';
 
-export default function Home() {
+import './styles.scss';
+
+export function Home() {
+  const { stream, permissionNotification, getTwitch } = useTwitch();
+  const { themeState } = useTheme();
+
   function handleInfo() {
-    toast.success('🤙🏽 Abrindo seu app de email favorito!', {
+    toast.success('Abrindo seu app de email favorito!', {
       position: 'top-right',
       autoClose: 2000,
       hideProgressBar: false,
@@ -17,129 +38,181 @@ export default function Home() {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
+      icon: '🤙🏽',
+      theme: 'dark',
     });
   }
+
+  useEffect(() => {
+    permissionNotification();
+
+    getTwitch();
+  }, []);
+
   return (
     <>
       <Helmet>
-        <title>Alexander</title>
+        <title>Portfólio | Alexander - Front-end Developer</title>
       </Helmet>
-      <body>
-        <main className="l-main">
-          <section className="home bd-grid" id="home">
-            <div className="home__data">
-              <h1 className="home__title">
-                Oi, eu sou <span className="home__title-color">Alexander</span>
-                <br />
-                Desenvolvedor Front-end
-                <br />
-                <span className="home__description-color">
-                  Web e Mobile · <BiDesktop size={16} color="#FFF" />{' '}
-                  <BiMobileAlt size={16} color="#FFF" />{' '}
-                </span>
-              </h1>
-
-              <div className="home__about">
-                <span className="about__text">
-                  Sou desenvolvedor front-end com foco em ReactJS e React
-                  Native, atualmente moro no Rio de Janeiro e sou formado em
-                  Sistemas de Informação pela Universidade Unigranrio. <br />
-                  Tem alguns projetos desenvolvidos que podem ser visualizados
-                  no meu{' '}
-                  <a
-                    href="https://github.com/ialexanderbrito"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Github
-                  </a>{' '}
-                  ou na aba <a href="/projects">Projetos</a>.
-                </span>
+      <PopupPwa />
+      <main className="l-main">
+        <section className="home bd-grid">
+          <div className="home-data">
+            <h1 className="home-title">
+              Oi, eu sou <span className="home-title-color">Alexander</span>
+              <br />
+              <SwitchTheme />
+              <Typist sentences={['Desenvolvedor Front-end']} loop={false} />
+              <br />
+              <div className="home-description">
+                {themeState ? (
+                  <>
+                    <span className="home-description-color">
+                      Web e Mobile · <FaDesktop size={16} color="#FFF" />{' '}
+                      <FaMobileAlt size={16} color="#FFF" />{' '}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span className="home-description-color">
+                      Web e Mobile · <FaDesktop size={16} color="#000" />{' '}
+                      <FaMobileAlt size={16} color="#000" />{' '}
+                    </span>
+                  </>
+                )}
               </div>
-              <div className="home__tecnologies">
-                {tecnologias.map((tecnologia) => (
-                  <a
-                    className="tecnologies__link"
-                    href={tecnologia.uri}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src={tecnologia.image}
-                      alt={tecnologia.name}
-                      className="tecnologies__icons"
-                    />
-                  </a>
-                ))}
-              </div>
-            </div>
+            </h1>
 
-            <div className="home__social">
-              <div className="icons">
+            <div className="home-about">
+              <span className="about-text">
+                Atualmente trabalho com desenvolvimento de sistemas web e mobile
+                utilizando tecnologias como React, NextJS, Material UI e React
+                Native. Sou Front-end Pleno na IK Solution, atualmente moro no
+                Rio de Janeiro, sou formado em Sistemas de Informação pela
+                Universidade Unigranrio.
+                <br />
+                Alguns de meus projetos podem ser visualizados no meu{' '}
                 <a
                   href="https://github.com/ialexanderbrito"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Github"
                 >
-                  <i className="bx bxl-github" style={{ fontSize: '24px' }} />
-                </a>
-              </div>
-              <div className="icons">
-                <a
-                  href="https://www.linkedin.com/in/ialexanderbrito/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Linkedin"
-                >
-                  <i className="bx bxl-linkedin" style={{ fontSize: '24px' }} />
-                </a>
-              </div>
-              <div className="icons">
-                <a
-                  href="https://twitter.com/ialexanderbrito"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Twitter"
-                >
-                  <i className="bx bxl-twitter" style={{ fontSize: '24px' }} />
-                </a>
-              </div>
-              <div className="icons">
-                <a
-                  href="https://www.instagram.com/ialexanderbrito/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                >
-                  <i className="bx bxl-instagram" style={{ fontSize: '24px' }} />
-                </a>
-              </div>
+                  Github
+                </a>{' '}
+                ou na aba de <a href="/projetos">Projetos</a>
+              </span>
             </div>
+            <div className="home-tecnologies">
+              {tecnologias.map((tecnologia) => (
+                <a
+                  className="tecnologies-link"
+                  href={tecnologia.uri}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {tecnologia.image}
+                </a>
+              ))}
+            </div>
+          </div>
 
-            <div className="home__links">
-              <Link className="link" to="/about">
-                <i className="bx bx-user logo" />
-                Sobre
-              </Link>
-
-              <Link className="link" to="/projects">
-                <i className="bx bx-rocket logo" />
-                Projetos
-              </Link>
-
+          <div className="home-social">
+            <div className="icons">
               <a
-                onClick={() => handleInfo()}
-                className="link"
-                href="mailto:ialexanderbrito@gmail.com"
+                href="https://github.com/ialexanderbrito"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Github"
               >
-                <i className="bx bx-mail-send logo" />
-                Contato
+                {themeState ? (
+                  <FaGithub size={24} color="#FFF" />
+                ) : (
+                  <FaGithub size={24} color="#000" />
+                )}
               </a>
             </div>
-          </section>
-        </main>
-      </body>
+            <div className="icons">
+              <a
+                href="https://www.linkedin.com/in/ialexanderbrito/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Linkedin"
+              >
+                {themeState ? (
+                  <FaLinkedinIn size={24} color="#FFF" />
+                ) : (
+                  <FaLinkedinIn size={24} color="#000" />
+                )}
+              </a>
+            </div>
+            <div className="icons">
+              <a
+                href="https://twitter.com/ialexanderbrito"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+              >
+                {themeState ? (
+                  <FaTwitter size={24} color="#fff" />
+                ) : (
+                  <FaTwitter size={24} color="#000" />
+                )}
+              </a>
+            </div>
+            <div className="icons">
+              <a
+                href="https://www.instagram.com/ialexanderbrito/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                {themeState ? (
+                  <FaInstagram size={24} color="#fff" />
+                ) : (
+                  <FaInstagram size={24} color="#000" />
+                )}
+              </a>
+            </div>
+            {stream && (
+              <div className="icons-twitch">
+                <a
+                  href={`https://www.twitch.tv/${stream?.channel?.name}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitch"
+                >
+                  {themeState ? (
+                    <FaTwitch size={24} color="#fff" />
+                  ) : (
+                    <FaTwitch size={24} color="#000" />
+                  )}
+                </a>
+              </div>
+            )}
+          </div>
+
+          <div className="home-links">
+            <Link className="link" to="/sobre">
+              <SiAboutdotme className="logo" />
+              Sobre
+            </Link>
+
+            <Link className="link" to="/projetos">
+              <RiRocket2Line className="logo" />
+              Projetos
+            </Link>
+
+            <a
+              onClick={() => handleInfo()}
+              className="link"
+              href="mailto:ialexanderbrito@gmail.com?subject=Vamos%20trabalhar%20juntos!"
+            >
+              <MdOutlineMail className="logo" />
+              Contato
+            </a>
+          </div>
+        </section>
+      </main>
     </>
   );
 }
