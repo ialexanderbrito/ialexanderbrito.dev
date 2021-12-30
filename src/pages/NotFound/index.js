@@ -6,7 +6,7 @@ export function NotFound() {
   return (
     <>
       <Helmet>
-        <title>Error</title>
+        <title>Ops 404 | Alexander - Front-end Developer</title>
       </Helmet>
       <body>
         <div id="notfound">
