@@ -13,7 +13,7 @@
     {
        "name": "Sobre",
        "description": "Saiba mais sobre mim",
-       "url": "/about",
+       "url": "/sobre",
        "icons": [
         {
             "src": "/icon-192x192.png",
@@ -44,7 +44,7 @@
     {
        "name": "Projetos",
        "description": "Meus projetos",
-       "url": "/projects",
+       "url": "/projetos",
        "icons": [
         {
             "src": "/icon-192x192.png",

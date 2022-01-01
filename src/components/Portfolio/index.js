@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { FaCode, FaLock, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { Slide } from 'react-slideshow-image';
 
-import { portfolio } from './portfolio';
+import { portfolio } from 'database/portfolio';
 
-import './styles.css';
+import './styles.scss';
 
-export default function Portfolio() {
+export function Portfolio() {
   const [filter, setFilter] = useState('all');
   const [projects, setProjects] = useState([]);
 
@@ -49,96 +51,127 @@ export default function Portfolio() {
           UX/UI
         </a>
       </div>
-      <div className="work__container bd-grid">
+      <div className="legend bd-grid">
+        <h4 className="legeng-text">
+          <FaLock className="space" />
+          Projetos privados.
+        </h4>
+        <h4 className="legeng-text">
+          <FaCode className="space" />
+          Projetos desenvolvidos por mim dentro da empresa, ou que eu tenha
+          participado de alguma forma.
+        </h4>
+        <h4 className="legeng-text">
+          <FaGithub className="space" />
+          Repositórios públicos para acesso aos projetos.
+        </h4>
+        <h4 className="legeng-text">
+          <FaExternalLinkAlt className="space" />
+          Links para acesso aos projetos.
+        </h4>
+      </div>
+      <div className="work-container bd-grid">
         {projects.map((item) =>
           item.filtered === true ? (
-            <>
-              <div className="work__img">
-                <img src={item.image} alt="Projeto" loading="lazy" />
-                <p />
+            <div className="work-img">
+              {item.image.length > 1 ? (
+                <Slide autoplay={false}>
+                  {item.image.map((img) => (
+                    <img src={img} alt="Texto" />
+                  ))}
+                </Slide>
+              ) : (
+                <img src={item.image} alt="Texto" />
+              )}
+              <p />
 
-                <h3 className="work__text">{item.name}</h3>
-                {item.uri === '#' ? (
-                  <div className="work__description_links">
-                    <h4 className="work__description">
-                      <i className="bx bxs-lock-alt space" />
-                      Projeto privado · IK Solution
+              <h3 className="work-text">{item.name}</h3>
+              {item.uri === '#' ? (
+                <div className="work-description-links">
+                  <h4 className="work-description">
+                    <FaLock className="space" />
+                    {item.empresa}
+                  </h4>
+                  <h4 className="work-description"> | </h4>
+
+                  <h4 className="work-description">
+                    IK Solution
+                    <FaCode className="space" />
+                  </h4>
+                </div>
+              ) : (
+                <div className="work-description-links">
+                  <a
+                    href={`https://github.com/ialexanderbrito/${item.uri}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <h4 className="work-description">
+                      <FaGithub className="space" />
+                      Visitar o projeto
                     </h4>
-                  </div>
-                ) : (
-                  <div className="work__description_links">
-                    <a
-                      href={`https://github.com/ialexanderbrito/${item.uri}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <h4 className="work__description">
-                        <i className="bx bxl-github space" />
-                        Visitar o projeto
-                      </h4>
-                    </a>
-                    {item.deploy && (
-                      <>
-                        <h4 className="work__description"> | </h4>
-                        <a
-                          href={`${item.deploy}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <h4 className="work__description">
-                            Deploy
-                            <i className="bx bx-link-external space" />
-                          </h4>
-                        </a>
-                      </>
+                  </a>
+                  {item.deploy && (
+                    <>
+                      <h4 className="work-description"> | </h4>
+                      <a
+                        href={`${item.deploy}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <h4 className="work-description">
+                          Deploy
+                          <FaExternalLinkAlt className="space" />
+                        </h4>
+                      </a>
+                    </>
+                  )}
+                </div>
+              )}
+              <h4 className="work-description">
+                <div className="tag-container">
+                  <div classsName="projects-tag">
+                    {item.item1 ? (
+                      <div className="projects-tag">{item.item1}</div>
+                    ) : (
+                      <div className="projects-tagnull" />
                     )}
                   </div>
-                )}
-                <h4 className="work__description">
-                  <div className="tag__container">
-                    <div classsName="projects__tag">
-                      {item.item1 ? (
-                        <div className="projects__tag">{item.item1}</div>
-                      ) : (
-                        <div className="projects__tagnull" />
-                      )}
-                    </div>
 
-                    <div classsName="projects__tag">
-                      {item.item2 ? (
-                        <div className="projects__tag">{item.item2}</div>
-                      ) : (
-                        <div className="projects__tagnull" />
-                      )}
-                    </div>
-
-                    <div classsName="projects__tag">
-                      {item.item3 ? (
-                        <div className="projects__tag">{item.item3}</div>
-                      ) : (
-                        <div className="projects__tagnull" />
-                      )}
-                    </div>
-
-                    <div classsName="projects__tag">
-                      {item.item4 ? (
-                        <div className="projects__tag">{item.item4}</div>
-                      ) : (
-                        <div className="projects__tagnull" />
-                      )}
-                    </div>
-
-                    <div classsName="projects__tag">
-                      {item.item5 ? (
-                        <div className="projects__tag">{item.item5}</div>
-                      ) : (
-                        <div className="projects__tagnull" />
-                      )}
-                    </div>
+                  <div classsName="projects-tag">
+                    {item.item2 ? (
+                      <div className="projects-tag">{item.item2}</div>
+                    ) : (
+                      <div className="projects-tagnull" />
+                    )}
                   </div>
-                </h4>
-              </div>
-            </>
+
+                  <div classsName="projects-tag">
+                    {item.item3 ? (
+                      <div className="projects-tag">{item.item3}</div>
+                    ) : (
+                      <div className="projects-tagnull" />
+                    )}
+                  </div>
+
+                  <div classsName="projects-tag">
+                    {item.item4 ? (
+                      <div className="projects-tag">{item.item4}</div>
+                    ) : (
+                      <div className="projects-tagnull" />
+                    )}
+                  </div>
+
+                  <div classsName="projects-tag">
+                    {item.item5 ? (
+                      <div className="projects-tag">{item.item5}</div>
+                    ) : (
+                      <div className="projects-tagnull" />
+                    )}
+                  </div>
+                </div>
+              </h4>
+            </div>
           ) : (
             ''
           )

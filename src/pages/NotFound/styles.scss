@@ -1,0 +1,100 @@
+#notfound {
+  position: relative;
+  height: 100vh;
+  background: #0C0C0C;
+}
+
+#notfound .notfound {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.notfound {
+  max-width: 767px;
+  width: 100%;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.notfound .notfound-404 {
+  position: relative;
+  height: 180px;
+  margin-bottom: 20px;
+  z-index: var(--z-back);
+}
+
+.notfound .notfound-404 h1 {
+  font-family: 'Poppins', sans-serif;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 224px;
+  font-weight: 900;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: -12px;
+  color: #0C0C0C;
+  text-transform: uppercase;
+  text-shadow: -1px -1px 0px rgb(115, 152, 50), 1px 1px 0px rgb(8, 127, 163);
+  letter-spacing: -20px;
+}
+
+.notfound .notfound-404 p {
+  font-size: 42px;
+  position: inherit;
+  top: 40px;
+}
+
+.notfound .notfound-404 h4 {
+  font-family: 'Poppins', sans-serif;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  /* text-transform: uppercase; */
+  text-shadow: 0px 2px 0px rgb(115, 152, 50);
+  letter-spacing: 7px;
+  margin: 0;
+}
+
+.notfound a {
+  font-family: 'Poppins', sans-serif;
+  display: inline-block;
+  color: #fff;
+  background: #1b1b1b;
+
+  padding: 10px 40px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.notfound a:hover {
+  transform: translateY(-3px);
+  max-width: 380px;
+  background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
+}
+
+@media only screen and (max-width: 767px) {
+  .notfound .notfound-404 h4 {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .notfound .notfound-404 h1 {
+    font-size: 182px;
+  }
+}

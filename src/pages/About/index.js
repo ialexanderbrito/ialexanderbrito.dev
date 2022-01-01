@@ -1,65 +1,67 @@
 import { Helmet } from 'react-helmet';
-import { BiTrophy, BiMedal } from 'react-icons/bi';
+import { IoArrowBackOutline } from 'react-icons/io5';
+import { RiMedalLine, RiTrophyLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 
 import profileImg from 'assets/images/profile.png';
 
-import './styles.css';
+import './styles.scss';
 
-export default function About() {
+export function About() {
   return (
     <>
       <Helmet>
-        <title>Alexander · Sobre</title>
+        <title>Sobre | Alexander - Front-end Developer</title>
       </Helmet>
-      <body>
-        <main className="l-main">
-          <section className="about section" id="about">
-            <div className="about__back">
-              <Link to="/">
-                <i className="bx bx-arrow-back" />
-              </Link>
+      <main className="l-main">
+        <section className="about section" id="about">
+          <div className="about-back">
+            <Link to="/">
+              <IoArrowBackOutline color="#3F8C6A" />
+            </Link>
+          </div>
+          <h2 className="section-title">Sobre</h2>
+
+          <div className="about-container bd-grid">
+            <div className="about-img">
+              <img src={profileImg} alt="Alexander" />
             </div>
-            <h2 className="section-title">Sobre</h2>
 
-            <div className="about__container bd-grid">
-              <div className="about__img">
-                <img src={profileImg} alt="Alexander" />
+            <div className="about-container">
+              <div className="about-container-subtitle">
+                <h2 className="about-subtitle">Eu sou Alexander</h2>
               </div>
+              <p className="about-text">
+                Desenvolvedor front-end Web e Mobile, formado em Sistemas de
+                Informação na Universidade Unigranrio. Atualmente trabalhando na{' '}
+                <span className="home-description-color"> IK Solution</span>{' '}
+                como desenvolvedor Front-end Jr e estudando UI Designer pelo{' '}
+                <span className="home-description-color">curso uiBoost</span>.
+                Nas horas vagas gosto de desenvolver aplicações, clonar apps que
+                já estão no mercado para aperfeiçoar meus estudos e também
+                focando os estudos na parte UI/UX Design.
+              </p>
+              <br />
+              <h2 className="section-title">Premiação</h2>
 
-              <div className="about__container">
-                <div className="about__containersubtitle">
-                  <h2 className="about__subtitle">Eu sou Alexander</h2>
+              <span className="about-text">
+                <div className="about-titles">
+                  <RiMedalLine size={16} className="about-titles-icon" /> Ouro
+                  MOBFOG - Foguete Virtual - 2020
                 </div>
-                <p className="about__text">
-                  Desenvolvedor front-end Web e Mobile, formado em Sistemas de
-                  Informação na Universidade Unigranrio. Atualmente trabalhando
-                  na{' '}
-                  <span className="home__description-color"> IK Solution</span>{' '}
-                  como desenvolvedor Front-end Jr e estudando UI Designer pelo{' '}
-                  <span className="home__description-color">curso uiBoost</span>
-                  . Nas horas vagas gosto de desenvolver aplicações, clonar apps
-                  que já estão no mercado para aperfeiçoar meus estudos e também
-                  focando os estudos na parte UI/UX Design.
-                </p>
-                <br />
-                <h2 className="section-title">Premiação</h2>
-
-                <span className="about__text">
-                  <BiMedal size={16} color="#FFF" /> · Ouro MOBFOG - Foguete
-                  Virtual - 2020
-                  <br />
-                  <BiTrophy size={16} color="#FFF" /> · 5º Lugar IoT Talks
-                  Unigranrio - 2019
-                  <br />
-                  <BiTrophy size={16} color="#FFF" /> · 2º Lugar Hackathon
-                  Unigranrio - 2018
-                </span>
-              </div>
+                <div className="about-titles">
+                  <RiTrophyLine size={16} className="about-titles-icon" /> 5º
+                  Lugar IoT Talks Unigranrio - 2019
+                </div>
+                <div className="about-titles">
+                  <RiTrophyLine size={16} className="about-titles-icon" /> 2º
+                  Lugar Hackathon Unigranrio - 2018
+                </div>
+              </span>
             </div>
-          </section>
-        </main>
-      </body>
+          </div>
+        </section>
+      </main>
     </>
   );
 }
