@@ -16,7 +16,6 @@ import { Link } from 'react-router-dom';
 import Typist from 'react-text-typist';
 import { toast } from 'react-toastify';
 
-import { PopupPwa } from 'components/PopupPwa';
 import { SwitchTheme } from 'components/SwitchTheme';
 
 import { useTheme } from 'contexts/Theme';
@@ -54,7 +53,6 @@ export function Home() {
       <Helmet>
         <title>Portfólio | Alexander - Front-end Developer</title>
       </Helmet>
-      <PopupPwa />
       <main className="l-main">
         <section className="home bd-grid">
           <div className="home-data">
