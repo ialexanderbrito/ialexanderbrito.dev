@@ -169,7 +169,7 @@ export const portfolio = [
     item4: 'node.js',
   },
   {
-    name: 'Happy · NLW#4',
+    name: 'Moveit · NLW#4',
     image: [moveit],
     uri: 'moveit',
     deploy: 'https://moveit.ialexanderbrito.dev',
