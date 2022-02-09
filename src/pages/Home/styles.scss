@@ -11,7 +11,7 @@
 }
 .section-title::after {
   position: absolute;
-  content: '';
+  content: "";
   width: 64px;
   height: 0.18rem;
   left: 0;
@@ -71,7 +71,7 @@ div.react-toggle {
   margin-left: auto;
   margin-right: 15px;
 }
-.home-description{
+.home-description {
   display: flex;
   align-items: center;
   text-align: center;
@@ -92,7 +92,7 @@ div.react-toggle {
   flex-direction: row;
   justify-content: center;
 }
-.icons{
+.icons {
   width: 40px;
   height: 40px;
   margin: 0 10px;
@@ -102,16 +102,16 @@ div.react-toggle {
   position: relative;
   border-radius: 50%;
   overflow: hidden;
-  transition: transform .3s;
+  transition: transform 0.3s;
 }
-.icons a{
-  color: #fff
+.icons a {
+  color: #fff;
 }
-.icons:hover{
+.icons:hover {
   transform: scale(1.4);
 }
-.icons::before{
-  content: '';
+.icons::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -121,14 +121,14 @@ div.react-toggle {
   z-index: var(--z-back);
   border-radius: 50%;
   transform: translate(100%, 100%);
-  transition: all .4s;
+  transition: all 0.4s;
 }
-.icons:hover::before{
+.icons:hover::before {
   transform: translate(0);
-  animation: animate .4s linear;
+  animation: animate 0.4s linear;
 }
 
-.icons-twitch{
+.icons-twitch {
   width: 40px;
   height: 40px;
   margin: 0 10px;
@@ -138,16 +138,16 @@ div.react-toggle {
   position: relative;
   border-radius: 50%;
   overflow: hidden;
-  transition: transform .3s;
+  transition: transform 0.3s;
 }
-.icons-twitch a{
-  color: #fff
+.icons-twitch a {
+  color: #fff;
 }
-.icons-twitch:hover{
+.icons-twitch:hover {
   transform: scale(1.4);
 }
-.icons-twitch::before{
-  content: '';
+.icons-twitch::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -157,19 +157,20 @@ div.react-toggle {
   z-index: var(--z-back);
   border-radius: 50%;
   transform: translate(100%, 100%);
-  transition: all .4s;
+  transition: all 0.4s;
 }
-.icons-twitch:hover::before{
+.icons-twitch:hover::before {
   transform: translate(0);
-  animation: animate .4s linear;
+  animation: animate 0.4s linear;
 }
 
-@keyframes animate{
-  0%,100%{
+@keyframes animate {
+  0%,
+  100% {
     width: 100%;
     height: 100%;
   }
-  50%{
+  50% {
     width: 50%;
     height: 50%;
   }
@@ -182,14 +183,14 @@ div.react-toggle {
   width: 295px;
 }
 
-.home-tecnologies{
+.home-tecnologies {
   display: flex;
   row-gap: 2rem;
   text-align: justify;
   margin-top: 15px;
 }
 
-.tecnologies-link{
+.tecnologies-link {
   text-decoration: none;
   margin-left: 5px;
 }
@@ -230,7 +231,7 @@ div.react-toggle {
 }
 
 .link {
-  animation: slideIn 0.8s;
+  // animation: slideIn 0.8s;
 
   text-decoration: none;
   font-size: 18px;
@@ -248,12 +249,10 @@ div.react-toggle {
   align-items: center;
   justify-content: center;
 
-  transition: max-width 200ms, background 0.5s, transform 180ms ease-in-out;
+  // transition: max-width 200ms, background 0.5s, transform 180ms ease-in-out;
 }
 
 .link:hover {
-  transform: translateY(-3px);
-  max-width: 380px;
   background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
 }
 
@@ -332,7 +331,7 @@ div.react-toggle {
     text-align: justify;
     width: 398px;
     align-items: center;
-    margin-top: 15px
+    margin-top: 15px;
   }
 
   .about-container {
@@ -355,7 +354,7 @@ div.react-toggle {
     justify-items: center;
   }
   .link {
-    animation: slideIn 0.8s;
+    // animation: slideIn 0.8s;
 
     text-decoration: none;
     font-size: 18px;
@@ -372,13 +371,9 @@ div.react-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    transition: max-width 200ms, background 0.5s, transform 180ms ease-in-out;
   }
 
   .link:hover {
-    transform: translateY(-3px);
-    max-width: 380px;
     background: linear-gradient(45deg, rgb(8, 127, 163), rgb(115, 152, 50));
   }
 
