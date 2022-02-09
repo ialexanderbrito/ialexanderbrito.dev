@@ -43,7 +43,7 @@ Extras:
 
 ### 💻 Visite
 
-[Acesse aqui](https://ialexanderbrito.com.br/)
+[Acesse aqui](https://ialexanderbrito.dev/)
 
 ### 📱 Social
 

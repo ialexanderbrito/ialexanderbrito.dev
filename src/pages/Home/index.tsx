@@ -16,16 +16,17 @@ import { Link } from 'react-router-dom';
 import Typist from 'react-text-typist';
 import { toast } from 'react-toastify';
 
+import { tecnologias } from 'database/tecnologias';
+
 import { SwitchTheme } from 'components/SwitchTheme';
 
 import { useTheme } from 'contexts/Theme';
 import { useTwitch } from 'contexts/Twitch';
-import { tecnologias } from 'database/tecnologias';
 
 import './styles.scss';
 
 export function Home() {
-  const { stream, permissionNotification, getTwitch } = useTwitch();
+  const { stream, getTwitch } = useTwitch();
   const { themeState } = useTheme();
 
   function handleInfo() {
@@ -43,8 +44,6 @@ export function Home() {
   }
 
   useEffect(() => {
-    permissionNotification();
-
     getTwitch();
   }, []);
 

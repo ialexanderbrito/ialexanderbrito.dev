@@ -9,7 +9,6 @@ import { MainRoutes } from './routes';
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-slideshow-image/dist/styles.css';
-import 'react-toggle/style.css';
 import './styles/global.scss';
 
 export default function App() {

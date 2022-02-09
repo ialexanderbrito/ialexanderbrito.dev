@@ -6,9 +6,24 @@ import { portfolio } from 'database/portfolio';
 
 import './styles.scss';
 
+type IItemProps = {
+  name: string;
+  image: any;
+  uri: string;
+  deploy?: string | undefined;
+  empresa?: string;
+  category: string[];
+  item1?: string | undefined;
+  item2?: string | undefined;
+  item3?: string | undefined;
+  item4?: string | undefined;
+  item5?: string | undefined;
+  filtered?: boolean;
+};
+
 export function Portfolio() {
   const [filter, setFilter] = useState('all');
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState<IItemProps[]>([]);
 
   useEffect(() => {
     setProjects(portfolio);
@@ -16,36 +31,42 @@ export function Portfolio() {
 
   useEffect(() => {
     setProjects([]);
+
     const filtered = portfolio.map((p) => ({
       ...p,
       filtered: p.category.includes(filter),
     }));
+
     setProjects(filtered);
   }, [filter]);
 
   return (
     <>
       <div id="filters" className="filters">
-        <a href="#" active={filter === 'all'} onClick={() => setFilter('all')}>
+        <a
+          href="#"
+          // active={filter === 'all'}
+          onClick={() => setFilter('all')}
+        >
           Tudo
         </a>
         <a
           href="#"
-          active={filter === 'frontend'}
+          // active={filter === 'frontend'}
           onClick={() => setFilter('frontend')}
         >
           Front-end
         </a>
         <a
           href="#"
-          active={filter === 'mobile'}
+          // active={filter === 'mobile'}
           onClick={() => setFilter('mobile')}
         >
           Mobile
         </a>
         <a
           href="#"
-          active={filter === 'ux-ui'}
+          // active={filter === 'ux-ui'}
           onClick={() => setFilter('ux-ui')}
         >
           UX/UI
@@ -71,12 +92,12 @@ export function Portfolio() {
         </h4>
       </div>
       <div className="work-container bd-grid">
-        {projects.map((item) =>
+        {projects.map((item: IItemProps) =>
           item.filtered === true ? (
             <div className="work-img">
               {item.image.length > 1 ? (
                 <Slide autoplay={false}>
-                  {item.image.map((img) => (
+                  {item.image.map((img: string) => (
                     <img src={img} alt="Texto" />
                   ))}
                 </Slide>
@@ -130,7 +151,7 @@ export function Portfolio() {
               )}
               <h4 className="work-description">
                 <div className="tag-container">
-                  <div classsName="projects-tag">
+                  <div className="projects-tag">
                     {item.item1 ? (
                       <div className="projects-tag">{item.item1}</div>
                     ) : (
@@ -138,7 +159,7 @@ export function Portfolio() {
                     )}
                   </div>
 
-                  <div classsName="projects-tag">
+                  <div className="projects-tag">
                     {item.item2 ? (
                       <div className="projects-tag">{item.item2}</div>
                     ) : (
@@ -146,7 +167,7 @@ export function Portfolio() {
                     )}
                   </div>
 
-                  <div classsName="projects-tag">
+                  <div className="projects-tag">
                     {item.item3 ? (
                       <div className="projects-tag">{item.item3}</div>
                     ) : (
@@ -154,7 +175,7 @@ export function Portfolio() {
                     )}
                   </div>
 
-                  <div classsName="projects-tag">
+                  <div className="projects-tag">
                     {item.item4 ? (
                       <div className="projects-tag">{item.item4}</div>
                     ) : (
@@ -162,7 +183,7 @@ export function Portfolio() {
                     )}
                   </div>
 
-                  <div classsName="projects-tag">
+                  <div className="projects-tag">
                     {item.item5 ? (
                       <div className="projects-tag">{item.item5}</div>
                     ) : (
@@ -174,7 +195,7 @@ export function Portfolio() {
             </div>
           ) : (
             ''
-          )
+          ),
         )}
       </div>
     </>

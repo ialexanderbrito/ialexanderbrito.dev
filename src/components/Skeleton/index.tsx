@@ -46,7 +46,7 @@ export function SkeletonComponent() {
       <div className="work-container bd-grid">
         {portfolio.map((item) => (
           <>
-            <div className="work-img" key={item}>
+            <div className="work-img" key={item.name}>
               <SkeletonTheme baseColor="#212325" highlightColor="#1D2021">
                 <Skeleton width={320} height={216} />
               </SkeletonTheme>

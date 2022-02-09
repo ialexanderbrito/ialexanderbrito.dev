@@ -1,13 +1,21 @@
+/* eslint-disable no-unused-vars */
 import { createContext, useContext, useEffect, useState } from 'react';
 
-const Theme = createContext();
+type IThemeContext = {
+  handleChangeTheme: () => void;
+  themeState: string;
+};
 
-export function ThemeProvider({ children }) {
+const Theme = createContext<IThemeContext>({} as any);
+
+export function ThemeProvider({ children }: any) {
   const [themeState, setThemeState] = useState('dark');
+  const [theme, setTheme] = useState(false);
 
   const handleChangeTheme = () => {
-    setThemeState(!themeState);
-    if (themeState) {
+    setThemeState(themeState === 'dark' ? 'light' : 'dark');
+    setTheme(!theme);
+    if (theme) {
       localStorage.setItem('@theme', 'light');
       document.body.classList.add('light-mode');
     } else {
@@ -22,7 +30,7 @@ export function ThemeProvider({ children }) {
       setThemeState(getTheme);
       document.body.classList.add('light-mode');
     } else {
-      setThemeState(getTheme);
+      setThemeState(getTheme === 'dark' ? 'dark' : 'light');
       document.body.classList.remove('light-mode');
     }
   }, []);

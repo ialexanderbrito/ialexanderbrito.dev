@@ -169,7 +169,7 @@ export const portfolio = [
     item4: 'node.js',
   },
   {
-    name: 'Happy · NLW#4',
+    name: 'Moveit · NLW#4',
     image: [moveit],
     uri: 'moveit',
     deploy: 'https://moveit.ialexanderbrito.dev',
@@ -214,6 +214,7 @@ export const portfolio = [
     name: 'Hospital Score',
     image: [hospitalscore],
     uri: 'hospital-score',
+    deploy: '#',
     category: ['all', 'mobile', 'ux-ui'],
     item1: 'expo',
     item2: 'react-native',
