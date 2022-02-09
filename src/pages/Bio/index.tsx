@@ -10,6 +10,7 @@ import {
 } from 'react-icons/fa';
 
 import profileImg from 'assets/images/profile.png';
+
 import { useTwitch } from 'contexts/Twitch';
 
 import './styles.scss';
