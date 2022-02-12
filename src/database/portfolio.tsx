@@ -2,6 +2,10 @@ import aircnc from 'assets/images/aircnc.png';
 import antecipa from 'assets/images/antecipa.png';
 import bethehero from 'assets/images/be-the-hero.png';
 import covid19 from 'assets/images/covid19.png';
+import devfinder1 from 'assets/images/devfinder/devfinder_01.png';
+import devfinder2 from 'assets/images/devfinder/devfinder_02.png';
+import devfinder3 from 'assets/images/devfinder/devfinder_03.png';
+import devfinder4 from 'assets/images/devfinder/devfinder_04.png';
 import devradar from 'assets/images/devradar.png';
 import dowhile from 'assets/images/dowhile.png';
 import ecoleta from 'assets/images/ecoleta.png';
@@ -30,6 +34,11 @@ import plantManager4 from 'assets/images/plantmanager/04.png';
 import plantManager5 from 'assets/images/plantmanager/05.png';
 import product from 'assets/images/product.png';
 import proffy from 'assets/images/proffy.png';
+import rastreio1 from 'assets/images/rastreio/rastreio_01.png';
+import rastreio2 from 'assets/images/rastreio/rastreio_02.png';
+import rastreio3 from 'assets/images/rastreio/rastreio_03.png';
+import rastreio4 from 'assets/images/rastreio/rastreio_04.png';
+import rastreio5 from 'assets/images/rastreio/rastreio_05.png';
 import twitch1 from 'assets/images/twitch/twitch_01.png';
 import twitch2 from 'assets/images/twitch/twitch_02.png';
 import twitch3 from 'assets/images/twitch/twitch_03.png';
@@ -37,6 +46,25 @@ import twitch4 from 'assets/images/twitch/twitch_04.png';
 import twitch5 from 'assets/images/twitch/twitch_05.png';
 
 export const portfolio = [
+  {
+    name: 'Rastre.io',
+    image: [rastreio1, rastreio2, rastreio3, rastreio4, rastreio5],
+    uri: 'rastre.io',
+    deploy: 'https://rastreio.ialexanderbrito.dev',
+    category: ['all', 'frontend'],
+    item1: 'react',
+    item2: 'ts',
+    item3: 'supabase',
+  },
+  {
+    name: 'Devfinder',
+    image: [devfinder1, devfinder2, devfinder3, devfinder4],
+    uri: 'devfinder',
+    deploy: 'https://devfinder.ialexanderbrito.dev',
+    category: ['all', 'frontend'],
+    item1: 'react',
+    item2: 'ts',
+  },
   {
     name: 'Portal FlexPrev',
     empresa: 'Petros',
@@ -166,7 +194,6 @@ export const portfolio = [
     item1: 'expo',
     item2: 'react-native',
     item3: 'ts',
-    item4: 'node.js',
   },
   {
     name: 'Moveit · NLW#4',
@@ -219,7 +246,6 @@ export const portfolio = [
     item1: 'expo',
     item2: 'react-native',
     item3: 'js',
-    item4: 'node.js',
   },
   {
     name: 'Covid-19 App',

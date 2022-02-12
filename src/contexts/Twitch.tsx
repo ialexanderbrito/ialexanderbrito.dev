@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import api from 'services/api';
+import { getStreamer } from 'services/getStreamer';
 
 type ITwitchContext = {
   stream: any;
@@ -15,18 +15,29 @@ export function TwitchProvider({ children }: any) {
   const [stream, setStream] = useState([]);
 
   async function getTwitch() {
-    api.get('').then((response) => {
-      setStream(response.data.stream);
-      if (response.data.stream) {
-        toast.success(`🟢 Live ON! | ialexanderbrito`);
-      }
-    });
+    const response = await getStreamer(74480710);
+
+    setStream(response.data.stream);
+
+    if (response.data.stream) {
+      toast.success(`Live ON! | ialexanderbrito`, {
+        position: 'top-right',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        icon: '🟢 ',
+        theme: 'dark',
+      });
+    }
   }
 
   async function getLiveOn() {
-    api.get('').then((response) => {
-      setStream(response.data.stream);
-    });
+    const response = await getStreamer(74480710);
+
+    setStream(response.data.stream);
   }
 
   return (
