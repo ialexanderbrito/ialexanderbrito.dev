@@ -151,45 +151,35 @@ export function Portfolio() {
               )}
               <h4 className="work-description">
                 <div className="tag-container">
-                  <div className="projects-tag">
-                    {item.item1 ? (
+                  {item.item1 && (
+                    <div className="projects-tag">
                       <div className="projects-tag">{item.item1}</div>
-                    ) : (
-                      <div className="projects-tagnull" />
-                    )}
-                  </div>
+                    </div>
+                  )}
 
-                  <div className="projects-tag">
-                    {item.item2 ? (
+                  {item.item2 && (
+                    <div className="projects-tag">
                       <div className="projects-tag">{item.item2}</div>
-                    ) : (
-                      <div className="projects-tagnull" />
-                    )}
-                  </div>
+                    </div>
+                  )}
 
-                  <div className="projects-tag">
-                    {item.item3 ? (
+                  {item.item3 && (
+                    <div className="projects-tag">
                       <div className="projects-tag">{item.item3}</div>
-                    ) : (
-                      <div className="projects-tagnull" />
-                    )}
-                  </div>
+                    </div>
+                  )}
 
-                  <div className="projects-tag">
-                    {item.item4 ? (
+                  {item.item4 && (
+                    <div className="projects-tag">
                       <div className="projects-tag">{item.item4}</div>
-                    ) : (
-                      <div className="projects-tagnull" />
-                    )}
-                  </div>
+                    </div>
+                  )}
 
-                  <div className="projects-tag">
-                    {item.item5 ? (
+                  {item.item5 && (
+                    <div className="projects-tag">
                       <div className="projects-tag">{item.item5}</div>
-                    ) : (
-                      <div className="projects-tagnull" />
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
               </h4>
             </div>
