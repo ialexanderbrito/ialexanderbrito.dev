@@ -47,6 +47,10 @@ export function Home() {
     getTwitch();
   }, []);
 
+  const themeSelect = localStorage.getItem('@theme') || 'dark';
+
+  useEffect(() => {}, [themeState]);
+
   return (
     <>
       <Helmet>
@@ -62,7 +66,7 @@ export function Home() {
               <Typist sentences={['Desenvolvedor Front-end']} loop={false} />
               <br />
               <div className="home-description">
-                {themeState ? (
+                {themeSelect === 'dark' ? (
                   <>
                     <span className="home-description-color">
                       Web e Mobile · <FaDesktop size={16} color="#FFF" />{' '}
@@ -100,8 +104,9 @@ export function Home() {
               </span>
             </div>
             <div className="home-tecnologies">
-              {tecnologias.map((tecnologia) => (
+              {tecnologias.map((tecnologia, index) => (
                 <a
+                  key={index}
                   className="tecnologies-link"
                   href={tecnologia.uri}
                   target="_blank"
@@ -121,7 +126,7 @@ export function Home() {
                 rel="noopener noreferrer"
                 aria-label="Github"
               >
-                {themeState ? (
+                {themeSelect === 'dark' ? (
                   <FaGithub size={24} color="#FFF" />
                 ) : (
                   <FaGithub size={24} color="#000" />
@@ -135,7 +140,7 @@ export function Home() {
                 rel="noopener noreferrer"
                 aria-label="Linkedin"
               >
-                {themeState ? (
+                {themeSelect === 'dark' ? (
                   <FaLinkedinIn size={24} color="#FFF" />
                 ) : (
                   <FaLinkedinIn size={24} color="#000" />
@@ -149,7 +154,7 @@ export function Home() {
                 rel="noopener noreferrer"
                 aria-label="Twitter"
               >
-                {themeState ? (
+                {themeSelect === 'dark' ? (
                   <FaTwitter size={24} color="#fff" />
                 ) : (
                   <FaTwitter size={24} color="#000" />
@@ -163,7 +168,7 @@ export function Home() {
                 rel="noopener noreferrer"
                 aria-label="Instagram"
               >
-                {themeState ? (
+                {themeSelect === 'dark' ? (
                   <FaInstagram size={24} color="#fff" />
                 ) : (
                   <FaInstagram size={24} color="#000" />
@@ -178,7 +183,7 @@ export function Home() {
                   rel="noopener noreferrer"
                   aria-label="Twitch"
                 >
-                  {themeState ? (
+                  {themeSelect === 'dark' ? (
                     <FaTwitch size={24} color="#fff" />
                   ) : (
                     <FaTwitch size={24} color="#000" />
