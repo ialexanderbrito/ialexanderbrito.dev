@@ -6,36 +6,43 @@ export default function Footer() {
       title: 'Instagram',
       url: 'https://instagram.com/ialexanderbrito',
       icon: 'ri-instagram-line',
+      color: '#e1306c',
     },
     {
       title: 'Twitter',
       url: 'https://twitter.com/ialexanderbrito',
       icon: 'ri-twitter-line',
+      color: '#00ACEE',
     },
     {
       title: 'GitHub',
       url: 'https://github.com/ialexanderbrito',
       icon: 'ri-github-line',
+      color: '#777',
     },
     {
       title: 'linkedin',
       url: 'https://linkedin.com/in/ialexanderbrito',
       icon: 'ri-linkedin-line',
+      color: '#0077b5',
     },
     {
       title: 'twitch',
       url: 'https://twitch.com/ialexanderbrito',
       icon: 'ri-twitch-line',
+      color: '#9146ff',
     },
     {
       title: 'discord',
       url: 'https://discord.com/users/348275303400996864/',
       icon: 'ri-discord-line',
+      color: '#7289da',
     },
     {
       title: 'Source',
       url: 'https://github.com/ialexanderbrito/ialexanderbrito.dev',
       icon: 'ri-braces-line',
+      color: '#f1f1f1',
     },
   ]
 
@@ -43,7 +50,14 @@ export default function Footer() {
     <Container>
       {links.map((link, index) => {
         return (
-          <Anchor key={index} href={link.url} target="_blank">
+          <Anchor key={index} href={link.url} target="_blank" css={{
+            "&:hover": {
+              color: link.color,
+              "i::before": {
+                color: link.color,
+              },
+            },
+          }}>
             <Title>{link.title}</Title>
             <Icon className={link.icon} />
           </Anchor>
