@@ -54,7 +54,7 @@ function Projects(props) {
             return (
               <>
                 {project.title === '' ? <div key={pIndex} /> : (
-                  <Article href={project.url}>
+                  <Article href={project.url} target="_blank">
                     <Animation index={pIndex}>
                       <ImageContainer
                         css={{ backgroundImage: `url(${project.image})` }}
