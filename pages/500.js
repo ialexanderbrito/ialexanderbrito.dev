@@ -1,10 +1,10 @@
 import ErrorMessage from '../components/ErrorMessage';
-import Blogpost from '../layouts/Blogpost';
+import Base from '../layouts/Base';
 
 function Custom500() {
   return <ErrorMessage />;
 }
 
-Custom500.Layout = Blogpost;
+Custom500.Layout = Base;
 
 export default Custom500;
