@@ -1,19 +1,17 @@
-import { styled } from '../stitches.config'
-import { useState } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { motion, AnimateSharedLayout } from 'framer-motion'
-import { useKBar } from 'kbar'
+import { useState } from 'react';
+
+import { motion, AnimateSharedLayout } from 'framer-motion';
+import { useKBar } from 'kbar';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+import { styled } from '../stitches.config';
 
 export default function Navbar() {
-  const router = useRouter()
-  const pages = [
-    'Sobre',
-    'Projetos',
-    'Setup',
-  ]
-  const [hovered, setHovered] = useState('')
-  const { query } = useKBar()
+  const router = useRouter();
+  const pages = ['Sobre', 'Projetos', 'Setup'];
+  const [hovered, setHovered] = useState('');
+  const { query } = useKBar();
 
   return (
     <AnimateSharedLayout>
@@ -27,12 +25,11 @@ export default function Navbar() {
               var(--colors-cyan) 0%,
               var(--colors-green) 100%
             )`,
-              "background-size": "100",
-              "-webkit-background-clip": "text",
-              "-moz-background-clip": "text",
-              "-webkit-text-fill-color": "transparent",
-              "-moz-text-fill-color": "transparent",
-
+              'background-size': '100',
+              '-webkit-background-clip': 'text',
+              '-moz-background-clip': 'text',
+              '-webkit-text-fill-color': 'transparent',
+              '-moz-text-fill-color': 'transparent',
             }}
           >
             ab
@@ -41,9 +38,9 @@ export default function Navbar() {
 
         <Nav>
           <List>
-            {pages.map(page => {
-              const path = `/${page.toLowerCase()}`
-              const isHovered = hovered === page
+            {pages.map((page) => {
+              const path = `/${page.toLowerCase()}`;
+              const isHovered = hovered === page;
 
               return (
                 <li key={page}>
@@ -74,7 +71,7 @@ export default function Navbar() {
                     </Anchor>
                   </Link>
                 </li>
-              )
+              );
             })}
           </List>
         </Nav>
@@ -92,7 +89,7 @@ export default function Navbar() {
         </Aside>
       </Header>
     </AnimateSharedLayout>
-  )
+  );
 }
 
 const Header = styled('header', {
@@ -108,7 +105,7 @@ const Header = styled('header', {
   zIndex: 3,
   marginTop: '13px',
   '@bp2': { marginTop: '0' },
-})
+});
 
 const List = styled('ul', {
   margin: '0',
@@ -118,7 +115,7 @@ const List = styled('ul', {
   position: 'relative',
   top: '5px',
   '@bp1': { justifyContent: 'space-around' },
-})
+});
 
 const ButtonHeader = styled('div', {
   appearance: 'none',
@@ -132,12 +129,12 @@ const ButtonHeader = styled('div', {
   padding: '0 10px',
   transition: 'background $duration ease-in-out',
   '&:hover': { background: '$hover' },
-})
+});
 
 const Icon = styled('i', {
   fontSize: '24px',
   lineHeight: '32px',
-})
+});
 
 const ButtonLogo = styled(ButtonHeader, {
   fontWeight: 700,
@@ -145,7 +142,7 @@ const ButtonLogo = styled(ButtonHeader, {
   textDecoration: 'none',
   marginLeft: '12px',
   fontFamily: '$heading',
-})
+});
 
 const Nav = styled('nav', {
   textAlign: 'center',
@@ -154,20 +151,20 @@ const Nav = styled('nav', {
   flexBasis: '100%',
   '@bp2': { order: 0, flexBasis: 'initial' },
   '@bp3': { overflowX: 'scroll', overflowY: 'hidden' },
-})
+});
 
 const Aside = styled('div', {
   display: 'flex',
   alignItems: 'center',
   paddingRight: '12px',
   marginLeft: 'auto',
-})
+});
 
 const Anchor = styled('a', {
   border: 0,
   position: 'relative',
   '&:hover, &:focus': { opacity: 1 },
-})
+});
 
 const NavContainer = styled(motion.span, {
   color: '$secondary',
@@ -196,7 +193,7 @@ const NavContainer = styled(motion.span, {
     opacity: 0,
     transition: 'opacity $duration ease-in-out',
   },
-})
+});
 
 const NavHovered = styled(motion.span, {
   position: 'absolute',
@@ -207,4 +204,4 @@ const NavHovered = styled(motion.span, {
   padding: 20,
   borderRadius: '$borderRadius',
   zIndex: -1,
-})
+});

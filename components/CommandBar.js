@@ -1,7 +1,5 @@
-import { styled } from '../stitches.config'
-import { Box } from './Box'
-import * as React from 'react'
-import { useRouter } from 'next/router'
+import * as React from 'react';
+
 import {
   KBarAnimator,
   KBarProvider,
@@ -10,10 +8,14 @@ import {
   KBarPositioner,
   KBarSearch,
   KBarResults,
-} from 'kbar'
+} from 'kbar';
+import { useRouter } from 'next/router';
+
+import { styled } from '../stitches.config';
+import { Box } from './Box';
 
 export default function CommandBar(props) {
-  const router = useRouter()
+  const router = useRouter();
 
   const actions = [
     {
@@ -76,7 +78,8 @@ export default function CommandBar(props) {
       shortcut: ['f', 'g'],
       keywords: 'go-github',
       section: 'Follow',
-      perform: () => window.open('https://github.com/ialexanderbrito', '_blank'),
+      perform: () =>
+        window.open('https://github.com/ialexanderbrito', '_blank'),
       icon: <Icon className="ri-github-line" />,
     },
     {
@@ -85,7 +88,8 @@ export default function CommandBar(props) {
       shortcut: ['f', 'i'],
       keywords: 'go-instagram',
       section: 'Follow',
-      perform: () => window.open('https://instagram.com/ialexanderbrito', '_blank'),
+      perform: () =>
+        window.open('https://instagram.com/ialexanderbrito', '_blank'),
       icon: <Icon className="ri-instagram-line" />,
     },
     {
@@ -94,7 +98,8 @@ export default function CommandBar(props) {
       shortcut: ['f', 't'],
       keywords: 'go-twitter',
       section: 'Follow',
-      perform: () => window.open('https://twitter.com/ialexanderbrito', '_blank'),
+      perform: () =>
+        window.open('https://twitter.com/ialexanderbrito', '_blank'),
       icon: <Icon className="ri-twitter-line" />,
     },
     {
@@ -103,7 +108,8 @@ export default function CommandBar(props) {
       shortcut: ['f', 'l'],
       keywords: 'go-linkedin',
       section: 'Follow',
-      perform: () => window.open('https://linkedin.com/in/ialexanderbrito', '_blank'),
+      perform: () =>
+        window.open('https://linkedin.com/in/ialexanderbrito', '_blank'),
       icon: <Icon className="ri-linkedin-line" />,
     },
     {
@@ -121,10 +127,11 @@ export default function CommandBar(props) {
       shortcut: ['f', 'd'],
       keywords: 'go-discord',
       section: 'Follow',
-      perform: () => window.open('https://discord.com/users/348275303400996864/', '_blank'),
+      perform: () =>
+        window.open('https://discord.com/users/348275303400996864/', '_blank'),
       icon: <Icon className="ri-discord-line" />,
     },
-  ]
+  ];
 
   return (
     <KBarProvider actions={actions}>
@@ -139,11 +146,11 @@ export default function CommandBar(props) {
 
       {props.children}
     </KBarProvider>
-  )
+  );
 }
 
 function RenderResults() {
-  const { results } = useDeepMatches()
+  const { results } = useDeepMatches();
 
   return (
     <KBarResults
@@ -156,30 +163,28 @@ function RenderResults() {
         )
       }
     />
-  )
+  );
 }
 
-const ResultItem = React.forwardRef(({ action, active }, ref) => {
-  return (
-    <Box ref={ref} css={getResultStyle(active)}>
-      <Action>
-        {action.icon && action.icon}
-        <ActionRow>
-          <span>{action.name}</span>
-        </ActionRow>
-      </Action>
-      {action.shortcut?.length ? (
-        <Shortcut aria-hidden>
-          {action.shortcut.map(shortcut => (
-            <Kbd key={shortcut}>{shortcut}</Kbd>
-          ))}
-        </Shortcut>
-      ) : null}
-    </Box>
-  )
-})
+const ResultItem = React.forwardRef(({ action, active }, ref) => (
+  <Box ref={ref} css={getResultStyle(active)}>
+    <Action>
+      {action.icon && action.icon}
+      <ActionRow>
+        <span>{action.name}</span>
+      </ActionRow>
+    </Action>
+    {action.shortcut?.length ? (
+      <Shortcut aria-hidden>
+        {action.shortcut.map((shortcut) => (
+          <Kbd key={shortcut}>{shortcut}</Kbd>
+        ))}
+      </Shortcut>
+    ) : null}
+  </Box>
+));
 
-ResultItem.displayName = 'ResultItem'
+ResultItem.displayName = 'ResultItem';
 
 const Positioner = styled(KBarPositioner, {
   position: 'fixed',
@@ -191,7 +196,7 @@ const Positioner = styled(KBarPositioner, {
   padding: '14vh 16px 16px',
   background: 'rgba(0, 0, 0, .8)',
   boxSizing: 'border-box',
-})
+});
 
 const Search = styled(KBarSearch, {
   padding: '12px 16px',
@@ -203,7 +208,7 @@ const Search = styled(KBarSearch, {
   margin: 0,
   background: '$command',
   color: '$primary',
-})
+});
 
 const GroupName = styled('div', {
   padding: '8px 16px',
@@ -211,37 +216,37 @@ const GroupName = styled('div', {
   textTransform: 'uppercase',
   letterSpacing: '1px',
   background: '$command',
-})
+});
 
 const Icon = styled('i', {
   fontSize: '20px',
   position: 'relative',
   top: '-2px',
-})
+});
 
 const Kbd = styled('kbd', {
   background: 'rgba(255, 255, 255, .1)',
   color: '$secondary',
   padding: '4px 8px',
   textTransform: 'uppercase',
-})
+});
 
 const Shortcut = styled('div', {
   display: 'grid',
   gridAutoFlow: 'column',
   gap: '4px',
-})
+});
 
 const Action = styled('div', {
   display: 'flex',
   gap: '8px',
   alignItems: 'center',
-})
+});
 
 const ActionRow = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-})
+});
 
 const Animator = styled(KBarAnimator, {
   backgroundColor: '#1a1c1e',
@@ -255,17 +260,15 @@ const Animator = styled(KBarAnimator, {
     WebkitBackdropFilter: 'saturate(300%) blur(25px)',
     backdropFilter: 'saturate(300%) blur(25px)',
   },
-})
+});
 
-const getResultStyle = active => {
-  return {
-    padding: '12px 16px',
-    background: active ? 'rgba(255, 255, 255, 0.1)' : '$command',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    margin: 0,
-    cursor: 'pointer',
-    color: active ? '$primary' : '$secondary',
-  }
-}
+const getResultStyle = (active) => ({
+  padding: '12px 16px',
+  background: active ? 'rgba(255, 255, 255, 0.1)' : '$command',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  margin: 0,
+  cursor: 'pointer',
+  color: active ? '$primary' : '$secondary',
+});

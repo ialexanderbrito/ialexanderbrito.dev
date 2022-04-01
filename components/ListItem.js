@@ -1,8 +1,10 @@
-import { styled } from '../stitches.config'
-import { useState } from 'react'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-import BlogDate from './BlogDate'
+import { useState } from 'react';
+
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+
+import { styled } from '../stitches.config';
+import BlogDate from './BlogDate';
 
 export default function ListItem(props) {
   // Articles
@@ -20,7 +22,7 @@ export default function ListItem(props) {
           </Anchor>
         </Link>
       </ArticleItem>
-    )
+    );
   }
 
   // Podcasts
@@ -35,12 +37,12 @@ export default function ListItem(props) {
         </Animation>
       </Anchor>
     </Item>
-  )
+  );
 }
 
 function Animation(props) {
-  const [hovered, setHovered] = useState('')
-  const isHovered = hovered === props.index
+  const [hovered, setHovered] = useState('');
+  const isHovered = hovered === props.index;
 
   return (
     <AnimContainer
@@ -58,17 +60,17 @@ function Animation(props) {
 
       {props.children}
     </AnimContainer>
-  )
+  );
 }
 
 const Item = styled('li', {
   borderBottom: '1px solid $hover',
   '&:last-child': { border: 0 },
-})
+});
 
 const Anchor = styled('a', {
   textDecoration: 'none',
-})
+});
 
 const Title = styled('span', {
   display: 'block',
@@ -77,7 +79,7 @@ const Title = styled('span', {
   fontSize: '18px',
   lineHeight: '40px',
   textAlign: 'left',
-})
+});
 
 const Date = styled('span', {
   color: '$secondary',
@@ -87,11 +89,11 @@ const Date = styled('span', {
   minWidth: '100px',
   textAlign: 'left',
   '@bp2': { textAlign: 'right' },
-})
+});
 
 const IconContainer = styled('span', {
   fontSize: '24px',
-})
+});
 
 const AnimContainer = styled(motion.span, {
   border: '0',
@@ -106,7 +108,7 @@ const AnimContainer = styled(motion.span, {
   textDecoration: 'none',
   position: 'relative',
   '&:hover': { color: '$primary' },
-})
+});
 
 const AnimHovered = styled(motion.span, {
   position: 'absolute',
@@ -117,11 +119,11 @@ const AnimHovered = styled(motion.span, {
   background: '$hover',
   borderRadius: '$borderRadius',
   zIndex: -1,
-})
+});
 
 const ArticleItem = styled(Item, {
   [`& ${AnimContainer}`]: {
     flexDirection: 'column',
     '@bp2': { flexDirection: 'row' },
   },
-})
+});

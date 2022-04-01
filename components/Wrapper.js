@@ -1,4 +1,4 @@
-import { styled } from '../stitches.config'
+import { styled } from '../stitches.config';
 
 export const Wrapper = styled('div', {
   display: 'flex',
@@ -6,4 +6,4 @@ export const Wrapper = styled('div', {
   minHeight: '100vh',
   position: 'relative',
   zIndex: 0,
-})
+});

@@ -1,11 +1,11 @@
-import { styled } from '../stitches.config'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import { PostMain, PostContent, PostContainer } from '../components/Post'
-import { Wrapper } from '../components/Wrapper'
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import { PostMain, PostContent, PostContainer } from '../components/Post';
+import { Wrapper } from '../components/Wrapper';
+import { styled } from '../stitches.config';
 
 export default function Base({ children }) {
-  const { title, tagline, primaryColor, secondaryColor } = children.props
+  const { title, tagline, primaryColor, secondaryColor } = children.props;
 
   return (
     <Wrapper>
@@ -38,7 +38,7 @@ export default function Base({ children }) {
       </PostMain>
       <Footer />
     </Wrapper>
-  )
+  );
 }
 
 const GradientTitle = styled('h1', {
@@ -49,4 +49,4 @@ const GradientTitle = styled('h1', {
   WebkitTextFillColor: 'transparent',
   MozTextFillColor: 'transparent',
   WebkitBoxDecorationBreak: 'clone',
-})
+});

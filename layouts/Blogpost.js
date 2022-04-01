@@ -1,13 +1,13 @@
-import { styled } from '../stitches.config'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import BlogDate from '../components/BlogDate'
-import BlogViews from '../components/BlogViews'
-import { Post, PostMain, PostContent, PostContainer } from '../components/Post'
-import { Wrapper } from '../components/Wrapper'
+import BlogDate from '../components/BlogDate';
+import BlogViews from '../components/BlogViews';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import { Post, PostMain, PostContent, PostContainer } from '../components/Post';
+import { Wrapper } from '../components/Wrapper';
+import { styled } from '../stitches.config';
 
 export default function Blogpost({ children }) {
-  const { title, image, date, views } = children.props
+  const { title, image, date, views } = children.props;
 
   return (
     <Wrapper>
@@ -43,7 +43,7 @@ export default function Blogpost({ children }) {
       </Main>
       <Footer />
     </Wrapper>
-  )
+  );
 }
 
 function Main(props) {
@@ -51,7 +51,7 @@ function Main(props) {
     <Post>{props.children}</Post>
   ) : (
     <PostMain>{props.children}</PostMain>
-  )
+  );
 }
 
 const PostHeader = styled('div', {
@@ -64,7 +64,7 @@ const PostHeader = styled('div', {
   justifyContent: 'center',
   position: 'relative',
   flexDirection: 'column',
-})
+});
 
 export const PostTitle = styled('h1', {
   textAlign: 'center',
@@ -73,7 +73,7 @@ export const PostTitle = styled('h1', {
     lineHeight: '90px',
     maxWidth: '60%',
   },
-})
+});
 
 export const PostHeaderTitle = styled(PostTitle, {
   color: '#fff',
@@ -82,7 +82,7 @@ export const PostHeaderTitle = styled(PostTitle, {
   zIndex: 3,
   fontSize: '60px',
   lineHeight: '80px',
-})
+});
 
 export const PostContentTitle = styled(PostTitle, {
   color: '$primary',
@@ -94,14 +94,14 @@ export const PostContentTitle = styled(PostTitle, {
   '@bp2': {
     marginTop: 0,
   },
-})
+});
 
 const PostSubtitle = styled('h2', {
   color: '#fff',
   fontSize: '16px',
   fontWeight: 500,
   textAlign: 'center',
-})
+});
 
 const PostHeaderSubtitle = styled(PostSubtitle, {
   position: 'absolute',
@@ -109,13 +109,13 @@ const PostHeaderSubtitle = styled(PostSubtitle, {
   zIndex: 2,
   margin: '0',
   width: '100%',
-})
+});
 
 const PostContentSubtitle = styled(PostSubtitle, {
   color: '$secondary',
   fontSize: '16px',
   margin: '0 0 60px',
-})
+});
 
 const PostImage = styled('div', {
   backgroundColor: '#141618',
@@ -150,4 +150,4 @@ const PostImage = styled('div', {
   },
 
   '@bp4': { position: 'absolute' },
-})
+});

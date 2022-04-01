@@ -1,16 +1,17 @@
-import '../public/static/css/prism.css'
-import 'remixicon/fonts/remixicon.css'
+import '../public/static/css/prism.css';
+import 'remixicon/fonts/remixicon.css';
 
-import Router from 'next/router'
-import * as gtag from '../lib/gtag'
-import CommandBar from '../components/CommandBar'
+import Router from 'next/router';
 
-Router.events.on('routeChangeComplete', url => gtag.pageview(url))
+import CommandBar from '../components/CommandBar';
+import * as gtag from '../lib/gtag';
 
-const Noop = ({ children }) => children
+Router.events.on('routeChangeComplete', (url) => gtag.pageview(url));
+
+const Noop = ({ children }) => children;
 
 export default function MyApp({ Component, pageProps }) {
-  const Layout = Component.Layout || Noop
+  const Layout = Component.Layout || Noop;
 
   return (
     <CommandBar>
@@ -18,5 +19,5 @@ export default function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
     </CommandBar>
-  )
+  );
 }

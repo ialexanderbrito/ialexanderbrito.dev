@@ -1,11 +1,11 @@
-import { styled } from '../stitches.config'
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState } from 'react';
 
+import { motion } from 'framer-motion';
 
+import { styled } from '../stitches.config';
 
 export default function Social(props) {
-  const { project } = props
+  const { project } = props;
 
   return (
     <Project href={project.url} target="_blank">
@@ -20,12 +20,12 @@ export default function Social(props) {
         </Body>
       </Animation>
     </Project>
-  )
+  );
 }
 
 function Animation(props) {
-  const [hovered, setHovered] = useState('')
-  const isHovered = hovered === props.index
+  const [hovered, setHovered] = useState('');
+  const isHovered = hovered === props.index;
 
   return (
     <AnimContainer
@@ -43,7 +43,7 @@ function Animation(props) {
 
       {props.children}
     </AnimContainer>
-  )
+  );
 }
 
 const Project = styled('a', {
@@ -55,29 +55,29 @@ const Project = styled('a', {
   width: 'auto',
   '&:hover': { opacity: 1 },
   '@bp2': { width: '100%' },
-})
+});
 
 const IconContainer = styled('div', {
   color: '$primary',
   fontSize: '24px',
   padding: '0 10px 0 0',
-})
+});
 
 const Body = styled('div', {
   flex: '1 1 auto',
-})
+});
 
 const Title = styled('p', {
   color: '$primary',
   margin: '0',
   fontSize: '18px',
-})
+});
 
 const Description = styled('p', {
   margin: '0',
   color: '$secondary',
   lineHeight: '24px',
-})
+});
 
 const Stats = styled('p', {
   margin: '5px 0 0',
@@ -87,13 +87,13 @@ const Stats = styled('p', {
   fontWeight: 500,
   letterSpacing: '1.2px',
   fontSize: '12px',
-})
+});
 
 const AnimContainer = styled(motion.span, {
   position: 'relative',
   width: '100%',
   padding: '20px',
-})
+});
 
 const AnimHovered = styled(motion.span, {
   position: 'absolute',
@@ -104,11 +104,11 @@ const AnimHovered = styled(motion.span, {
   background: '$hover',
   borderRadius: '$borderRadius',
   zIndex: -1,
-})
+});
 
 export const SocialDiv = styled('div', {
   display: 'grid',
   flexDirection: 'column',
   gridTemplateColumns: 'repeat(3, 1fr)',
   '@bp2': { flexDirection: 'column' },
-})
+});

@@ -5,7 +5,8 @@ const items = [
     projects: [
       {
         title: 'CryptoMarket',
-        description: 'Site para preços das criptomoedas, gráficos de preços, calculadoras',
+        description:
+          'Site para preços das criptomoedas, gráficos de preços, calculadoras',
         url: 'https://cryptomarket.ialexanderbrito.dev/',
         icon: 'bit-coin',
         active: true,
@@ -164,7 +165,8 @@ const items = [
       },
       {
         title: 'Moveit · NLW#4',
-        description: 'App que utiliza a técnica de pomodoro, com o objetivo de melhorar sua produtividade e foco',
+        description:
+          'App que utiliza a técnica de pomodoro, com o objetivo de melhorar sua produtividade e foco',
         url: 'https://moveit.ialexanderbrito.dev/',
         icon: 'shopping-basket',
         active: true,
@@ -172,7 +174,8 @@ const items = [
       },
       {
         title: 'Happy · NLW#3',
-        description: 'Uma plataforma que ajuda pessoas a sem conectarem com orfanatos próximos e podendo assim, o usuário agender uma visita e fazer o dia de uma criança mais feliz',
+        description:
+          'Uma plataforma que ajuda pessoas a sem conectarem com orfanatos próximos e podendo assim, o usuário agender uma visita e fazer o dia de uma criança mais feliz',
         url: 'https://moveit.ialexanderbrito.dev/',
         icon: 'shopping-basket',
         active: true,
@@ -180,7 +183,8 @@ const items = [
       },
       {
         title: 'Proffy · NLW#2',
-        description: 'Uma plataforma de estudos onlines para alunos encontrarem professores de diversas matérias para focar nos estudos de forma online',
+        description:
+          'Uma plataforma de estudos onlines para alunos encontrarem professores de diversas matérias para focar nos estudos de forma online',
         url: 'https://proffy.ialexanderbrito.dev/',
         icon: 'shopping-basket',
         active: true,
@@ -188,7 +192,8 @@ const items = [
       },
       {
         title: 'Ecoleta · NLW#1',
-        description: 'Sistema para conectar empresas e entidades de coleta de resíduos orgânicos e inorgânicos as pessoas que precisam descartar seus resíduos de maneira ecológica',
+        description:
+          'Sistema para conectar empresas e entidades de coleta de resíduos orgânicos e inorgânicos as pessoas que precisam descartar seus resíduos de maneira ecológica',
         url: 'https://ecoleta.ialexanderbrito.dev/',
         icon: 'shopping-basket',
         active: true,
@@ -196,7 +201,8 @@ const items = [
       },
       {
         title: 'Be The Hero · OmniStack#11',
-        description: 'Sistema que visa ajudar, de maneira financeira uma instituição de caridade, ajudando a mesma se manter',
+        description:
+          'Sistema que visa ajudar, de maneira financeira uma instituição de caridade, ajudando a mesma se manter',
         url: 'https://bethehero.ialexanderbrito.dev/',
         icon: 'shopping-basket',
         active: true,
@@ -204,7 +210,8 @@ const items = [
       },
       {
         title: 'DevRadar · OmniStack#10',
-        description: 'Sistema que visa facilitar a busca por desenvolvedores que residem próximo a você',
+        description:
+          'Sistema que visa facilitar a busca por desenvolvedores que residem próximo a você',
         url: 'https://devradar.ialexanderbrito.dev/',
         icon: 'shopping-basket',
         active: true,
@@ -212,14 +219,15 @@ const items = [
       },
       {
         title: 'Aircnc · OmniStack#9',
-        description: 'Sistema para conectar empresas e desenvolvedores que procuram um lugar em comum para se conhecer',
+        description:
+          'Sistema para conectar empresas e desenvolvedores que procuram um lugar em comum para se conhecer',
         url: 'mohttps://aircnc.ialexanderbrito.dev',
         icon: 'shopping-basket',
         active: true,
         image: 'static/images/projects/aircnc.png',
       },
-    ]
+    ],
   },
-]
+];
 
-export default items
+export default items;

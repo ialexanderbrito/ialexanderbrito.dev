@@ -1,10 +1,11 @@
-import { styled } from '../stitches.config'
-import Head from 'next/head'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import ShortcutHome from '../components/ShortcutHome'
-import { PostMain, PostContent, PostContainer } from '../components/Post'
-import { Wrapper } from '../components/Wrapper'
+import Head from 'next/head';
+
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import { PostMain, PostContent, PostContainer } from '../components/Post';
+import ShortcutHome from '../components/ShortcutHome';
+import { Wrapper } from '../components/Wrapper';
+import { styled } from '../stitches.config';
 
 export async function getStaticProps() {
   return {
@@ -16,11 +17,12 @@ export async function getStaticProps() {
       primaryColor: 'cyan',
       secondaryColor: 'green',
     },
-  }
+  };
 }
 
 export default function Index(props) {
-  const { title, name, description, image, primaryColor, secondaryColor } = props
+  const { title, name, description, image, primaryColor, secondaryColor } =
+    props;
 
   return (
     <Wrapper>
@@ -30,7 +32,10 @@ export default function Index(props) {
         <meta content={description} name="description" />
         <meta content={description} property="og:description" />
         <meta content="https://ialexanderbrito.dev" property="og:url" />
-        <meta content={`https://ialexanderbrito.dev${image}`} property="og:image" />
+        <meta
+          content={`https://ialexanderbrito.dev${image}`}
+          property="og:image"
+        />
       </Head>
 
       <Navbar />
@@ -60,7 +65,7 @@ export default function Index(props) {
       </Home>
       <Footer />
     </Wrapper>
-  )
+  );
 }
 
 const Home = styled(PostMain, {
@@ -68,7 +73,7 @@ const Home = styled(PostMain, {
   display: 'flex',
   margin: '0 auto',
   '@bp2': { width: 800 },
-})
+});
 
 const GradientTitle = styled('h1', {
   backgroundSize: '100%',
@@ -78,4 +83,4 @@ const GradientTitle = styled('h1', {
   WebkitTextFillColor: 'transparent',
   MozTextFillColor: 'transparent',
   WebkitBoxDecorationBreak: 'clone',
-})
+});

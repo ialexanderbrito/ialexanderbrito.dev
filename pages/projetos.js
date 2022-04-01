@@ -1,14 +1,19 @@
-import React from 'react'
-import Head from 'next/head'
-import { styled } from '@stitches/react'
-import { AnimateSharedLayout } from 'framer-motion'
-import { motion } from 'framer-motion'
-import { useState } from 'react'
-import Base from '../layouts/Base'
-import FeaturedProject from '../components/FeaturedProject'
-import { ContainerProject, FeaturedProjects } from '../components/FeaturedProjects'
-import stripHtml from '../lib/strip-html'
-import items from '../data/projects'
+import React from 'react';
+import { useState } from 'react';
+
+import { styled } from '@stitches/react';
+import { AnimateSharedLayout } from 'framer-motion';
+import { motion } from 'framer-motion';
+import Head from 'next/head';
+
+import FeaturedProject from '../components/FeaturedProject';
+import {
+  ContainerProject,
+  FeaturedProjects,
+} from '../components/FeaturedProjects';
+import items from '../data/projects';
+import Base from '../layouts/Base';
+import stripHtml from '../lib/strip-html';
 
 export async function getStaticProps() {
   const meta = {
@@ -17,75 +22,72 @@ export async function getStaticProps() {
     image: '#',
     primaryColor: 'cyan',
     secondaryColor: 'green',
-  }
+  };
 
-  return { props: meta }
+  return { props: meta };
 }
 
 function Projects(props) {
   const renderFeatured = () => {
-    const featured = ['CryptoMarket', 'DevFinder', 'rastre.io', 'Menuria']
+    const featured = ['CryptoMarket', 'DevFinder', 'rastre.io', 'Menuria'];
 
     return items
-      .map(item => {
-        return item.projects.filter(project => featured.includes(project.title))
-      })
-      .filter(item => {
+      .map((item) =>
+        item.projects.filter((project) => featured.includes(project.title)),
+      )
+      .filter((item) => {
         if (item.length > 0) {
-          return item
+          return item;
         }
       })
       .flat()
-      .map((item, index) => {
-        return <FeaturedProject key={index} project={item} />
-      })
-  }
+      .map((item, index) => <FeaturedProject key={index} project={item} />);
+  };
 
-  const renderProjects = () => {
-    return items.map((item, index) => {
-      return (
-        <>
-          <div key={index}>
-            <h3>{item.company}</h3>
-          </div>
-          <div />
+  const renderProjects = () =>
+    items.map((item, index) => (
+      <>
+        <div key={index}>
+          <h3>{item.company}</h3>
+        </div>
+        <div />
 
-          {item.projects.map((project, pIndex) => {
-            return (
-              <>
-                {project.title === '' ? <div key={pIndex} /> : (
-                  <Article href={project.url} target="_blank">
-                    <Animation index={pIndex}>
-                      <ImageContainer
-                        css={{ backgroundImage: `url(${project.image})` }}
-                      />
-                      <Content>
-                        <Title>{project.title}</Title>
-                        <Description dangerouslySetInnerHTML={{ __html: project.description }} />
-                      </Content>
-                    </Animation>
-                  </Article>
-                )}
-              </>
-            )
-          })}
-        </>
-      )
-    })
-  }
+        {item.projects.map((project, pIndex) => (
+          <>
+            {project.title === '' ? (
+              <div key={pIndex} />
+            ) : (
+              <Article href={project.url} target="_blank">
+                <Animation index={pIndex}>
+                  <ImageContainer
+                    css={{ backgroundImage: `url(${project.image})` }}
+                  />
+                  <Content>
+                    <Title>{project.title}</Title>
+                    <Description
+                      dangerouslySetInnerHTML={{ __html: project.description }}
+                    />
+                  </Content>
+                </Animation>
+              </Article>
+            )}
+          </>
+        ))}
+      </>
+    ));
 
   const getTotalProjects = () => {
-    let total = 0
+    let total = 0;
 
     for (let i = 0; i < items.length; i++) {
-      total = total + items[i].projects.length
+      total = total + items[i].projects.length;
     }
 
-    return total
-  }
+    return total;
+  };
 
-  const { title, image } = props
-  const description = `Essa página lista os <strong>${getTotalProjects()}</strong> principais projeto(s) que desenvolvi durante a minha jornada como programador.`
+  const { title, image } = props;
+  const description = `Essa página lista os <strong>${getTotalProjects()}</strong> principais projeto(s) que desenvolvi durante a minha jornada como programador.`;
 
   return (
     <>
@@ -94,8 +96,14 @@ function Projects(props) {
         <meta content={title} property="og:title" />
         <meta content={stripHtml(description)} name="description" />
         <meta content={stripHtml(description)} property="og:description" />
-        <meta content="https://ialexanderbrito.dev/projects" property="og:url" />
-        <meta content={`https://ialexanderbrito.dev${image}`} property="og:image" />
+        <meta
+          content="https://ialexanderbrito.dev/projects"
+          property="og:url"
+        />
+        <meta
+          content={`https://ialexanderbrito.dev${image}`}
+          property="og:image"
+        />
       </Head>
 
       <AnimateSharedLayout>
@@ -108,10 +116,8 @@ function Projects(props) {
         <ContainerProject>{renderProjects()}</ContainerProject>
       </AnimateSharedLayout>
     </>
-  )
+  );
 }
-
-
 
 const Article = styled('a', {
   border: '0',
@@ -121,7 +127,7 @@ const Article = styled('a', {
   filter: 'grayscale(1)',
   '&:hover': { opacity: 1, filter: 'grayscale(0)' },
   '&:first-child': { marginLeft: 0 },
-})
+});
 
 const ImageContainer = styled('div', {
   borderRadius: '8px',
@@ -131,18 +137,18 @@ const ImageContainer = styled('div', {
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center center',
-})
+});
 
 const Content = styled('div', {
   maxWidth: '450px',
   marginRight: '20px',
   '@bp2': { maxWidth: '100%', marginRight: 0 },
-})
+});
 
 const Title = styled('h3', {
   color: '$primary',
   margin: 0,
-})
+});
 
 const Description = styled('p', {
   color: '$secondary',
@@ -151,13 +157,13 @@ const Description = styled('p', {
   WebkitLineClamp: '2',
   WebkitBoxOrient: 'vertical',
   overflow: 'hidden',
-})
+});
 
 const AnimContainer = styled(motion.div, {
   position: 'relative',
   width: '100%',
   padding: '20px',
-})
+});
 
 const AnimHovered = styled(motion.div, {
   position: 'absolute',
@@ -168,11 +174,11 @@ const AnimHovered = styled(motion.div, {
   background: '$hover',
   borderRadius: '$borderRadius',
   zIndex: -1,
-})
+});
 
 function Animation(props) {
-  const [hovered, setHovered] = useState('')
-  const isHovered = hovered === props.index
+  const [hovered, setHovered] = useState('');
+  const isHovered = hovered === props.index;
 
   return (
     <AnimContainer
@@ -191,9 +197,9 @@ function Animation(props) {
 
       {props.children}
     </AnimContainer>
-  )
+  );
 }
 
-Projects.Layout = Base
+Projects.Layout = Base;
 
-export default Projects
+export default Projects;

@@ -1,16 +1,18 @@
-import React from 'react'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { getCssText } from '../stitches.config'
-import { GA_TRACKING_ID } from '../lib/gtag'
+import React from 'react';
+
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+
+import { GA_TRACKING_ID } from '../lib/gtag';
+import { getCssText } from '../stitches.config';
 
 export default class extends Document {
   static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
+    const initialProps = await Document.getInitialProps(ctx);
+    return { ...initialProps };
   }
 
   render() {
-    const lang = this.props.__NEXT_DATA__.props.pageProps?.post?.lang
+    const lang = this.props.__NEXT_DATA__.props.pageProps?.post?.lang;
 
     return (
       <Html lang={lang ? lang : 'pt-BR'}>
@@ -50,6 +52,6 @@ export default class extends Document {
         <Main />
         <NextScript />
       </Html>
-    )
+    );
   }
 }

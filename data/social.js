@@ -39,6 +39,6 @@ const items = [
       },
     ],
   },
-]
+];
 
-export default items
+export default items;

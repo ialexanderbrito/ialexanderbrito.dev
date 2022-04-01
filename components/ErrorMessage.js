@@ -1,13 +1,13 @@
-import ShortcutError from './ShortcutError'
-import { Box } from './Box'
+import { Box } from './Box';
+import ShortcutError from './ShortcutError';
 
 export default function ErrorMessage({ code }) {
-  let title = '500'
-  let description = "Algo não está certo."
+  let title = '500';
+  let description = 'Algo não está certo.';
 
   if (code === 404) {
-    title = '404'
-    description = "Esta página não existe."
+    title = '404';
+    description = 'Esta página não existe.';
   }
 
   return (
@@ -16,5 +16,5 @@ export default function ErrorMessage({ code }) {
       <ShortcutError />
       <p>{description}</p>
     </Box>
-  )
+  );
 }

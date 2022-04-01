@@ -14,6 +14,6 @@ const items = [
     endDate: '2021-10',
     location: 'São Paulo, SP',
   },
-]
+];
 
-export default items
+export default items;
