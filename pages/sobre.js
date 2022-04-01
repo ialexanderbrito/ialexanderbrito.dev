@@ -50,13 +50,13 @@ function About(props) {
         </Paragraph>
         <Paragraph>
           Atualmente trabalhando na{' '}
-          <strong>IK Solution como desenvolvedor Front-end Pleno</strong> e
+          <strong>IK Solution</strong> como <strong>desenvolvedor Front-end Pleno</strong> e
           estudando UI Designer pelo curso <strong>uiBoost</strong>.
         </Paragraph>
         <Paragraph>
           Nas horas vagas gosto de desenvolver aplicações e clonar apps que já
           estão no mercado para aperfeiçoar meus estudos e também focando os
-          estudos na parte UI/UX Design.
+          estudos na parte <strong>UI/UX Design</strong>.
         </Paragraph>
       </Section>
     </Container>
