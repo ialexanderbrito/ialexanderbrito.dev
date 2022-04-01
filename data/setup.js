@@ -3,10 +3,12 @@ const categories = [
     name: 'Equipamentos',
     items: [
       {
-        title: 'Hackintosh - i5 10600K - Placa Mãe Gigabyte Z490M Gaming X - 32GB de RAM Kllisre',
+        title:
+          'Hackintosh - i5 10600K - Placa Mãe Gigabyte Z490M Gaming X - 32GB de RAM Kllisre',
       },
       {
-        title: 'Placa de Vídeo RX 580 - WaterCooler 240mm Gamdias M2 - Gabinete Kazan RGB',
+        title:
+          'Placa de Vídeo RX 580 - WaterCooler 240mm Gamdias M2 - Gabinete Kazan RGB',
       },
       {
         title: 'Monitor - LG 29" UltraWide (29WK600)',
@@ -40,6 +42,11 @@ const categories = [
         title: 'Microfone - Vedo BM800',
         url: 'https://www.americanas.com.br/produto/4052539083',
       },
+    ],
+  },
+  {
+    name: 'Desk',
+    items: [
       {
         title: 'Mesa - Kuadra Nogal 1.50M',
         url: 'https://www.americanas.com.br/produto/58709685',
@@ -47,6 +54,14 @@ const categories = [
       {
         title: 'Cadeira - Husky Gaming Tempest 500',
         url: 'https://www.kabum.com.br/produto/134180',
+      },
+      {
+        title: 'Deskpad - Maphiro 90x40',
+        url: 'https://produto.mercadolivre.com.br/MLB-2173586210-mousepad-gamer-profissional-90x40-cm-desk-pad-alta-qualidade-_JM',
+      },
+      {
+        title: 'Luminária de mesa',
+        url: 'https://www.americanas.com.br/produto/3923586151',
       },
     ],
   },
@@ -135,6 +150,18 @@ const categories = [
         title: 'CopyClip',
         url: 'https://apps.apple.com/br/app/copyclip-clipboard-history/id595191960?mt=12',
       },
+      {
+        title: 'Beekeeper Studio',
+        url: 'https://www.beekeeperstudio.io/',
+      },
+      {
+        title: 'Keka',
+        url: 'https://www.keka.io/en/',
+      },
+      {
+        title: 'Kap',
+        url: 'https://getkap.co/',
+      },
     ],
   },
   {
@@ -150,6 +177,6 @@ const categories = [
       },
     ],
   },
-]
+];
 
-export default categories
+export default categories;
