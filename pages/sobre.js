@@ -13,7 +13,7 @@ export async function getStaticProps() {
   const meta = {
     title: 'Sobre | Alexander',
     description:
-      'Desenvolvedor front-end Web e Mobile, formado em Sistemas de Informação na Universidade Unigranrio. Atualmente trabalhando na IK Solution como desenvolvedor Front-end Jr e estudando UI Designer pelo curso uiBoost. Nas horas vagas gosto de desenvolver aplicações, clonar apps que já estão no mercado para aperfeiçoar meus estudos e também focando os estudos na parte UI/UX Design.',
+      'Me chamo Alexander, desenvolvedor front-end e flamenguista! Nas redes sociais conhecido como ialexanderbrito',
     tagline: 'Sobre mim.',
     image: '/static/images/about-bw.jpg',
     primaryColor: 'cyan',
@@ -44,7 +44,7 @@ function About(props) {
             '@bp2': { marginTop: '-6px' },
           }}
         >
-          <strong>Oi, eu sou Alexander</strong>
+          <strong>Oi, eu sou Alexander </strong>
           Desenvolvedor front-end Web e Mobile, formado em Sistemas de
           Informação na Universidade Unigranrio.
         </Paragraph>
@@ -54,7 +54,7 @@ function About(props) {
           estudando UI Designer pelo curso <strong>uiBoost</strong>.
         </Paragraph>
         <Paragraph>
-          Nas horas vagas gosto de desenvolver aplicações, clonar apps que já
+          Nas horas vagas gosto de desenvolver aplicações e clonar apps que já
           estão no mercado para aperfeiçoar meus estudos e também focando os
           estudos na parte UI/UX Design.
         </Paragraph>
