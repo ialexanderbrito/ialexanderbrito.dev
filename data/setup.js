@@ -1,15 +1,37 @@
 const categories = [
   {
-    name: 'Equipamentos',
+    name: 'Hackintosh & Windows',
     items: [
       {
-        title:
-          'Hackintosh - i5 10600K - Placa Mãe Gigabyte Z490M Gaming X - 32GB de RAM Kllisre',
+        title: 'Placa Mãe Gigabyte Z490M Gaming X',
+        url: 'https://www.kabum.com.br/produto/112810/'
       },
       {
         title:
-          'Placa de Vídeo RX 580 - WaterCooler 240mm Gamdias M2 - Gabinete Kazan RGB',
+          'Processador Intel - i5 10600K',
+        url: 'https://www.kabum.com.br/produto/112993/'
       },
+      {
+        title: 'Mémoria Kllisre - 32GB de RAM',
+        url: 'https://pt.aliexpress.com/item/32961521712.html'
+      },
+      {
+        title: 'Placa de Vídeo RX 580 Asus',
+        url: 'https://www.casasbahia.com.br/placa-de-video-asus-radeon-rx-580-dual-oc-8gb-gddr5-pci-express-1529352207/p/1529352207'
+      },
+      {
+        title: 'WaterCooler - 240mm Gamdias M2',
+        url: 'https://www.kabum.com.br/produto/128322'
+      },
+      {
+        title: 'Gabinete Kazan RGB',
+        url: 'https://www.amazon.com.br/Gabinete-Pichau-Lateral-frontal-Pgkz-01/dp/B07XH3GC47'
+      }
+    ],
+  },
+  {
+    name: 'Equipamentos',
+    items: [
       {
         title: 'Monitor - LG 29" UltraWide (29WK600)',
         url: 'https://www.kabum.com.br/produto/97920',
@@ -162,6 +184,10 @@ const categories = [
         title: 'Kap',
         url: 'https://getkap.co/',
       },
+      {
+        title: 'Stats',
+        url: 'https://github.com/exelban/stats',
+      }
     ],
   },
   {
