@@ -13,7 +13,7 @@ export async function getStaticProps() {
   const meta = {
     title: 'Sobre | Alexander',
     description:
-      'Me chamo Alexander, desenvolvedor front-end e flamenguista! Nas redes sociais conhecido como ialexanderbrito',
+      'Me chamo Alexander, desenvolvedor front-end e flamenguista! Nas redes sociais conhecido como @ialexanderbrito',
     tagline: 'Sobre mim.',
     image: '/static/images/about-bw.jpg',
     primaryColor: 'cyan',
@@ -22,6 +22,8 @@ export async function getStaticProps() {
 
   return { props: meta };
 }
+
+const yearAnniversary = new Date('1997-03-31');
 
 function About(props) {
   const { title, description, image } = props;
@@ -44,9 +46,10 @@ function About(props) {
             '@bp2': { marginTop: '-6px' },
           }}
         >
-          <strong>Oi, eu sou Alexander </strong>
-          Desenvolvedor front-end Web e Mobile, formado em Sistemas de
-          Informação na Universidade Unigranrio.
+          <strong>Oi, eu sou Alexander e tenho {new Date().getFullYear() - yearAnniversary.getFullYear()} anos.</strong>
+          <br />
+          Sou Desenvolvedor front-end Web e Mobile, formado em Sistemas de
+          Informação na Universidade Unigranrio .
         </Paragraph>
         <Paragraph>
           Atualmente trabalhando na{' '}
