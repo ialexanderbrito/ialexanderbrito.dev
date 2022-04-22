@@ -52,27 +52,63 @@ function Projects(props) {
         </div>
         <div />
 
-        {item.projects.map((project, pIndex) => (
+        {item.company === 'IK Solution' ? (
           <>
-            {project.title === '' ? (
-              <div key={pIndex} />
-            ) : (
-              <Article href={project.url} target="_blank">
-                <Animation index={pIndex}>
-                  <ImageContainer
-                    css={{ backgroundImage: `url(${project.image})` }}
-                  />
-                  <Content>
-                    <Title>{project.title}</Title>
-                    <Description
-                      dangerouslySetInnerHTML={{ __html: project.description }}
-                    />
-                  </Content>
-                </Animation>
-              </Article>
-            )}
+            {item.projects.map((project, pIndex) => (
+              <>
+                {project.title === '' ? (
+                  <div key={pIndex} />
+                ) : (
+                  <Article href={project.url} target="_blank">
+                    <h4>
+                    </h4>
+                    <Animation index={pIndex}>
+                      <ImageContainer
+                        css={{
+                          backgroundImage: `url(${project.image})`,
+                          filter: 'blur(1.5px)'
+                        }}
+                      />
+                      <Content>
+                        <Title>{project.title}</Title>
+                        <Description
+                          dangerouslySetInnerHTML={{ __html: project.description }}
+                        />
+                      </Content>
+                    </Animation>
+                  </Article>
+                )}
+              </>
+            ))}
           </>
-        ))}
+        ) : (
+          <>
+            {item.projects.map((project, pIndex) => (
+              <>
+                {project.title === '' ? (
+                  <div key={pIndex} />
+                ) : (
+                  <Article href={project.url} target="_blank">
+                    <h4>
+                    </h4>
+                    <Animation index={pIndex}>
+                      <ImageContainer
+                        css={{ backgroundImage: `url(${project.image})` }}
+                      />
+                      <Content>
+                        <Title>{project.title}</Title>
+                        <Description
+                          dangerouslySetInnerHTML={{ __html: project.description }}
+                        />
+                      </Content>
+                    </Animation>
+                  </Article>
+                )}
+              </>
+            ))}
+          </>
+        )}
+
       </>
     ));
 
