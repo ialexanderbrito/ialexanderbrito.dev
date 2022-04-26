@@ -31,7 +31,7 @@ const items = [
       {
         title: 'Banco Neon · Clone',
         description: 'Clone do site do Banco Neon',
-        url: 'https://neon.ialexanderbrito.dev/',
+        url: 'https://github.com/ialexanderbrito/neon-clone',
         icon: 'shopping-basket',
         active: true,
         image: 'static/images/projects/neon.png',
