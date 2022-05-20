@@ -29,7 +29,7 @@ export async function getStaticProps() {
 
 function Projects(props) {
   const renderFeatured = () => {
-    const featured = ['CryptoMarket', 'DevFinder', 'rastre.io', 'Menuria'];
+    const featured = ['CryptoMarket', 'rastre.io', 'Pokédex', 'Barber'];
 
     return items
       .map((item) =>

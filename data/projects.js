@@ -4,6 +4,22 @@ const items = [
     company: 'Pessoal',
     projects: [
       {
+        title: 'Barber',
+        description: 'Site para agendamento de serviços de barba e cabelo.',
+        url: 'https://github.com/ialexanderbrito/barber',
+        icon: 'scissors',
+        active: true,
+        image: 'static/images/projects/barber.png',
+      },
+      {
+        title: 'Pokédex',
+        description: 'Site de busca de personagens de Pokémon',
+        url: 'https://pokedex.ialexanderbrito.dev/',
+        icon: 'game',
+        active: true,
+        image: 'static/images/projects/pokedex.png',
+      },
+      {
         title: 'CryptoMarket',
         description:
           'Site para preços das criptomoedas, gráficos de preços, calculadoras',
