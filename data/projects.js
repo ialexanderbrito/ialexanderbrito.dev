@@ -23,7 +23,7 @@ const items = [
         title: 'CryptoMarket',
         description:
           'Site para preços das criptomoedas, gráficos de preços, calculadoras',
-        url: 'https://cryptomarket.ialexanderbrito.dev/',
+        url: 'https://cryptomarketcap.ialexanderbrito.dev',
         icon: 'bit-coin',
         active: true,
         image: 'static/images/projects/cryptomarket.png',
@@ -192,7 +192,7 @@ const items = [
         title: 'Happy · NLW#3',
         description:
           'Uma plataforma que ajuda pessoas a sem conectarem com orfanatos próximos e podendo assim, o usuário agender uma visita e fazer o dia de uma criança mais feliz',
-        url: 'https://moveit.ialexanderbrito.dev/',
+        url: 'https://happy.ialexanderbrito.dev/',
         icon: 'shopping-basket',
         active: true,
         image: 'static/images/projects/happy.png',
