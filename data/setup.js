@@ -201,6 +201,10 @@ const categories = [
         title: 'Netlify',
         url: 'https://netlify.com/',
       },
+      {
+        title: 'Zoho',
+        url: 'https://www.zoho.com/pt-br/',
+      }
     ],
   },
 ];
