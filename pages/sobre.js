@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { parseISO, format, intervalToDuration } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -84,11 +85,15 @@ function About(props) {
           <span> • {item.location}</span>
         </p>
         <p style={{ margin: 0 }}>
-          <span>{format(parseISO(item.startDate), 'LLL yyyy')}</span>
+          <span>{format(parseISO(item.startDate), 'MMMM yyyy', {
+            locale: ptBR,
+          })}</span>
           <span> – </span>
           <span>
             {item.endDate
-              ? format(parseISO(item.endDate), 'LLL yyyy')
+              ? format(parseISO(item.endDate), 'MMMM yyyy', {
+                locale: ptBR,
+              })
               : 'Presente'}
           </span>
           <span> • </span>
