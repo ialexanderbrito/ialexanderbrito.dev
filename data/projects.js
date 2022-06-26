@@ -237,7 +237,7 @@ const items = [
         title: 'Aircnc · OmniStack#9',
         description:
           'Sistema para conectar empresas e desenvolvedores que procuram um lugar em comum para se conhecer',
-        url: 'mohttps://aircnc.ialexanderbrito.dev',
+        url: 'https://aircnc.ialexanderbrito.dev',
         icon: 'shopping-basket',
         active: true,
         image: 'static/images/projects/aircnc.png',
