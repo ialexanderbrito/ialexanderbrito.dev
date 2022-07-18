@@ -55,7 +55,7 @@ export default function Index(props) {
                 <h1>{title}</h1>
               </GradientTitle>
               <p>
-                <strong>Front-end Developer | IK Solution</strong>.<br />
+                <strong>Front-end Developer | @ Localiza</strong>.<br />
                 {description}.
               </p>
               <ShortcutHome />

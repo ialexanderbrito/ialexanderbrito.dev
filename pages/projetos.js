@@ -52,7 +52,7 @@ function Projects(props) {
         </div>
         <div />
 
-        {item.company === 'IK Solution' ? (
+        {item.company === 'IK' ? (
           <>
             {item.projects.map((project, pIndex) => (
               <>

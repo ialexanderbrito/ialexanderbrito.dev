@@ -119,7 +119,7 @@ const items = [
   },
   {
     year: '2022',
-    company: 'IK Solution',
+    company: 'IK',
     projects: [
       {
         title: 'Petros',

@@ -54,7 +54,7 @@ function About(props) {
         </Paragraph>
         <Paragraph>
           Atualmente trabalhando na{' '}
-          <strong>IK Solution</strong> como <strong>desenvolvedor Front-end Pleno</strong> e
+          <strong>Localiza</strong> como <strong>desenvolvedor Front-end Pleno</strong> e
           estudando UI Designer pelo curso <strong>uiBoost</strong>.
         </Paragraph>
         <Paragraph>
