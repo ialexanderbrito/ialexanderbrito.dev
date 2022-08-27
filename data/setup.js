@@ -1,6 +1,6 @@
 const categories = [
   {
-    name: 'Hackintosh & Windows',
+    name: 'Sistemas',
     items: [
       {
         title: 'Placa Mãe Gigabyte Z490M Gaming X',
@@ -39,6 +39,10 @@ const categories = [
       {
         title: 'Monitor - AOC 27" 144Hz (27G2/BK)',
         url: 'https://www.kabum.com.br/produto/111161',
+      },
+      {
+        title: 'Mouse - Logitech G603 sem Fio',
+        url: 'https://www.kabum.com.br/produto/',
       },
       {
         title: 'Mouse - Logitech G203 LightSync',

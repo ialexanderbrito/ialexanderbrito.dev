@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ScrollContainer from 'react-indiana-drag-scroll'
+
 import Head from 'next/head';
 
 import { styled } from '@stitches/react';
@@ -46,7 +48,9 @@ function Uses(props) {
     const renderMenu = () =>
       categories.map((category, index) => (
         <SubMenu key={index}>
-          <Text  href={`#${category.name}`} >{category.name}</Text>
+          <Title style={{fontSize: '16px'}}>
+            <Text href={`#${category.name}`} >{category.name}</Text>
+          </Title>
         </SubMenu>
       ));
 
@@ -66,7 +70,9 @@ function Uses(props) {
 
       <p dangerouslySetInnerHTML={{ __html: description }} />
 
-      <Menu>{renderMenu()}</Menu>
+      <ScrollContainerMenu>
+        <Menu>{renderMenu()}</Menu>
+      </ScrollContainerMenu>
 
       <ButtonTopPage />
 
@@ -75,26 +81,28 @@ function Uses(props) {
   );
 }
 
-const Menu = styled('ul', {
+const Menu = styled('div', {
   display: 'flex',
-  justifyContent: 'space-around',
-  listStyle: 'none',
-  margin: 0,
-  padding: 0,
+  gap: '1rem',
+  maxWidth: '10rem',
 });
+
+const ScrollContainerMenu = styled(ScrollContainer, {
+  width: '100%'
+})
 
 const Text = styled('a', {
   color: '#FFF',
   textDecoration: 'none',
   borderBottom: 'none',
   fontWeight: 'bold',
+  width: '8rem',
 });
 
-const SubMenu = styled('li', {
-  display: 'flex',
-  flexDirection: 'column',
-  marginBottom: '1rem',
-  scrollBehavior: 'smooth',
+const SubMenu = styled('div', {});
+
+const Title = styled('h2', {
+  margin: '20px 0',
 });
 
 Uses.Layout = Base;

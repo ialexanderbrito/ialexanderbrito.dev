@@ -42,8 +42,8 @@ export function ButtonTopPage() {
 }
 
 const Button = styled('div', {
-  right: '60px',
-  bottom: '60px',
+  right: '15px',
+  bottom: '15px',
   zIndex: '1001',
   display: 'flex',
   width: '40px',
