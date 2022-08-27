@@ -2,9 +2,12 @@ import React from 'react';
 
 import Head from 'next/head';
 
+import { styled } from '@stitches/react';
+
 import categories from '../data/setup';
 import Base from '../layouts/Base';
 import stripHtml from '../lib/strip-html';
+import { ButtonTopPage } from '../components/ButtonTop';
 
 export async function getStaticProps() {
   const meta = {
@@ -26,7 +29,7 @@ function Uses(props) {
   const renderAll = () =>
     categories.map((category, index) => (
       <div key={index}>
-        <h2>{category.name}</h2>
+        <h2 id={category.name}>{category.name}</h2>
         <ul>
           {category.items.map((item, iIndex) => (
             <li key={iIndex}>
@@ -39,6 +42,13 @@ function Uses(props) {
         </ul>
       </div>
     ));
+
+    const renderMenu = () =>
+      categories.map((category, index) => (
+        <SubMenu key={index}>
+          <Text  href={`#${category.name}`} >{category.name}</Text>
+        </SubMenu>
+      ));
 
   return (
     <>
@@ -56,10 +66,36 @@ function Uses(props) {
 
       <p dangerouslySetInnerHTML={{ __html: description }} />
 
+      <Menu>{renderMenu()}</Menu>
+
+      <ButtonTopPage />
+
       {renderAll()}
     </>
   );
 }
+
+const Menu = styled('ul', {
+  display: 'flex',
+  justifyContent: 'space-around',
+  listStyle: 'none',
+  margin: 0,
+  padding: 0,
+});
+
+const Text = styled('a', {
+  color: '#FFF',
+  textDecoration: 'none',
+  borderBottom: 'none',
+  fontWeight: 'bold',
+});
+
+const SubMenu = styled('li', {
+  display: 'flex',
+  flexDirection: 'column',
+  marginBottom: '1rem',
+  scrollBehavior: 'smooth',
+});
 
 Uses.Layout = Base;
 
