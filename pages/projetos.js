@@ -29,7 +29,7 @@ export async function getStaticProps() {
 
 function Projects(props) {
   const renderFeatured = () => {
-    const featured = ['CryptoMarket', 'rastre.io', 'Pokédex', 'Barber'];
+    const featured = ['Evento · NLW#8', 'rastre.io', 'Pokédex', 'Barber'];
 
     return items
       .map((item) =>
@@ -117,7 +117,7 @@ function Projects(props) {
     );
 
     const IKProjects = () => {
-      const featured = ['Petros', 'Antecipa Fácil', 'Faltas', 'Imuniza - Sanofi', 'Origem']
+      const featured = ['Petros', 'Antecipa Fácil', 'Faltas', 'Imuniza', 'Origem']
 
       return items
         .map((item) =>
@@ -188,7 +188,6 @@ const Article = styled('a', {
   width: '330px',
   padding: '10px',
   textDecoration: 'none',
-  filter: 'grayscale(1)',
   '&:hover': { opacity: 1, filter: 'grayscale(0)' },
   '&:first-child': { marginLeft: 0 },
 });
