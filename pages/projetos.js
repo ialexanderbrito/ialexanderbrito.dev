@@ -44,73 +44,93 @@ function Projects(props) {
       .map((item, index) => <FeaturedProject key={index} project={item} />);
   };
 
-  const renderProjects = () =>
-    items.map((item, index) => (
-      <>
-        <div key={index}>
-          <h3>{item.company}</h3>
-        </div>
-        <div />
-
-        {item.company === 'IK' ? (
+  const pessoalProjects = () =>
+  items.map((item) => (
+    <>
+      {item.company === 'Pessoal' && (
+        <>
+        {item.projects.map((project, pIndex) => (
           <>
-            {item.projects.map((project, pIndex) => (
-              <>
-                {project.title === '' ? (
-                  <div key={pIndex} />
-                ) : (
-                  <Article href={project.url} target="_blank">
-                    <h4>
-                    </h4>
-                    <Animation index={pIndex}>
-                      <ImageContainer
-                        css={{
-                          backgroundImage: `url(${project.image})`,
-                          filter: 'blur(1.5px)'
-                        }}
-                      />
-                      <Content>
-                        <Title>{project.title}</Title>
-                        <Description
-                          dangerouslySetInnerHTML={{ __html: project.description }}
-                        />
-                      </Content>
-                    </Animation>
-                  </Article>
-                )}
-              </>
-            ))}
+            {project.title === '' ? (
+              <div key={pIndex} />
+            ) : (
+              <Article href={project.url} target="_blank">
+                <h4>
+                </h4>
+                <Animation index={pIndex}>
+                  <ImageContainer
+                    css={{
+                      backgroundImage: `url(${project.image})`,
+                    }}
+                  />
+                  <Content>
+                    <Title>{project.title}</Title>
+                    <Description
+                      dangerouslySetInnerHTML={{ __html: project.description }}
+                    />
+                  </Content>
+                </Animation>
+              </Article>
+            )}
           </>
-        ) : (
-          <>
-            {item.projects.map((project, pIndex) => (
-              <>
-                {project.title === '' ? (
-                  <div key={pIndex} />
-                ) : (
-                  <Article href={project.url} target="_blank">
-                    <h4>
-                    </h4>
-                    <Animation index={pIndex}>
-                      <ImageContainer
-                        css={{ backgroundImage: `url(${project.image})` }}
-                      />
-                      <Content>
-                        <Title>{project.title}</Title>
-                        <Description
-                          dangerouslySetInnerHTML={{ __html: project.description }}
-                        />
-                      </Content>
-                    </Animation>
-                  </Article>
-                )}
-              </>
-            ))}
-          </>
-        )}
-
+        ))}
       </>
-    ));
+      )}
+    </>
+  )
+  );
+
+  const rocketseatProjects = () =>
+    items.map((item) => (
+      <>
+        {item.company === 'Rocketseat' && (
+          <>
+          {item.projects.map((project, pIndex) => (
+            <>
+              {project.title === '' ? (
+                <div key={pIndex} />
+              ) : (
+                <Article href={project.url} target="_blank">
+                  <h4>
+                  </h4>
+                  <Animation index={pIndex}>
+                    <ImageContainer
+                      css={{
+                        backgroundImage: `url(${project.image})`,
+                      }}
+                    />
+                    <Content>
+                      <Title>{project.title}</Title>
+                      <Description
+                        dangerouslySetInnerHTML={{ __html: project.description }}
+                      />
+                    </Content>
+                  </Animation>
+                </Article>
+              )}
+            </>
+          ))}
+        </>
+        )}
+      </>
+    )
+    );
+
+    const IKProjects = () => {
+      const featured = ['Petros', 'Antecipa Fácil', 'Faltas', 'Imuniza - Sanofi', 'Origem']
+
+      return items
+        .map((item) =>
+          item.projects.filter((project) => featured.includes(project.title)),
+        )
+        .filter((item) => {
+          if (item.length > 0) {
+            return item;
+          }
+        })
+        .flat()
+        .map((item, index) => <FeaturedProject key={index} project={item} />);
+    };
 
   const getTotalProjects = () => {
     let total = 0;
@@ -149,7 +169,15 @@ function Projects(props) {
         <FeaturedProjects>{renderFeatured()}</FeaturedProjects>
 
         <h2>Todos Projetos</h2>
-        <ContainerProject>{renderProjects()}</ContainerProject>
+
+        <h3>Pessoal</h3>
+        <ContainerProject>{pessoalProjects()}</ContainerProject>
+
+        <h3>Rocketseat</h3>
+        <ContainerProject>{rocketseatProjects()}</ContainerProject>
+
+        <h3>IK</h3>
+        <FeaturedProjects>{IKProjects()}</FeaturedProjects>
       </AnimateSharedLayout>
     </>
   );
