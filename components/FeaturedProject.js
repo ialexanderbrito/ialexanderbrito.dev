@@ -48,6 +48,7 @@ function Animation(props) {
 
 const Project = styled('a', {
   display: 'flex',
+  width: '100%',
   transition: 'opacity $duration ease-in-out',
   border: '0',
   borderRadius: '$borderRadius',
