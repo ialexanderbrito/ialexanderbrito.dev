@@ -68,6 +68,20 @@ const items = [
         image: 'static/images/projects/menuria.png',
       },
       {
+        title: 'Carrinho de Loja',
+        description: 'App de compra de produtos',
+        url: 'https://github.com/ialexanderbrito/product',
+        icon: 'shopping-basket',
+        active: true,
+        image: 'static/images/projects/product.png',
+      },
+    ],
+  },
+  {
+    year: '2022',
+    company: 'Mobile',
+    projects: [
+      {
         title: 'Twitch · Clone',
         description: 'Clone do app da Twitch',
         url: 'https://expo.dev/@ialexanderbrito/twitchtv',
@@ -107,15 +121,7 @@ const items = [
         active: true,
         image: 'static/images/projects/picpay.png',
       },
-      {
-        title: 'Carrinho de Loja',
-        description: 'App de compra de produtos',
-        url: 'https://github.com/ialexanderbrito/product',
-        icon: 'shopping-basket',
-        active: true,
-        image: 'static/images/projects/product.png',
-      },
-    ],
+    ]
   },
   {
     year: '2022',
