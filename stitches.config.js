@@ -98,7 +98,7 @@ const globalStyles = globalCss({
   },
   h2: {
     color: '$primary',
-    margin: '60px 0 0',
+    margin: '20px 0 0',
     fontSize: '24px',
   },
   'h3, h3 a': {
