@@ -39,7 +39,7 @@ const categories = [
         title: 'Mouse - Logitech G203 LightSync',
       },
       {
-        title: 'Teclado - Logitech G213',
+        title: 'Teclado - Logitech G213 LightSync',
       },
       {
         title: 'Hub: TP-Link de 7 portas (UH700)',
@@ -76,7 +76,7 @@ const categories = [
     name: 'Automação',
     items: [
       {
-        title: 'Echo Dot(4ª Geração)',
+        title: 'Echo Dot (4ª Geração)',
       },
       {
         title: 'Lampada - Yeelight 1S',
@@ -108,12 +108,20 @@ const categories = [
         url: 'https://hyper.is',
       },
       {
+        title: 'Hyper Config',
+        url: 'https://github.com/alxUI/dotfiles/blob/master/.hyper.js',
+      },
+      {
         title: 'Tema - Omni',
         url: 'https://github.com/getomni/hyper',
       },
       {
         title: 'Oh My ZSH',
         url: 'https://ohmyz.sh',
+      },
+      {
+        title: 'ZSH Config',
+        url: 'https://github.com/alxUI/dotfiles/blob/master/.zshrc',
       },
       {
         title: 'Fig',
