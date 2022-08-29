@@ -1,7 +1,13 @@
+import Link from 'next/link';
 import { styled } from '../stitches.config';
 
 export default function Footer() {
   const links = [
+    {
+      title: 'Email',
+      url: 'mailto:eu@ialexanderbrito.dev',
+      icon: 'ri-mail-line',
+    },
     {
       title: 'Instagram',
       url: 'https://instagram.com/ialexanderbrito',
@@ -38,36 +44,43 @@ export default function Footer() {
       icon: 'ri-discord-line',
       color: '#7289da',
     },
-    {
-      title: 'Source',
-      url: 'https://github.com/ialexanderbrito/ialexanderbrito.dev',
-      icon: 'ri-braces-line',
-      color: '#f1f1f1',
-    },
   ];
 
-  return (
-    <Container>
-      {links.map((link, index) => (
-        <Anchor
-          key={index}
-          href={link.url}
-          target="_blank"
-          css={{
+  const renderAnchor = (link, index) => {
+    if (link.url.startsWith('http')) {
+      return <Anchor key={index} href={link.url} target="_blank" css={{
+        '&:hover': {
+          color: link.color,
+          'i::before': {
+            color: link.color,
+          },
+        },
+      }}>
+        <Title>{link.title}</Title>
+        <Icon className={link.icon} />
+      </Anchor>
+    }
+
+    return <Link key={index} href={link.url} passHref>
+      <Anchor css={{
             '&:hover': {
               color: link.color,
               'i::before': {
                 color: link.color,
               },
             },
-          }}
-        >
-          <Title>{link.title}</Title>
-          <Icon className={link.icon} />
-        </Anchor>
-      ))}
+          }}>
+        <Title>{link.title}</Title>
+        <Icon className={link.icon} />
+      </Anchor>
+    </Link>
+  }
+
+  return (
+    <Container>
+      {links.map(renderAnchor)}
     </Container>
-  );
+  )
 }
 
 const Container = styled('footer', {

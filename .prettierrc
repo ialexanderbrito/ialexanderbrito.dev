@@ -1,7 +1,9 @@
 {
-  "tabWidth": 2,
-  "semi": true,
+  "arrowParens": "avoid",
+  "bracketSpacing": true,
+  "semi": false,
   "singleQuote": true,
-  "trailingComma": "all",
-  "parser": "typescript"
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "useTabs": false
 }
