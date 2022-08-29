@@ -1,6 +1,8 @@
 import React from 'react';
 
-import ScrollContainer from 'react-indiana-drag-scroll'
+import ScrollContainer from 'react-indiana-drag-scroll';
+
+import { Link } from 'react-scroll';
 
 import Head from 'next/head';
 
@@ -35,9 +37,9 @@ function Uses(props) {
         <ul>
           {category.items.map((item, iIndex) => (
             <li key={iIndex}>
-              <a href={item.url} target="_blank" rel="noreferrer">
+              <Items href={item.url} target="_blank" rel="noreferrer">
                 {item.title}
-              </a>
+              </Items>
               <span dangerouslySetInnerHTML={{ __html: item.description }} />
             </li>
           ))}
@@ -49,7 +51,7 @@ function Uses(props) {
       categories.map((category, index) => (
         <SubMenu key={index}>
           <Title style={{fontSize: '16px'}}>
-            <Text href={`#${category.name}`} >{category.name}</Text>
+            <Text to={`${category.name}`} spy={true} smooth={true} offset={1} duration={500}>{category.name}</Text>
           </Title>
         </SubMenu>
       ));
@@ -81,6 +83,10 @@ function Uses(props) {
   );
 }
 
+const Items = styled('a', {
+  borderBottom: 'none',
+})
+
 const Menu = styled('div', {
   display: 'flex',
   gap: '1rem',
@@ -91,12 +97,13 @@ const ScrollContainerMenu = styled(ScrollContainer, {
   width: '100%'
 })
 
-const Text = styled('a', {
+const Text = styled(Link, {
   color: '#FFF',
   textDecoration: 'none',
   borderBottom: 'none',
   fontWeight: 'bold',
   width: '8rem',
+  cursor: 'pointer',
 });
 
 const SubMenu = styled('div', {});
