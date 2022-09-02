@@ -128,7 +128,7 @@ const items = [
     company: 'Rocketseat',
     projects: [
       {
-        title: 'Evento · NLW#8',
+        title: 'Evento · Ignite Lab',
         description: 'Plataforma de eventos online',
         url: 'https://evento.ialexanderbrito.dev/',
         icon: 'calendar-event',
