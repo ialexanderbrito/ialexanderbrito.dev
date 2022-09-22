@@ -85,6 +85,7 @@ function Uses(props) {
 
 const Items = styled('a', {
   borderBottom: 'none',
+
 })
 
 const Menu = styled('div', {
@@ -104,6 +105,13 @@ const Text = styled(Link, {
   fontWeight: 'bold',
   width: '8rem',
   cursor: 'pointer',
+  '&:hover': {
+    backgroundImage: 'linear-gradient(135deg, #80ffea 0%, #8aff80 100%)',
+    backgroundClip: 'text',
+    backgroundSize: '100%',
+    '-webkit-text-fill-color': 'transparent',
+    '-webkit-box-decoration-break': 'clone'
+  },
 });
 
 const SubMenu = styled('div', {});
