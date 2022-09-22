@@ -128,6 +128,14 @@ const items = [
     company: 'Rocketseat',
     projects: [
       {
+        title: 'Duo · NLW#9',
+        description: 'Uma plataforma para encontrar seu duo para jogar',
+        url: 'https://duo.ialexanderbrito.dev/',
+        icon: 'gamepad',
+        active: true,
+        image: 'static/images/projects/duo.png',
+      },
+      {
         title: 'Evento · Ignite Lab',
         description: 'Plataforma de eventos online',
         url: 'https://evento.ialexanderbrito.dev/',
