@@ -10,7 +10,7 @@ import { styled } from '../stitches.config';
 export async function getStaticProps() {
   return {
     props: {
-      title: 'Alexander de Brito',
+      title: 'Alexander',
       name: 'Alexander',
       description: 'Desenvolvedor Front-end Web e Mobile',
       image: '/static/images/home-bw.jpg',
