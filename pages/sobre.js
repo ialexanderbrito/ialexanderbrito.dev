@@ -10,13 +10,15 @@ import Base from '../layouts/Base';
 import stripHtml from '../lib/strip-html';
 import { styled } from '../stitches.config';
 
+import profileImage from '../public/static/images/alexander.jpg';
+
 export async function getStaticProps() {
   const meta = {
     title: 'Sobre | Alexander',
     description:
       'Me chamo Alexander, desenvolvedor front-end e flamenguista! Nas redes sociais conhecido como @ialexanderbrito',
     tagline: 'Sobre mim.',
-    image: '/static/images/about-bw.jpg',
+    image: '/static/images/alexander.jpg',
     primaryColor: 'cyan',
     secondaryColor: 'green',
   };
@@ -34,7 +36,7 @@ function About(props) {
       <Section>
         <Image
           alt="Alexander"
-          src="/static/images/alexander.jpg"
+          src={profileImage}
           width="336"
           height="336"
           priority
