@@ -4,6 +4,22 @@ const items = [
     company: 'Pessoal',
     projects: [
       {
+        title: 'NV99 Badges',
+        description: 'Site para listagem de emblemas da plataforma NV99',
+        url: 'https://nv99badges.ialexanderbrito.dev/',
+        icon: 'ticket',
+        active: true,
+        image: 'static/images/projects/nv99.png',
+      },
+      {
+        title: 'The Movies',
+        description: 'Site para listagem de filmes e séries usando a API do The Movie Database',
+        url: 'https://themovies.ialexanderbrito.dev/',
+        icon: 'scissors',
+        active: true,
+        image: 'static/images/projects/themovies.png',
+      },
+      {
         title: 'Barber',
         description: 'Site para agendamento de serviços de barba e cabelo.',
         url: 'https://github.com/ialexanderbrito/barber',
