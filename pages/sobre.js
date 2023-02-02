@@ -26,7 +26,13 @@ export async function getStaticProps() {
   return { props: meta };
 }
 
-const yearAnniversary = new Date('1997-03-31');
+const yearAnniversary = new Date('1997-03-31 00:00:00');
+
+function calculateAge(birthday) {
+  const ageDifMs = Date.now() - birthday.getTime();
+  const ageDate = new Date(ageDifMs);
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
 
 function About(props) {
   const { title, description, image } = props;
@@ -49,15 +55,17 @@ function About(props) {
             '@bp2': { marginTop: '-6px' },
           }}
         >
-          <strong>Oi, eu sou Alexander e tenho {new Date().getFullYear() - yearAnniversary.getFullYear()} anos.</strong>
+          <strong>
+            Oi, eu sou Alexander e tenho {calculateAge(yearAnniversary)} anos.
+          </strong>
           <br />
           Sou Desenvolvedor front-end Web e Mobile, formado em Sistemas de
           Informação na Universidade Unigranrio .
         </Paragraph>
         <Paragraph>
-          Atualmente trabalhando na{' '}
-          <strong>Localiza</strong> como <strong>desenvolvedor Front-end Pleno</strong> e
-          estudando UI Designer pelo curso <strong>uiBoost</strong>.
+          Atualmente trabalhando na <strong>Localiza</strong> como{' '}
+          <strong>desenvolvedor Front-end Pleno</strong> e estudando UI Designer
+          pelo curso <strong>uiBoost</strong>.
         </Paragraph>
         <Paragraph>
           Nas horas vagas gosto de desenvolver aplicações e clonar apps que já
@@ -87,15 +95,17 @@ function About(props) {
           <span> • {item.location}</span>
         </p>
         <p style={{ margin: 0 }}>
-          <span>{format(parseISO(item.startDate), 'MMMM yyyy', {
-            locale: ptBR,
-          })}</span>
+          <span>
+            {format(parseISO(item.startDate), 'MMMM yyyy', {
+              locale: ptBR,
+            })}
+          </span>
           <span> – </span>
           <span>
             {item.endDate
               ? format(parseISO(item.endDate), 'MMMM yyyy', {
-                locale: ptBR,
-              })
+                  locale: ptBR,
+                })
               : 'Presente'}
           </span>
           <span> • </span>
