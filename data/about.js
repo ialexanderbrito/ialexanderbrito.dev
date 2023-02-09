@@ -4,7 +4,7 @@ const items = [
   {
     jobTitle: Intl.text('JOB_SOFTWARE'),
     company: 'Localiza & CO',
-    companyUrl: 'https://www.localiza.com/brasil/pt-br',
+    companyUrl: 'https://www.localizaco.com/',
     startDate: '2022-07',
     location: 'Belo Horizonte, MG',
   },
