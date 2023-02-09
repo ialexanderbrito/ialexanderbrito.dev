@@ -2,6 +2,20 @@ import Intl from '../i18n';
 
 const items = [
   {
+    year: '2023',
+    company: 'Pessoal',
+    projects: [
+      {
+        title: 'Beatriz & Alexander',
+        description: Intl.text('PROJETO_BEA'),
+        url: 'https://beatrizealexander.com/',
+        icon: 'heart',
+        active: true,
+        image: 'static/images/projects/bea.png',
+      },
+    ],
+  },
+  {
     year: '2022',
     company: 'Pessoal',
     projects: [

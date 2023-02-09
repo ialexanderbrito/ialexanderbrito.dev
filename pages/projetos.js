@@ -32,7 +32,12 @@ export async function getStaticProps() {
 
 function Projects(props) {
   const renderFeatured = () => {
-    const featured = ['NV99 Badges', 'rastre.io', 'Pokédex', 'The Movies'];
+    const featured = [
+      'NV99 Badges',
+      'rastre.io',
+      'Pokédex',
+      'Beatriz & Alexander',
+    ];
 
     return items
       .map((item) =>
@@ -47,10 +52,10 @@ function Projects(props) {
       .map((item, index) => <FeaturedProject key={index} project={item} />);
   };
 
-  const pessoalProjects = () =>
+  const currentYearProjects = () =>
     items.map((item) => (
       <>
-        {item.company === 'Pessoal' && (
+        {item.year == new Date().getFullYear() && (
           <>
             {item.projects.map((project, pIndex) => (
               <>
@@ -79,6 +84,42 @@ function Projects(props) {
             ))}
           </>
         )}
+      </>
+    ));
+
+  const pessoalProjects = () =>
+    items.map((item) => (
+      <>
+        {item.company === 'Pessoal' &&
+          item.year != new Date().getFullYear() && (
+            <>
+              {item.projects.map((project, pIndex) => (
+                <>
+                  {project.title === '' ? (
+                    <div key={pIndex} />
+                  ) : (
+                    <Article href={project.url} target="_blank" key={pIndex}>
+                      <Animation index={pIndex}>
+                        <ImageContainer
+                          css={{
+                            backgroundImage: `url(${project.image})`,
+                          }}
+                        />
+                        <Content>
+                          <Title>{project.title}</Title>
+                          <Description
+                            dangerouslySetInnerHTML={{
+                              __html: project.description,
+                            }}
+                          />
+                        </Content>
+                      </Animation>
+                    </Article>
+                  )}
+                </>
+              ))}
+            </>
+          )}
       </>
     ));
 
@@ -230,6 +271,9 @@ function Projects(props) {
         <FeaturedProjects>{renderFeatured()}</FeaturedProjects>
 
         <h2>{Intl.text('PROJETO_TITLE_TODOS')}</h2>
+
+        <h3>{Intl.text('PROJETO_TITLE_ATUAL')}</h3>
+        <ContainerProject>{currentYearProjects()}</ContainerProject>
 
         <h3>{Intl.text('PROJETO_TITLE_PESSOAL')}</h3>
         <ContainerProject>{pessoalProjects()}</ContainerProject>
