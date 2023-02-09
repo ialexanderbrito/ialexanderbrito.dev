@@ -36,7 +36,7 @@ export default function Navbar() {
               var(--colors-cyan) 0%,
               var(--colors-green) 100%
             )`,
-              // 'background-size': '100',
+              'background-size': '100',
               '-webkit-background-clip': 'text',
               '-moz-background-clip': 'text',
               '-webkit-text-fill-color': 'transparent',
@@ -99,6 +99,10 @@ export default function Navbar() {
 
           {Intl.getLanguage() === 'pt-BR' ? (
             <ButtonHeader
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+              }}
               as="button"
               type="button"
               aria-label="English"
@@ -108,6 +112,10 @@ export default function Navbar() {
             </ButtonHeader>
           ) : (
             <ButtonHeader
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+              }}
               as="button"
               type="button"
               aria-label="Português"
@@ -180,7 +188,6 @@ const Nav = styled('nav', {
   order: 2,
   flexBasis: '100%',
   '@bp2': { order: 0, flexBasis: 'initial' },
-  '@bp3': { overflowX: 'scroll', overflowY: 'hidden' },
 });
 
 const Aside = styled('div', {
