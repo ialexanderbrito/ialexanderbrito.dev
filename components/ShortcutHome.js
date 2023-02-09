@@ -4,6 +4,8 @@ import { useKBar } from 'kbar';
 
 import { ButtonPrimary } from '../components/ButtonPrimary';
 
+import Intl from '../i18n';
+
 export default function ShortcutHome() {
   const { query } = useKBar();
   const [mounted, setMounted] = useState(false);
@@ -19,19 +21,21 @@ export default function ShortcutHome() {
     if (isMobile) {
       return (
         <ButtonPrimary as="button" onClick={query.toggle}>
-          Clique para começar →
+          {Intl.text('INICIAL_MOBILE')} →
         </ButtonPrimary>
       );
     } else if (isMac) {
       return (
         <ButtonPrimary as="button" onClick={query.toggle}>
-          Pressione <kbd>⌘</kbd> <kbd>K</kbd> para iniciar →
+          {Intl.text('INICIAL_PRESSIONE')} <kbd>⌘</kbd> <kbd>K</kbd>{' '}
+          {Intl.text('INICIAL_INICIAR')} →
         </ButtonPrimary>
       );
     } else {
       return (
         <ButtonPrimary as="button" onClick={query.toggle}>
-          Pressione <kbd>ctrl</kbd> <kbd>K</kbd> para iniciar →
+          {Intl.text('INICIAL_PRESSIONE')} <kbd>ctrl</kbd> <kbd>K</kbd>{' '}
+          {Intl.text('INICIAL_INICIAR')} →
         </ButtonPrimary>
       );
     }

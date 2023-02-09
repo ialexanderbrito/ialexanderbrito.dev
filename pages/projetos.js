@@ -12,13 +12,16 @@ import {
   FeaturedProjects,
 } from '../components/FeaturedProjects';
 import items from '../data/projects';
-import Base from '../layouts/Base';
+import Base, { GradientTitle } from '../layouts/Base';
 import stripHtml from '../lib/strip-html';
+
+import Intl from '../i18n';
+import { ButtonTopPage } from '../components/ButtonTop';
 
 export async function getStaticProps() {
   const meta = {
     title: 'Projetos | Alexander',
-    tagline: 'Trabalho, hobby & open source.',
+    tagline: Intl.text('PROJETOS_TITLE'),
     image: '#',
     primaryColor: 'cyan',
     secondaryColor: 'green',
@@ -45,124 +48,132 @@ function Projects(props) {
   };
 
   const pessoalProjects = () =>
-  items.map((item) => (
-    <>
-      {item.company === 'Pessoal' && (
-        <>
-        {item.projects.map((project, pIndex) => (
+    items.map((item) => (
+      <>
+        {item.company === 'Pessoal' && (
           <>
-            {project.title === '' ? (
-              <div key={pIndex} />
-            ) : (
-              <Article href={project.url} target="_blank">
-                <Animation index={pIndex}>
-                  <ImageContainer
-                    css={{
-                      backgroundImage: `url(${project.image})`,
-                    }}
-                  />
-                  <Content>
-                    <Title>{project.title}</Title>
-                    <Description
-                      dangerouslySetInnerHTML={{ __html: project.description }}
-                    />
-                  </Content>
-                </Animation>
-              </Article>
-            )}
+            {item.projects.map((project, pIndex) => (
+              <>
+                {project.title === '' ? (
+                  <div key={pIndex} />
+                ) : (
+                  <Article href={project.url} target="_blank" key={pIndex}>
+                    <Animation index={pIndex}>
+                      <ImageContainer
+                        css={{
+                          backgroundImage: `url(${project.image})`,
+                        }}
+                      />
+                      <Content>
+                        <Title>{project.title}</Title>
+                        <Description
+                          dangerouslySetInnerHTML={{
+                            __html: project.description,
+                          }}
+                        />
+                      </Content>
+                    </Animation>
+                  </Article>
+                )}
+              </>
+            ))}
           </>
-        ))}
+        )}
       </>
-      )}
-    </>
-  )
-  );
+    ));
 
   const mobileProjects = () =>
-  items.map((item) => (
-    <>
-      {item.company === 'Mobile' && (
-        <>
-        {item.projects.map((project, pIndex) => (
+    items.map((item) => (
+      <>
+        {item.company === 'Mobile' && (
           <>
-            {project.title === '' ? (
-              <div key={pIndex} />
-            ) : (
-              <Article href={project.url} target="_blank">
-                <Animation index={pIndex}>
-                  <ImageContainer
-                    css={{
-                      backgroundImage: `url(${project.image})`,
-                    }}
-                  />
-                  <Content>
-                    <Title>{project.title}</Title>
-                    <Description
-                      dangerouslySetInnerHTML={{ __html: project.description }}
-                    />
-                  </Content>
-                </Animation>
-              </Article>
-            )}
+            {item.projects.map((project, pIndex) => (
+              <>
+                {project.title === '' ? (
+                  <div key={pIndex} />
+                ) : (
+                  <Article href={project.url} target="_blank" key={pIndex}>
+                    <Animation index={pIndex}>
+                      <ImageContainer
+                        css={{
+                          backgroundImage: `url(${project.image})`,
+                        }}
+                      />
+                      <Content>
+                        <Title>{project.title}</Title>
+                        <Description
+                          dangerouslySetInnerHTML={{
+                            __html: project.description,
+                          }}
+                        />
+                      </Content>
+                    </Animation>
+                  </Article>
+                )}
+              </>
+            ))}
           </>
-        ))}
+        )}
       </>
-      )}
-    </>
-  )
-  );
+    ));
 
   const rocketseatProjects = () =>
     items.map((item) => (
       <>
         {item.company === 'Rocketseat' && (
           <>
-          {item.projects.map((project, pIndex) => (
-            <>
-              {project.title === '' ? (
-                <div key={pIndex} />
-              ) : (
-                <Article href={project.url} target="_blank">
-                  <h4>
-                  </h4>
-                  <Animation index={pIndex}>
-                    <ImageContainer
-                      css={{
-                        backgroundImage: `url(${project.image})`,
-                      }}
-                    />
-                    <Content>
-                      <Title>{project.title}</Title>
-                      <Description
-                        dangerouslySetInnerHTML={{ __html: project.description }}
+            {item.projects.map((project, pIndex) => (
+              <>
+                {project.title === '' ? (
+                  <div key={pIndex} />
+                ) : (
+                  <Article href={project.url} target="_blank" key={pIndex}>
+                    <h4></h4>
+                    <Animation index={pIndex}>
+                      <ImageContainer
+                        css={{
+                          backgroundImage: `url(${project.image})`,
+                        }}
                       />
-                    </Content>
-                  </Animation>
-                </Article>
-              )}
-            </>
-          ))}
-        </>
+                      <Content>
+                        <Title>{project.title}</Title>
+                        <Description
+                          dangerouslySetInnerHTML={{
+                            __html: project.description,
+                          }}
+                        />
+                      </Content>
+                    </Animation>
+                  </Article>
+                )}
+              </>
+            ))}
+          </>
         )}
       </>
-    )
-    );
+    ));
 
-    const IKProjects = () => {
-      const featured = ['Petros', 'Antecipa Fácil', 'Faltas', 'Imuniza', 'Origem']
+  const IKProjects = () => {
+    const featured = [
+      'Petros',
+      'Antecipa Fácil',
+      'Faltas',
+      'Imuniza',
+      'Origem',
+    ];
 
-      return items
-        .map((item) =>
-          item.projects.filter((project) => featured.includes(project.title)),
-        )
-        .filter((item) => {
-          if (item.length > 0) {
-            return item;
-          }
-        })
-        .flat()
-        .map((item, index) => <FeaturedProject key={index} project={item} />);
-    };
+    return items
+      .map((item) =>
+        item.projects.filter((project) => featured.includes(project.title)),
+      )
+      .filter((item) => {
+        if (item.length > 0) {
+          return item;
+        }
+      })
+      .flat()
+      .map((item, index) => <FeaturedProject key={index} project={item} />);
+  };
 
   const getTotalProjects = () => {
     let total = 0;
@@ -174,8 +185,12 @@ function Projects(props) {
     return total;
   };
 
-  const { title, image } = props;
-  const description = `Essa página lista os <strong>${getTotalProjects()}</strong> principais projeto(s) que desenvolvi durante a minha jornada como programador.`;
+  const { title, image, tagline, primaryColor, secondaryColor } = props;
+  const description = `${Intl.text(
+    'PROJETOS_DESCRICAO_PT1',
+  )} <strong>${getTotalProjects()}</strong> ${Intl.text(
+    'PROJETOS_DESCRICAO_PT2',
+  )}`;
 
   return (
     <>
@@ -194,25 +209,41 @@ function Projects(props) {
         />
       </Head>
 
+      <GradientTitle
+        css={{
+          backgroundImage: `linear-gradient(
+          135deg,
+          $${primaryColor} 0%,
+          $${secondaryColor} 100%
+        );`,
+        }}
+      >
+        {tagline
+          ? Intl.text('PROJETOS_TITLE')
+          : 'Trabalho, hobby & open source.'}
+      </GradientTitle>
+
       <AnimateSharedLayout>
         <p dangerouslySetInnerHTML={{ __html: description }} />
 
-        <h2>Projetos Populares</h2>
+        <h2>{Intl.text('PROJETO_TITLE_POPULAR')}</h2>
         <FeaturedProjects>{renderFeatured()}</FeaturedProjects>
 
-        <h2>Todos Projetos</h2>
+        <h2>{Intl.text('PROJETO_TITLE_TODOS')}</h2>
 
-        <h3>Pessoal</h3>
+        <h3>{Intl.text('PROJETO_TITLE_PESSOAL')}</h3>
         <ContainerProject>{pessoalProjects()}</ContainerProject>
 
-        <h3>Rocketseat</h3>
+        <h3>{Intl.text('PROJETO_TITLE_ROCKESEAT')}</h3>
         <ContainerProject>{rocketseatProjects()}</ContainerProject>
 
-        <h3>Mobile</h3>
+        <h3>{Intl.text('PROJETO_TITLE_MOBILE')}</h3>
         <ContainerProject>{mobileProjects()}</ContainerProject>
 
-        <h3>IK</h3>
+        <h3>{Intl.text('PROJETO_TITLE_IK')}</h3>
         <FeaturedProjects>{IKProjects()}</FeaturedProjects>
+
+        <ButtonTopPage />
       </AnimateSharedLayout>
     </>
   );

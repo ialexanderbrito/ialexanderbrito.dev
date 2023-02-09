@@ -182,6 +182,21 @@ const globalStyles = globalCss({
       fontStyle: 'italic',
     },
   ],
+
+  '::-webkit-scrollbar': {
+    width: '8px',
+    height: '8px',
+  },
+  '::-webkit-scrollbar-track': {
+    background: '$command',
+  },
+  '::-webkit-scrollbar-thumb': {
+    background: '$hover',
+    borderRadius: '8px',
+  },
+  '::-webkit-scrollbar-thumb:hover': {
+    background: '$primary',
+  },
 });
 
 globalStyles();

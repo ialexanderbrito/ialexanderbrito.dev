@@ -48,39 +48,46 @@ export default function Footer() {
 
   const renderAnchor = (link, index) => {
     if (link.url.startsWith('http')) {
-      return <Anchor key={index} href={link.url} target="_blank" css={{
-        '&:hover': {
-          color: link.color,
-          'i::before': {
-            color: link.color,
-          },
-        },
-      }}>
-        <Title>{link.title}</Title>
-        <Icon className={link.icon} />
-      </Anchor>
-    }
-
-    return <Link key={index} href={link.url} passHref>
-      <Anchor css={{
+      return (
+        <Anchor
+          key={index}
+          href={link.url}
+          target="_blank"
+          css={{
             '&:hover': {
               color: link.color,
               'i::before': {
                 color: link.color,
               },
             },
-          }}>
-        <Title>{link.title}</Title>
-        <Icon className={link.icon} />
-      </Anchor>
-    </Link>
-  }
+          }}
+        >
+          <Title>{link.title}</Title>
+          <Icon className={link.icon} />
+        </Anchor>
+      );
+    }
 
-  return (
-    <Container>
-      {links.map(renderAnchor)}
-    </Container>
-  )
+    return (
+      <Link key={index} href={link.url} passHref>
+        <Anchor
+          css={{
+            '&:hover': {
+              color: link.color,
+              'i::before': {
+                color: link.color,
+              },
+            },
+          }}
+        >
+          <Title>{link.title}</Title>
+          <Icon className={link.icon} />
+        </Anchor>
+      </Link>
+    );
+  };
+
+  return <Container>{links.map(renderAnchor)}</Container>;
 }
 
 const Container = styled('footer', {

@@ -7,6 +7,8 @@ import ShortcutHome from '../components/ShortcutHome';
 import { Wrapper } from '../components/Wrapper';
 import { styled } from '../stitches.config';
 
+import Intl from '../i18n';
+
 export async function getStaticProps() {
   return {
     props: {
@@ -56,7 +58,7 @@ export default function Index(props) {
               </GradientTitle>
               <p>
                 <strong>Front-end Developer | Localiza</strong>.<br />
-                {description}.
+                {Intl.text('INICIAL_DESCRICAO')}
               </p>
               <ShortcutHome />
             </div>

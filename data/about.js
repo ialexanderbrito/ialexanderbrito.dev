@@ -1,13 +1,15 @@
+import Intl from '../i18n';
+
 const items = [
   {
-    jobTitle: 'Software Developer II',
+    jobTitle: Intl.text('JOB_SOFTWARE'),
     company: 'Localiza',
     companyUrl: 'https://www.localiza.com/brasil/pt-br',
     startDate: '2022-07',
     location: 'Belo Horizonte, MG',
   },
   {
-    jobTitle: 'Desenvolvedor Front-end Pleno',
+    jobTitle: Intl.text('JOB_PLENO'),
     company: 'IK',
     companyUrl: 'https://ik.com.br/',
     startDate: '2021-10',
@@ -15,7 +17,7 @@ const items = [
     location: 'São Paulo, SP',
   },
   {
-    jobTitle: 'Desenvolvedor Front-end Júnior',
+    jobTitle: Intl.text('JOB_JUNIOR'),
     company: 'IK',
     companyUrl: 'https://ik.com.br/',
     startDate: '2020-12',

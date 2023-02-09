@@ -6,6 +6,8 @@ import Router from 'next/router';
 import CommandBar from '../components/CommandBar';
 import * as gtag from '../lib/gtag';
 
+import '../internacionalization';
+
 Router.events.on('routeChangeComplete', (url) => gtag.pageview(url));
 
 const Noop = ({ children }) => children;

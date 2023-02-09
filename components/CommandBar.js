@@ -11,6 +11,8 @@ import {
 } from 'kbar';
 import { useRouter } from 'next/router';
 
+import Intl from '../i18n';
+
 import { styled } from '../stitches.config';
 import { Box } from './Box';
 
@@ -20,55 +22,55 @@ export default function CommandBar(props) {
   const actions = [
     {
       id: 'copy',
-      name: 'Copiar URL',
+      name: Intl.text('COMMAND_COPIARURL'),
       shortcut: ['u'],
       keywords: 'copy-url',
-      section: 'Geral',
+      section: Intl.text('COMMAND_GERAL'),
       perform: () => navigator.clipboard.writeText(window.location.href),
       icon: <Icon className="ri-file-copy-line" />,
     },
     {
       id: 'email',
-      name: 'Enviar Email',
+      name: Intl.text('COMMAND_ENVIAREMAIL'),
       shortcut: ['e'],
       keywords: 'send-email',
-      section: 'Geral',
+      section: Intl.text('COMMAND_GERAL'),
       perform: () => window.open('mailto:eu@ialexanderbrito.dev', '_blank'),
       icon: <Icon className="ri-mail-line" />,
     },
     {
       id: 'home',
-      name: 'Home',
+      name: Intl.text('COMMAND_HOME'),
       shortcut: ['g', 'h'],
       keywords: 'go-home',
-      section: 'Ir para',
+      section: Intl.text('COMMAND_IRPARA'),
       perform: () => router.push('/'),
       icon: <Icon className="ri-home-5-line" />,
     },
     {
       id: 'about',
-      name: 'Sobre',
+      name: Intl.text('COMMAND_SOBRE'),
       shortcut: ['g', 'a'],
       keywords: 'go-about',
-      section: 'Ir para',
+      section: Intl.text('COMMAND_IRPARA'),
       perform: () => router.push('/sobre'),
       icon: <Icon className="ri-user-line" />,
     },
     {
       id: 'projects',
-      name: 'Projetos',
+      name: Intl.text('COMMAND_PROJETOS'),
       shortcut: ['g', 'p'],
       keywords: 'go-projects',
-      section: 'Ir para',
+      section: Intl.text('COMMAND_IRPARA'),
       perform: () => router.push('/projetos'),
       icon: <Icon className="ri-lightbulb-line" />,
     },
     {
       id: 'uses',
-      name: 'Setup',
+      name: Intl.text('COMMAND_SETUP'),
       shortcut: ['g', 's'],
       keywords: 'go-uses',
-      section: 'Ir para',
+      section: Intl.text('COMMAND_IRPARA'),
       perform: () => router.push('/setup'),
       icon: <Icon className="ri-computer-line" />,
     },

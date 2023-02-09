@@ -1,15 +1,26 @@
 import { useState } from 'react';
 
+import Intl from '../i18n';
+
 import { motion, AnimateSharedLayout } from 'framer-motion';
 import { useKBar } from 'kbar';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import brasilFlag from '../public/static/images/flags/brasil.png';
+import euaFlag from '../public/static/images/flags/usa.png';
+
 import { styled } from '../stitches.config';
+import Image from 'next/image';
 
 export default function Navbar() {
   const router = useRouter();
-  const pages = ['Sobre', 'Projetos', 'Setup'];
+  const pages = [
+    Intl.text('MENU_SOBRE'),
+    Intl.text('MENU_PROJETOS'),
+    Intl.text('MENU_SETUP'),
+  ];
+  const links = ['/sobre', '/projetos', '/setup'];
   const [hovered, setHovered] = useState('');
   const { query } = useKBar();
 
@@ -25,7 +36,7 @@ export default function Navbar() {
               var(--colors-cyan) 0%,
               var(--colors-green) 100%
             )`,
-              'background-size': '100',
+              // 'background-size': '100',
               '-webkit-background-clip': 'text',
               '-moz-background-clip': 'text',
               '-webkit-text-fill-color': 'transparent',
@@ -39,22 +50,21 @@ export default function Navbar() {
         <Nav>
           <List>
             {pages.map((page) => {
-              const path = `/${page.toLowerCase()}`;
-              const isHovered = hovered === page;
+              const isHovered = hovered === links[pages.indexOf(page)];
 
               return (
                 <li key={page}>
-                  <Link href={path} passHref>
+                  <Link href={links[pages.indexOf(page)]} passHref>
                     <Anchor>
                       <NavContainer
                         onHoverStart={() => setHovered(page)}
                         onHoverEnd={() => setHovered('')}
                         css={
-                          router.pathname == path
+                          router.pathname == links[pages.indexOf(page)]
                             ? {
-                              color: '$primary',
-                              '&::after': { opacity: 1 },
-                            }
+                                color: '$primary',
+                                '&::after': { opacity: 1 },
+                              }
                             : ''
                         }
                       >
@@ -86,6 +96,26 @@ export default function Navbar() {
           >
             <Icon className="ri-command-line" />
           </ButtonHeader>
+
+          {Intl.getLanguage() === 'pt-BR' ? (
+            <ButtonHeader
+              as="button"
+              type="button"
+              aria-label="English"
+              onClick={() => Intl.setLanguage('en-US')}
+            >
+              <Image src={euaFlag} alt="EUA" width={24} height={24} />
+            </ButtonHeader>
+          ) : (
+            <ButtonHeader
+              as="button"
+              type="button"
+              aria-label="Português"
+              onClick={() => Intl.setLanguage('pt-BR')}
+            >
+              <Image src={brasilFlag} alt="Brasil" width={24} height={24} />
+            </ButtonHeader>
+          )}
         </Aside>
       </Header>
     </AnimateSharedLayout>

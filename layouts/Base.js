@@ -5,7 +5,7 @@ import { Wrapper } from '../components/Wrapper';
 import { styled } from '../stitches.config';
 
 export default function Base({ children }) {
-  const { title, tagline, primaryColor, secondaryColor } = children.props;
+  const { primaryColor } = children.props;
 
   return (
     <Wrapper>
@@ -20,20 +20,7 @@ export default function Base({ children }) {
         }}
       >
         <PostContent>
-          <PostContainer>
-            <GradientTitle
-              css={{
-                backgroundImage: `linear-gradient(
-                135deg,
-                $${primaryColor} 0%,
-                $${secondaryColor} 100%
-              );`,
-              }}
-            >
-              {tagline ? tagline : title}
-            </GradientTitle>
-            {children}
-          </PostContainer>
+          <PostContainer>{children}</PostContainer>
         </PostContent>
       </PostMain>
       <Footer />
@@ -41,7 +28,7 @@ export default function Base({ children }) {
   );
 }
 
-const GradientTitle = styled('h1', {
+export const GradientTitle = styled('h1', {
   backgroundSize: '100%',
   backgroundClip: 'text',
   WebkitBackgroundClip: 'text',

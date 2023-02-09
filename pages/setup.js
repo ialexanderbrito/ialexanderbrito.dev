@@ -9,9 +9,11 @@ import Head from 'next/head';
 import { styled } from '@stitches/react';
 
 import categories from '../data/setup';
-import Base from '../layouts/Base';
+import Base, { GradientTitle } from '../layouts/Base';
 import stripHtml from '../lib/strip-html';
 import { ButtonTopPage } from '../components/ButtonTop';
+
+import Intl from '../i18n';
 
 export async function getStaticProps() {
   const meta = {
@@ -28,7 +30,8 @@ export async function getStaticProps() {
 }
 
 function Uses(props) {
-  const { title, description, image } = props;
+  const { title, description, image, primaryColor, secondaryColor, tagline } =
+    props;
 
   const renderAll = () =>
     categories.map((category, index) => (
@@ -47,14 +50,22 @@ function Uses(props) {
       </div>
     ));
 
-    const renderMenu = () =>
-      categories.map((category, index) => (
-        <SubMenu key={index}>
-          <Title style={{fontSize: '16px'}}>
-            <Text to={`${category.name}`} spy={true} smooth={true} offset={1} duration={500}>{category.name}</Text>
-          </Title>
-        </SubMenu>
-      ));
+  const renderMenu = () =>
+    categories.map((category, index) => (
+      <SubMenu key={index}>
+        <Title style={{ fontSize: '16px' }}>
+          <Text
+            to={`${category.name}`}
+            spy={true}
+            smooth={true}
+            offset={1}
+            duration={500}
+          >
+            {category.name}
+          </Text>
+        </Title>
+      </SubMenu>
+    ));
 
   return (
     <>
@@ -70,7 +81,21 @@ function Uses(props) {
         />
       </Head>
 
-      <p dangerouslySetInnerHTML={{ __html: description }} />
+      <GradientTitle
+        css={{
+          backgroundImage: `linear-gradient(
+          135deg,
+          $${primaryColor} 0%,
+          $${secondaryColor} 100%
+        );`,
+        }}
+      >
+        {tagline
+          ? Intl.text('SETUP_TITLE')
+          : 'Equipamentos, apps e ferramentas.'}
+      </GradientTitle>
+
+      <p>{Intl.text('SETUP_DESCRIPTION')}</p>
 
       <ScrollContainerMenu>
         <Menu>{renderMenu()}</Menu>
@@ -85,8 +110,7 @@ function Uses(props) {
 
 const Items = styled('a', {
   borderBottom: 'none',
-
-})
+});
 
 const Menu = styled('div', {
   display: 'flex',
@@ -95,8 +119,8 @@ const Menu = styled('div', {
 });
 
 const ScrollContainerMenu = styled(ScrollContainer, {
-  width: '100%'
-})
+  width: '100%',
+});
 
 const Text = styled(Link, {
   color: '#FFF',
@@ -110,7 +134,7 @@ const Text = styled(Link, {
     backgroundClip: 'text',
     backgroundSize: '100%',
     '-webkit-text-fill-color': 'transparent',
-    '-webkit-box-decoration-break': 'clone'
+    '-webkit-box-decoration-break': 'clone',
   },
 });
 

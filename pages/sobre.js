@@ -2,11 +2,14 @@ import React from 'react';
 
 import { parseISO, format, intervalToDuration } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
+import enUS from 'date-fns/locale/en-US';
 import Head from 'next/head';
 import Image from 'next/image';
 
+import Intl from '../i18n';
+
 import items from '../data/about';
-import Base from '../layouts/Base';
+import Base, { GradientTitle } from '../layouts/Base';
 import stripHtml from '../lib/strip-html';
 import { styled } from '../stitches.config';
 
@@ -15,9 +18,8 @@ import profileImage from '../public/static/images/alexander.jpg';
 export async function getStaticProps() {
   const meta = {
     title: 'Sobre | Alexander',
-    description:
-      'Me chamo Alexander, desenvolvedor front-end e flamenguista! Nas redes sociais conhecido como @ialexanderbrito',
-    tagline: 'Sobre mim.',
+    description: Intl.text('SOBRE_BIO'),
+    tagline: Intl.text('SOBRE_TITLE'),
     image: '/static/images/alexander.jpg',
     primaryColor: 'cyan',
     secondaryColor: 'green',
@@ -35,7 +37,8 @@ function calculateAge(birthday) {
 }
 
 function About(props) {
-  const { title, description, image } = props;
+  const { title, description, image, tagline, primaryColor, secondaryColor } =
+    props;
 
   const renderIntro = () => (
     <Container>
@@ -56,21 +59,22 @@ function About(props) {
           }}
         >
           <strong>
-            Oi, eu sou Alexander e tenho {calculateAge(yearAnniversary)} anos.
+            {Intl.text('SOBRE_NOME')}
+            {' '}
+            {calculateAge(yearAnniversary)} {Intl.text('SOBRE_IDADE')}
           </strong>
           <br />
-          Sou Desenvolvedor front-end Web e Mobile, formado em Sistemas de
-          Informação na Universidade Unigranrio .
+          {Intl.text('SOBRE_MIM')}
         </Paragraph>
         <Paragraph>
-          Atualmente trabalhando na <strong>Localiza</strong> como{' '}
-          <strong>desenvolvedor Front-end Pleno</strong> e estudando UI Designer
-          pelo curso <strong>uiBoost</strong>.
+          {Intl.text('SOBRE_ATUALMENTE')}{' '}
+          <strong>{Intl.text('SOBRE_LOCALIZA')}</strong>{' '}
+          {Intl.text('SOBRE_COMO')} <strong>{Intl.text('SOBRE_CARGO')}</strong>{' '}
+          {Intl.text('SOBRE_ESTUDOS')}{' '}
+          <strong>{Intl.text('SOBRE_UIBOOST')}</strong>.
         </Paragraph>
         <Paragraph>
-          Nas horas vagas gosto de desenvolver aplicações e clonar apps que já
-          estão no mercado para aperfeiçoar meus estudos e também focando os
-          estudos na parte <strong>UI/UX Design</strong>.
+          {Intl.text('SOBRE_HORAS_VAGAS')} <strong>UI/UX Design</strong>.
         </Paragraph>
       </Section>
     </Container>
@@ -79,10 +83,12 @@ function About(props) {
   const renderBio = () => (
     <div>
       <blockquote>
-        <p>{description}</p>
+        <p>{Intl.text('SOBRE_BIO')}</p>
       </blockquote>
     </div>
   );
+
+  const pt = Intl.getLanguage() === 'pt-BR';
 
   const renderAll = () =>
     items.map((item, index) => (
@@ -97,16 +103,16 @@ function About(props) {
         <p style={{ margin: 0 }}>
           <span>
             {format(parseISO(item.startDate), 'MMMM yyyy', {
-              locale: ptBR,
+              locale: pt ? ptBR : enUS,
             })}
           </span>
           <span> – </span>
           <span>
             {item.endDate
               ? format(parseISO(item.endDate), 'MMMM yyyy', {
-                  locale: ptBR,
+                  locale: pt ? ptBR : enUS,
                 })
-              : 'Presente'}
+              : Intl.text('SOBRE_PRESENTE')}
           </span>
           <span> • </span>
           <span>{getDuration(item.startDate, item.endDate)}</span>
@@ -122,19 +128,40 @@ function About(props) {
 
     let durationStr = '';
 
-    if (durationObj.years > 1) {
-      durationStr = `${durationObj.years} anos `;
-    } else if (durationObj.years === 1) {
-      durationStr = `${durationObj.years} ano `;
+    const pt = Intl.getLanguage() === 'pt-BR';
+    const en = Intl.getLanguage() === 'en-US';
+
+    if (pt) {
+      if (durationObj.years > 1) {
+        durationStr = `${durationObj.years} anos `;
+      } else if (durationObj.years === 1) {
+        durationStr = `${durationObj.years} ano `;
+      }
+
+      if (durationObj.months > 1) {
+        durationStr += `${durationObj.months} meses `;
+      } else if (durationObj.months === 1) {
+        durationStr += `${durationObj.months} mês `;
+      }
+
+      return durationStr;
     }
 
-    if (durationObj.months > 1) {
-      durationStr += `${durationObj.months} meses `;
-    } else if (durationObj.months === 1) {
-      durationStr += `${durationObj.months} mês `;
-    }
+    if (en) {
+      if (durationObj.years > 1) {
+        durationStr = `${durationObj.years} years `;
+      } else if (durationObj.years === 1) {
+        durationStr = `${durationObj.years} year `;
+      }
 
-    return durationStr;
+      if (durationObj.months > 1) {
+        durationStr += `${durationObj.months} months `;
+      } else if (durationObj.months === 1) {
+        durationStr += `${durationObj.months} month `;
+      }
+
+      return durationStr;
+    }
   };
 
   return (
@@ -151,12 +178,24 @@ function About(props) {
         />
       </Head>
 
+      <GradientTitle
+        css={{
+          backgroundImage: `linear-gradient(
+          135deg,
+          $${primaryColor} 0%,
+          $${secondaryColor} 100%
+        );`,
+        }}
+      >
+        {tagline ? Intl.text('SOBRE_TITLE') : 'Sobre mim'}
+      </GradientTitle>
+
       {renderIntro()}
 
       <h2>Bio</h2>
       {renderBio()}
 
-      <h2>Carreira</h2>
+      <h2>{Intl.text('SOBRE_CARREIRA')}</h2>
       {renderAll()}
     </>
   );

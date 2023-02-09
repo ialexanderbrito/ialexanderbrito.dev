@@ -1,13 +1,15 @@
 import { Box } from './Box';
 import ShortcutError from './ShortcutError';
 
+import Intl from '../i18n';
+
 export default function ErrorMessage({ code }) {
   let title = '500';
-  let description = 'Algo não está certo.';
+  let description = Intl.text('ERROR_500');
 
   if (code === 404) {
     title = '404';
-    description = 'Esta página não existe.';
+    description = Intl.text('ERROR_404');
   }
 
   return (

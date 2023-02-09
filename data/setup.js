@@ -1,136 +1,137 @@
+import Intl from '../i18n';
+
 const categories = [
   {
-    name: 'Sistemas',
+    name: Intl.text('SETUP_MENU_SISTEMAS'),
     items: [
       {
-        title: 'Placa Mãe Gigabyte Z490M Gaming X',
+        title: Intl.text('SETUP_PLACAMAE'),
       },
       {
-        title:
-          'Processador Intel - i5 10600K',
+        title: Intl.text('SETUP_PROCESSADOR'),
       },
       {
-        title: 'Mémoria Kllisre - 32GB de RAM',
+        title: Intl.text('SETUP_MEMORIA'),
       },
       {
-        title: 'Placa de Vídeo RX 580 Asus',
+        title: Intl.text('SETUP_PLACADEVIDEO'),
       },
       {
-        title: 'WaterCooler - 240mm Gamdias M2',
+        title: Intl.text('SETUP_WATERCOOLER'),
       },
       {
-        title: 'Gabinete Kazan RGB',
-      }
-    ],
-  },
-  {
-    name: 'Equipamentos',
-    items: [
-      {
-        title: 'Monitor - LG 29" UltraWide (29WK600)',
-      },
-      {
-        title: 'Monitor - AOC 27" 144Hz (27G2/BK)',
-      },
-      {
-        title: 'Mouse - Logitech G603 Sem Fio LightSpeed',
-      },
-      {
-        title: 'Mouse - Logitech G203 LightSync',
-      },
-      {
-        title: 'Teclado - Logitech G213 LightSync',
-      },
-      {
-        title: 'Hub: TP-Link de 7 portas (UH700)',
-      },
-      {
-        title: 'Webcam - Papalook PA930',
-      },
-      {
-        title: 'Headset - Havit HV-H2002D',
-      },
-      {
-        title: 'Microfone - Vedo BM800',
+        title: Intl.text('SETUP_GABINETE'),
       },
     ],
   },
   {
-    name: 'Desk',
+    name: Intl.text('SETUP_MENU_EQUIPAMENTOS'),
     items: [
       {
-        title: 'Mesa - Kuadra Nogal 1.50M',
+        title: Intl.text('SETUP_MONITOR_LG'),
       },
       {
-        title: 'Cadeira - Husky Gaming Tempest 500',
+        title: Intl.text('SETUP_MONITOR_AOC'),
       },
       {
-        title: 'Deskpad - Maphiro 90x40',
+        title: Intl.text('SETUP_MOUSE_G603'),
       },
       {
-        title: 'Luminária de mesa',
+        title: Intl.text('SETUP_MOUSE_G203'),
+      },
+      {
+        title: Intl.text('SETUP_TECLADO_G213'),
+      },
+      {
+        title: Intl.text('SETUP_HUB'),
+      },
+      {
+        title: Intl.text('SETUP_WEBCAM'),
+      },
+      {
+        title: Intl.text('SETUP_HEADSET'),
+      },
+      {
+        title: Intl.text('SETUP_MICROFONE'),
       },
     ],
   },
   {
-    name: 'Automação',
+    name: Intl.text('SETUP_MENU_DESK'),
     items: [
       {
-        title: 'Echo Dot (4ª Geração)',
+        title: Intl.text('SETUP_MESA'),
       },
       {
-        title: 'Lampada - Yeelight 1S',
-      }
+        title: Intl.text('SETUP_CADEIRA'),
+      },
+      {
+        title: Intl.text('SETUP_DESKPAD'),
+      },
+      {
+        title: Intl.text('SETUP_LUMINARIA'),
+      },
     ],
   },
   {
-    name: 'Código',
+    name: Intl.text('SETUP_MENU_AUTOMACAO'),
     items: [
       {
-        title: 'Editor - VS Code',
+        title: Intl.text('SETUP_ECHODOT'),
+      },
+      {
+        title: Intl.text('SETUP_LAMPADA'),
+      },
+    ],
+  },
+  {
+    name: Intl.text('SETUP_MENU_CODIGO'),
+    items: [
+      {
+        title: Intl.text('SETUP_EDITOR'),
         url: 'https://code.visualstudio.com',
       },
       {
-        title: 'Tema - Omni Owl',
+        title: Intl.text('SETUP_TEMA'),
         url: 'https://marketplace.visualstudio.com/items?itemName=guilhermerodz.omni-owl',
       },
       {
-        title: 'Fonte - JetBrains Mono',
+        title: Intl.text('SETUP_FONTE'),
         url: 'https://www.jetbrains.com/pt-br/lp/mono/',
       },
     ],
   },
   {
-    name: 'Terminal',
+    name: Intl.text('SETUP_MENU_TERMINAL'),
     items: [
       {
-        title: 'Hyper',
+        title: Intl.text('SETUP_HYPER'),
         url: 'https://hyper.is',
       },
       {
-        title: 'Hyper Config',
+        title: Intl.text('SETUP_HYPERCONFIG'),
         url: 'https://github.com/alxUI/dotfiles/blob/master/.hyper.js',
       },
       {
-        title: 'Tema - Omni',
+        title: Intl.text('SETUP_TEMA'),
         url: 'https://github.com/getomni/hyper',
       },
       {
-        title: 'Oh My ZSH',
+        title: Intl.text('SETUP_OHMYZSH'),
         url: 'https://ohmyz.sh',
       },
       {
-        title: 'ZSH Config',
+        title: Intl.text('SETUP_ZSHCONFIG'),
         url: 'https://github.com/alxUI/dotfiles/blob/master/.zshrc',
       },
       {
-        title: 'Fig',
+        title: Intl.text('SETUP_FIG'),
         url: 'http://fig.io',
       },
     ],
   },
   {
-    name: 'Apps',
+    name: Intl.text('SETUP_MENU_APPS'),
     items: [
       {
         title: 'Raycast',
@@ -191,11 +192,11 @@ const categories = [
       {
         title: 'Stats',
         url: 'https://github.com/exelban/stats',
-      }
+      },
     ],
   },
   {
-    name: 'Serviços',
+    name: Intl.text('SETUP_MENU_SERVICOS'),
     items: [
       {
         title: 'Google Domains',
@@ -212,7 +213,7 @@ const categories = [
       {
         title: 'Zoho',
         url: 'https://www.zoho.com/pt-br/',
-      }
+      },
     ],
   },
 ];
