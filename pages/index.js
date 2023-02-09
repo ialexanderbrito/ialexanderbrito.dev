@@ -57,7 +57,7 @@ export default function Index(props) {
                 <h1>{title}</h1>
               </GradientTitle>
               <p>
-                <strong>Front-end Developer | Localiza</strong>.<br />
+                <strong>Front-end Developer | Localiza & CO</strong>.<br />
                 {Intl.text('INICIAL_DESCRICAO')}
               </p>
               <ShortcutHome />

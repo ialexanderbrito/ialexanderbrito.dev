@@ -3,7 +3,7 @@ import Intl from '../i18n';
 const items = [
   {
     jobTitle: Intl.text('JOB_SOFTWARE'),
-    company: 'Localiza',
+    company: 'Localiza & CO',
     companyUrl: 'https://www.localiza.com/brasil/pt-br',
     startDate: '2022-07',
     location: 'Belo Horizonte, MG',
