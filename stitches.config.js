@@ -195,7 +195,7 @@ const globalStyles = globalCss({
     borderRadius: '8px',
   },
   '::-webkit-scrollbar-thumb:hover': {
-    background: '$primary',
+    background: '$cyan',
   },
 });
 

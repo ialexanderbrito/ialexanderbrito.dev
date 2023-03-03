@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import ScrollContainer from 'react-indiana-drag-scroll';
 
@@ -33,19 +33,25 @@ function Uses(props) {
   const { title, description, image, primaryColor, secondaryColor, tagline } =
     props;
 
+  const [searchTerm, setSearchTerm] = useState('');
+
   const renderAll = () =>
     categories.map((category, index) => (
       <div key={index}>
         <h2 id={category.name}>{category.name}</h2>
         <ul>
-          {category.items.map((item, iIndex) => (
-            <li key={iIndex}>
-              <Items href={item.url} target="_blank" rel="noreferrer">
-                {item.title}
-              </Items>
-              <span dangerouslySetInnerHTML={{ __html: item.description }} />
-            </li>
-          ))}
+          {category.items
+            .filter((item) =>
+              item.title.toLowerCase().includes(searchTerm.toLowerCase()),
+            )
+            .map((item, iIndex) => (
+              <li key={iIndex}>
+                <Items href={item.url} target="_blank" rel="noreferrer">
+                  {item.title}
+                </Items>
+                <span dangerouslySetInnerHTML={{ __html: item.description }} />
+              </li>
+            ))}
         </ul>
       </div>
     ));
@@ -101,6 +107,18 @@ function Uses(props) {
         <Menu>{renderMenu()}</Menu>
       </ScrollContainerMenu>
 
+      <Form>
+        <Label>{Intl.text('SETUP_LABEL')} 👇🏾</Label>
+        <ContainerInput>
+          <Input
+            type="text"
+            placeholder={Intl.text('SETUP_PLACEHOLDER')}
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+          />
+        </ContainerInput>
+      </Form>
+
       <ButtonTopPage />
 
       {renderAll()}
@@ -142,6 +160,41 @@ const SubMenu = styled('div', {});
 
 const Title = styled('h2', {
   margin: '20px 0',
+});
+
+const Form = styled('form', {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '10px',
+});
+
+const ContainerInput = styled('div', {
+  width: '100%',
+  display: 'flex',
+  marginBottom: '10px',
+  gap: '2rem',
+});
+
+const Label = styled('label', {
+  textTransform: 'uppercase',
+  fontSize: '12px',
+  fontWeight: '500',
+  color: '$primary',
+});
+
+const Input = styled('input', {
+  width: '100%',
+  color: '$primary',
+  background: 'none',
+  border: '1px solid $primary',
+  borderRadius: '8px',
+  padding: '10px',
+  fontSize: '16px',
+
+  '&:focus': {
+    outline: 'none',
+    border: '1px solid $cyan',
+  },
 });
 
 Uses.Layout = Base;
