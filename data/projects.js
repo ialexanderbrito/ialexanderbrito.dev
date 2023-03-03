@@ -13,12 +13,6 @@ const items = [
         active: true,
         image: 'static/images/projects/bea.png',
       },
-    ],
-  },
-  {
-    year: '2022',
-    company: 'Pessoal',
-    projects: [
       {
         title: 'NV99 Badges',
         description: Intl.text('PROJETO_NV99'),
@@ -27,6 +21,12 @@ const items = [
         active: true,
         image: 'static/images/projects/nv99.png',
       },
+    ],
+  },
+  {
+    year: '2022',
+    company: 'Pessoal',
+    projects: [
       {
         title: 'The Movies',
         description: Intl.text('PROJETO_THE_MOVIES'),
