@@ -1,5 +1,8 @@
-import * as React from 'react';
-
+import { styled } from '../stitches.config';
+import { Box } from './Box';
+import Toast from './Toast';
+import { useRef, useState, forwardRef } from 'react';
+import { useRouter } from 'next/router';
 import {
   KBarAnimator,
   KBarProvider,
@@ -9,25 +12,52 @@ import {
   KBarSearch,
   KBarResults,
 } from 'kbar';
-import { useRouter } from 'next/router';
+import Lottie from 'lottie-react';
+import copyLinkIcon from '../public/static/icons/copy-link.json';
+import emailIcon from '../public/static/icons/email.json';
+import aboutIcon from '../public/static/icons/about.json';
+import homeIcon from '../public/static/icons/home.json';
+import projectsIcon from '../public/static/icons/projects.json';
+import usesIcon from '../public/static/icons/uses.json';
 
 import Intl from '../i18n';
 
-import { styled } from '../stitches.config';
-import { Box } from './Box';
-
 export default function CommandBar(props) {
+  const copyLinkRef = useRef();
+  const emailRef = useRef();
+  const homeRef = useRef();
+  const aboutRef = useRef();
+  const projectsRef = useRef();
+  const usesRef = useRef();
+
   const router = useRouter();
+
+  const [showToast, setShowToast] = useState(false);
+
+  const copyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setShowToast(true);
+  };
+
+  const iconSize = { width: 24, height: 24 };
 
   const actions = [
     {
       id: 'copy',
       name: Intl.text('COMMAND_COPIARURL'),
       shortcut: ['u'],
-      keywords: 'copy-url',
+      keywords: 'copy-link',
       section: Intl.text('COMMAND_GERAL'),
-      perform: () => navigator.clipboard.writeText(window.location.href),
-      icon: <Icon className="ri-file-copy-line" />,
+      perform: copyLink,
+      icon: (
+        <Lottie
+          lottieRef={copyLinkRef}
+          style={iconSize}
+          animationData={copyLinkIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
     {
       id: 'email',
@@ -36,7 +66,15 @@ export default function CommandBar(props) {
       keywords: 'send-email',
       section: Intl.text('COMMAND_GERAL'),
       perform: () => window.open('mailto:eu@ialexanderbrito.dev', '_blank'),
-      icon: <Icon className="ri-mail-line" />,
+      icon: (
+        <Lottie
+          lottieRef={emailRef}
+          style={iconSize}
+          animationData={emailIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
     {
       id: 'home',
@@ -45,7 +83,15 @@ export default function CommandBar(props) {
       keywords: 'go-home',
       section: Intl.text('COMMAND_IRPARA'),
       perform: () => router.push('/'),
-      icon: <Icon className="ri-home-5-line" />,
+      icon: (
+        <Lottie
+          lottieRef={homeRef}
+          style={iconSize}
+          animationData={homeIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
     {
       id: 'about',
@@ -54,7 +100,15 @@ export default function CommandBar(props) {
       keywords: 'go-about',
       section: Intl.text('COMMAND_IRPARA'),
       perform: () => router.push('/sobre'),
-      icon: <Icon className="ri-user-line" />,
+      icon: (
+        <Lottie
+          lottieRef={aboutRef}
+          style={iconSize}
+          animationData={aboutIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
     {
       id: 'projects',
@@ -63,7 +117,15 @@ export default function CommandBar(props) {
       keywords: 'go-projects',
       section: Intl.text('COMMAND_IRPARA'),
       perform: () => router.push('/projetos'),
-      icon: <Icon className="ri-lightbulb-line" />,
+      icon: (
+        <Lottie
+          lottieRef={projectsRef}
+          style={iconSize}
+          animationData={projectsIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
     {
       id: 'uses',
@@ -72,82 +134,41 @@ export default function CommandBar(props) {
       keywords: 'go-uses',
       section: Intl.text('COMMAND_IRPARA'),
       perform: () => router.push('/setup'),
-      icon: <Icon className="ri-computer-line" />,
-    },
-    {
-      id: 'github',
-      name: 'Github',
-      shortcut: ['f', 'g'],
-      keywords: 'go-github',
-      section: 'Follow',
-      perform: () =>
-        window.open('https://github.com/ialexanderbrito', '_blank'),
-      icon: <Icon className="ri-github-line" />,
-    },
-    {
-      id: 'instagram',
-      name: 'Instagram',
-      shortcut: ['f', 'i'],
-      keywords: 'go-instagram',
-      section: 'Follow',
-      perform: () =>
-        window.open('https://instagram.com/ialexanderbrito', '_blank'),
-      icon: <Icon className="ri-instagram-line" />,
-    },
-    {
-      id: 'twitter',
-      name: 'Twitter',
-      shortcut: ['f', 't'],
-      keywords: 'go-twitter',
-      section: 'Follow',
-      perform: () =>
-        window.open('https://twitter.com/ialexanderbrito', '_blank'),
-      icon: <Icon className="ri-twitter-line" />,
-    },
-    {
-      id: 'linkedin',
-      name: 'LinkedIn',
-      shortcut: ['f', 'l'],
-      keywords: 'go-linkedin',
-      section: 'Follow',
-      perform: () =>
-        window.open('https://linkedin.com/in/ialexanderbrito', '_blank'),
-      icon: <Icon className="ri-linkedin-line" />,
-    },
-    {
-      id: 'twitch',
-      name: 'Twitch',
-      shortcut: ['f', 'w'],
-      keywords: 'go-twitch',
-      section: 'Follow',
-      perform: () => window.open('https://twitch.tv/ialexanderbrito', '_blank'),
-      icon: <Icon className="ri-twitch-line" />,
-    },
-    {
-      id: 'discord',
-      name: 'Discord',
-      shortcut: ['f', 'd'],
-      keywords: 'go-discord',
-      section: 'Follow',
-      perform: () =>
-        window.open('https://discord.com/users/348275303400996864/', '_blank'),
-      icon: <Icon className="ri-discord-line" />,
+      icon: (
+        <Lottie
+          lottieRef={usesRef}
+          style={iconSize}
+          animationData={usesIcon}
+          loop={false}
+          autoplay={false}
+        />
+      ),
     },
   ];
 
   return (
-    <KBarProvider actions={actions}>
-      <KBarPortal>
-        <Positioner>
-          <Animator>
-            <Search placeholder="Digite um comando ou pesquise…" />
-            <RenderResults />
-          </Animator>
-        </Positioner>
-      </KBarPortal>
+    <>
+      <KBarProvider actions={actions}>
+        <KBarPortal>
+          <Positioner>
+            <Animator>
+              <Search placeholder={Intl.text('COMMAND_PLACEHOLDER')} />
+              <RenderResults />
+            </Animator>
+          </Positioner>
+        </KBarPortal>
 
-      {props.children}
-    </KBarProvider>
+        {props.children}
+      </KBarProvider>
+
+      <Toast
+        title={`${Intl.text('COMMAND_TOAST_TITLE')} 😀`}
+        description={Intl.text('COMMAND_TOAST_DESCRIPTION')}
+        isSuccess={true}
+        showToast={showToast}
+        setShowToast={setShowToast}
+      />
+    </>
   );
 }
 
@@ -168,23 +189,36 @@ function RenderResults() {
   );
 }
 
-const ResultItem = React.forwardRef(({ action, active }, ref) => (
-  <Box ref={ref} css={getResultStyle(active)}>
-    <Action>
-      {action.icon && action.icon}
-      <ActionRow>
-        <span>{action.name}</span>
-      </ActionRow>
-    </Action>
-    {action.shortcut?.length ? (
-      <Shortcut aria-hidden>
-        {action.shortcut.map((shortcut) => (
-          <Kbd key={shortcut}>{shortcut}</Kbd>
-        ))}
-      </Shortcut>
-    ) : null}
-  </Box>
-));
+const ResultItem = forwardRef(({ action, active }, ref) => {
+  if (active) {
+    action.icon.props.lottieRef.current?.play();
+  } else {
+    action.icon.props.lottieRef.current?.stop();
+  }
+
+  return (
+    <Box
+      ref={ref}
+      css={getResultStyle(active)}
+      onMouseEnter={() => action.icon.props.lottieRef.current?.play()}
+      onMouseLeave={() => action.icon.props.lottieRef.current?.stop()}
+    >
+      <Action>
+        {action.icon && action.icon}
+        <ActionRow>
+          <span>{action.name}</span>
+        </ActionRow>
+      </Action>
+      {action.shortcut?.length ? (
+        <Shortcut aria-hidden>
+          {action.shortcut.map((shortcut) => (
+            <Kbd key={shortcut}>{shortcut}</Kbd>
+          ))}
+        </Shortcut>
+      ) : null}
+    </Box>
+  );
+});
 
 ResultItem.displayName = 'ResultItem';
 
@@ -264,13 +298,15 @@ const Animator = styled(KBarAnimator, {
   },
 });
 
-const getResultStyle = (active) => ({
-  padding: '12px 16px',
-  background: active ? 'rgba(255, 255, 255, 0.1)' : '$command',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  margin: 0,
-  cursor: 'pointer',
-  color: active ? '$primary' : '$secondary',
-});
+const getResultStyle = (active) => {
+  return {
+    padding: '12px 16px',
+    background: active ? 'rgba(255, 255, 255, 0.1)' : '$command',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    margin: 0,
+    cursor: 'pointer',
+    color: active ? '$primary' : '$secondary',
+  };
+};
