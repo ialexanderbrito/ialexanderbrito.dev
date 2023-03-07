@@ -35,26 +35,49 @@ function Uses(props) {
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  const renderAll = () =>
-    categories.map((category, index) => (
-      <div key={index}>
-        <h2 id={category.name}>{category.name}</h2>
-        <ul>
-          {category.items
-            .filter((item) =>
-              item.title.toLowerCase().includes(searchTerm.toLowerCase()),
-            )
-            .map((item, iIndex) => (
-              <li key={iIndex}>
-                <Items href={item.url} target="_blank" rel="noreferrer">
-                  {item.title}
-                </Items>
-                <span dangerouslySetInnerHTML={{ __html: item.description }} />
-              </li>
+  const renderAll = () => {
+    const filteredItems = categories.flatMap((category) =>
+      category.items.filter((item) =>
+        item.title.toLowerCase().includes(searchTerm.toLowerCase()),
+      ),
+    );
+
+    return (
+      <div>
+        {filteredItems.length === 0 ? (
+          <p>Não encontramos o que você buscava.</p>
+        ) : (
+          <>
+            {categories.map((category, index) => (
+              <div key={index}>
+                {category.items.some((item) =>
+                  item.title.toLowerCase().includes(searchTerm.toLowerCase()),
+                ) && <h2 id={category.name}>{category.name}</h2>}
+                <ul>
+                  {category.items
+                    .filter((item) =>
+                      item.title
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase()),
+                    )
+                    .map((item, iIndex) => (
+                      <li key={iIndex}>
+                        <Items href={item.url} target="_blank" rel="noreferrer">
+                          {item.title}
+                        </Items>
+                        <span
+                          dangerouslySetInnerHTML={{ __html: item.description }}
+                        />
+                      </li>
+                    ))}
+                </ul>
+              </div>
             ))}
-        </ul>
+          </>
+        )}
       </div>
-    ));
+    );
+  };
 
   const renderMenu = () =>
     categories.map((category, index) => (
