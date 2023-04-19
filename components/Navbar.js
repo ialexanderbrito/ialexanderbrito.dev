@@ -138,9 +138,10 @@ const Header = styled('header', {
   minHeight: '59px',
   width: '100%',
   flexWrap: 'wrap',
-  position: 'absolute',
+  position: 'fixed',
   top: '0',
   zIndex: 3,
+  backdropFilter: 'saturate(180%) blur(5px)',
   marginTop: '13px',
   '@bp2': { marginTop: '0' },
 });
