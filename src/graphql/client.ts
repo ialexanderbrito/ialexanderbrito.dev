@@ -8,8 +8,7 @@ export const fetchHygraph = async (query: string) => {
     },
     body: JSON.stringify({ query }),
     next: {
-      revalidate: 1, // seconds
-      tags: ['00fdsur123gfdgdfgfuytidgfdfdsfjhgfdsdfdfgdfdggfgfdgjytujytygfdgdfgdrds0'],
+      revalidate: 60 * 60 * 24, // 24 hours
     },
   });
 
