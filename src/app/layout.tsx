@@ -1,5 +1,6 @@
 import { ButtonTop } from '@/components/button-top';
 import Footer from '@/components/footer';
+import { GTag } from '@/components/gtag';
 import { Navbar } from '@/components/navbar';
 import { PatternBackground } from '@/components/pattern-bg';
 import { ThemeProvider } from '@/components/theme-provider';
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning className={fontSans.className}>
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" />
+        <GTag />
       </head>
       <body className="bg-background  antialiased">
         <PatternBackground variant="checkered" />
