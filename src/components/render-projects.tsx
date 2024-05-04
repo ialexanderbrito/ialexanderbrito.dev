@@ -1,9 +1,11 @@
 import { Button } from '@/components/ui/button';
 import { Project } from '@/interfaces/project';
 import { GithubLogo } from '@phosphor-icons/react/dist/ssr';
-import { ExternalLink } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { DialogImage } from './dialog-image';
 
 interface RenderProjectsProps {
   projects: Project[];
@@ -24,7 +26,7 @@ export default function RenderProjects({ projects, category }: RenderProjectsPro
             <div className="flex">
               <figure className="rounded-lg overflow-hidden relative flex items-center justify-center">
                 {project.category !== 'IK' ? (
-                  <Image src={project.thumbnail?.url} alt={project.name} width={500} height={500} />
+                  <DialogImage src={project.thumbnail?.url} alt={project.name} />
                 ) : (
                   <Image
                     src={project.thumbnail?.url}
@@ -47,8 +49,8 @@ export default function RenderProjects({ projects, category }: RenderProjectsPro
               <div className="mt-3 flex flex-row gap-1 flex-wrap">
                 <Button variant="outline" className="text-sm" asChild>
                   <Link href={project?.urlProject} target="_blank" passHref>
-                    <ExternalLink size={16} className="mr-1" />
-                    Ver projeto
+                    <ArrowUpRight size={16} className="mr-1" />
+                    Visitar
                   </Link>
                 </Button>
 
