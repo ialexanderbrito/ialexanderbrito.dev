@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const getSocials = async (): Promise<SocialsResponse> => fetchHygraph(GET_SOCIALS);
 
-export default async function Footer() {
+export async function Footer() {
   const { socials } = await getSocials();
 
   return (
