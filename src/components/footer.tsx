@@ -4,6 +4,8 @@ import { GET_SOCIALS } from '@/graphql/queries';
 import { SocialsResponse } from '@/interfaces/socials';
 import Link from 'next/link';
 
+import { TooltipMessage } from './tooltip';
+
 const getSocials = async (): Promise<SocialsResponse> => fetchHygraph(GET_SOCIALS);
 
 export async function Footer() {
@@ -17,9 +19,11 @@ export async function Footer() {
             {socials.map((social) => (
               <Button asChild key={social.id} variant="outline" size="icon">
                 <Link href={social.url} aria-label={social.name} target="_blank">
-                  <div className="p-2 transition-all rounded-lg hover:bg-muted">
-                    <svg dangerouslySetInnerHTML={{ __html: social.logoSvg }} className="w-6 h-6 fill-current" />
-                  </div>
+                  <TooltipMessage title={`Abrir ${social.name}`}>
+                    <div className="p-2 transition-all rounded-lg hover:bg-muted">
+                      <svg dangerouslySetInnerHTML={{ __html: social.logoSvg }} className="w-6 h-6 fill-current" />
+                    </div>
+                  </TooltipMessage>
                 </Link>
               </Button>
             ))}
