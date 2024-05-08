@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.png" sizes="any" />
         <Analytics />
       </head>
-      <body className="bg-background  antialiased">
+      <body className="bg-background antialiased">
         <PatternBackground variant="checkered" />
         <NextTopLoader color="#a1a1aa" initialPosition={0.3} crawlSpeed={200} height={4} />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
