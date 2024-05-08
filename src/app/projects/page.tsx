@@ -44,14 +44,16 @@ export default async function Projects() {
     <main className="max-w-screen-lg mx-auto px-4">
       <h1 className="text-4xl font-bold mt-8 mb-4">Projetos</h1>
 
-      <span className="flex-row gap-1 flex text-muted-foreground">
-        Essa página lista os {projects.length} projetos que desenvolvi ao longo da minha carreira. Confira outros
-        projetos no meu
-        <Link href="https://github.com/ialexanderbrito?tab=repositories" target="_blank" className="underline">
-          {' '}
-          Github
-        </Link>
-      </span>
+      <div className="flex flex-row items-center text-muted-foreground">
+        <span>
+          Essa página lista os {projects.length} projetos que desenvolvi ao longo da minha carreira. Confira outros
+          projetos no meu{' '}
+          <Link href="https://github.com/ialexanderbrito?tab=repositories" target="_blank" className="underline">
+            {' '}
+            Github
+          </Link>
+        </span>
+      </div>
 
       <h3 className="text-2xl font-bold mt-8 mb-4">uollet</h3>
       <RenderProjects projects={projects} category="uollet" />
