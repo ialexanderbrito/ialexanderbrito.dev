@@ -12,7 +12,7 @@ export function DialogImage({ src, alt }: DialogImageProps) {
   return (
     <Dialog>
       <DialogTrigger>
-        <Button variant="link" size="icon" className="absolute -top-1 -right-1 text-white">
+        <Button variant="link" size="icon" className="absolute top-1 right-1 text-white w-4 h-4" asChild>
           <ZoomIn size={18} />
         </Button>
         <Image src={src} alt={alt} width={500} height={500} className="cursor-zoom-in" />

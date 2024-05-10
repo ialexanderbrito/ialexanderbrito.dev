@@ -7,8 +7,8 @@ import { Button } from './ui/button';
 export function MobileNav() {
   return (
     <Sheet>
-      <SheetTrigger>
-        <Button variant="ghost">
+      <Button variant="ghost" asChild>
+        <SheetTrigger>
           <svg strokeWidth="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5">
             <path
               d="M3 5H11"
@@ -32,8 +32,8 @@ export function MobileNav() {
               strokeLinejoin="round"
             ></path>
           </svg>
-        </Button>
-      </SheetTrigger>
+        </SheetTrigger>
+      </Button>
       <SheetContent side="left">
         <SheetHeader>
           <SheetTitle className="justify-start flex items-center">
