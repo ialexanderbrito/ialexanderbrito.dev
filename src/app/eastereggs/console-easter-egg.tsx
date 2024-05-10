@@ -7,7 +7,7 @@ import { getSessionStorageItem } from '@/utils/getSessionStorageItem';
 
 export function ConsoleEasterEgg() {
   useEffect(() => {
-    // if (process.env.NODE_ENV === 'development') return;
+    if (process.env.NODE_ENV === 'development') return;
 
     const now = new Date().getHours();
     function time() {
@@ -30,7 +30,6 @@ export function ConsoleEasterEgg() {
       }
     }
 
-    console.log(' ');
     console.log(`%c Opa, o que você tá fazendo aqui? 🤪`, 'font-size: 2rem; font-weight: bold;');
     console.log(
       '💻 Você pode visualizar o código-fonte deste site em https://github.com/ialexanderbrito/ialexanderbrito.dev',
