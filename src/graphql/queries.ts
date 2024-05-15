@@ -62,6 +62,7 @@ query getSocial {
     url
     order
     logoSvg
+    target
   }
 }
 `;

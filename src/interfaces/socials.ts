@@ -8,4 +8,5 @@ export interface Social {
   url: string;
   logoSvg: string;
   order: number;
+  target: boolean;
 }
