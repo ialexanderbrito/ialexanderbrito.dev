@@ -68,6 +68,14 @@ export function MobileNav() {
                 </Link>
               </SheetClose>
             </li>
+
+            <li className="text-start">
+              <SheetClose asChild>
+                <Link href="/contact" passHref>
+                  Contato
+                </Link>
+              </SheetClose>
+            </li>
           </ul>
         </SheetHeader>
       </SheetContent>

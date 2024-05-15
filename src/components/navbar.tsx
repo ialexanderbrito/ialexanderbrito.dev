@@ -44,6 +44,11 @@ export function Navbar() {
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>Tecnologias</NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/contact" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Contato</NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
