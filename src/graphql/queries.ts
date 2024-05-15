@@ -56,7 +56,7 @@ query getAbout {
 
 export const GET_SOCIALS = `
 query getSocial {
-  socials(orderBy: order_ASC) {
+  socials(first: 50, orderBy: order_ASC) {
     id
     name
     url
