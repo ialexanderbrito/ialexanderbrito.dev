@@ -13,10 +13,6 @@ const rateLimit = new Ratelimit({
   limiter: Ratelimit.slidingWindow(2, '5 s'),
 });
 
-export const config = {
-  runtime: 'edge',
-};
-
 export async function POST(request: NextRequest) {
   const ip = request.ip ?? '127.0.0.1';
   const { remaining, limit, reset } = await rateLimit.limit(ip);
