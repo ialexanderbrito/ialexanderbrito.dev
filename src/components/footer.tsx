@@ -18,7 +18,12 @@ export async function Footer() {
           <div className="grid grid-cols-5 items-center gap-3 md:flex md:gap-2">
             {socials.map((social) => (
               <Button asChild key={social.id} variant="outline" size="icon">
-                <Link href={social.url} aria-label={social.name} target="_blank">
+                <Link
+                  href={social.url}
+                  aria-label={social.name}
+                  target={social.target ? '_blank' : '_self'}
+                  rel="noopener noreferrer"
+                >
                   <TooltipMessage title={`Abrir ${social.name}`}>
                     <div className="p-2 transition-all rounded-lg hover:bg-muted">
                       <svg dangerouslySetInnerHTML={{ __html: social.logoSvg }} className="w-6 h-6 fill-current" />
