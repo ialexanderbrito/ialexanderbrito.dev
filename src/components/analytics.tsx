@@ -1,8 +1,8 @@
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Script from 'next/script';
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
+const GA_MEASUREMENT_ID = process.env.GA_MEASUREMENT_ID;
+const CLARITY_ID = process.env.CLARITY_ID;
 
 export function Analytics() {
   return (
