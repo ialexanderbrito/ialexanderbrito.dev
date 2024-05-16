@@ -10,7 +10,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 const rateLimit = new Ratelimit({
   redis: kv,
-  limiter: Ratelimit.slidingWindow(2, '5 s'),
+  limiter: Ratelimit.slidingWindow(3, '30 s'),
 });
 
 export async function POST(request: NextRequest) {
