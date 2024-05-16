@@ -2,12 +2,15 @@
 import { useForm } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks';
+import { cn } from '@/lib/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+
+import { LoadingSpinner } from './ui/spinner';
 
 export function ContactForm() {
   const FormSchema = z.object({
@@ -70,17 +73,21 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form action={onSubmit} onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+      <form action={onSubmit} onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-2">
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>Nome</FormLabel>
               <FormControl>
-                <Input placeholder="Seu nome" {...field} />
+                <Input
+                  required
+                  placeholder="Seu nome"
+                  {...field}
+                  className={cn(form.formState.errors.name && 'border-destructive')}
+                />
               </FormControl>
-              <FormMessage />
             </FormItem>
           )}
         />
@@ -92,9 +99,13 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Seu email" {...field} />
+                <Input
+                  required
+                  placeholder="Seu email"
+                  {...field}
+                  className={cn(form.formState.errors.email && 'border-destructive')}
+                />
               </FormControl>
-              <FormMessage />
             </FormItem>
           )}
         />
@@ -104,11 +115,15 @@ export function ContactForm() {
           name="subject"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Assunto</FormLabel>
+              <FormLabel>Assunto *</FormLabel>
               <FormControl>
-                <Input placeholder="Assunto" {...field} />
+                <Input
+                  required
+                  placeholder="Assunto"
+                  {...field}
+                  className={cn(form.formState.errors.subject && 'border-destructive')}
+                />
               </FormControl>
-              <FormMessage />
             </FormItem>
           )}
         />
@@ -118,15 +133,19 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>Mensagem *</FormLabel>
               <FormControl>
-                <Textarea {...field} className="resize-none" placeholder="O que você gostaria de falar comigo?" />
+                <Textarea
+                  required
+                  placeholder="O que você gostaria de falar comigo?"
+                  {...field}
+                  className={cn('resize-none', form.formState.errors.message && 'border-destructive')}
+                />
               </FormControl>
-              <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Enviar</Button>
+        <Button type="submit">{form.formState.isSubmitting ? <LoadingSpinner /> : 'Enviar'}</Button>
       </form>
     </Form>
   );
