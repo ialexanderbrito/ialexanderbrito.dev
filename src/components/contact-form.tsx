@@ -47,7 +47,14 @@ export function ContactForm() {
       body: JSON.stringify(form.getValues()),
     });
 
-    console.log('response', response);
+    if (response.status === 429) {
+      toast({
+        title: '❌ Você está enviando muitas mensagens',
+        description: 'Vai com calma, você pode tentar novamente mais tarde.',
+        duration: 5000,
+      });
+      return;
+    }
 
     if (!response.ok) {
       toast({
@@ -65,9 +72,7 @@ export function ContactForm() {
         duration: 5000,
       });
 
-      setTimeout(() => {
-        form.reset();
-      }, 1000);
+      form.reset();
     }
   }
 
