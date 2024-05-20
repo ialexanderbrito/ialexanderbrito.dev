@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 export default async function Contact() {
   return (
     <main className="max-w-screen-lg mx-auto px-4">
-      <section className="flex flex-col sm:h-[80vh]">
+      <section className="flex flex-col sm:h-[77vh]">
         <h1 className="text-4xl font-bold mt-8 mb-4">Contato</h1>
 
         <div className="flex flex-row items-center text-muted-foreground">
