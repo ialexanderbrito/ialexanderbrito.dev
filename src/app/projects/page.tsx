@@ -1,3 +1,4 @@
+import { FilterProjects } from '@/components/filter-projects';
 import RenderProjects from '@/components/render-projects';
 import { fetchHygraph } from '@/graphql/client';
 import { GET_PROJECTS } from '@/graphql/queries';
@@ -55,20 +56,32 @@ export default async function Projects() {
         </span>
       </div>
 
-      <h3 className="text-2xl font-bold mt-8 mb-4">uollet</h3>
-      <RenderProjects projects={projects} category="uollet" />
+      <FilterProjects category={projects.map((project) => project.category)} />
 
-      <h3 className="text-2xl font-bold mt-8 mb-4">Pessoais</h3>
-      <RenderProjects projects={projects} category="Pessoal" />
+      <section id="uollet">
+        <h3 className="text-2xl font-bold mt-8 mb-4">uollet</h3>
+        <RenderProjects projects={projects} category="uollet" />
+      </section>
 
-      <h3 className="text-2xl font-bold mt-8 mb-4">Rocketseat</h3>
-      <RenderProjects projects={projects} category="Rocketseat" />
+      <section id="Pessoal">
+        <h3 className="text-2xl font-bold mt-8 mb-4">Pessoais</h3>
+        <RenderProjects projects={projects} category="Pessoal" />
+      </section>
 
-      <h3 className="text-2xl font-bold mt-8 mb-4">Mobile</h3>
-      <RenderProjects projects={projects} category="Celular" />
+      <section id="Rocketseat">
+        <h3 className="text-2xl font-bold mt-8 mb-4">Rocketseat</h3>
+        <RenderProjects projects={projects} category="Rocketseat" />
+      </section>
 
-      <h3 className="text-2xl font-bold mt-8 mb-4">IK</h3>
-      <RenderProjects projects={projects} category="IK" />
+      <section id="Celular">
+        <h3 className="text-2xl font-bold mt-8 mb-4">Mobile</h3>
+        <RenderProjects projects={projects} category="Celular" />
+      </section>
+
+      <section id="IK">
+        <h3 className="text-2xl font-bold mt-8 mb-4">IK</h3>
+        <RenderProjects projects={projects} category="IK" />
+      </section>
     </main>
   );
 }
