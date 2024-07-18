@@ -43,7 +43,7 @@ query getExperiences {
 
 export const GET_ABOUT = `
 query getAbout {
-  about(where: {slug: "about-me"}) {
+  about(where: {id: "clvmwke3c098907kgbf6stv1t"}) {
     slug
     introduction {
       html
