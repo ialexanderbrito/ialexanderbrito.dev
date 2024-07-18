@@ -1,6 +1,6 @@
 export const GET_PROJECTS = `
 query getProjects {
-  projects(first: 100) {
+  projects(first: 100, orderBy: order_DESC) {
     id
     name
     description
