@@ -36,11 +36,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Navbar />
           {children}
+          <Footer />
+          <EasterEggs />
+          <ToasterProvider />
+          <ButtonTop />
         </ThemeProvider>
-        <Footer />
-        <EasterEggs />
-        <ToasterProvider />
-        <ButtonTop />
       </body>
     </html>
   );
