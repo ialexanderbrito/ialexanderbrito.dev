@@ -16,6 +16,7 @@ export default function RenderProjects({ projects, category }: RenderProjectsPro
   return (
     <section className="mt-8 flex-col gap-4 flex lg:grid lg:grid-cols-3">
       {projects
+        .sort((a, b) => b.order - a.order)
         .filter((project) => !category || project.category === category)
         .map((project) => (
           <div

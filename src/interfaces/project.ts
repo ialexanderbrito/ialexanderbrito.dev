@@ -4,6 +4,7 @@ export interface ProjectsResponse {
 
 export interface Project {
   id: string;
+  order: number;
   name: string;
   description: string;
   urlProject: string;
