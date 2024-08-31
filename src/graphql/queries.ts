@@ -82,3 +82,15 @@ query getStacks {
   }
 }
 `;
+
+export const GET_MOMENTS = `
+query getMoment {
+  moments {
+    local,
+    codigoDoPais,
+    imagem {
+      url
+    }
+  }
+}
+`;
