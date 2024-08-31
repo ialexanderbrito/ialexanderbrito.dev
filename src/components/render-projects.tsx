@@ -10,14 +10,16 @@ import { DialogImage } from './dialog-image';
 interface RenderProjectsProps {
   projects: Project[];
   category?: string;
+  recent?: boolean;
 }
 
-export default function RenderProjects({ projects, category }: RenderProjectsProps) {
+export default function RenderProjects({ projects, category, recent }: RenderProjectsProps) {
   return (
     <section className="mt-8 flex-col gap-4 flex lg:grid lg:grid-cols-3">
       {projects
         .sort((a, b) => b.order - a.order)
         .filter((project) => !category || project.category === category)
+        .filter((_, index) => !recent || index < 1)
         .map((project) => (
           <div
             className="rounded-lg flex flex-col justify-around p-8 border bg-accent/50 dark:backdrop-blur-2xl
