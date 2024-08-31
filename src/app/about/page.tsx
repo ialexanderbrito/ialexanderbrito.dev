@@ -7,7 +7,7 @@ import { ExperienceResponse } from '@/interfaces/experience';
 import { MomentsResponse } from '@/interfaces/moments';
 import { generateColSpanByIndex } from '@/utils/generateColSpanByIndex';
 import dayjs from 'dayjs';
-import { Metadata } from 'next';
+import Metadata from 'next';
 import Image from 'next/image';
 import 'dayjs/locale/pt-br';
 

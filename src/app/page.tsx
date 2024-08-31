@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import Metadata from 'next';
 
 const thumbnail = {
   url: 'https://ialexanderbrito.dev/og.jpeg',

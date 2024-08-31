@@ -1,5 +1,5 @@
 import { ContactForm } from '@/components/contact-form';
-import { Metadata } from 'next';
+import Metadata from 'next';
 import Link from 'next/link';
 
 const thumbnail = {
