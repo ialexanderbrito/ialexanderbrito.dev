@@ -1,5 +1,4 @@
 import { BentoGrid } from '@/components/bento-grid';
-import { WobbleCard } from '@/components/ui/wobble-card';
 import { fetchHygraph } from '@/graphql/client';
 import { GET_ABOUT, GET_EXPERIENCES, GET_MOMENTS } from '@/graphql/queries';
 import { AboutResponse } from '@/interfaces/about';
@@ -87,11 +86,13 @@ export default async function Resume() {
           const finishedAt = experience.finishedAt ? dayjs(experience.finishedAt).format(templateFormat) : 'Atualmente';
 
           return (
-            <WobbleCard
-              containerClassName="bg-accent/50 dark:backdrop-blur-2xl text-accent-foreground flex flex-col justify-between border h-[278px]"
+            <div
+              className="rounded-lg flex flex-col justify-between p-8 border bg-accent/50 dark:backdrop-blur-2xl
+            text-accent-foreground"
               style={{
                 gridColumn: generateColSpanByIndex(index),
               }}
+              key={experience.id}
             >
               <div className="flex">
                 <figure
@@ -118,7 +119,7 @@ export default async function Resume() {
 
                 <h5 className="font-bold text-xl">{experience.role}</h5>
               </div>
-            </WobbleCard>
+            </div>
           );
         })}
       </section>
