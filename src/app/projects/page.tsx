@@ -3,7 +3,7 @@ import RenderProjects from '@/components/render-projects';
 import { fetchHygraph } from '@/graphql/client';
 import { GET_PROJECTS } from '@/graphql/queries';
 import { ProjectsResponse } from '@/interfaces/project';
-import { Metadata } from 'next';
+import Metadata from 'next';
 import Link from 'next/link';
 
 const thumbnail = {
@@ -57,6 +57,11 @@ export default async function Projects() {
       </div>
 
       <FilterProjects category={projects.map((project) => project.category)} />
+
+      <section id="recent">
+        <h3 className="text-2xl font-bold mt-8 mb-4">Projeto mais recente</h3>
+        <RenderProjects projects={projects} recent />
+      </section>
 
       <section id="uollet">
         <h3 className="text-2xl font-bold mt-8 mb-4">uollet</h3>
