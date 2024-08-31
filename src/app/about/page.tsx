@@ -1,7 +1,10 @@
+import { BentoGrid } from '@/components/bento-grid';
+import { WobbleCard } from '@/components/ui/wobble-card';
 import { fetchHygraph } from '@/graphql/client';
-import { GET_ABOUT, GET_EXPERIENCES } from '@/graphql/queries';
+import { GET_ABOUT, GET_EXPERIENCES, GET_MOMENTS } from '@/graphql/queries';
 import { AboutResponse } from '@/interfaces/about';
 import { ExperienceResponse } from '@/interfaces/experience';
+import { MomentsResponse } from '@/interfaces/moments';
 import { generateColSpanByIndex } from '@/utils/generateColSpanByIndex';
 import dayjs from 'dayjs';
 import { Metadata } from 'next';
@@ -41,16 +44,18 @@ export const metadata: Metadata = {
 dayjs.locale('pt-br');
 
 const getExperiences = async (): Promise<ExperienceResponse> => fetchHygraph(GET_EXPERIENCES);
+const getMoments = async (): Promise<MomentsResponse> => fetchHygraph(GET_MOMENTS);
 const getAbout = async (): Promise<AboutResponse> => fetchHygraph(GET_ABOUT);
 
 export default async function Resume() {
   const { experiences } = await getExperiences();
   const { about } = await getAbout();
+  const { moments } = await getMoments();
 
   return (
     <main className="max-w-screen-lg mx-auto px-4">
       <div className="flex flex-col md:flex-row align-center justify-between w-full gap-5">
-        <Image src={about?.profilePicture?.url} alt="Foto de perfil" width={400} height={400} className="rounded-md" />
+        <Image src={about?.profilePicture?.url} alt="Foto de perfil" width={400} height={400} className="rounded-md " />
         {about?.introduction?.html && (
           <div className="flex flex-col gap-4">
             <h1 className="text-4xl font-bold mt-8 mb-4">Sobre mim</h1>
@@ -60,6 +65,16 @@ export default async function Resume() {
             />
           </div>
         )}
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <h3 className="text-2xl font-bold mt-8">Momentos</h3>
+
+        <h2 className="text-muted-foreground">
+          Momentos marcantes da minha vida pessoal, que me fizeram ser quem sou hoje.
+        </h2>
+
+        <BentoGrid moments={moments} />
       </div>
 
       <h3 className="text-2xl font-bold mt-8 mb-4">Carreira</h3>
@@ -72,13 +87,11 @@ export default async function Resume() {
           const finishedAt = experience.finishedAt ? dayjs(experience.finishedAt).format(templateFormat) : 'Atualmente';
 
           return (
-            <div
-              className="rounded-lg flex flex-col justify-between p-8 border bg-accent/50 dark:backdrop-blur-2xl
-              text-accent-foreground"
+            <WobbleCard
+              containerClassName="bg-accent/50 dark:backdrop-blur-2xl text-accent-foreground flex flex-col justify-between border h-[278px]"
               style={{
                 gridColumn: generateColSpanByIndex(index),
               }}
-              key={experience.id}
             >
               <div className="flex">
                 <figure
@@ -105,7 +118,7 @@ export default async function Resume() {
 
                 <h5 className="font-bold text-xl">{experience.role}</h5>
               </div>
-            </div>
+            </WobbleCard>
           );
         })}
       </section>
