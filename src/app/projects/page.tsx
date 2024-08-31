@@ -3,7 +3,7 @@ import RenderProjects from '@/components/render-projects';
 import { fetchHygraph } from '@/graphql/client';
 import { GET_PROJECTS } from '@/graphql/queries';
 import { ProjectsResponse } from '@/interfaces/project';
-import Metadata from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 const thumbnail = {

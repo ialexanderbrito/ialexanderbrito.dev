@@ -7,7 +7,7 @@ import { PatternBackground } from '@/components/pattern-bg';
 import { ThemeProvider } from '@/components/theme-provider';
 import { siteConfig } from '@/config/site';
 import { ToasterProvider } from '@/context/toaster';
-import Metadata from 'next';
+import type { Metadata } from 'next';
 import { Manrope } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 

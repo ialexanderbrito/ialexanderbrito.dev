@@ -2,7 +2,7 @@ import RenderStacks from '@/components/render-stacks';
 import { fetchHygraph } from '@/graphql/client';
 import { GET_STACKS } from '@/graphql/queries';
 import { StacksResponse } from '@/interfaces/stack';
-import Metadata from 'next';
+import type { Metadata } from 'next';
 
 const thumbnail = {
   url: 'https://ialexanderbrito.dev/techs.jpeg',
