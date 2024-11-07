@@ -50,12 +50,14 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
               </h4>
 
               <div className="mt-3 flex flex-row gap-1 flex-wrap">
-                <Button variant="outline" className="text-sm" asChild>
-                  <Link href={project?.urlProject} target="_blank" passHref>
-                    <ArrowUpRight size={16} className="mr-1" />
-                    Visitar
-                  </Link>
-                </Button>
+                {project.urlProject && (
+                  <Button variant="outline" className="text-sm" asChild>
+                    <Link href={project?.urlProject} target="_blank" passHref>
+                      <ArrowUpRight size={16} className="mr-1" />
+                      Visitar
+                    </Link>
+                  </Button>
+                )}
 
                 {project.urlRepo && (
                   <Button variant="outline" className="text-sm" asChild>
