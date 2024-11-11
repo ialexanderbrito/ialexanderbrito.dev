@@ -1,9 +1,11 @@
 'use client';
 
+import { useEffect } from 'react';
+
 import { Pulse } from '@/components/ui/pulse';
 import { SquareArrowOutUpRight } from 'lucide-react';
 import Image from 'next/image';
-import useSWR from 'swr';
+import useSWR, { mutate } from 'swr';
 
 interface SpotifyTrack {
   isPlaying: boolean;
@@ -17,7 +19,19 @@ interface SpotifyTrack {
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export function Spotify() {
-  const { data, isLoading, error } = useSWR<SpotifyTrack>('/api/now-playing', fetcher);
+  const { data, isLoading, error } = useSWR<SpotifyTrack>('/api/now-playing', fetcher, {
+    refreshInterval: 30000,
+    revalidateOnFocus: true,
+    revalidateOnReconnect: true,
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      mutate('/api/now-playing'); // Força atualização
+    }, 30000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   if (isLoading) {
     return (

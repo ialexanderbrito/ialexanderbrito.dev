@@ -81,7 +81,12 @@ export async function GET() {
       data = await fetchSpotifyData(SPOTIFY_RECENTLY_PLAYED_URL, accessToken);
     }
 
-    return NextResponse.json(formatResponse(data));
+    const response = NextResponse.json(formatResponse(data));
+    response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+
+    return response;
   } catch (error) {
     const accessToken = await getAccessToken();
     const data = await fetchSpotifyData(SPOTIFY_RECENTLY_PLAYED_URL, accessToken);
