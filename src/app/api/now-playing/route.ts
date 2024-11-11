@@ -19,6 +19,8 @@ interface SpotifyApi {
   items?: Array<{ track: SpotifyTrack }>;
 }
 
+export const dynamic = 'force-dynamic';
+
 const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const SPOTIFY_REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN ?? '';
@@ -48,6 +50,7 @@ const getAccessToken = async (): Promise<string> => {
 const fetchSpotifyData = async (url: string, accessToken: string): Promise<SpotifyApi> => {
   const response = await fetch(url, {
     headers: { Authorization: `Bearer ${accessToken}` },
+    cache: 'no-store',
   });
 
   if (!response.ok) {

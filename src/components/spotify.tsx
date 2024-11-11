@@ -18,7 +18,7 @@ interface SpotifyTrack {
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-export function Spotify() {
+export default function Spotify() {
   const { data, isLoading, error } = useSWR<SpotifyTrack>('/api/now-playing', fetcher, {
     refreshInterval: 30000,
     revalidateOnFocus: true,
@@ -52,13 +52,7 @@ export function Spotify() {
   if (error) {
     return (
       <div className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
-        <Image
-          src="/case.png"
-          alt="Capa do álbum"
-          width={400}
-          height={400}
-          className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-        />
+        <div className="absolute inset-0 h-[400px] w-[400px] object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" />
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5" />
         <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 flex items-center gap-2">
           <Pulse color="red" />
@@ -87,14 +81,14 @@ export function Spotify() {
             <Pulse />
             {data?.title || 'Local não definido'}, {data?.artist}
           </h3>
-          <h3 className="z-10 text-sm font-medium absolute bottom-0 left-0 p-4 flex items-center gap-2">
+          <h3 className="z-10 text-sm font-medium absolute bottom-8 left-0 p-4 flex items-center gap-2">
             {data?.album}
           </h3>
           <a
             href={data?.songUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="z-10 text-sm font-medium absolute bottom-0 right-0 p-4 flex items-center gap-2"
+            className="z-10 text-sm font-medium absolute bottom-0 left-0 p-4 flex items-center gap-2"
           >
             <SquareArrowOutUpRight size={14} />
             Abrir no Spotify

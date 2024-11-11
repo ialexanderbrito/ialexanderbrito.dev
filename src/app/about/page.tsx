@@ -1,6 +1,6 @@
 import { BentoGrid } from '@/components/bento-grid';
 import Location from '@/components/location';
-import { Spotify } from '@/components/spotify';
+import Spotify from '@/components/spotify';
 import { fetchHygraph } from '@/graphql/client';
 import { GET_ABOUT, GET_EXPERIENCES, GET_MOMENTS } from '@/graphql/queries';
 import { AboutResponse } from '@/interfaces/about';
