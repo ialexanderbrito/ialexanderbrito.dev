@@ -9,6 +9,11 @@ const nextConfig = {
         hostname: 'sa-east-1.graphassets.com',
         pathname: '**',
       },
+      {
+        protocol: 'https',
+        hostname: 'i.scdn.co',
+        pathname: '**',
+      },
     ],
     dangerouslyAllowSVG: true,
   },
