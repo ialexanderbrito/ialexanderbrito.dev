@@ -59,3 +59,17 @@
       @apply bg-background text-foreground;
     }
   }
+
+@keyframes plane {
+  0% {
+    transform: translateY(1000px);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+.animated-plane {
+  rotate: -40deg;
+  animation: plane 40s linear infinite;
+}

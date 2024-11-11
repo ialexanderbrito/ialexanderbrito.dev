@@ -67,10 +67,26 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        ping: {
+          '75%, 100%': {
+            transform: 'scale(2)',
+            opacity: '0',
+          },
+        },
+        cloud: {
+          '0%': { transform: 'translate(-100%, -100%)' },
+          '100%': { transform: 'translate(100%, 100%)' },
+        },
+        plane: {
+          '0%': { transform: 'translateY(1000px)' },
+          '100%': { transform: 'translateY(-100px)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'ping-static': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'animated-cloud': 'cloud 60s linear infinite',
       },
     },
   },
