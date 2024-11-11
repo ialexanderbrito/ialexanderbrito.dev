@@ -1,4 +1,6 @@
 import { BentoGrid } from '@/components/bento-grid';
+import Location from '@/components/location';
+import { Spotify } from '@/components/spotify';
 import { fetchHygraph } from '@/graphql/client';
 import { GET_ABOUT, GET_EXPERIENCES, GET_MOMENTS } from '@/graphql/queries';
 import { AboutResponse } from '@/interfaces/about';
@@ -54,15 +56,30 @@ export default async function Resume() {
   return (
     <main className="max-w-screen-lg mx-auto px-4">
       <div className="flex flex-col md:flex-row align-center justify-between w-full gap-5">
-        <Image src={about?.profilePicture?.url} alt="Foto de perfil" width={400} height={400} className="rounded-md " />
+        <Image
+          src={about?.profilePicture?.url}
+          alt="Foto de perfil"
+          width={420}
+          height={420}
+          className="rounded-md"
+          objectFit="cover"
+        />
         {about?.introduction?.html && (
-          <div className="flex flex-col gap-4">
-            <h1 className="text-4xl font-bold mt-8 mb-4">Sobre mim</h1>
-            <section
-              className="mt-8 flex-col gap-4 flex text-muted-foreground"
-              dangerouslySetInnerHTML={{ __html: about.introduction.html }}
-            />
-          </div>
+          <>
+            <div className="flex flex-col gap-4">
+              <h1 className="text-4xl font-bold mt-8 mb-4">Sobre mim</h1>
+              <section
+                className="mt-0 flex-col gap-4 flex text-muted-foreground"
+                dangerouslySetInnerHTML={{ __html: about.introduction.html }}
+              />
+              <div className="col-span-1">
+                <div className="grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2">
+                  <Spotify />
+                  <Location />
+                </div>
+              </div>
+            </div>
+          </>
         )}
       </div>
 
