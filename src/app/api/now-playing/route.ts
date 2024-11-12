@@ -114,6 +114,6 @@ export async function GET() {
     return response;
   } catch (error) {
     console.error('Failed to fetch data from Spotify:', error);
-    return NextResponse.json({ error: error.message || 'Failed to fetch data from Spotify' }, { status: 500 });
+    return NextResponse.json({ error: error || 'Failed to fetch data from Spotify' }, { status: 500 });
   }
 }
