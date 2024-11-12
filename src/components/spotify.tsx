@@ -20,9 +20,11 @@ export const dynamic = 'force-dynamic';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
+const ONE_MINUTE = 60000;
+
 export default function Spotify() {
   const { data, isLoading, error } = useSWR<SpotifyTrack>('/api/now-playing', fetcher, {
-    refreshInterval: 30000,
+    refreshInterval: ONE_MINUTE,
     revalidateOnFocus: true,
     revalidateOnReconnect: true,
   });
@@ -30,7 +32,7 @@ export default function Spotify() {
   useEffect(() => {
     const interval = setInterval(() => {
       mutate('/api/now-playing'); // Força atualização
-    }, 30000);
+    }, ONE_MINUTE);
 
     return () => clearInterval(interval);
   }, []);
