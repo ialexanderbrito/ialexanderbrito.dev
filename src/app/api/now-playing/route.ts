@@ -43,6 +43,12 @@ const getAccessToken = async (): Promise<string> => {
     }).toString(),
   });
 
+  if (!response.ok) {
+    const errorData = await response.json();
+    console.error('Error fetching access token', errorData);
+    throw new Error(`Failed to fetch access token: ${errorData.error}`);
+  }
+
   const data = await response.json();
   return data.access_token;
 };
@@ -54,8 +60,11 @@ const fetchSpotifyData = async (url: string, accessToken: string): Promise<Spoti
   });
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch data from ${url}`);
+    const errorDetails = await response.json();
+    console.error(`Failed to fetch data from ${url}`, errorDetails);
+    throw new Error(`Failed to fetch data from ${url}: ${response.status} ${response.statusText}`);
   }
+
   return response.json();
 };
 
@@ -80,7 +89,9 @@ export async function GET() {
     const accessToken = await getAccessToken();
     let data = await fetchSpotifyData(SPOTIFY_NOW_PLAYING_URL, accessToken);
 
+    // Verificar se a resposta tem conteúdo válido
     if (!data.is_playing || data.currently_playing_type !== 'track') {
+      console.warn('Usuário não está ouvindo uma faixa. Buscando última faixa reproduzida.');
       data = await fetchSpotifyData(SPOTIFY_RECENTLY_PLAYED_URL, accessToken);
     }
 
@@ -91,7 +102,7 @@ export async function GET() {
 
     return response;
   } catch (error) {
-    console.error('Failed to fetch data from Spotify', error);
-    return NextResponse.json({ error: 'Failed to fetch data from Spotify' }, { status: 500 });
+    console.error('Failed to fetch data from Spotify:', error);
+    return NextResponse.json({ error: error || 'Failed to fetch data from Spotify' }, { status: 500 });
   }
 }
