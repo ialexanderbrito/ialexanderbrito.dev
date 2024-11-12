@@ -16,6 +16,8 @@ interface SpotifyTrack {
   songUrl: string;
 }
 
+export const dynamic = 'force-dynamic';
+
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Spotify() {
