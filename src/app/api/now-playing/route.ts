@@ -91,9 +91,7 @@ export async function GET() {
 
     return response;
   } catch (error) {
-    const accessToken = await getAccessToken();
-    const data = await fetchSpotifyData(SPOTIFY_RECENTLY_PLAYED_URL, accessToken);
-
-    return NextResponse.json(formatResponse(data));
+    console.error('Failed to fetch data from Spotify', error);
+    return NextResponse.json({ error: 'Failed to fetch data from Spotify' }, { status: 500 });
   }
 }

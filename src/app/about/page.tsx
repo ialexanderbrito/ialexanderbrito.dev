@@ -48,6 +48,8 @@ const getExperiences = async (): Promise<ExperienceResponse> => fetchHygraph(GET
 const getMoments = async (): Promise<MomentsResponse> => fetchHygraph(GET_MOMENTS);
 const getAbout = async (): Promise<AboutResponse> => fetchHygraph(GET_ABOUT);
 
+export const dynamic = 'force-dynamic';
+
 export default async function Resume() {
   const { experiences } = await getExperiences();
   const { about } = await getAbout();
