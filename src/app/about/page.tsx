@@ -6,6 +6,7 @@ import { GET_ABOUT, GET_EXPERIENCES, GET_MOMENTS } from '@/graphql/queries';
 import { AboutResponse } from '@/interfaces/about';
 import { ExperienceResponse } from '@/interfaces/experience';
 import { MomentsResponse } from '@/interfaces/moments';
+import { calcDuration } from '@/utils/date';
 import { generateColSpanByIndex } from '@/utils/generateColSpanByIndex';
 import dayjs from 'dayjs';
 import type { Metadata } from 'next';
@@ -104,6 +105,8 @@ export default async function Resume() {
           const startedAt = dayjs(experience.startedAt).format(templateFormat);
           const finishedAt = experience.finishedAt ? dayjs(experience.finishedAt).format(templateFormat) : 'Atualmente';
 
+          const duration = calcDuration(experience.startedAt, experience.finishedAt || new Date());
+
           return (
             <div
               className="rounded-lg flex flex-col justify-between p-8 border bg-accent/50 dark:backdrop-blur-2xl
@@ -128,7 +131,7 @@ export default async function Resume() {
 
                   <div className="mt-1 flex flex-col">
                     <span className="mt-1">
-                      {startedAt} • {finishedAt}
+                      {startedAt} • {finishedAt} • {duration}
                     </span>
                     <span className="mt-1">
                       {experience.description} • {experience.typeJob}
