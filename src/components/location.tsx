@@ -93,7 +93,7 @@ const Location = memo(function Location() {
           />
 
           {isMapLoaded && (
-            <div className="absolute inset-x-3 bottom-3 flex items-center justify-between">
+            <div className="absolute inset-x-3 bottom-3 flex items-center justify-between z-30">
               <Button
                 onClick={() => handleZoom(false)}
                 aria-label="Zoom Out"
