@@ -78,7 +78,7 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form action={onSubmit} onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-2">
+      <form action={onSubmit} onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-2">
         <FormField
           control={form.control}
           name="name"
