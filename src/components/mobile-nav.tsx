@@ -1,84 +1,62 @@
-import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu';
+import { LaptopMinimal, Mailbox, Notebook, User } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Button } from './ui/button';
+import { TooltipMessage } from './tooltip';
 
 export function MobileNav() {
   return (
-    <Sheet>
-      <Button variant="ghost" asChild>
-        <SheetTrigger>
-          <svg strokeWidth="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5">
-            <path
-              d="M3 5H11"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
-            <path
-              d="M3 12H16"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
-            <path
-              d="M3 19H21"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
-          </svg>
-        </SheetTrigger>
-      </Button>
-      <SheetContent side="left">
-        <SheetHeader>
-          <SheetTitle className="justify-start flex items-center">
-            <SheetClose asChild>
-              <Link href="/" passHref className="flex items-center justify-center gap-2">
-                <Image src="/favicon.png" width={24} height={24} alt="Logo" className="w-6 h-6 mb-2" />
-                <span className="font-bold mb-2">ialexanderbrito</span>
+    <>
+      <Link href="/" passHref>
+        <Image src="/favicon.png" width={24} height={24} alt="Logo" className="w-6 h-6" />
+      </Link>
+      <NavigationMenu>
+        <NavigationMenuList>
+          <TooltipMessage title="Sobre">
+            <NavigationMenuItem>
+              <Link href="/about" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <User className="h-5 w-5" />
+                </NavigationMenuLink>
               </Link>
-            </SheetClose>
-          </SheetTitle>
-
-          <ul className="space-y-3 my-4 pb-10 pl-8">
-            <li className="text-start">
-              <SheetClose asChild>
-                <Link href="/about" passHref>
-                  Sobre
-                </Link>
-              </SheetClose>
-            </li>
-            <li className="text-start">
-              <SheetClose asChild>
-                <Link href="/projects" passHref>
-                  Projetos
-                </Link>
-              </SheetClose>
-            </li>
-
-            <li className="text-start">
-              <SheetClose asChild>
-                <Link href="/tech" passHref>
-                  Tecnologias
-                </Link>
-              </SheetClose>
-            </li>
-
-            <li className="text-start">
-              <SheetClose asChild>
-                <Link href="/contact" passHref>
-                  Contato
-                </Link>
-              </SheetClose>
-            </li>
-          </ul>
-        </SheetHeader>
-      </SheetContent>
-    </Sheet>
+            </NavigationMenuItem>
+          </TooltipMessage>
+          <TooltipMessage title="Projetos">
+            <NavigationMenuItem>
+              <Link href="/projects" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <Notebook className="h-5 w-5" />
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </TooltipMessage>
+          <TooltipMessage title="Tecnologias">
+            <NavigationMenuItem>
+              <Link href="/tech" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <LaptopMinimal className="h-5 w-5" />
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </TooltipMessage>
+          <TooltipMessage title="Contato">
+            <NavigationMenuItem>
+              <Link href="/contact" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <Mailbox className="h-5 w-5" />
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </TooltipMessage>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </>
   );
 }

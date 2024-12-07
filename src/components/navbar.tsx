@@ -19,11 +19,11 @@ import { ModeToggle } from './mode-toggle';
 export function Navbar() {
   return (
     <>
-      <header className="mx-auto md:hidden max-w-5xl items-center justify-between gap-20 px-5 py-4 xl:px-0 flex-row md:flex-row flex">
+      <header className="mx-auto sm:hidden max-w-5xl items-center justify-between px-5 py-4 xl:px-0 flex-row sm:flex-row flex">
         <MobileNav />
         <ModeToggle />
       </header>
-      <header className="mx-auto hidden max-w-5xl items-center justify-between gap-20 px-5 py-4 xl:px-0 flex-row-reverse md:flex-row md:flex">
+      <header className="mx-auto hidden max-w-5xl items-center justify-between gap-20 px-5 py-4 xl:px-0 flex-row-reverse sm:flex-row sm:flex">
         <Link href="/" passHref>
           <Image src="/favicon.png" width={24} height={24} alt="Logo" className="w-6 h-6 mb-2" />
         </Link>
