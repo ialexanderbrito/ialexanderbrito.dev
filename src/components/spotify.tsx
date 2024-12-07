@@ -14,6 +14,8 @@ interface SpotifyTrack {
   artist: string;
   albumImageUrl: string;
   songUrl: string;
+  message?: string;
+  error?: string;
 }
 
 export const dynamic = 'force-dynamic';
@@ -69,6 +71,28 @@ export default function Spotify() {
     );
   }
 
+  if (data?.message || data?.error) {
+    return (
+      <div className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+        <Image
+          src="/case.png"
+          alt={`Capa do álbum`}
+          width={400}
+          height={400}
+          className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out grayscale opacity-50"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5" />
+        <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 flex items-center gap-2">
+          <Pulse color="red" />
+          Algo deu errado.
+        </h3>
+        <h3 className="z-10 text-sm font-medium absolute bottom-0 left-0 p-4 flex items-center gap-2">
+          Tente novamente mais tarde.
+        </h3>
+      </div>
+    );
+  }
+
   return (
     <>
       {data && data.isPlaying ? (
@@ -83,7 +107,7 @@ export default function Spotify() {
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5" />
           <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 flex items-center gap-2">
             <Pulse />
-            {data?.title || 'Local não definido'}, {data?.artist}
+            {data?.title}, {data?.artist}
           </h3>
           <h3 className="z-10 text-sm font-medium absolute bottom-8 left-0 p-4 flex items-center gap-2">
             {data?.album}
@@ -101,20 +125,30 @@ export default function Spotify() {
       ) : (
         <div className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
           <Image
-            src="/case.png"
+            src={data?.albumImageUrl || '/case.png'}
             alt="Capa do álbum"
             width={400}
             height={400}
-            className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+            className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out grayscale opacity-50"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5" />
           <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 flex items-center gap-2">
             <Pulse color="red" />
-            Nada tocando no momento.
+            Última música: <br />
+            {data?.title}, {data?.artist}
           </h3>
-          <h3 className="z-10 text-sm font-medium absolute bottom-0 left-0 p-4 flex items-center gap-2">
-            Um silêncio confortável.
+          <h3 className="z-10 text-sm font-medium absolute bottom-8 left-0 p-4 flex items-center gap-2">
+            {data?.album}
           </h3>
+          <a
+            href={data?.songUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="z-10 text-sm font-medium absolute bottom-0 left-0 p-4 flex items-center gap-2"
+          >
+            <SquareArrowOutUpRight size={14} />
+            Abrir no Spotify
+          </a>
         </div>
       )}
     </>
