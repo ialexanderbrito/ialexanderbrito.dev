@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 
 import { Pulse } from '@/components/ui/pulse';
+import { formatLastPlayed } from '@/utils/formatLastPlayed';
 import { SquareArrowOutUpRight } from 'lucide-react';
 import Image from 'next/image';
 import useSWR, { mutate } from 'swr';
@@ -16,6 +17,7 @@ interface SpotifyTrack {
   songUrl: string;
   message?: string;
   error?: string;
+  lastPlayed?: string;
 }
 
 export const dynamic = 'force-dynamic';
@@ -135,7 +137,7 @@ export default function Spotify() {
           <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 flex items-center gap-2">
             <Pulse color="red" />
             Última música: <br />
-            {data?.title}, {data?.artist}
+            {data?.title}, {data?.artist} • {formatLastPlayed(data?.lastPlayed)}
           </h3>
           <h3 className="z-10 text-sm font-medium absolute bottom-8 left-0 p-4 flex items-center gap-2">
             {data?.album}

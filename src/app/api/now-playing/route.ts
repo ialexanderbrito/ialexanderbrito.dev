@@ -16,7 +16,7 @@ interface SpotifyApi {
   is_playing: boolean;
   currently_playing_type?: string;
   item?: SpotifyTrack;
-  items?: Array<{ track: SpotifyTrack }>;
+  items?: Array<{ track: SpotifyTrack; played_at: string }>;
 }
 
 export const dynamic = 'force-dynamic';
@@ -99,6 +99,7 @@ const formatResponse = (data: SpotifyApi | null) => {
     artist: track.album.artists.map((artist) => artist.name).join(', '),
     albumImageUrl: track.album.images[0]?.url,
     songUrl: track.external_urls.spotify,
+    lastPlayed: data.item ? undefined : data.items?.[0].played_at,
   };
 };
 
