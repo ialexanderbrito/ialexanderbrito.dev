@@ -1,33 +1,12 @@
 import React from 'react';
 
 import { EmailTemplate } from '@/components/email-template';
-import { Ratelimit } from '@upstash/ratelimit';
-import { kv } from '@vercel/kv';
 import { NextRequest } from 'next/server';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const rateLimit = new Ratelimit({
-  redis: kv,
-  limiter: Ratelimit.slidingWindow(3, '30 s'),
-});
-
 export async function POST(request: NextRequest) {
-  const ip = request.ip ?? '127.0.0.1';
-  const { remaining, limit, reset } = await rateLimit.limit(ip);
-
-  if (remaining === 0) {
-    return new Response(JSON.stringify({ error: 'Rate limit exceeded' }), {
-      status: 429,
-      headers: {
-        'X-RateLimit-Limit': limit.toString(),
-        'X-RateLimit-Remaining': remaining.toString(),
-        'X-RateLimit-Reset': reset.toString(),
-      },
-    });
-  }
-
   try {
     const { name, message, subject, email } = await request.json();
 

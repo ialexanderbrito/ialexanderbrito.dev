@@ -17,7 +17,7 @@ const Dots = () => <rect x="0" y="0" width="4" height="4" className="text-muted-
 type PatternProps = { variant: 'dots' | 'checkered' };
 
 export const PatternBackground = ({ variant }: PatternProps) => {
-  const pattern: Record<PatternProps['variant'], () => JSX.Element> = {
+  const pattern: Record<PatternProps['variant'], () => React.ReactElement> = {
     dots: Dots,
     checkered: Checkered,
   };
