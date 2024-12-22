@@ -48,10 +48,10 @@ export default function Spotify() {
         <div className="absolute inset-0 bg-muted" />
         <div className="z-10 absolute top-0 left-0 p-4 flex items-center gap-2">
           <div className="h-4 w-4 rounded-full bg-gray-400" />
-          <div className="h-4 w-40 rounded bg-gray-400" />
+          <div className="h-4 w-20 rounded bg-gray-400 sm:w-32 md:w-40 lg:w-48" />
         </div>
         <div className="z-10 absolute bottom-0 left-0 p-4 flex items-center gap-2">
-          <div className="h-4 w-48 rounded bg-gray-400" />
+          <div className="h-4 w-28 rounded bg-gray-400 sm:w-32 md:w-40 lg:w-48" />
         </div>
       </div>
     );

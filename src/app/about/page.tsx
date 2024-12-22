@@ -76,7 +76,7 @@ export default async function Resume() {
                 dangerouslySetInnerHTML={{ __html: about.introduction.html }}
               />
               <div className="col-span-1">
-                <div className="grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2">
+                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
                   <Spotify />
                   <Location />
                 </div>
