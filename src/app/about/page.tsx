@@ -1,4 +1,5 @@
 import { BentoGrid } from '@/components/bento-grid';
+import { GithubCalendar } from '@/components/github-calendar';
 import Location from '@/components/location';
 import Spotify from '@/components/spotify';
 import { fetchHygraph } from '@/graphql/client';
@@ -144,6 +145,13 @@ export default async function Resume() {
             </div>
           );
         })}
+      </section>
+
+      <section className="mt-8 flex-col gap-4 flex">
+        <h3 className="text-2xl font-bold">Contribuições</h3>
+
+        <h2 className="text-muted-foreground mb-4">Contribuições feitas por mim no GitHub.</h2>
+        <GithubCalendar />
       </section>
     </main>
   );
