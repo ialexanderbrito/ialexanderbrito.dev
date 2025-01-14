@@ -10,6 +10,8 @@ export function formatLastPlayed(lastPlayed?: string): string {
     return `há ${diffInMinutes} minutos`;
   } else if (diffInHours < 24) {
     return `há ${diffInHours} horas`;
+  } else if (diffInDays === 1) {
+    return `há 1 dia`;
   } else {
     return `há ${diffInDays} dias`;
   }
