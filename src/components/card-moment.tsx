@@ -26,7 +26,7 @@ export function CardMoment({ moment, className = '' }: CardMomentProps) {
         height={400}
         className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5" />
+      <div className="absolute inset-0 bg-linear-to-b from-gray-900/25 to-gray-900/5" />
       <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4">
         {moment?.local || 'Local não definido'}, {getFlagEmoji(moment?.codigoDoPais)}
       </h3>

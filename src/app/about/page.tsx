@@ -58,7 +58,7 @@ export default async function Resume() {
   const { moments } = await getMoments();
 
   return (
-    <main className="max-w-screen-lg mx-auto px-4">
+    <main className="max-w-(--breakpoint-lg) mx-auto px-4">
       <div className="flex flex-col md:flex-row align-center justify-between w-full gap-5">
         <Image
           src={about?.profilePicture?.url}

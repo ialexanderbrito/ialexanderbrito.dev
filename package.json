@@ -72,16 +72,16 @@
     "@ialexanderbrito/eslint-config": "2.1.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "@tailwindcss/postcss": "4.0.0",
     "@types/node": "22.10.2",
     "@types/react": "19.0.2",
     "@types/react-dom": "19.0.2",
-    "autoprefixer": "10.4.20",
     "eslint": "8.57.1",
     "husky": "9.1.7",
     "lint-staged": "15.2.11",
     "postcss": "8.4.49",
     "semantic-release": "^24.2.0",
-    "tailwindcss": "3.4.17",
+    "tailwindcss": "4.0.0",
     "typescript": "5.7.2"
   },
   "config": {
@@ -93,5 +93,6 @@
     "hooks": {
       "pre-commit": "yarn run lint-staged"
     }
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }

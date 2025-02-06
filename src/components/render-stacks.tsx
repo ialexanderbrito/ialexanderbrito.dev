@@ -21,7 +21,7 @@ export default function RenderStacks({ stacks, category }: RenderStacksProps) {
             key={stack.id}
             className={cn(
               'flex items-center gap-3 rounded-md p-3 bg-accent/50 dark:backdrop-blur-2xl hover:bg-accent/70 text-accent-foreground transition-colors',
-              'focus:outline-none focus-visible:outline-2 focus-visible:outline focus-visible:outline-ring',
+              'focus:outline-hidden focus-visible:outline-2 focus-visible:outline focus-visible:outline-ring',
             )}
           >
             <div

@@ -42,7 +42,7 @@ export default async function Projects() {
   const { projects } = await getProjects();
 
   return (
-    <main className="max-w-screen-lg mx-auto px-4">
+    <main className="max-w-(--breakpoint-lg) mx-auto px-4">
       <h1 className="text-4xl font-bold mt-8 mb-4">Projetos</h1>
 
       <div className="flex flex-row items-center text-muted-foreground">
