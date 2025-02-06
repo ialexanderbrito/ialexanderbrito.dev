@@ -61,7 +61,7 @@ export default function Spotify() {
     return (
       <div className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
         <div className="absolute inset-0 h-[400px] w-[400px] object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" />
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5" />
+        <div className="absolute inset-0 bg-linear-to-b from-gray-900/25 to-gray-900/5" />
         <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 flex items-center gap-2">
           <Pulse color="red" />
           Algo deu errado.
@@ -83,7 +83,7 @@ export default function Spotify() {
           height={400}
           className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out grayscale opacity-50"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5" />
+        <div className="absolute inset-0 bg-linear-to-b from-gray-900/25 to-gray-900/5" />
         <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 flex items-center gap-2">
           <Pulse color="red" />
           Algo deu errado.
@@ -106,7 +106,7 @@ export default function Spotify() {
             height={400}
             className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5" />
+          <div className="absolute inset-0 bg-linear-to-b from-gray-900/25 to-gray-900/5" />
           <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 flex items-center gap-2">
             <Pulse />
             {data?.title}, {data?.artist}
@@ -133,7 +133,7 @@ export default function Spotify() {
             height={400}
             className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out grayscale opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5" />
+          <div className="absolute inset-0 bg-linear-to-b from-gray-900/25 to-gray-900/5" />
           <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 flex items-center gap-2">
             <Pulse color="red" />
             Última música: <br />

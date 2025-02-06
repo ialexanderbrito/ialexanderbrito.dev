@@ -40,7 +40,7 @@ export default async function Technologies() {
   const { stacks } = await getStacks();
 
   return (
-    <main className="max-w-screen-lg mx-auto px-4">
+    <main className="max-w-(--breakpoint-lg) mx-auto px-4">
       <h1 className="text-4xl font-bold mt-8 mb-4">Tecnologias e Ferramentas</h1>
 
       <span className="flex-row gap-1 flex text-muted-foreground">

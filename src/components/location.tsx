@@ -77,7 +77,7 @@ const Location = memo(function Location() {
               <Image
                 width={480}
                 height={480}
-                className="absolute z-10 -translate-x-16 translate-y-28 opacity-15 blur-sm brightness-0"
+                className="absolute z-10 -translate-x-16 translate-y-28 opacity-15 blur-xs brightness-0"
                 src="/cloud.png"
                 alt="Nuvem"
               />

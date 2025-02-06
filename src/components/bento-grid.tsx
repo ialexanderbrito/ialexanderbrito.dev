@@ -10,7 +10,7 @@ export function BentoGrid({ moments }: BentoGridProps) {
     <div className="mt-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 h-full">
         <div className="col-span-2 sm:col-span-1 md:col-span-2 h-auto md:h-full flex flex-col">
-          <CardMoment moment={moments[0]} className="flex-grow" />
+          <CardMoment moment={moments[0]} className="grow" />
         </div>
         <div className="col-span-2 sm:col-span-1 md:col-span-2">
           <CardMoment moment={moments[1]} className="mb-4" />
@@ -20,7 +20,7 @@ export function BentoGrid({ moments }: BentoGridProps) {
           </div>
         </div>
         <div className="col-span-2 sm:col-span-1 md:col-span-1 h-auto md:h-full flex flex-col">
-          <CardMoment moment={moments[4]} className="flex-grow" />
+          <CardMoment moment={moments[4]} className="grow" />
         </div>
 
         <div className="col-span-2 sm:col-span-1 md:col-span-2">
@@ -34,11 +34,11 @@ export function BentoGrid({ moments }: BentoGridProps) {
         {moments.length >= 10 && (
           <>
             <div className="col-span-2 sm:col-span-1 md:col-span-1 h-auto md:h-full flex flex-col">
-              <CardMoment moment={moments[8]} className="flex-grow" />
+              <CardMoment moment={moments[8]} className="grow" />
             </div>
 
             <div className="col-span-2 sm:col-span-1 md:col-span-2 h-auto md:h-full flex flex-col">
-              <CardMoment moment={moments[9]} className="flex-grow" />
+              <CardMoment moment={moments[9]} className="grow" />
             </div>
           </>
         )}

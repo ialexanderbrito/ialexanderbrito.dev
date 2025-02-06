@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Custom404() {
   return (
-    <main className="max-w-screen-lg mx-auto px-4">
+    <main className="max-w-(--breakpoint-lg) mx-auto px-4">
       <section className="h-[80vh] flex flex-col justify-center items-center">
         <h1 className="text-4xl font-bold mt-8 mb-4">Página não encontrada</h1>
 
