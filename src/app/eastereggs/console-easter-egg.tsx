@@ -3,27 +3,20 @@
 import { useEffect } from 'react';
 
 import { toast } from '@/hooks';
+import { useTimeOfDay } from '@/hooks/useTimeOfDay';
 import { getSessionStorageItem } from '@/utils/getSessionStorageItem';
 
 export function ConsoleEasterEgg() {
+  const timeOfDay = useTimeOfDay();
+
   useEffect(() => {
     if (process.env.NODE_ENV === 'development') return;
-
-    const now = new Date().getHours();
-    function time() {
-      if (now < 12) {
-        return 'dia';
-      } else if (now < 18) {
-        return 'tarde';
-      } else {
-        return 'noite';
-      }
-    }
+    if (!timeOfDay) return;
 
     function greetingMessage() {
-      if (time() === 'dia') {
+      if (timeOfDay === 'dia') {
         return 'um bom dia 🌞';
-      } else if (time() === 'tarde') {
+      } else if (timeOfDay === 'tarde') {
         return 'uma boa tarde 🌞';
       } else {
         return 'uma boa noite 🌙';
@@ -68,7 +61,7 @@ export function ConsoleEasterEgg() {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [timeOfDay]);
 
   return null;
 }
