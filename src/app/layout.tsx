@@ -26,7 +26,6 @@ const fontSans = Manrope({ subsets: ['latin'], variable: '--font-sans' });
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={fontSans.className}>
-      <a rel="me" href="https://mstdn.social/@ialexanderbrito"></a>
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" />
         <Analytics />
