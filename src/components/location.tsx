@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useCallback, useMemo, useRef, useState } from 'react';
-import Map, { MapRef } from 'react-map-gl';
+import Map, { MapRef } from 'react-map-gl/mapbox';
 
 import { cn } from '@/lib/utils';
 import { Minus, Plus } from 'lucide-react';
@@ -73,13 +73,21 @@ const Location = memo(function Location() {
           <Pinned />
           <div className="animate-animated-cloud absolute inset-0 z-30">
             <div className="relative">
-              <Image width={480} height={480} className="absolute z-20 opacity-75" src="/cloud.png" alt="" />
               <Image
                 width={480}
                 height={480}
-                className="absolute z-10 -translate-x-16 translate-y-28 opacity-15 blur-xs brightness-0"
+                className="absolute z-20 opacity-75 h-auto"
+                src="/cloud.png"
+                alt=""
+                loading="lazy"
+              />
+              <Image
+                width={480}
+                height={480}
+                className="absolute z-10 -translate-x-16 translate-y-28 opacity-15 blur-xs brightness-0 h-auto"
                 src="/cloud.png"
                 alt="Nuvem"
+                loading="lazy"
               />
             </div>
           </div>
@@ -87,9 +95,10 @@ const Location = memo(function Location() {
           <Image
             width={40}
             height={40}
-            className="absolute -top-32 animated-plane z-10 object-contain"
+            className="absolute -top-32 animated-plane z-10 object-contain h-auto"
             src="/plane.png"
             alt="Avião"
+            loading="lazy"
           />
 
           {isMapLoaded && (
