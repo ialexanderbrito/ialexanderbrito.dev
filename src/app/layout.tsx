@@ -7,6 +7,7 @@ import { PatternBackground } from '@/components/pattern-bg';
 import { ThemeProvider } from '@/components/theme-provider';
 import { siteConfig } from '@/config/site';
 import { ToasterProvider } from '@/context/toaster';
+import { Analytics as AnalyticsVercel } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { Manrope } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" />
         <Analytics />
+        <AnalyticsVercel />
       </head>
       <body className="bg-background antialiased">
         <PatternBackground variant="checkered" />
