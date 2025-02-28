@@ -15,10 +15,10 @@ export function DialogImage({ src, alt }: DialogImageProps) {
         <Button variant="link" size="icon" className="absolute top-1 right-1 text-white w-4 h-4" asChild>
           <ZoomIn size={18} />
         </Button>
-        <Image src={src} alt={alt} width={500} height={500} className="cursor-zoom-in" />
+        <Image src={src} alt={alt} width={500} height={500} className="cursor-zoom-in" loading="lazy" />
       </DialogTrigger>
       <DialogContent className="sm:max-w-4xl">
-        <Image src={src} alt={alt} width={1920} height={1080} />
+        <Image src={src} alt={alt} width={1920} height={1080} loading="lazy" />
       </DialogContent>
     </Dialog>
   );

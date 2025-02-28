@@ -25,7 +25,7 @@ export function Navbar() {
       </header>
       <header className="mx-auto hidden max-w-5xl items-center justify-between gap-20 px-5 py-4 xl:px-0 flex-row-reverse sm:flex-row sm:flex">
         <Link href="/" passHref>
-          <Image src="/favicon.png" width={24} height={24} alt="Logo" className="w-6 h-6 mb-2" />
+          <Image src="/favicon.png" width={24} height={24} alt="Logo" className="w-6 h-6 mb-2" loading="lazy" />
         </Link>
         <NavigationMenu>
           <NavigationMenuList>

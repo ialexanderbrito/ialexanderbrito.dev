@@ -37,6 +37,7 @@ export default function RenderStacks({ stacks, category }: RenderStacksProps) {
                 width={8}
                 height={8}
                 className="blur-lg absolute inset-0 w-[125%] h-[125%] opacity-80 z-0"
+                loading="lazy"
               />
             </div>
             <span className="text-xs md:text-sm">{stack.name}</span>

@@ -37,6 +37,7 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
                     width={500}
                     height={500}
                     className="w-16 h-16 bg-gray-300 dark:bg-[#333] rounded-lg"
+                    loading="lazy"
                   />
                 )}
               </figure>

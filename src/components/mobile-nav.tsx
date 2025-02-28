@@ -15,7 +15,7 @@ export function MobileNav() {
   return (
     <>
       <Link href="/" passHref>
-        <Image src="/favicon.png" width={24} height={24} alt="Logo" className="w-6 h-6" />
+        <Image src="/favicon.png" width={24} height={24} alt="Logo" className="w-6 h-6" loading="lazy" />
       </Link>
       <NavigationMenu>
         <NavigationMenuList>

@@ -67,6 +67,7 @@ export default async function Resume() {
           height={420}
           className="rounded-md"
           objectFit="cover"
+          loading="lazy"
         />
         {about?.introduction?.html && (
           <>
@@ -122,7 +123,13 @@ export default async function Resume() {
                   className="rounded-lg overflow-hidden relative w-16 h-16 flex items-center justify-center"
                   style={{ backgroundColor: experience.companyColor?.hex }}
                 >
-                  <Image src={experience.companyLogo?.url} alt={experience.companyName} width={48} height={48} />
+                  <Image
+                    src={experience.companyLogo?.url}
+                    alt={experience.companyName}
+                    width={48}
+                    height={48}
+                    loading="lazy"
+                  />
                 </figure>
               </div>
 
