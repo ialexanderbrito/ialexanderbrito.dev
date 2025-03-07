@@ -12,10 +12,10 @@ export async function Footer() {
   const { socials } = await getSocials();
 
   return (
-    <footer className="mx-auto flex max-w-5xl flex-col justify-start gap-2 overflow-hidden py-5 px-5 lg:px-0">
-      <div className="rounded-xl border bg-accent/50 dark:backdrop-blur-2xl text-accent-foreground">
-        <div className="items-center m-0 flex justify-center p-5">
-          <div className="grid grid-cols-5 items-center gap-3 md:flex md:gap-2">
+    <footer className="fixed bottom-0 left-0 right-0 z-10 mx-auto flex max-w-5xl flex-col justify-start gap-2 overflow-hidden py-3 px-5 lg:px-0">
+      <div className="rounded-xl border bg-accent/50 backdrop-blur-2xl text-accent-foreground">
+        <div className="items-center m-0 flex justify-center p-3">
+          <div className="grid grid-cols-5 items-center gap-2 md:flex md:gap-2">
             {socials.map((social) => (
               <Button asChild key={social.id} variant="outline" size="icon">
                 <Link
