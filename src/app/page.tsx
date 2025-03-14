@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="max-w-(--breakpoint-lg) mx-auto px-4">
-      <section className="h-[77vh] flex flex-col justify-center items-center dark:[mask-image:radial-gradient(450px_circle_at_center,white,transparent)]">
+      <section className="flex flex-col justify-center items-center dark:[mask-image:radial-gradient(450px_circle_at_center,white,transparent)] h-[70vh]">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold md:leading-relaxed text-center">
           Opa, eu sou Alexander -- Front-end Developer & Mobile Developer
         </h2>
