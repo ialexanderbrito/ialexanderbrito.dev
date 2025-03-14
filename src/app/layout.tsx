@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Analytics />
         <AnalyticsVercel />
       </head>
-      <body className="bg-background antialiased pb-24">
+      <body className="bg-background antialiased">
         <PatternBackground variant="checkered" />
         <NextTopLoader color="#a1a1aa" initialPosition={0.3} crawlSpeed={200} height={4} />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
