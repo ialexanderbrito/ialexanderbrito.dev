@@ -41,6 +41,7 @@
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-ping-static: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
   --animate-animated-cloud: cloud 60s linear infinite;
+  --animate-shine: shine 5s linear infinite;
 
   @keyframes accordion-down {
     from {
@@ -79,6 +80,14 @@
     }
     100% {
       transform: translateY(-100px);
+    }
+  }
+  @keyframes shine {
+    0% {
+      background-position: 100%;
+    }
+    100% {
+      background-position: -100%;
     }
   }
 }
@@ -181,4 +190,40 @@
 .animated-plane {
   rotate: -40deg;
   animation: plane 40s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
+.animate-shine {
+  animation: shine 5s linear infinite;
+  background-size: 200% 100%;
+  background-image: linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.shiny-text.disabled {
+  animation: none;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
 }
