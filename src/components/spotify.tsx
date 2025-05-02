@@ -160,7 +160,10 @@ export default function Spotify() {
           showSpotifyButton={true}
           overlayContent={
             <div className="pt-4 pl-2 pr-2 w-full">
-              Última música: {data?.title}, {data?.artist} • {formatLastPlayed(data?.lastPlayed)}
+              <span className="flex items-center gap-2">
+                <Pulse color="red" />
+                Última música: {data?.title}, {data?.artist} • {formatLastPlayed(data?.lastPlayed)}
+              </span>
             </div>
           }
         />
