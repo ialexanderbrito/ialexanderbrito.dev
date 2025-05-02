@@ -49,6 +49,7 @@
     "clsx": "2.1.1",
     "cz-conventional-changelog": "3.3.0",
     "dayjs": "1.11.13",
+    "framer-motion": "12.9.4",
     "lucide-react": "0.503.0",
     "mapbox-gl": "3.11.1",
     "next": "15.2.5",
