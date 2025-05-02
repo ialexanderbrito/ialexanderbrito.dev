@@ -1,13 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+
 import { Button } from '@/components/ui/button';
+import ShinyText from '@/components/ui/shiny-text';
 import { Project } from '@/interfaces/project';
 import { GithubLogo } from '@phosphor-icons/react/dist/ssr';
 import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import ShinyText from '@/components/ui/shiny-text';
 
 import { DialogImage } from './dialog-image';
 
@@ -25,7 +26,6 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
     .filter((project) => !category || project.category === category)
     .filter((_, index) => !recent || index < 1);
 
-  // Se não houver projetos após a filtragem, retornar uma mensagem
   if (filteredProjects.length === 0) {
     return (
       <div className="flex items-center justify-center p-8 rounded-lg border bg-accent/30 text-accent-foreground">
@@ -34,8 +34,7 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
     );
   }
 
-  // Renderização especial para a categoria "IK"
-  if (category === "IK") {
+  if (category === 'IK') {
     return (
       <div className="mt-4 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {filteredProjects.map((project) => (
@@ -110,28 +109,25 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
     );
   }
 
-  // Projetos a serem exibidos
-  const projectsToDisplay = recent
-    ? filteredProjects
-    : showAll
-      ? filteredProjects
-      : filteredProjects.slice(0, 3);
+  let projectsToDisplay = filteredProjects;
+  if (!recent && !showAll) {
+    projectsToDisplay = filteredProjects.slice(0, 3);
+  }
 
-  // Verificar se precisamos do botão "Ver mais"
   const hasMoreProjects = !recent && filteredProjects.length > 3;
 
-  // Renderização para outras categorias
   return (
     <div className="space-y-6">
-      <section className={recent ? "w-full" : "mt-4 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"}>
+      <section className={recent ? 'w-full' : 'mt-4 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}>
         {projectsToDisplay.map((project) => (
           <div
             key={project.id}
-            className={`rounded-lg border bg-card/30 dark:backdrop-blur-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col ${recent ? "w-full md:flex-row" : ""
-              }`}
+            className={`rounded-lg border bg-card/30 dark:backdrop-blur-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col ${
+              recent ? 'w-full md:flex-row' : ''
+            }`}
           >
             {/* Card media */}
-            <div className={`${recent ? "w-full md:w-1/2" : "w-full"}`}>
+            <div className={`${recent ? 'w-full md:w-1/2' : 'w-full'}`}>
               <div className="relative group aspect-video overflow-hidden bg-muted/20">
                 <Image
                   src={project.thumbnail?.url}
@@ -147,12 +143,10 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
             </div>
 
             {/* Card content */}
-            <div className={`p-6 flex flex-col h-full ${recent ? "md:w-1/2" : "w-full"}`}>
+            <div className={`p-6 flex flex-col h-full ${recent ? 'md:w-1/2' : 'w-full'}`}>
               <div className="flex-grow">
                 <h5 className="font-bold text-xl mb-2">{project.name}</h5>
-                <p className="text-sm text-muted-foreground mb-4">
-                  {project.description}
-                </p>
+                <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
 
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -206,14 +200,9 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
 
       {hasMoreProjects && (
         <div className="flex justify-center mt-6">
-          <Button
-            variant="ghost"
-            size="lg"
-            className="group cursor-pointer"
-            onClick={() => setShowAll(!showAll)}
-          >
+          <Button variant="ghost" size="lg" className="group cursor-pointer" onClick={() => setShowAll(!showAll)}>
             <ShinyText
-              text={showAll ? "Ver menos" : `Ver mais ${filteredProjects.length - 3} projetos`}
+              text={showAll ? 'Ver menos' : `Ver mais ${filteredProjects.length - 3} projetos`}
               className="text-base font-medium group-hover:text-primary transition-colors"
               speed={3}
             />

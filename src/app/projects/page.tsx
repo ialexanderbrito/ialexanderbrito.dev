@@ -47,11 +47,12 @@ export default async function Projects() {
       <section className="flex flex-col justify-center py-12 md:py-16 border-b border-muted/20">
         <h1 className="text-4xl md:text-5xl font-bold">Projetos</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-          Explorando {projects.length} projetos desenvolvidos ao longo da minha carreira. Cada projeto reflete meu comprometimento com código limpo e interfaces intuitivas.
+          Explorando {projects.length} projetos desenvolvidos ao longo da minha carreira. Cada projeto reflete meu
+          comprometimento com código limpo e interfaces intuitivas.
         </p>
         <div className="mt-2 flex items-center text-sm text-muted-foreground">
           <span>
-            Confira outros projetos no meu{" "}
+            Confira outros projetos no meu{' '}
             <Link href="https://github.com/ialexanderbrito?tab=repositories" target="_blank" className="underline">
               Github
             </Link>

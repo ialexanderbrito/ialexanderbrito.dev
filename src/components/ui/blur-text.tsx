@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
+
 import { useSprings, animated, SpringValue } from '@react-spring/web';
 
 const AnimatedSpan = animated.span as React.FC<React.HTMLAttributes<HTMLSpanElement>>;
@@ -38,9 +39,10 @@ const BlurText: React.FC<BlurTextProps> = ({
   const animatedCount = useRef(0);
 
   // Default animations based on direction
-  const defaultFrom: Record<string, any> = direction === 'top'
-    ? { filter: 'blur(10px)', opacity: 0, transform: 'translate3d(0,-50px,0)' }
-    : { filter: 'blur(10px)', opacity: 0, transform: 'translate3d(0,50px,0)' };
+  const defaultFrom: Record<string, any> =
+    direction === 'top'
+      ? { filter: 'blur(10px)', opacity: 0, transform: 'translate3d(0,-50px,0)' }
+      : { filter: 'blur(10px)', opacity: 0, transform: 'translate3d(0,50px,0)' };
 
   const defaultTo: Record<string, any>[] = [
     {
@@ -61,7 +63,7 @@ const BlurText: React.FC<BlurTextProps> = ({
           }
         }
       },
-      { threshold, rootMargin }
+      { threshold, rootMargin },
     );
 
     if (ref.current) {
@@ -77,28 +79,24 @@ const BlurText: React.FC<BlurTextProps> = ({
       from: animationFrom || defaultFrom,
       to: inView
         ? async (next: (arg: Record<string, SpringValue<any>>) => Promise<void>) => {
-          for (const step of animationTo || defaultTo) {
-            await next(step);
+            for (const step of animationTo || defaultTo) {
+              await next(step);
+            }
+            animatedCount.current += 1;
+            if (animatedCount.current === elements.length && onAnimationComplete) {
+              onAnimationComplete();
+            }
           }
-          animatedCount.current += 1;
-          if (animatedCount.current === elements.length && onAnimationComplete) {
-            onAnimationComplete();
-          }
-        }
         : animationFrom || defaultFrom,
       delay: i * delay,
       config: { easing: easing as any },
-    }))
+    })),
   );
 
   return (
     <p ref={ref} className={`blur-text ${className} flex flex-wrap`}>
       {springs.map((props, index) => (
-        <AnimatedSpan
-          key={index}
-          style={props}
-          className="inline-block will-change-[transform,filter,opacity]"
-        >
+        <AnimatedSpan key={index} style={props} className="inline-block will-change-[transform,filter,opacity]">
           {elements[index] === ' ' ? '\u00A0' : elements[index]}
           {animateBy === 'words' && index < elements.length - 1 && '\u00A0'}
         </AnimatedSpan>

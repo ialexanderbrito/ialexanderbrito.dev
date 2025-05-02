@@ -1,7 +1,6 @@
 'use client';
 
 import BlurText from '@/components/ui/blur-text';
-import { toast } from '@/hooks';
 
 interface HomeBlurTextProps {
   text: string;

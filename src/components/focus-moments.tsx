@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import { Card } from '@/components/ui/focus-cards';
 import { Moment } from '@/interfaces/moments';
+import { getFlagEmoji } from '@/utils/getFlagEmoji';
 
 interface FocusMomentsProps {
   moments: Moment[];
@@ -12,7 +13,6 @@ interface FocusMomentsProps {
 export function FocusMoments({ moments }: FocusMomentsProps) {
   const [hovered, setHovered] = useState<number | null>(null);
 
-  // Transformar os momentos no formato esperado pelo Card
   const cards = moments.map((moment) => ({
     title: `${moment.local}${moment.codigoDoPais ? ` • ${getFlagEmoji(moment.codigoDoPais)}` : ''}`,
     src: moment.imagem.url,
@@ -97,15 +97,4 @@ export function FocusMoments({ moments }: FocusMomentsProps) {
       </div>
     </div>
   );
-}
-
-// Função utilitária para converter código do país em emoji de bandeira
-function getFlagEmoji(country: string) {
-  if (!country) return String.fromCodePoint(127397 + '🌍'.charCodeAt(0));
-
-  const codePoints = country
-    .toUpperCase()
-    .split('')
-    .map((char) => 127397 + char.charCodeAt(0));
-  return String.fromCodePoint(...codePoints);
 }
