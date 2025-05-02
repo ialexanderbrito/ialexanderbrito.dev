@@ -1,4 +1,9 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import HomeBlurText from '@/components/home-blur-text';
+import ShinyText from '@/components/ui/shiny-text';
 
 const thumbnail = {
   url: 'https://ialexanderbrito.dev/og.jpeg',
@@ -31,15 +36,31 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="max-w-(--breakpoint-lg) mx-auto px-4">
-      <section className="flex flex-col justify-center items-center dark:[mask-image:radial-gradient(450px_circle_at_center,white,transparent)] h-[70vh]">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold md:leading-relaxed text-center">
-          Opa, eu sou Alexander -- Front-end Developer & Mobile Developer
-        </h2>
+    <main className="max-w-5xl mx-auto px-4 md:px-8 relative overflow-hidden">
 
-        <h2 className="text-md font-regular text-muted-foreground text-center">
-          um desenvolvedor de software apaixonado por interfaces e experiências incríveis.
-        </h2>
+      <section className="flex flex-col justify-center items-center min-h-[85vh] animate-fade-in relative z-10">
+        <div className="space-y-8 text-center max-w-3xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight flex flex-wrap items-center justify-center">
+            <span>Opa, eu sou </span>
+            <HomeBlurText
+              text="Alexander"
+              className="font-extrabold ml-2"
+            />
+          </h1>
+
+          <h2 className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed">
+            Front-end Developer & Mobile Developer, apaixonado por criar interfaces e experiências <span className="italic">incríveis</span>.
+          </h2>
+
+          <div className="pt-6">
+            <Link href="/projects">
+              <Button variant="outline" className="group rounded-full px-6 py-6 text-base transition-all hover:shadow-lg cursor-pointer">
+                <ShinyText text="Conheça meus projetos" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+          </div>
+        </div>
       </section>
     </main>
   );
