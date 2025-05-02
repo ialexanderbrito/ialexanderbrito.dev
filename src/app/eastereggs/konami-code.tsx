@@ -21,6 +21,33 @@ const konamiKeys = [
 export function KonamiCodeEasterEgg() {
   const [keysPressed, setKeysPressed] = useState<string[]>([]);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [windowDimensions, setWindowDimensions] = useState<{
+    width: number;
+    height: number;
+  }>({
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    height: typeof window !== 'undefined' ? window.innerHeight : 0,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    if (typeof window !== 'undefined') {
+      handleResize();
+      window.addEventListener('resize', handleResize);
+    }
+
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', handleResize);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -59,7 +86,16 @@ export function KonamiCodeEasterEgg() {
 
   if (showConfetti)
     return (
-      <Confetti recycle={false} numberOfPieces={700} gravity={0.2} onConfettiComplete={() => setShowConfetti(false)} />
+      <div className="fixed inset-0 z-50 pointer-events-none">
+        <Confetti
+          width={windowDimensions.width}
+          height={windowDimensions.height}
+          recycle={false}
+          numberOfPieces={700}
+          gravity={0.2}
+          onConfettiComplete={() => setShowConfetti(false)}
+        />
+      </div>
     );
 
   return null;
