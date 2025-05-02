@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { VisuallyHidden } from '@/components/ui/visually-hidden';
 import { ZoomIn } from 'lucide-react';
 import Image from 'next/image';
 
@@ -18,6 +19,9 @@ export function DialogImage({ src, alt }: DialogImageProps) {
         <Image src={src} alt={alt} width={500} height={500} className="cursor-zoom-in" loading="lazy" />
       </DialogTrigger>
       <DialogContent className="sm:max-w-4xl">
+        <DialogTitle>
+          <VisuallyHidden>Visualização ampliada de {alt}</VisuallyHidden>
+        </DialogTitle>
         <Image src={src} alt={alt} width={1920} height={1080} loading="lazy" />
       </DialogContent>
     </Dialog>
