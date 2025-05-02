@@ -43,6 +43,12 @@
   --animate-animated-cloud: cloud 60s linear infinite;
   --animate-shine: shine 5s linear infinite;
 
+  /* Variáveis para a barra de rolagem */
+  --scrollbar-size: 8px;
+  --scrollbar-track: hsl(var(--secondary));
+  --scrollbar-thumb: hsl(var(--muted-foreground) / 0.7);
+  --scrollbar-thumb-hover: hsl(var(--muted-foreground));
+
   @keyframes accordion-down {
     from {
       height: 0;
@@ -118,6 +124,33 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+  }
+
+  /* Estilização da barra de rolagem */
+  ::-webkit-scrollbar {
+    width: var(--scrollbar-size);
+    height: var(--scrollbar-size);
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-track);
+    border-radius: calc(var(--radius) / 2);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: calc(var(--radius) / 2);
+    transition: all 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
   }
 }
 
