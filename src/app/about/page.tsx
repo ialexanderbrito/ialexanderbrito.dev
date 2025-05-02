@@ -1,7 +1,8 @@
-import { BentoGrid } from '@/components/bento-grid';
+import { FocusMoments } from '@/components/focus-moments';
 import { GithubCalendar } from '@/components/github-calendar';
 import Location from '@/components/location';
 import Spotify from '@/components/spotify';
+import SpotlightCard from '@/components/ui/spotlight-card';
 import { fetchHygraph } from '@/graphql/client';
 import { GET_ABOUT, GET_EXPERIENCES, GET_MOMENTS } from '@/graphql/queries';
 import { AboutResponse } from '@/interfaces/about';
@@ -95,7 +96,7 @@ export default async function Resume() {
           Momentos marcantes da minha vida pessoal, que me fizeram ser quem sou hoje.
         </h2>
 
-        <BentoGrid moments={moments} />
+        <FocusMoments moments={moments} />
       </div>
 
       <h3 className="text-2xl font-bold mt-8 mb-4">Carreira</h3>
@@ -110,13 +111,14 @@ export default async function Resume() {
           const duration = calcDuration(experience.startedAt, experience.finishedAt || new Date());
 
           return (
-            <div
-              className="rounded-lg flex flex-col justify-between p-8 border bg-accent/50 dark:backdrop-blur-2xl
-            text-accent-foreground"
+            <SpotlightCard
+              className="flex flex-col justify-between p-8 border-none"
+              spotlightColor={experience.companyColor?.hex}
+              spotlightOpacity={0.15}
+              key={experience.id}
               style={{
                 gridColumn: generateColSpanByIndex(index),
               }}
-              key={experience.id}
             >
               <div className="flex">
                 <figure
@@ -149,7 +151,7 @@ export default async function Resume() {
 
                 <h5 className="font-bold text-xl">{experience.role}</h5>
               </div>
-            </div>
+            </SpotlightCard>
           );
         })}
       </section>
