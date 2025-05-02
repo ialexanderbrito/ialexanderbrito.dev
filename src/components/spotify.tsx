@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 
 import { Pulse } from '@/components/ui/pulse';
 import { formatLastPlayed } from '@/utils/formatLastPlayed';
-import { SquareArrowOutUpRight } from 'lucide-react';
-import Image from 'next/image';
 import useSWR, { mutate } from 'swr';
+
+import TiltedCard from './ui/tilted-card';
 
 interface SpotifyTrack {
   isPlaying: boolean;
@@ -59,102 +59,111 @@ export default function Spotify() {
 
   if (error) {
     return (
-      <div className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
-        <div className="absolute inset-0 h-[400px] w-[400px] object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" />
-        <div className="absolute inset-0 bg-linear-to-b from-gray-900/25 to-gray-900/5" />
-        <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 flex items-center gap-2">
-          <Pulse color="red" />
-          Algo deu errado.
-        </h3>
-        <h3 className="z-10 text-sm font-medium absolute bottom-0 left-0 p-4 flex items-center gap-2">
-          Tente novamente mais tarde.
-        </h3>
-      </div>
+      <TiltedCard
+        imageSrc={'/case.png'}
+        altText={`Capa do álbum ${data?.album}`}
+        captionText={`${data?.title}, ${data?.artist}`}
+        containerHeight={176}
+        containerWidth={260}
+        imageHeight={176}
+        imageWidth={260}
+        rotateAmplitude={12}
+        scaleOnHover={1.05}
+        showMobileWarning={false}
+        showTooltip={false}
+        displayOverlayContent={true}
+        showSpotifyButton={false}
+        overlayContent={
+          <div className="pt-4 pl-2 pr-2">
+            <span className="flex items-center gap-2">
+              <Pulse color="red" />
+              Algo deu errado. Tente novamente mais tarde.
+            </span>
+          </div>
+        }
+      />
     );
   }
 
   if (data?.message || data?.error) {
     return (
-      <div className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
-        <Image
-          src="/case.png"
-          alt={`Capa do álbum`}
-          width={400}
-          height={400}
-          className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out grayscale opacity-50"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-linear-to-b from-gray-900/25 to-gray-900/5" />
-        <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 flex items-center gap-2">
-          <Pulse color="red" />
-          Algo deu errado.
-        </h3>
-        <h3 className="z-10 text-sm font-medium absolute bottom-0 left-0 p-4 flex items-center gap-2">
-          Tente novamente mais tarde.
-        </h3>
-      </div>
+      <TiltedCard
+        imageSrc={'/case.png'}
+        altText={`Capa do álbum ${data?.album}`}
+        captionText={`${data?.title}, ${data?.artist}`}
+        containerHeight={176}
+        containerWidth={260}
+        imageHeight={176}
+        imageWidth={260}
+        rotateAmplitude={12}
+        scaleOnHover={1.05}
+        showMobileWarning={false}
+        showTooltip={false}
+        displayOverlayContent={true}
+        showSpotifyButton={false}
+        overlayContent={
+          <div className="pt-4 pl-2 pr-2">
+            <span className="flex items-center gap-2">
+              <Pulse color="red" />
+              Algo deu errado. Tente novamente mais tarde.
+            </span>
+          </div>
+        }
+      />
     );
   }
 
   return (
     <>
       {data && data.isPlaying ? (
-        <div className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
-          <Image
-            src={data?.albumImageUrl || '/case.png'}
-            alt={`Capa do álbum ${data?.album}`}
-            width={400}
-            height={400}
-            className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-linear-to-b from-gray-900/25 to-gray-900/5" />
-          <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 flex items-center gap-2">
-            <Pulse />
-            {data?.title}, {data?.artist}
-          </h3>
-          <h3 className="z-10 text-sm font-medium absolute bottom-8 left-0 p-4 flex items-center gap-2">
-            {data?.album}
-          </h3>
-          <a
-            href={data?.songUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="z-10 text-sm font-medium absolute bottom-0 left-0 p-4 flex items-center gap-2"
-          >
-            <SquareArrowOutUpRight size={14} />
-            Abrir no Spotify
-          </a>
-        </div>
+        <TiltedCard
+          imageSrc={data?.albumImageUrl || '/case.png'}
+          altText={`Capa do álbum ${data?.album}`}
+          captionText={`${data?.title}, ${data?.artist}`}
+          containerHeight={176}
+          containerWidth={260}
+          imageHeight={176}
+          imageWidth={260}
+          rotateAmplitude={12}
+          scaleOnHover={1.05}
+          showMobileWarning={false}
+          showTooltip={true}
+          displayOverlayContent={true}
+          spotifyUrl={data?.songUrl}
+          spotifyTitle={data?.title}
+          showSpotifyButton={true}
+          overlayContent={
+            <div className="pt-4 pl-2 pr-2">
+              <span className="flex items-center gap-2">
+                <Pulse color="green" />
+                Tocando agora: {data?.title}, {data?.artist}
+              </span>
+            </div>
+          }
+        />
       ) : (
-        <div className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
-          <Image
-            src={data?.albumImageUrl || '/case.png'}
-            alt="Capa do álbum"
-            width={400}
-            height={400}
-            className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out grayscale opacity-50"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-linear-to-b from-gray-900/25 to-gray-900/5" />
-          <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 flex items-center gap-2">
-            <Pulse color="red" />
-            Última música: <br />
-            {data?.title}, {data?.artist} • {formatLastPlayed(data?.lastPlayed)}
-          </h3>
-          <h3 className="z-10 text-sm font-medium absolute bottom-8 left-0 p-4 flex items-center gap-2">
-            {data?.album}
-          </h3>
-          <a
-            href={data?.songUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="z-10 text-sm font-medium absolute bottom-0 left-0 p-4 flex items-center gap-2"
-          >
-            <SquareArrowOutUpRight size={14} />
-            Abrir no Spotify
-          </a>
-        </div>
+        <TiltedCard
+          imageSrc={data?.albumImageUrl || '/case.png'}
+          altText={`Capa do álbum ${data?.album}`}
+          captionText={`${data?.title}, ${data?.artist}`}
+          containerHeight={176}
+          containerWidth={260}
+          imageHeight={176}
+          imageWidth={260}
+          rotateAmplitude={12}
+          scaleOnHover={1.05}
+          showMobileWarning={false}
+          showTooltip={true}
+          displayOverlayContent={true}
+          spotifyUrl={data?.songUrl}
+          spotifyTitle={data?.title}
+          showSpotifyButton={true}
+          overlayContent={
+            <div className="pt-4 pl-2 pr-2">
+              Última música: {data?.title}, {data?.artist} • {formatLastPlayed(data?.lastPlayed)}
+            </div>
+          }
+        />
       )}
     </>
   );
