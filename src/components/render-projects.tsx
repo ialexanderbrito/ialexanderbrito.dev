@@ -1,9 +1,13 @@
+'use client';
+
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Project } from '@/interfaces/project';
 import { GithubLogo } from '@phosphor-icons/react/dist/ssr';
 import { ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ShinyText from '@/components/ui/shiny-text';
 
 import { DialogImage } from './dialog-image';
 
@@ -14,34 +18,46 @@ interface RenderProjectsProps {
 }
 
 export default function RenderProjects({ projects, category, recent }: RenderProjectsProps) {
-  return (
-    <section className="mt-8 flex-col gap-4 flex lg:grid lg:grid-cols-3">
-      {projects
-        .sort((a, b) => b.order - a.order)
-        .filter((project) => !category || project.category === category)
-        .filter((_, index) => !recent || index < 1)
-        .map((project) => (
+  const [showAll, setShowAll] = useState(false);
+
+  const filteredProjects = projects
+    .sort((a, b) => b.order - a.order)
+    .filter((project) => !category || project.category === category)
+    .filter((_, index) => !recent || index < 1);
+
+  // Se não houver projetos após a filtragem, retornar uma mensagem
+  if (filteredProjects.length === 0) {
+    return (
+      <div className="flex items-center justify-center p-8 rounded-lg border bg-accent/30 text-accent-foreground">
+        <p className="text-muted-foreground">Nenhum projeto encontrado nesta categoria.</p>
+      </div>
+    );
+  }
+
+  // Renderização especial para a categoria "IK"
+  if (category === "IK") {
+    return (
+      <div className="mt-4 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+        {filteredProjects.map((project) => (
           <div
-            className="rounded-lg flex flex-col justify-around p-8 border bg-accent/50 dark:backdrop-blur-2xl
-            text-accent-foreground transition-transform"
             key={project.id}
+            className="rounded-lg border bg-card/30 p-6 hover:shadow-md transition-all duration-300"
           >
-            <div className="flex">
-              <figure className="rounded-lg overflow-hidden relative flex items-center justify-center">
-                {project.category !== 'IK' ? (
-                  <DialogImage src={project.thumbnail?.url} alt={project.name} />
-                ) : (
+            <div className="flex items-center justify-between mb-4">
+              <figure className="w-16 h-16 flex items-center justify-center">
+                {project.thumbnail && (
                   <Image
-                    src={project.thumbnail?.url}
+                    src={project.thumbnail.url}
                     alt={project.name}
-                    width={500}
-                    height={500}
-                    className="w-16 h-16 bg-gray-300 dark:bg-[#333] rounded-lg"
+                    width={64}
+                    height={64}
+                    className="w-16 h-16 bg-gray-300 dark:bg-[#333] rounded-lg object-contain"
                     loading="lazy"
                   />
                 )}
               </figure>
             </div>
+
             <h5 className="font-bold text-xl mt-1">{project.name}</h5>
             <div className="space-y-2">
               <h4 className="text-xs text-muted-foreground">
@@ -52,7 +68,7 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
 
               <div className="mt-3 flex flex-row gap-1 flex-wrap">
                 {project.urlProject && (
-                  <Button variant="outline" className="text-sm" asChild>
+                  <Button variant="outline" size="sm" className="text-sm" asChild>
                     <Link href={project?.urlProject} target="_blank" passHref>
                       <ArrowUpRight size={16} className="mr-1" />
                       Visitar
@@ -61,7 +77,7 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
                 )}
 
                 {project.urlRepo && (
-                  <Button variant="outline" className="text-sm" asChild>
+                  <Button variant="outline" size="sm" className="text-sm" asChild>
                     <Link href={project?.urlRepo} target="_blank" passHref>
                       <GithubLogo size={16} className="mr-1" />
                       Ver código
@@ -90,6 +106,120 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
             </div>
           </div>
         ))}
-    </section>
+      </div>
+    );
+  }
+
+  // Projetos a serem exibidos
+  const projectsToDisplay = recent
+    ? filteredProjects
+    : showAll
+      ? filteredProjects
+      : filteredProjects.slice(0, 3);
+
+  // Verificar se precisamos do botão "Ver mais"
+  const hasMoreProjects = !recent && filteredProjects.length > 3;
+
+  // Renderização para outras categorias
+  return (
+    <div className="space-y-6">
+      <section className={recent ? "w-full" : "mt-4 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"}>
+        {projectsToDisplay.map((project) => (
+          <div
+            key={project.id}
+            className={`rounded-lg border bg-card/30 dark:backdrop-blur-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col ${recent ? "w-full md:flex-row" : ""
+              }`}
+          >
+            {/* Card media */}
+            <div className={`${recent ? "w-full md:w-1/2" : "w-full"}`}>
+              <div className="relative group aspect-video overflow-hidden bg-muted/20">
+                <Image
+                  src={project.thumbnail?.url}
+                  alt={project.name}
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105 duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <DialogImage src={project.thumbnail?.url} alt={project.name} />
+                </div>
+              </div>
+            </div>
+
+            {/* Card content */}
+            <div className={`p-6 flex flex-col h-full ${recent ? "md:w-1/2" : "w-full"}`}>
+              <div className="flex-grow">
+                <h5 className="font-bold text-xl mb-2">{project.name}</h5>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {project.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.slice(0, recent ? 8 : 5).map(
+                    (technology) =>
+                      technology.iconSvg && (
+                        <span
+                          key={technology.id}
+                          className="rounded-md dark:bg-muted/30 bg-muted/50 p-1 text-xs text-muted-foreground flex items-center h-6"
+                        >
+                          <svg
+                            dangerouslySetInnerHTML={{ __html: technology.iconSvg }}
+                            className="w-4 h-4 inline-block mr-1 text-muted-foreground"
+                          />
+                          <p>{technology.name}</p>
+                        </span>
+                      ),
+                  )}
+                  {project.technologies.length > (recent ? 8 : 5) && (
+                    <span className="rounded-md dark:bg-muted/30 bg-muted/50 p-1 text-xs text-muted-foreground flex items-center h-6">
+                      +{project.technologies.length - (recent ? 8 : 5)}
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-border/30">
+                {project.urlProject && (
+                  <Button variant="outline" size="sm" className="text-sm font-medium" asChild>
+                    <Link href={project?.urlProject} target="_blank" passHref>
+                      <ArrowUpRight size={16} className="mr-1" />
+                      Visitar
+                    </Link>
+                  </Button>
+                )}
+
+                {project.urlRepo && (
+                  <Button variant="outline" size="sm" className="text-sm font-medium" asChild>
+                    <Link href={project?.urlRepo} target="_blank" passHref>
+                      <GithubLogo size={16} className="mr-1" />
+                      Ver código
+                    </Link>
+                  </Button>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {hasMoreProjects && (
+        <div className="flex justify-center mt-6">
+          <Button
+            variant="ghost"
+            size="lg"
+            className="group cursor-pointer"
+            onClick={() => setShowAll(!showAll)}
+          >
+            <ShinyText
+              text={showAll ? "Ver menos" : `Ver mais ${filteredProjects.length - 3} projetos`}
+              className="text-base font-medium group-hover:text-primary transition-colors"
+              speed={3}
+            />
+          </Button>
+        </div>
+      )}
+    </div>
   );
 }
