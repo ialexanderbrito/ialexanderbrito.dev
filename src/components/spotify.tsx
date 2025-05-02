@@ -43,7 +43,7 @@ export default function Spotify() {
 
   if (isLoading) {
     return (
-      <div className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 bg-accent/50">
+      <div className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 bg-accent/50 w-full">
         <div className="absolute inset-0 h-full w-full bg-accent/50" />
         <div className="absolute inset-0 bg-muted" />
         <div className="z-10 absolute top-0 left-0 p-4 flex items-center gap-2">
@@ -64,9 +64,9 @@ export default function Spotify() {
         altText={`Capa do álbum ${data?.album}`}
         captionText={`${data?.title}, ${data?.artist}`}
         containerHeight={176}
-        containerWidth={260}
+        containerWidth={'100%'}
         imageHeight={176}
-        imageWidth={260}
+        imageWidth={'100%'}
         rotateAmplitude={12}
         scaleOnHover={1.05}
         showMobileWarning={false}
@@ -74,7 +74,7 @@ export default function Spotify() {
         displayOverlayContent={true}
         showSpotifyButton={false}
         overlayContent={
-          <div className="pt-4 pl-2 pr-2">
+          <div className="pt-4 pl-2 pr-2 w-full">
             <span className="flex items-center gap-2">
               <Pulse color="red" />
               Algo deu errado. Tente novamente mais tarde.
@@ -92,9 +92,9 @@ export default function Spotify() {
         altText={`Capa do álbum ${data?.album}`}
         captionText={`${data?.title}, ${data?.artist}`}
         containerHeight={176}
-        containerWidth={260}
+        containerWidth={'100%'}
         imageHeight={176}
-        imageWidth={260}
+        imageWidth={'100%'}
         rotateAmplitude={12}
         scaleOnHover={1.05}
         showMobileWarning={false}
@@ -102,7 +102,7 @@ export default function Spotify() {
         displayOverlayContent={true}
         showSpotifyButton={false}
         overlayContent={
-          <div className="pt-4 pl-2 pr-2">
+          <div className="pt-4 pl-2 pr-2 w-full">
             <span className="flex items-center gap-2">
               <Pulse color="red" />
               Algo deu errado. Tente novamente mais tarde.
@@ -121,9 +121,9 @@ export default function Spotify() {
           altText={`Capa do álbum ${data?.album}`}
           captionText={`${data?.title}, ${data?.artist}`}
           containerHeight={176}
-          containerWidth={260}
+          containerWidth={'100%'}
           imageHeight={176}
-          imageWidth={260}
+          imageWidth={'100%'}
           rotateAmplitude={12}
           scaleOnHover={1.05}
           showMobileWarning={false}
@@ -133,7 +133,7 @@ export default function Spotify() {
           spotifyTitle={data?.title}
           showSpotifyButton={true}
           overlayContent={
-            <div className="pt-4 pl-2 pr-2">
+            <div className="pt-4 pl-2 pr-2 w-full">
               <span className="flex items-center gap-2">
                 <Pulse color="green" />
                 Tocando agora: {data?.title}, {data?.artist}
@@ -147,9 +147,9 @@ export default function Spotify() {
           altText={`Capa do álbum ${data?.album}`}
           captionText={`${data?.title}, ${data?.artist}`}
           containerHeight={176}
-          containerWidth={260}
+          containerWidth={'100%'}
           imageHeight={176}
-          imageWidth={260}
+          imageWidth={'100%'}
           rotateAmplitude={12}
           scaleOnHover={1.05}
           showMobileWarning={false}
@@ -159,7 +159,7 @@ export default function Spotify() {
           spotifyTitle={data?.title}
           showSpotifyButton={true}
           overlayContent={
-            <div className="pt-4 pl-2 pr-2">
+            <div className="pt-4 pl-2 pr-2 w-full">
               Última música: {data?.title}, {data?.artist} • {formatLastPlayed(data?.lastPlayed)}
             </div>
           }
