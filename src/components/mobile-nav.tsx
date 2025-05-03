@@ -10,7 +10,6 @@ import {
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { LaptopMinimal, Mailbox, Notebook, User } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -42,7 +41,7 @@ export function MobileNav() {
         transition={{ type: 'spring', stiffness: 400, damping: 17 }}
       >
         <Link href="/" passHref>
-          <Image src="/favicon.png" width={24} height={24} alt="Logo" className="w-6 h-6" loading="lazy" />
+          <img src="/favicon.png" alt="Logo" className="w-6 h-6" loading="lazy" />
         </Link>
       </motion.div>
       <NavigationMenu className="backdrop-blur-sm bg-background/50 p-1 rounded-full border border-border/40 shadow-sm">

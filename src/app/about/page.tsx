@@ -12,7 +12,6 @@ import { calcDuration } from '@/utils/date';
 import { generateColSpanByIndex } from '@/utils/generateColSpanByIndex';
 import dayjs from 'dayjs';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import 'dayjs/locale/pt-br';
 
 const thumbnail = {
@@ -60,14 +59,11 @@ export default async function Resume() {
 
   return (
     <main className="max-w-(--breakpoint-lg) mx-auto px-4">
-      <div className="flex flex-col md:flex-row align-center justify-between w-full gap-5">
-        <Image
+      <div className="flex flex-col md:flex-row align-center justify-between w-full gap-5 md:mt-8">
+        <img
           src={about?.profilePicture?.url}
           alt="Foto de perfil"
-          width={420}
-          height={420}
-          className="rounded-md"
-          objectFit="cover"
+          className="rounded-md w-[420px] h-auto object-cover"
           loading="lazy"
         />
         {about?.introduction?.html && (
@@ -125,11 +121,10 @@ export default async function Resume() {
                   className="rounded-lg overflow-hidden relative w-16 h-16 flex items-center justify-center"
                   style={{ backgroundColor: experience.companyColor?.hex }}
                 >
-                  <Image
+                  <img
                     src={experience.companyLogo?.url}
                     alt={experience.companyName}
-                    width={48}
-                    height={48}
+                    className="w-[48px] h-[48px]"
                     loading="lazy"
                   />
                 </figure>

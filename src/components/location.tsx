@@ -6,7 +6,6 @@ import Map, { MapRef } from 'react-map-gl/mapbox';
 import { cn } from '@/lib/utils';
 import { Minus, Plus } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import Image from 'next/image';
 
 import { Pinned } from './pinned';
 import { Button } from './ui/button';
@@ -73,18 +72,9 @@ const Location = memo(function Location() {
           <Pinned />
           <div className="animate-animated-cloud absolute inset-0 z-30">
             <div className="relative">
-              <Image
-                width={480}
-                height={480}
-                className="absolute z-20 opacity-75 h-auto"
-                src="/cloud.png"
-                alt=""
-                loading="lazy"
-              />
-              <Image
-                width={480}
-                height={480}
-                className="absolute z-10 -translate-x-16 translate-y-28 opacity-15 blur-xs brightness-0 h-auto"
+              <img className="absolute z-20 opacity-75 h-auto w-[480px]" src="/cloud.png" alt="" loading="lazy" />
+              <img
+                className="absolute z-10 -translate-x-16 translate-y-28 opacity-15 blur-xs brightness-0 h-auto w-[480px]"
                 src="/cloud.png"
                 alt="Nuvem"
                 loading="lazy"
@@ -92,10 +82,8 @@ const Location = memo(function Location() {
             </div>
           </div>
 
-          <Image
-            width={40}
-            height={40}
-            className="absolute -top-32 animated-plane z-10 object-contain h-auto"
+          <img
+            className="absolute -top-32 animated-plane z-10 object-contain h-auto w-[40px]"
             src="/plane.png"
             alt="Avião"
             loading="lazy"

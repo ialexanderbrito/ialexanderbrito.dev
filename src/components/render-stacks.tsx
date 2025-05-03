@@ -1,6 +1,5 @@
 import { Stack } from '@/interfaces/stack';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
 import Link from 'next/link';
 
 interface RenderStacksProps {
@@ -21,7 +20,7 @@ export default function RenderStacks({ stacks, category }: RenderStacksProps) {
             key={stack.id}
             className={cn(
               'flex items-center gap-3 rounded-md p-3 bg-accent/50 dark:backdrop-blur-2xl hover:bg-accent/70 text-accent-foreground transition-colors',
-              'focus:outline-hidden focus-visible:outline-2 focus-visible:outline focus-visible:outline-ring',
+              'focus:outline-hidden focus-visible:outline focus-visible:outline-ring',
             )}
           >
             <div
@@ -30,12 +29,10 @@ export default function RenderStacks({ stacks, category }: RenderStacksProps) {
                 stack.invert && 'dark:invert',
               )}
             >
-              <Image src={stack.icon.url} alt="" width={24} height={24} className="z-10" loading="lazy" />
-              <Image
+              <img src={stack.icon.url} alt="" width="24" height="24" className="z-10" loading="lazy" />
+              <img
                 src={stack.icon.url}
                 alt=""
-                width={8}
-                height={8}
                 className="blur-lg absolute inset-0 w-[125%] h-[125%] opacity-80 z-0"
                 loading="lazy"
               />

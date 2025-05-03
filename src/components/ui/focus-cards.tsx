@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
 
 export const Card = React.memo(
   ({
@@ -26,15 +25,14 @@ export const Card = React.memo(
       )}
       style={{ minHeight: '180px' }}
     >
-      <Image
+      <img
         src={card.src}
         alt={card.title}
-        fill
         className={cn(
-          'object-cover absolute inset-0',
+          'object-cover absolute inset-0 w-full h-full',
           hovered === index && 'scale-105 transition-transform duration-500 ease-in-out',
         )}
-        sizes="(max-width: 768px) 100vw, 33vw"
+        loading="lazy"
       />
       <div className="absolute inset-0 bg-linear-to-b from-gray-900/25 to-gray-900/5" />
       <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 text-white">{card.title}</h3>

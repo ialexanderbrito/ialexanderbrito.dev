@@ -11,7 +11,6 @@ import {
 } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -45,7 +44,7 @@ export function Navbar() {
           className="ml-4"
         >
           <Link href="/" passHref>
-            <Image src="/favicon.png" width={24} height={24} alt="Logo" className="w-6 h-6" loading="lazy" />
+            <img src="/favicon.png" alt="Logo" className="w-6 h-6" loading="lazy" />
           </Link>
         </motion.div>
         <NavigationMenu>

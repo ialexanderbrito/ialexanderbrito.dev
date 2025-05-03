@@ -7,7 +7,6 @@ import ShinyText from '@/components/ui/shiny-text';
 import { Project } from '@/interfaces/project';
 import { GithubLogo } from '@phosphor-icons/react/dist/ssr';
 import { ArrowUpRight } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { DialogImage } from './dialog-image';
@@ -45,11 +44,9 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
             <div className="flex items-center justify-between mb-4">
               <figure className="w-16 h-16 flex items-center justify-center">
                 {project.thumbnail && (
-                  <Image
+                  <img
                     src={project.thumbnail.url}
                     alt={project.name}
-                    width={64}
-                    height={64}
                     className="w-16 h-16 bg-gray-300 dark:bg-[#333] rounded-lg object-contain"
                     loading="lazy"
                   />
@@ -129,11 +126,10 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
             {/* Card media */}
             <div className={`${recent ? 'w-full md:w-1/2' : 'w-full'}`}>
               <div className="relative group aspect-video overflow-hidden bg-muted/20">
-                <Image
+                <img
                   src={project.thumbnail?.url}
                   alt={project.name}
-                  fill
-                  className="object-cover transition-transform group-hover:scale-105 duration-500"
+                  className="object-cover transition-transform group-hover:scale-105 duration-500 absolute inset-0 w-full h-full"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">

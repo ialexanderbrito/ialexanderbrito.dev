@@ -1,5 +1,4 @@
 import { Moment } from '@/interfaces/moments';
-import Image from 'next/image';
 
 interface CardMomentProps {
   moment: Moment;
@@ -19,11 +18,9 @@ export function CardMoment({ moment, className = '' }: CardMomentProps) {
 
   return (
     <div className={`group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 ${className}`}>
-      <Image
+      <img
         src={moment?.imagem?.url}
         alt={`Imagem de ${moment?.local}`}
-        width={400}
-        height={400}
         className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
         loading="lazy"
       />
