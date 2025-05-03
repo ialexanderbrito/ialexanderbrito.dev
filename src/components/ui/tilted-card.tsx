@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 
+import { cn } from '@/lib/utils';
 import type { SpringOptions } from 'framer-motion';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
@@ -20,6 +21,7 @@ interface TiltedCardProps {
   spotifyUrl?: string;
   spotifyTitle?: string;
   showSpotifyButton?: boolean;
+  disabled?: boolean;
 }
 
 const springValues: SpringOptions = {
@@ -45,6 +47,7 @@ export default function TiltedCard({
   spotifyUrl = '',
   spotifyTitle = '',
   showSpotifyButton = false,
+  disabled = false,
 }: TiltedCardProps) {
   const ref = useRef<HTMLElement>(null);
   const x = useMotionValue(0);
@@ -126,7 +129,10 @@ export default function TiltedCard({
         <motion.img
           src={imageSrc}
           alt={altText}
-          className="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
+          className={cn(
+            'absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]',
+            disabled && 'grayscale',
+          )}
           style={{
             width: imageWidth,
             height: imageHeight,

@@ -73,6 +73,7 @@ export default function Spotify() {
         showTooltip={false}
         displayOverlayContent={true}
         showSpotifyButton={false}
+        disabled={true}
         overlayContent={
           <div className="pt-4 pl-2 pr-2 w-full">
             <span className="flex items-center gap-2">
@@ -101,6 +102,7 @@ export default function Spotify() {
         showTooltip={false}
         displayOverlayContent={true}
         showSpotifyButton={false}
+        disabled={true}
         overlayContent={
           <div className="pt-4 pl-2 pr-2 w-full">
             <span className="flex items-center gap-2">
@@ -158,6 +160,7 @@ export default function Spotify() {
           spotifyUrl={data?.songUrl}
           spotifyTitle={data?.title}
           showSpotifyButton={true}
+          disabled={true}
           overlayContent={
             <div className="pt-4 pl-2 pr-2 w-full">
               <span className="flex items-center gap-2">
