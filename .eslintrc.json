@@ -6,6 +6,7 @@
     "@ialexanderbrito/eslint-config/next"
   ],
   "rules": {
+    "@next/next/no-img-element": "off"
     // ADICIONE SUAS REGRAS AQUI
   },
   "overrides": [
