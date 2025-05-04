@@ -126,7 +126,16 @@
     border-color: var(--color-gray-200, currentColor);
   }
 
-  /* Estilização da barra de rolagem */
+  ::selection {
+    background-color: hsl(var(--primary) / 0.2);
+    color: hsl(var(--primary));
+  }
+
+  .dark ::selection {
+    background-color: hsl(var(--primary) / 0.3);
+    color: hsl(var(--primary));
+  }
+
   ::-webkit-scrollbar {
     width: var(--scrollbar-size);
     height: var(--scrollbar-size);
