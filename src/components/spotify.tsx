@@ -129,7 +129,7 @@ export default function Spotify() {
           rotateAmplitude={12}
           scaleOnHover={1.05}
           showMobileWarning={false}
-          showTooltip={true}
+          showTooltip={false}
           displayOverlayContent={true}
           spotifyUrl={data?.songUrl}
           spotifyTitle={data?.title}
@@ -155,7 +155,7 @@ export default function Spotify() {
           rotateAmplitude={12}
           scaleOnHover={1.05}
           showMobileWarning={false}
-          showTooltip={true}
+          showTooltip={false}
           displayOverlayContent={true}
           spotifyUrl={data?.songUrl}
           spotifyTitle={data?.title}
