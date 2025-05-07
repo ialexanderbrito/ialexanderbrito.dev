@@ -124,7 +124,7 @@ export default async function Resume() {
                   <img
                     src={experience.companyLogo?.url}
                     alt={experience.companyName}
-                    className="w-[48px] h-[48px]"
+                    className="w-[65px] h-[65px]"
                     loading="lazy"
                   />
                 </figure>
