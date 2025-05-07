@@ -196,7 +196,11 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
 
       {hasMoreProjects && (
         <div className="flex justify-center mt-6">
-          <Button variant="ghost" size="lg" className="group cursor-pointer" onClick={() => setShowAll(!showAll)}>
+          <Button
+            variant="outline"
+            className="group rounded-full px-6 py-6 text-base transition-all hover:shadow-lg cursor-pointer"
+            onClick={() => setShowAll(!showAll)}
+          >
             <ShinyText
               text={showAll ? 'Ver menos' : `Ver mais ${filteredProjects.length - 3} projetos`}
               className="text-base font-medium group-hover:text-primary transition-colors"
