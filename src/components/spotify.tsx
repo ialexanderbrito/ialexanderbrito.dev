@@ -76,7 +76,7 @@ export default function Spotify() {
         disabled={true}
         overlayContent={
           <div className="pt-4 pl-2 pr-2 w-full">
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2 text-white">
               <Pulse color="red" />
               Algo deu errado. Tente novamente mais tarde.
             </span>
@@ -105,7 +105,7 @@ export default function Spotify() {
         disabled={true}
         overlayContent={
           <div className="pt-4 pl-2 pr-2 w-full">
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2 text-white">
               <Pulse color="red" />
               Algo deu errado. Tente novamente mais tarde.
             </span>
@@ -136,7 +136,7 @@ export default function Spotify() {
           showSpotifyButton={true}
           overlayContent={
             <div className="pt-4 pl-2 pr-2 w-full">
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 text-white">
                 <Pulse color="green" />
                 Tocando agora: {data?.title}, {data?.artist}
               </span>
@@ -163,7 +163,7 @@ export default function Spotify() {
           disabled={true}
           overlayContent={
             <div className="pt-4 pl-2 pr-2 w-full">
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 text-white">
                 <Pulse color="red" />
                 Última música: {data?.title}, {data?.artist} • {formatLastPlayed(data?.lastPlayed)}
               </span>
