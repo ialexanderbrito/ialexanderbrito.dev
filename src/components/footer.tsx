@@ -1,16 +1,14 @@
+import { HeartEasterEgg } from '@/app/eastereggs';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { fetchHygraph } from '@/graphql/client';
 import { GET_SOCIALS } from '@/graphql/queries';
 import { SocialsResponse } from '@/interfaces/socials';
-import { Heart } from 'lucide-react';
 import Link from 'next/link';
 
 import { TooltipMessage } from './tooltip';
 
 const getSocials = async (): Promise<SocialsResponse> => fetchHygraph(GET_SOCIALS);
-
-const currentYear = new Date().getFullYear();
 
 export async function Footer() {
   const { socials } = await getSocials();
@@ -72,11 +70,7 @@ export async function Footer() {
               </Link>
             </div>
 
-            <div className="flex items-center gap-2 text-sm text-muted-foreground animate-fade-in">
-              <span>Feito com</span>
-              <Heart className="w-4 h-4 text-red-500 animate-pulse" />
-              <span>por Alexander © {currentYear}</span>
-            </div>
+            <HeartEasterEgg />
           </div>
         </div>
       </div>
