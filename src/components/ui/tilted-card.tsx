@@ -148,7 +148,6 @@ export default function TiltedCard({
         {showSpotifyButton && spotifyUrl && (
           <motion.div
             className="absolute bottom-4 right-4 z-[3] will-change-transform [transform:translateZ(30px)]"
-            whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
             <a
