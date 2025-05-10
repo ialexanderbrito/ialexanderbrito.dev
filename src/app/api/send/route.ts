@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
       from: 'Portfólio <onboarding@resend.dev>',
       to: ['xanderzinho26@gmail.com'],
       subject: subject,
-      react: EmailTemplate({ name, message, email }) as React.ReactElement,
+      react: EmailTemplate({ name, message, email, subject }) as React.ReactElement,
     });
 
     if (error) {
