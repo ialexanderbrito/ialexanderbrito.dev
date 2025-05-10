@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
@@ -23,9 +24,14 @@ export function ContactForm() {
     subject: z.string().min(2, {
       message: 'Assunto deve ter pelo menos 2 caracteres.',
     }),
-    message: z.string().min(10, {
-      message: 'Mensagem deve ter pelo menos 10 caracteres.',
-    }),
+    message: z
+      .string()
+      .min(10, {
+        message: 'Mensagem deve ter pelo menos 10 caracteres.',
+      })
+      .max(500, {
+        message: 'Mensagem deve ter no máximo 500 caracteres.',
+      }),
   });
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -37,6 +43,8 @@ export function ContactForm() {
       message: '',
     },
   });
+
+  const [messageLength, setMessageLength] = useState(0);
 
   async function onSubmit() {
     const response = await fetch('/api/send', {
@@ -144,9 +152,17 @@ export function ContactForm() {
                   required
                   placeholder="O que você gostaria de falar comigo?"
                   {...field}
+                  maxLength={500}
+                  onChange={(e) => {
+                    field.onChange(e);
+                    setMessageLength(e.target.value.length);
+                  }}
                   className={cn('resize-none', form.formState.errors.message && 'border-destructive')}
                 />
               </FormControl>
+              <div className="text-xs text-muted-foreground text-right">
+                {500 - messageLength} {messageLength > 0 ? 'caracteres restantes' : 'caracteres'}
+              </div>
             </FormItem>
           )}
         />
