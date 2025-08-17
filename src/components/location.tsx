@@ -10,7 +10,7 @@ import { useTheme } from 'next-themes';
 import { Pinned } from './pinned';
 import { Button } from './ui/button';
 
-const MAX_ZOOM = 10;
+const MAX_ZOOM = 4;
 const MIN_ZOOM = 4;
 const INITIAL_VIEW_STATE = {
   latitude: -22.7852417,
