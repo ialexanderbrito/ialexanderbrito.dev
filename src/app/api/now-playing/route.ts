@@ -75,7 +75,18 @@ const fetchSpotifyData = async (url: string, accessToken: string): Promise<Spoti
   }
 
   try {
-    return await response.json();
+    const contentType = response.headers.get('content-type');
+    const text = await response.text();
+    if (!text) {
+      console.warn('Resposta vazia da API Spotify.');
+      return null;
+    }
+    if (contentType && contentType.includes('application/json')) {
+      return JSON.parse(text);
+    } else {
+      console.error('Resposta da API não é JSON:', contentType);
+      return null;
+    }
   } catch (error) {
     console.error('Failed to parse JSON response:', error);
     return null; // Retorna null para JSON inválido
