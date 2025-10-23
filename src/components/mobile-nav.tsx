@@ -49,14 +49,15 @@ export function MobileNav() {
           {navigationItems.map((item) => (
             <TooltipMessage key={item.href} title={item.title}>
               <NavigationMenuItem>
-                <Link href={item.href} legacyBehavior passHref>
-                  <NavigationMenuLink
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      'relative transition-all duration-300 p-2',
-                      pathname === item.href ? 'text-primary bg-primary/10' : 'text-muted-foreground',
-                    )}
-                  >
+                <NavigationMenuLink
+                  asChild
+                  className={cn(
+                    navigationMenuTriggerStyle(),
+                    'relative transition-all duration-300 p-2',
+                    pathname === item.href ? 'text-primary bg-primary/10' : 'text-muted-foreground',
+                  )}
+                >
+                  <Link href={item.href}>
                     <motion.div
                       variants={iconVariants}
                       initial="initial"
@@ -74,8 +75,8 @@ export function MobileNav() {
                         transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                       />
                     )}
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
             </TooltipMessage>
           ))}
