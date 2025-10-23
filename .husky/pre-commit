@@ -1,2 +1,0 @@
-yarn lint:fix
-npx lint-staged
