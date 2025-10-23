@@ -16,6 +16,11 @@ const INITIAL_VIEW_STATE = {
   latitude: -22.7852417,
   longitude: -43.3904112,
   zoom: MAX_ZOOM,
+  bearing: 0,
+  pitch: 0,
+  padding: { top: 0, bottom: 0, left: 0, right: 0 },
+  width: 600,
+  height: 400,
 };
 
 const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
@@ -24,15 +29,33 @@ const Location = memo(function Location() {
   const [currentZoom, setCurrentZoom] = useState(MAX_ZOOM);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+  const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
 
   const mapRef = useRef<MapRef>(null);
 
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
+
+  const effectiveTheme = theme === 'system' ? resolvedTheme : theme;
+  const mapStyle = useMemo(
+    () => `mapbox://styles/mapbox/${effectiveTheme === 'dark' ? 'dark-v11' : 'streets-v12'}`,
+    [effectiveTheme],
+  );
+
+  const handleMove = useCallback((evt: any) => {
+    setViewState((prev) => ({
+      ...prev,
+      ...evt.viewState,
+      bearing: evt.viewState.bearing ?? 0,
+      pitch: evt.viewState.pitch ?? 0,
+      padding: evt.viewState.padding ?? { top: 0, bottom: 0, left: 0, right: 0 },
+      width: prev.width,
+      height: prev.height,
+    }));
+  }, []);
 
   const handleZoom = useCallback(
     (zoomIn: boolean) => {
       if (isButtonDisabled) return;
-
       setCurrentZoom((prevZoom) => {
         const newZoom = prevZoom + (zoomIn ? 1 : -1);
         if (newZoom >= MIN_ZOOM && newZoom <= MAX_ZOOM) {
@@ -46,8 +69,6 @@ const Location = memo(function Location() {
     },
     [isButtonDisabled],
   );
-
-  const mapStyle = useMemo(() => `mapbox://styles/mapbox/${theme === 'dark' ? 'dark-v11' : 'streets-v12'}`, [theme]);
 
   return (
     <div className="rounded-lg overflow-hidden">
@@ -68,6 +89,8 @@ const Location = memo(function Location() {
           initialViewState={INITIAL_VIEW_STATE}
           maxZoom={MAX_ZOOM}
           minZoom={MIN_ZOOM}
+          viewState={viewState}
+          onMove={handleMove}
         >
           <Pinned />
           <div className="animate-animated-cloud absolute inset-0 z-30">
@@ -83,7 +106,7 @@ const Location = memo(function Location() {
           </div>
 
           <img
-            className="absolute -top-32 animated-plane z-10 object-contain h-auto w-[40px]"
+            className="absolute -top-32 animated-plane z-10 object-contain h-auto w-10"
             src="/plane.png"
             alt="Avião"
             loading="lazy"
