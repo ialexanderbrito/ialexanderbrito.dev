@@ -19,6 +19,19 @@ import { ModeToggle } from './mode-toggle';
 
 export function Navbar() {
   const pathname = usePathname();
+  const [scrolled, setScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
@@ -32,10 +45,22 @@ export function Navbar() {
         <ModeToggle />
       </motion.header>
       <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: -20, scale: 1, maxWidth: 1120 }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          scale: scrolled ? 0.95 : 1,
+          boxShadow: scrolled ? '0 2px 16px 0 rgba(0,0,0,0.10)' : '0 1px 4px 0 rgba(0,0,0,0.05)',
+          maxWidth: scrolled ? 800 : 1120,
+        }}
         transition={{ duration: 0.5 }}
-        className="mx-auto hidden max-w-5xl items-center justify-between gap-20 px-5 py-4 xl:px-0 sm:flex-row sm:flex backdrop-blur-sm bg-background/70 sticky top-4 z-50 rounded-full border border-border/40 shadow-sm"
+        className={cn(
+          'mx-auto hidden max-w-5xl items-center justify-between gap-20 px-5 xl:px-0 sm:flex-row sm:flex backdrop-blur-sm bg-background/70 sticky top-4 z-50 rounded-full border border-border/40 shadow-sm',
+          scrolled ? 'py-2 scale-95' : 'py-4 scale-100',
+        )}
+        style={{
+          transition: 'all 0.3s cubic-bezier(0.4,0,0.2,1)',
+        }}
       >
         <motion.div
           whileHover={{ scale: 1.1 }}
@@ -56,7 +81,7 @@ export function Navbar() {
               { href: '/contact', label: 'Contato' },
             ].map((item) => (
               <NavigationMenuItem key={item.href}>
-                <Link href={item.href} legacyBehavior passHref>
+                <Link href={item.href} passHref>
                   <NavigationMenuLink
                     className={cn(
                       navigationMenuTriggerStyle(),
