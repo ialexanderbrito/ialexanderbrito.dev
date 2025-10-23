@@ -65,7 +65,7 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
               <div className="mt-3 flex flex-row gap-1 flex-wrap">
                 {project.urlProject && (
                   <Button variant="outline" size="sm" className="text-sm" asChild>
-                    <Link href={project?.urlProject} target="_blank" passHref>
+                    <Link href={project?.urlProject} target="_blank">
                       <ArrowUpRight size={16} className="mr-1" />
                       Visitar
                     </Link>
@@ -74,7 +74,7 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
 
                 {project.urlRepo && (
                   <Button variant="outline" size="sm" className="text-sm" asChild>
-                    <Link href={project?.urlRepo} target="_blank" passHref>
+                    <Link href={project?.urlRepo} target="_blank">
                       <GithubLogo size={16} className="mr-1" />
                       Ver código
                     </Link>
@@ -173,7 +173,7 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
               <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-border/30">
                 {project.urlProject && (
                   <Button variant="outline" size="sm" className="text-sm font-medium" asChild>
-                    <Link href={project?.urlProject} target="_blank" passHref>
+                    <Link href={project?.urlProject} target="_blank">
                       <ArrowUpRight size={16} className="mr-1" />
                       Visitar
                     </Link>
@@ -182,7 +182,7 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
 
                 {project.urlRepo && (
                   <Button variant="outline" size="sm" className="text-sm font-medium" asChild>
-                    <Link href={project?.urlRepo} target="_blank" passHref>
+                    <Link href={project?.urlRepo} target="_blank">
                       <GithubLogo size={16} className="mr-1" />
                       Ver código
                     </Link>
@@ -193,7 +193,6 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
           </div>
         ))}
       </section>
-
       {hasMoreProjects && (
         <div className="flex justify-center mt-6">
           <Button
