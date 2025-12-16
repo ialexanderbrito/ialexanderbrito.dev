@@ -3,7 +3,13 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+} from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks';
@@ -86,7 +92,11 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form action={onSubmit} onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-2">
+      <form
+        action={onSubmit}
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-full space-y-2"
+      >
         <FormField
           control={form.control}
           name="name"
@@ -98,7 +108,9 @@ export function ContactForm() {
                   required
                   placeholder="Seu nome"
                   {...field}
-                  className={cn(form.formState.errors.name && 'border-destructive')}
+                  className={cn(
+                    form.formState.errors.name && 'border-destructive',
+                  )}
                 />
               </FormControl>
             </FormItem>
@@ -116,7 +128,9 @@ export function ContactForm() {
                   required
                   placeholder="Seu email"
                   {...field}
-                  className={cn(form.formState.errors.email && 'border-destructive')}
+                  className={cn(
+                    form.formState.errors.email && 'border-destructive',
+                  )}
                 />
               </FormControl>
             </FormItem>
@@ -134,7 +148,9 @@ export function ContactForm() {
                   required
                   placeholder="Assunto"
                   {...field}
-                  className={cn(form.formState.errors.subject && 'border-destructive')}
+                  className={cn(
+                    form.formState.errors.subject && 'border-destructive',
+                  )}
                 />
               </FormControl>
             </FormItem>
@@ -157,16 +173,22 @@ export function ContactForm() {
                     field.onChange(e);
                     setMessageLength(e.target.value.length);
                   }}
-                  className={cn('resize-none', form.formState.errors.message && 'border-destructive')}
+                  className={cn(
+                    'resize-none',
+                    form.formState.errors.message && 'border-destructive',
+                  )}
                 />
               </FormControl>
               <div className="text-xs text-muted-foreground text-right">
-                {500 - messageLength} {messageLength > 0 ? 'caracteres restantes' : 'caracteres'}
+                {500 - messageLength}{' '}
+                {messageLength > 0 ? 'caracteres restantes' : 'caracteres'}
               </div>
             </FormItem>
           )}
         />
-        <Button type="submit">{form.formState.isSubmitting ? <LoadingSpinner /> : 'Enviar'}</Button>
+        <Button type="submit">
+          {form.formState.isSubmitting ? <LoadingSpinner /> : 'Enviar'}
+        </Button>
       </form>
     </Form>
   );
