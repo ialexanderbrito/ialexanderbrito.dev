@@ -37,7 +37,8 @@ const Location = memo(function Location() {
 
   const effectiveTheme = theme === 'system' ? resolvedTheme : theme;
   const mapStyle = useMemo(
-    () => `mapbox://styles/mapbox/${effectiveTheme === 'dark' ? 'dark-v11' : 'streets-v12'}`,
+    () =>
+      `mapbox://styles/mapbox/${effectiveTheme === 'dark' ? 'dark-v11' : 'streets-v12'}`,
     [effectiveTheme],
   );
 
@@ -47,7 +48,12 @@ const Location = memo(function Location() {
       ...evt.viewState,
       bearing: evt.viewState.bearing ?? 0,
       pitch: evt.viewState.pitch ?? 0,
-      padding: evt.viewState.padding ?? { top: 0, bottom: 0, left: 0, right: 0 },
+      padding: evt.viewState.padding ?? {
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+      },
       width: prev.width,
       height: prev.height,
     }));
@@ -59,7 +65,11 @@ const Location = memo(function Location() {
       setCurrentZoom((prevZoom) => {
         const newZoom = prevZoom + (zoomIn ? 1 : -1);
         if (newZoom >= MIN_ZOOM && newZoom <= MAX_ZOOM) {
-          zoomIn ? mapRef.current?.zoomIn() : mapRef.current?.zoomOut();
+          if (zoomIn) {
+            mapRef.current?.zoomIn();
+          } else {
+            mapRef.current?.zoomOut();
+          }
           setIsButtonDisabled(true);
           setTimeout(() => setIsButtonDisabled(false), 300);
           return newZoom;
@@ -95,7 +105,12 @@ const Location = memo(function Location() {
           <Pinned />
           <div className="animate-animated-cloud absolute inset-0 z-30">
             <div className="relative">
-              <img className="absolute z-20 opacity-75 h-auto w-[480px]" src="/cloud.png" alt="" loading="lazy" />
+              <img
+                className="absolute z-20 opacity-75 h-auto w-[480px]"
+                src="/cloud.png"
+                alt=""
+                loading="lazy"
+              />
               <img
                 className="absolute z-10 -translate-x-16 translate-y-28 opacity-15 blur-xs brightness-0 h-auto w-[480px]"
                 src="/cloud.png"
@@ -119,7 +134,9 @@ const Location = memo(function Location() {
                 aria-label="Zoom Out"
                 size="icon"
                 variant="outline"
-                className={cn(currentZoom > MIN_ZOOM ? 'cancel-drag' : 'invisible')}
+                className={cn(
+                  currentZoom > MIN_ZOOM ? 'cancel-drag' : 'invisible',
+                )}
               >
                 <Minus />
               </Button>
@@ -128,7 +145,9 @@ const Location = memo(function Location() {
                 aria-label="Zoom In"
                 size="icon"
                 variant="outline"
-                className={cn(currentZoom < MAX_ZOOM ? 'cancel-drag' : 'invisible')}
+                className={cn(
+                  currentZoom < MAX_ZOOM ? 'cancel-drag' : 'invisible',
+                )}
               >
                 <Plus />
               </Button>
