@@ -23,11 +23,16 @@ export function ConsoleEasterEgg() {
       }
     }
 
-    console.log(`%c Opa, o que você tá fazendo aqui? 🤪`, 'font-size: 2rem; font-weight: bold;');
+    console.log(
+      `%c Opa, o que você tá fazendo aqui? 🤪`,
+      'font-size: 2rem; font-weight: bold;',
+    );
     console.log(
       '💻 Você pode visualizar o código-fonte deste site em https://github.com/ialexanderbrito/ialexanderbrito.dev',
     );
-    console.log('Se você estiver interessado, entre em contato comigo em https://www.linkedin.com/in/ialexanderbrito');
+    console.log(
+      'Se você estiver interessado, entre em contato comigo em https://www.linkedin.com/in/ialexanderbrito',
+    );
     console.log(`Tenha ${greetingMessage()}!`);
 
     console.log = () => {};
@@ -35,14 +40,19 @@ export function ConsoleEasterEgg() {
     console.error = () => {};
 
     function showEasterEggUnlockedAlert() {
-      if (getSessionStorageItem('@ialexanderbrito:unlockedConsoleEasterEgg')) return;
+      if (getSessionStorageItem('@ialexanderbrito:unlockedConsoleEasterEgg'))
+        return;
 
       toast({
         title: '🔍👀 Você é um curioso, hein?',
-        description: 'Um novo easter egg foi encontrado! Abra o console para descobrir.',
+        description:
+          'Um novo easter egg foi encontrado! Abra o console para descobrir.',
         duration: 10000,
       });
-      sessionStorage.setItem('@ialexanderbrito:unlockedConsoleEasterEgg', 'true');
+      sessionStorage.setItem(
+        '@ialexanderbrito:unlockedConsoleEasterEgg',
+        'true',
+      );
     }
 
     const handleKeyDown = (event: KeyboardEvent) => {
