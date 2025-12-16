@@ -8,7 +8,8 @@ export default function Custom404() {
         <h1 className="text-4xl font-bold mt-8 mb-4">Página não encontrada</h1>
 
         <span className="flex-col gap-4 flex text-muted-foreground">
-          A página que você tentou acessar não existe. Verifique o endereço digitado e tente novamente.
+          A página que você tentou acessar não existe. Verifique o endereço
+          digitado e tente novamente.
         </span>
         <Button className="mt-4" asChild>
           <Link href="/" className="flex items-center gap-2 mt-4">
