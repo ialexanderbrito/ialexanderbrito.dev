@@ -8,7 +8,8 @@ import Link from 'next/link';
 
 import { TooltipMessage } from './tooltip';
 
-const getSocials = async (): Promise<SocialsResponse> => fetchHygraph(GET_SOCIALS);
+const getSocials = async (): Promise<SocialsResponse> =>
+  fetchHygraph(GET_SOCIALS);
 
 export async function Footer() {
   const { socials } = await getSocials();
@@ -21,7 +22,9 @@ export async function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex flex-col gap-2">
               <h3 className="text-lg font-semibold">Alexander</h3>
-              <p className="text-sm text-muted-foreground">Front-end Developer & Mobile Developer</p>
+              <p className="text-sm text-muted-foreground">
+                Front-end Developer & Mobile Developer
+              </p>
             </div>
 
             <div className="flex flex-wrap justify-center gap-2">
@@ -40,7 +43,10 @@ export async function Footer() {
                       rel="noopener noreferrer"
                       className="flex items-center justify-center h-full w-full"
                     >
-                      <svg dangerouslySetInnerHTML={{ __html: social.logoSvg }} className="w-6 h-6 fill-current" />
+                      <svg
+                        dangerouslySetInnerHTML={{ __html: social.logoSvg }}
+                        className="w-6 h-6 fill-current"
+                      />
                     </Link>
                   </Button>
                 </TooltipMessage>
@@ -53,19 +59,34 @@ export async function Footer() {
           {/* Links internos */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-muted-foreground">
-              <Link href="/" className="hover:text-foreground transition-colors">
+              <Link
+                href="/"
+                className="hover:text-foreground transition-colors"
+              >
                 Home
               </Link>
-              <Link href="/about" className="hover:text-foreground transition-colors">
+              <Link
+                href="/about"
+                className="hover:text-foreground transition-colors"
+              >
                 Sobre
               </Link>
-              <Link href="/projects" className="hover:text-foreground transition-colors">
+              <Link
+                href="/projects"
+                className="hover:text-foreground transition-colors"
+              >
                 Projetos
               </Link>
-              <Link href="/tech" className="hover:text-foreground transition-colors">
+              <Link
+                href="/tech"
+                className="hover:text-foreground transition-colors"
+              >
                 Tecnologias
               </Link>
-              <Link href="/contact" className="hover:text-foreground transition-colors">
+              <Link
+                href="/contact"
+                className="hover:text-foreground transition-colors"
+              >
                 Contato
               </Link>
             </div>
