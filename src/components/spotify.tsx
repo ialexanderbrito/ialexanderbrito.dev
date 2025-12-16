@@ -27,11 +27,15 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const ONE_MINUTE = 60000;
 
 export default function Spotify() {
-  const { data, isLoading, error } = useSWR<SpotifyTrack>('/api/now-playing', fetcher, {
-    refreshInterval: ONE_MINUTE,
-    revalidateOnFocus: true,
-    revalidateOnReconnect: true,
-  });
+  const { data, isLoading, error } = useSWR<SpotifyTrack>(
+    '/api/now-playing',
+    fetcher,
+    {
+      refreshInterval: ONE_MINUTE,
+      revalidateOnFocus: true,
+      revalidateOnReconnect: true,
+    },
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -165,7 +169,8 @@ export default function Spotify() {
             <div className="pt-4 pl-2 pr-2 w-full">
               <span className="flex items-center gap-2 text-white">
                 <Pulse color="red" />
-                Última música: {data?.title}, {data?.artist} • {formatLastPlayed(data?.lastPlayed)}
+                Última música: {data?.title}, {data?.artist} •{' '}
+                {formatLastPlayed(data?.lastPlayed)}
               </span>
             </div>
           }
