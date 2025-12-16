@@ -35,7 +35,7 @@ export function GithubCalendar() {
     <div className="w-full">
       <div className="overflow-x-auto">
         <GitHubCalendar
-          hideMonthLabels
+          showMonthLabels={false}
           blockMargin={6}
           theme={explicitTheme}
           labels={labels}
