@@ -25,10 +25,15 @@ const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const SPOTIFY_REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN ?? '';
 const SPOTIFY_TOKEN_URL = 'https://accounts.spotify.com/api/token';
-const SPOTIFY_NOW_PLAYING_URL = 'https://api.spotify.com/v1/me/player/currently-playing';
-const SPOTIFY_RECENTLY_PLAYED_URL = 'https://api.spotify.com/v1/me/player/recently-played?limit=1';
+const SPOTIFY_NOW_PLAYING_URL =
+  'https://api.spotify.com/v1/me/player/currently-playing';
+const SPOTIFY_RECENTLY_PLAYED_URL =
+  'https://api.spotify.com/v1/me/player/recently-played?limit=1';
 
-const getBasicToken = () => Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64');
+const getBasicToken = () =>
+  Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString(
+    'base64',
+  );
 
 const getAccessToken = async (): Promise<string> => {
   const response = await fetch(SPOTIFY_TOKEN_URL, {
@@ -53,7 +58,10 @@ const getAccessToken = async (): Promise<string> => {
   return data.access_token;
 };
 
-const fetchSpotifyData = async (url: string, accessToken: string): Promise<SpotifyApi | null> => {
+const fetchSpotifyData = async (
+  url: string,
+  accessToken: string,
+): Promise<SpotifyApi | null> => {
   let response = await fetch(url, {
     headers: { Authorization: `Bearer ${accessToken}` },
     cache: 'no-store',
@@ -70,7 +78,9 @@ const fetchSpotifyData = async (url: string, accessToken: string): Promise<Spoti
   }
 
   if (!response.ok) {
-    console.error(`Failed to fetch data from ${url}: ${response.status} ${response.statusText}`);
+    console.error(
+      `Failed to fetch data from ${url}: ${response.status} ${response.statusText}`,
+    );
     return null; // Retorna null para indicar erro de requisição
   }
 
@@ -120,14 +130,19 @@ export async function GET() {
     let data = await fetchSpotifyData(SPOTIFY_NOW_PLAYING_URL, accessToken);
 
     if (!data?.is_playing || data.currently_playing_type !== 'track') {
-      console.warn('Usuário não está ouvindo uma faixa. Buscando última faixa reproduzida.');
+      console.warn(
+        'Usuário não está ouvindo uma faixa. Buscando última faixa reproduzida.',
+      );
       data = await fetchSpotifyData(SPOTIFY_RECENTLY_PLAYED_URL, accessToken);
     }
 
     const formattedResponse = formatResponse(data);
 
     const response = NextResponse.json(formattedResponse);
-    response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    response.headers.set(
+      'Cache-Control',
+      'no-store, no-cache, must-revalidate, proxy-revalidate',
+    );
     response.headers.set('Pragma', 'no-cache');
     response.headers.set('Expires', '0');
 
@@ -135,7 +150,9 @@ export async function GET() {
   } catch (error) {
     console.error('Failed to fetch data from Spotify:', error);
     return NextResponse.json(
-      { error: (error as Error).message || 'Failed to fetch data from Spotify' },
+      {
+        error: (error as Error).message || 'Failed to fetch data from Spotify',
+      },
       { status: 500 },
     );
   }
