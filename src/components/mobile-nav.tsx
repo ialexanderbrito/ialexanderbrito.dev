@@ -41,7 +41,12 @@ export function MobileNav() {
         transition={{ type: 'spring', stiffness: 400, damping: 17 }}
       >
         <Link href="/" passHref>
-          <img src="/favicon.png" alt="Logo" className="w-6 h-6" loading="lazy" />
+          <img
+            src="/favicon.png"
+            alt="Logo"
+            className="w-6 h-6"
+            loading="lazy"
+          />
         </Link>
       </motion.div>
       <NavigationMenu className="backdrop-blur-sm bg-background/50 p-1 rounded-full border border-border/40 shadow-sm">
@@ -54,7 +59,9 @@ export function MobileNav() {
                   className={cn(
                     navigationMenuTriggerStyle(),
                     'relative transition-all duration-300 p-2',
-                    pathname === item.href ? 'text-primary bg-primary/10' : 'text-muted-foreground',
+                    pathname === item.href
+                      ? 'text-primary bg-primary/10'
+                      : 'text-muted-foreground',
                   )}
                 >
                   <Link href={item.href}>
@@ -63,7 +70,11 @@ export function MobileNav() {
                       initial="initial"
                       whileHover="hover"
                       whileTap="tap"
-                      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 400,
+                        damping: 17,
+                      }}
                     >
                       <item.icon className="h-5 w-5" />
                     </motion.div>
@@ -72,7 +83,11 @@ export function MobileNav() {
                         layoutId="mobile-nav-indicator"
                         className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
                         style={{ borderRadius: '9999px' }}
-                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                        transition={{
+                          type: 'spring',
+                          stiffness: 400,
+                          damping: 30,
+                        }}
                       />
                     )}
                   </Link>
