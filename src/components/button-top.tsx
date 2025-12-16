@@ -32,7 +32,10 @@ export function ButtonTop() {
         size="icon"
         asChild
         onClick={scrollToTop}
-        className={cn('fixed bottom-4 right-4 z-50 p-2 shadow-lg cursor-pointer', show ? 'opacity-100' : 'opacity-0')}
+        className={cn(
+          'fixed bottom-4 right-4 z-50 p-2 shadow-lg cursor-pointer',
+          show ? 'opacity-100' : 'opacity-0',
+        )}
       >
         <ChevronUp size={24} />
       </Button>
