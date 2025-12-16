@@ -29,7 +29,14 @@ export default function RenderStacks({ stacks, category }: RenderStacksProps) {
                 stack.invert && 'dark:invert',
               )}
             >
-              <img src={stack.icon.url} alt="" width="24" height="24" className="z-10" loading="lazy" />
+              <img
+                src={stack.icon.url}
+                alt=""
+                width="24"
+                height="24"
+                className="z-10"
+                loading="lazy"
+              />
               <img
                 src={stack.icon.url}
                 alt=""
