@@ -1,6 +1,9 @@
 import dayjs from 'dayjs';
 
-export function calcDuration(startedAt: string, finishedAt: Date | null | string) {
+export function calcDuration(
+  startedAt: string,
+  finishedAt: Date | null | string,
+) {
   const durationXP = dayjs(finishedAt).diff(dayjs(startedAt), 'month');
   if (durationXP >= 12) {
     const years = Math.floor(durationXP / 12);
