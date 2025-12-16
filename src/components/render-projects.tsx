@@ -17,7 +17,11 @@ interface RenderProjectsProps {
   recent?: boolean;
 }
 
-export default function RenderProjects({ projects, category, recent }: RenderProjectsProps) {
+export default function RenderProjects({
+  projects,
+  category,
+  recent,
+}: RenderProjectsProps) {
   const [showAll, setShowAll] = useState(false);
 
   const filteredProjects = projects
@@ -28,7 +32,9 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
   if (filteredProjects.length === 0) {
     return (
       <div className="flex items-center justify-center p-8 rounded-lg border bg-accent/30 text-accent-foreground">
-        <p className="text-muted-foreground">Nenhum projeto encontrado nesta categoria.</p>
+        <p className="text-muted-foreground">
+          Nenhum projeto encontrado nesta categoria.
+        </p>
       </div>
     );
   }
@@ -64,7 +70,12 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
 
               <div className="mt-3 flex flex-row gap-1 flex-wrap">
                 {project.urlProject && (
-                  <Button variant="outline" size="sm" className="text-sm" asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="text-sm"
+                    asChild
+                  >
                     <Link href={project?.urlProject} target="_blank">
                       <ArrowUpRight size={16} className="mr-1" />
                       Visitar
@@ -73,7 +84,12 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
                 )}
 
                 {project.urlRepo && (
-                  <Button variant="outline" size="sm" className="text-sm" asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="text-sm"
+                    asChild
+                  >
                     <Link href={project?.urlRepo} target="_blank">
                       <GithubLogo size={16} className="mr-1" />
                       Ver código
@@ -91,10 +107,14 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
                         className="mt-1 rounded-md dark:bg-[#333] p-1 text-xs text-white flex items-center h-6 w-auto bg-[#f0f0f0]"
                       >
                         <svg
-                          dangerouslySetInnerHTML={{ __html: technology.iconSvg }}
+                          dangerouslySetInnerHTML={{
+                            __html: technology.iconSvg,
+                          }}
                           className="w-4 h-4 inline-block mr-1 mt-1 text-muted-foreground"
                         />
-                        <p className="text-muted-foreground">{technology.name}</p>
+                        <p className="text-muted-foreground">
+                          {technology.name}
+                        </p>
                       </span>
                     ),
                 )}
@@ -115,7 +135,13 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
 
   return (
     <div className="space-y-6">
-      <section className={recent ? 'w-full' : 'mt-4 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}>
+      <section
+        className={
+          recent
+            ? 'w-full'
+            : 'mt-4 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+        }
+      >
         {projectsToDisplay.map((project) => (
           <div
             key={project.id}
@@ -133,16 +159,23 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <DialogImage src={project.thumbnail?.url} alt={project.name} />
+                  <DialogImage
+                    src={project.thumbnail?.url}
+                    alt={project.name}
+                  />
                 </div>
               </div>
             </div>
 
             {/* Card content */}
-            <div className={`p-6 flex flex-col h-full ${recent ? 'md:w-1/2' : 'w-full'}`}>
+            <div
+              className={`p-6 flex flex-col h-full ${recent ? 'md:w-1/2' : 'w-full'}`}
+            >
               <div className="flex-grow">
                 <h5 className="font-bold text-xl mb-2">{project.name}</h5>
-                <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {project.description}
+                </p>
 
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -154,7 +187,9 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
                           className="rounded-md dark:bg-muted/30 bg-muted/50 p-1 text-xs text-muted-foreground flex items-center h-6"
                         >
                           <svg
-                            dangerouslySetInnerHTML={{ __html: technology.iconSvg }}
+                            dangerouslySetInnerHTML={{
+                              __html: technology.iconSvg,
+                            }}
                             className="w-4 h-4 inline-block mr-1 text-muted-foreground"
                           />
                           <p>{technology.name}</p>
@@ -172,7 +207,12 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
               {/* Actions */}
               <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-border/30">
                 {project.urlProject && (
-                  <Button variant="outline" size="sm" className="text-sm font-medium" asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="text-sm font-medium"
+                    asChild
+                  >
                     <Link href={project?.urlProject} target="_blank">
                       <ArrowUpRight size={16} className="mr-1" />
                       Visitar
@@ -181,7 +221,12 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
                 )}
 
                 {project.urlRepo && (
-                  <Button variant="outline" size="sm" className="text-sm font-medium" asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="text-sm font-medium"
+                    asChild
+                  >
                     <Link href={project?.urlRepo} target="_blank">
                       <GithubLogo size={16} className="mr-1" />
                       Ver código
@@ -201,7 +246,11 @@ export default function RenderProjects({ projects, category, recent }: RenderPro
             onClick={() => setShowAll(!showAll)}
           >
             <ShinyText
-              text={showAll ? 'Ver menos' : `Ver mais ${filteredProjects.length - 3} projetos`}
+              text={
+                showAll
+                  ? 'Ver menos'
+                  : `Ver mais ${filteredProjects.length - 3} projetos`
+              }
               className="text-base font-medium group-hover:text-primary transition-colors"
               speed={3}
             />
