@@ -14,7 +14,12 @@ export async function POST(request: NextRequest) {
       from: 'Portfólio <onboarding@resend.dev>',
       to: ['xanderzinho26@gmail.com'],
       subject: subject,
-      react: EmailTemplate({ name, message, email, subject }) as React.ReactElement,
+      react: EmailTemplate({
+        name,
+        message,
+        email,
+        subject,
+      }) as React.ReactElement,
     });
 
     if (error) {
@@ -22,7 +27,7 @@ export async function POST(request: NextRequest) {
     }
 
     return Response.json(data);
-  } catch (error) {
+  } catch {
     return Response.json({ error: 'Invalid request' }, { status: 400 });
   }
 }
