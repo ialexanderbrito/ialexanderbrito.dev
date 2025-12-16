@@ -27,7 +27,9 @@ export function Analytics() {
       ) : null}
       {GA_MEASUREMENT_ID ? (
         <>
-          <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          />
           <Script id="google-analytics">
             {`
         window.dataLayer = window.dataLayer || [];
