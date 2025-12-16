@@ -51,33 +51,46 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
         textAlign: 'center',
       }}
     >
-      <h2 style={{ color: theme.primary, margin: '0' }}>Nova Mensagem de Contato</h2>
+      <h2 style={{ color: theme.primary, margin: '0' }}>
+        Nova Mensagem de Contato
+      </h2>
       <p style={{ color: theme.mutedForeground, margin: '5px 0 0' }}>{date}</p>
     </div>
 
     {/* Conteúdo */}
     <div style={{ padding: '10px 0' }}>
       <div style={{ marginBottom: '15px' }}>
-        <span style={{ fontWeight: 'bold', color: theme.foreground }}>Assunto:</span>
+        <span style={{ fontWeight: 'bold', color: theme.foreground }}>
+          Assunto:
+        </span>
         <span style={{ marginLeft: '5px' }}>{subject}</span>
       </div>
 
       <div style={{ marginBottom: '15px' }}>
-        <span style={{ fontWeight: 'bold', color: theme.foreground }}>Nome:</span>
+        <span style={{ fontWeight: 'bold', color: theme.foreground }}>
+          Nome:
+        </span>
         <span style={{ marginLeft: '5px' }}>{name}</span>
       </div>
 
       <div style={{ marginBottom: '15px' }}>
-        <span style={{ fontWeight: 'bold', color: theme.foreground }}>Email para contato:</span>
+        <span style={{ fontWeight: 'bold', color: theme.foreground }}>
+          Email para contato:
+        </span>
         <span style={{ marginLeft: '5px' }}>
-          <a href={`mailto:${email}`} style={{ color: theme.primary, textDecoration: 'none' }}>
+          <a
+            href={`mailto:${email}`}
+            style={{ color: theme.primary, textDecoration: 'none' }}
+          >
             {email}
           </a>
         </span>
       </div>
 
       <div style={{ marginBottom: '15px' }}>
-        <span style={{ fontWeight: 'bold', color: theme.foreground }}>Mensagem:</span>
+        <span style={{ fontWeight: 'bold', color: theme.foreground }}>
+          Mensagem:
+        </span>
         <div
           style={{
             marginTop: '10px',
