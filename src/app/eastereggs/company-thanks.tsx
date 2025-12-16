@@ -21,7 +21,8 @@ import { useSearchParams } from 'next/navigation';
 export function CompanyThanksDialog() {
   const [hasDomLoaded, setHasDomLoaded] = useState(false);
   const [isDialogAlreadyOpen, setIsDialogAlreadyOpen] = useState(
-    Boolean(getSessionStorageItem('@ialexanderbrito:companyDialogOpen')) || false,
+    Boolean(getSessionStorageItem('@ialexanderbrito:companyDialogOpen')) ||
+      false,
   );
 
   const query = useSearchParams();
@@ -41,7 +42,10 @@ export function CompanyThanksDialog() {
   return (
     <>
       {hasDomLoaded && (
-        <Dialog defaultOpen={!!companyName && !isDialogAlreadyOpen} onOpenChange={handleDialogClose}>
+        <Dialog
+          defaultOpen={!!companyName && !isDialogAlreadyOpen}
+          onOpenChange={handleDialogClose}
+        >
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Boas vindas, {companyName}! 🎉</DialogTitle>
@@ -50,9 +54,10 @@ export function CompanyThanksDialog() {
               Olá recrutador(a) da empresa {companyName},
               <br />
               <br />
-              Obrigado por visitar meu portfolio! 😀 Estou entusiasmado em compartilhar mais sobre minha trajetória e
-              experiências. Fique à vontade para explorar meu trabalho, e se tiver alguma dúvida ou interesse, estou à
-              disposição para conversar.
+              Obrigado por visitar meu portfolio! 😀 Estou entusiasmado em
+              compartilhar mais sobre minha trajetória e experiências. Fique à
+              vontade para explorar meu trabalho, e se tiver alguma dúvida ou
+              interesse, estou à disposição para conversar.
               <br />
               Atenciosamente, Alexander. 🤙🏾
             </DialogDescription>
@@ -64,7 +69,11 @@ export function CompanyThanksDialog() {
                 </Button>
               </DialogClose>
               <Button asChild>
-                <Link href="https://www.linkedin.com/in/ialexanderbrito/" rel="noopener noreferrer" target="_blank">
+                <Link
+                  href="https://www.linkedin.com/in/ialexanderbrito/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <LinkedinLogo className="w-4 h-4 mr-2" />
                   LinkedIn
                 </Link>
