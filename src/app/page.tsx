@@ -14,7 +14,8 @@ const thumbnail = {
 
 const defaultMetadata = {
   title: 'Alexander',
-  description: 'Opa, eu sou Alexander -- Front-end Developer & Mobile Developer',
+  description:
+    'Opa, eu sou Alexander -- Front-end Developer & Mobile Developer',
   images: [thumbnail],
 };
 
@@ -45,8 +46,8 @@ export default function Home() {
           </h1>
 
           <h2 className="text-xl md:text-2xl text-muted-foreground font-light leading-relaxed">
-            Front-end Developer & Mobile Developer, apaixonado por criar interfaces e experiências{' '}
-            <span className="italic">incríveis</span>.
+            Front-end Developer & Mobile Developer, apaixonado por criar
+            interfaces e experiências <span className="italic">incríveis</span>.
           </h2>
 
           <div className="pt-6">
