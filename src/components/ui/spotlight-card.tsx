@@ -31,7 +31,9 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
 
   const isLightTheme = theme === 'light';
 
-  const defaultSpotlightColor = isLightTheme ? 'rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.25)';
+  const defaultSpotlightColor = isLightTheme
+    ? 'rgba(0, 0, 0, 0.1)'
+    : 'rgba(255, 255, 255, 0.25)';
 
   const effectiveSpotlightColor = spotlightColor || defaultSpotlightColor;
 
@@ -61,7 +63,9 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
   };
 
   // Classes e estilos condicionais com base no tema
-  const cardBgClass = isLightTheme ? 'bg-neutral-50 border-neutral-200' : 'bg-neutral-900 border-neutral-800';
+  const cardBgClass = isLightTheme
+    ? 'bg-neutral-50 border-neutral-200'
+    : 'bg-neutral-900 border-neutral-800';
 
   return (
     <div
