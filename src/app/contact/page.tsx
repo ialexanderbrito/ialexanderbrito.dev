@@ -40,8 +40,9 @@ export default async function Contact() {
 
         <div className="flex flex-row items-center text-muted-foreground">
           <span>
-            Se você deseja entrar em contato comigo para discutir oportunidades de colaboração, projetos de código
-            aberto, oportunidades de emprego, entre em contato pelo email{' '}
+            Se você deseja entrar em contato comigo para discutir oportunidades
+            de colaboração, projetos de código aberto, oportunidades de emprego,
+            entre em contato pelo email{' '}
             <Link
               href="mailto:eu@ialexanderbrito.dev"
               className="dark:text-white underline"
