@@ -36,7 +36,8 @@ export const metadata: Metadata = {
   },
 };
 
-const getProjects = async (): Promise<ProjectsResponse> => fetchHygraph(GET_PROJECTS);
+const getProjects = async (): Promise<ProjectsResponse> =>
+  fetchHygraph(GET_PROJECTS);
 
 export default async function Projects() {
   const { projects } = await getProjects();
@@ -47,13 +48,18 @@ export default async function Projects() {
       <section className="flex flex-col justify-center py-12 md:py-16 border-b border-muted/20">
         <h1 className="text-4xl md:text-5xl font-bold">Projetos</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-          Explorando {projects.length} projetos desenvolvidos ao longo da minha carreira. Cada projeto reflete meu
-          comprometimento com código limpo e interfaces intuitivas.
+          Explorando {projects.length} projetos desenvolvidos ao longo da minha
+          carreira. Cada projeto reflete meu comprometimento com código limpo e
+          interfaces intuitivas.
         </p>
         <div className="mt-2 flex items-center text-sm text-muted-foreground">
           <span>
             Confira outros projetos no meu{' '}
-            <Link href="https://github.com/ialexanderbrito?tab=repositories" target="_blank" className="underline">
+            <Link
+              href="https://github.com/ialexanderbrito?tab=repositories"
+              target="_blank"
+              className="underline"
+            >
               Github
             </Link>
           </span>
@@ -64,7 +70,9 @@ export default async function Projects() {
       <section className="py-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <h2 className="text-2xl font-semibold">Filtrar por categoria</h2>
-          <FilterProjects category={projects.map((project) => project.category)} />
+          <FilterProjects
+            category={projects.map((project) => project.category)}
+          />
         </div>
       </section>
 
