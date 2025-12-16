@@ -46,8 +46,10 @@ export const metadata: Metadata = {
 
 dayjs.locale('pt-br');
 
-const getExperiences = async (): Promise<ExperienceResponse> => fetchHygraph(GET_EXPERIENCES);
-const getMoments = async (): Promise<MomentsResponse> => fetchHygraph(GET_MOMENTS);
+const getExperiences = async (): Promise<ExperienceResponse> =>
+  fetchHygraph(GET_EXPERIENCES);
+const getMoments = async (): Promise<MomentsResponse> =>
+  fetchHygraph(GET_MOMENTS);
 const getAbout = async (): Promise<AboutResponse> => fetchHygraph(GET_ABOUT);
 
 export const dynamic = 'force-dynamic';
@@ -89,7 +91,8 @@ export default async function Resume() {
         <h3 className="text-2xl font-bold mt-8">Momentos</h3>
 
         <h2 className="text-muted-foreground">
-          Momentos marcantes da minha vida pessoal, que me fizeram ser quem sou hoje.
+          Momentos marcantes da minha vida pessoal, que me fizeram ser quem sou
+          hoje.
         </h2>
 
         <FocusMoments moments={moments} />
@@ -102,9 +105,14 @@ export default async function Resume() {
           const templateFormat = 'MMM YYYY';
 
           const startedAt = dayjs(experience.startedAt).format(templateFormat);
-          const finishedAt = experience.finishedAt ? dayjs(experience.finishedAt).format(templateFormat) : 'Atualmente';
+          const finishedAt = experience.finishedAt
+            ? dayjs(experience.finishedAt).format(templateFormat)
+            : 'Atualmente';
 
-          const duration = calcDuration(experience.startedAt, experience.finishedAt || new Date());
+          const duration = calcDuration(
+            experience.startedAt,
+            experience.finishedAt || new Date(),
+          );
 
           return (
             <SpotlightCard
@@ -154,7 +162,9 @@ export default async function Resume() {
       <section className="mt-8 flex-col gap-4 flex">
         <h3 className="text-2xl font-bold">Contribuições</h3>
 
-        <h2 className="text-muted-foreground mb-4">Contribuições feitas por mim no GitHub.</h2>
+        <h2 className="text-muted-foreground mb-4">
+          Contribuições feitas por mim no GitHub.
+        </h2>
         <GithubCalendar />
       </section>
     </main>
