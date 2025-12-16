@@ -30,12 +30,15 @@ export const Card = React.memo(
         alt={card.title}
         className={cn(
           'object-cover absolute inset-0 w-full h-full',
-          hovered === index && 'scale-105 transition-transform duration-500 ease-in-out',
+          hovered === index &&
+            'scale-105 transition-transform duration-500 ease-in-out',
         )}
         loading="lazy"
       />
       <div className="absolute inset-0 bg-linear-to-b from-gray-900/25 to-gray-900/5" />
-      <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 text-white">{card.title}</h3>
+      <h3 className="z-10 text-sm font-medium absolute top-0 left-0 p-4 text-white">
+        {card.title}
+      </h3>
       <div
         className={cn(
           'absolute inset-0 bg-black/30 transition-opacity duration-300',
@@ -59,7 +62,13 @@ export function FocusCards({ cards }: { cards: Card[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto w-full">
       {cards.map((card, index) => (
-        <Card key={card.src + index} card={card} index={index} hovered={hovered} setHovered={setHovered} />
+        <Card
+          key={card.src + index}
+          card={card}
+          index={index}
+          hovered={hovered}
+          setHovered={setHovered}
+        />
       ))}
     </div>
   );
