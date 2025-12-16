@@ -24,7 +24,11 @@ export const metadata: Metadata = {
 
 const fontSans = Manrope({ subsets: ['latin'], variable: '--font-sans' });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning className={fontSans.className}>
       <head>
@@ -34,8 +38,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-background antialiased">
         <PatternBackground variant="checkered" />
-        <NextTopLoader color="#a1a1aa" initialPosition={0.3} crawlSpeed={200} height={4} />
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <NextTopLoader
+          color="#a1a1aa"
+          initialPosition={0.3}
+          crawlSpeed={200}
+          height={4}
+        />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <Navbar />
           {children}
           <Footer />
