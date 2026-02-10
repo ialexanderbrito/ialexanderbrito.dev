@@ -1,18 +1,15 @@
+import { AnimatedStats } from '@/components/animated-stats';
+import { CareerSection } from '@/components/career-section';
 import { FocusMoments } from '@/components/focus-moments';
 import { GithubCalendar } from '@/components/github-calendar';
 import Location from '@/components/location';
 import Spotify from '@/components/spotify';
-import SpotlightCard from '@/components/ui/spotlight-card';
 import { fetchHygraph } from '@/graphql/client';
 import { GET_ABOUT, GET_EXPERIENCES, GET_MOMENTS } from '@/graphql/queries';
 import { AboutResponse } from '@/interfaces/about';
 import { ExperienceResponse } from '@/interfaces/experience';
 import { MomentsResponse } from '@/interfaces/moments';
-import { calcDuration } from '@/utils/date';
-import { generateColSpanByIndex } from '@/utils/generateColSpanByIndex';
-import dayjs from 'dayjs';
 import type { Metadata } from 'next';
-import 'dayjs/locale/pt-br';
 
 const thumbnail = {
   url: 'https://ialexanderbrito.dev/about.jpeg',
@@ -44,8 +41,6 @@ export const metadata: Metadata = {
   },
 };
 
-dayjs.locale('pt-br');
-
 const getExperiences = async (): Promise<ExperienceResponse> =>
   fetchHygraph(GET_EXPERIENCES);
 const getMoments = async (): Promise<MomentsResponse> =>
@@ -59,113 +54,133 @@ export default async function Resume() {
   const { about } = await getAbout();
   const { moments } = await getMoments();
 
+  const yearsOfExperience = Math.floor(
+    (new Date().getTime() - new Date('2019-01-01').getTime()) /
+      (1000 * 60 * 60 * 24 * 365),
+  );
+
   return (
     <main className="max-w-(--breakpoint-lg) mx-auto px-4">
-      <div className="flex flex-col md:flex-row align-center justify-between w-full gap-5 md:mt-8">
-        <img
-          src={about?.profilePicture?.url}
-          alt="Foto de perfil"
-          className="rounded-md w-[420px] h-auto object-cover"
-          loading="lazy"
-        />
-        {about?.introduction?.html && (
-          <>
-            <div className="flex flex-col gap-4">
-              <h1 className="text-4xl font-bold mt-8 mb-4">Sobre mim</h1>
-              <section
-                className="mt-0 flex-col gap-4 flex text-muted-foreground"
-                dangerouslySetInnerHTML={{ __html: about.introduction.html }}
-              />
-              <div className="col-span-1">
-                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2">
-                  <Spotify />
-                  <Location />
+      {/* Hero Section */}
+      <section className="py-12 md:py-16">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+          {/* Profile Image + Widgets */}
+          <div className="lg:col-span-2 space-y-4">
+            <div className="relative">
+              <div className="aspect-4/5 rounded-2xl overflow-hidden border border-border/50 bg-muted/20">
+                <img
+                  src={about?.profilePicture?.url}
+                  alt="Alexander"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
+              {/* Floating badge */}
+              {/* <div className="absolute -bottom-4 -right-4 md:bottom-4 md:right-4 bg-background/95 backdrop-blur-sm border border-border/50 rounded-xl p-3 shadow-lg">
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+                  </span>
+                  <span className="text-sm font-medium">
+                    Disponível para projetos
+                  </span>
                 </div>
+              </div> */}
+            </div>
+
+            {/* Live Status Widgets */}
+            <div className="grid gap-4 mt-8">
+              <Spotify />
+              <Location />
+            </div>
+          </div>
+
+          {/* Bio Content */}
+          <div className="lg:col-span-3 space-y-6">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                Olá, eu sou Alexander
+              </h1>
+              {about?.introduction?.html && (
+                <div
+                  className="text-lg text-muted-foreground leading-relaxed prose prose-neutral dark:prose-invert max-w-none [&_p]:mb-4 [&_p:last-child]:mb-0"
+                  dangerouslySetInnerHTML={{ __html: about.introduction.html }}
+                />
+              )}
+            </div>
+
+            {/* Quick Stats */}
+            <AnimatedStats yearsOfExperience={yearsOfExperience} />
+
+            {/* Skills & CTA */}
+            <div className="rounded-xl border border-border/50 bg-card/30 p-5">
+              <h3 className="text-sm font-semibold mb-3">
+                Principais tecnologias
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {[
+                  'React',
+                  'Next.js',
+                  'TypeScript',
+                  'React Native',
+                  'Node.js',
+                  'Tailwind CSS',
+                ].map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-3 py-1.5 rounded-full bg-muted/50 text-xs font-medium text-muted-foreground"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+              <div className="flex gap-3 pt-3 border-t border-border/50">
+                <a
+                  href="/projects"
+                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+                >
+                  Ver projetos
+                </a>
+                <a
+                  href="/contact"
+                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-background px-4 py-2.5 text-sm font-medium hover:bg-muted/50 transition-colors"
+                >
+                  Entrar em contato
+                </a>
               </div>
             </div>
-          </>
-        )}
-      </div>
-
-      <div className="flex flex-col gap-4">
-        <h3 className="text-2xl font-bold mt-8">Momentos</h3>
-
-        <h2 className="text-muted-foreground">
-          Momentos marcantes da minha vida pessoal, que me fizeram ser quem sou
-          hoje.
-        </h2>
-
-        <FocusMoments moments={moments} />
-      </div>
-
-      <h3 className="text-2xl font-bold mt-8 mb-4">Carreira</h3>
-
-      <section className="mt-8 flex-col gap-4 flex lg:grid lg:grid-cols-3">
-        {experiences.map((experience, index) => {
-          const templateFormat = 'MMM YYYY';
-
-          const startedAt = dayjs(experience.startedAt).format(templateFormat);
-          const finishedAt = experience.finishedAt
-            ? dayjs(experience.finishedAt).format(templateFormat)
-            : 'Atualmente';
-
-          const duration = calcDuration(
-            experience.startedAt,
-            experience.finishedAt || new Date(),
-          );
-
-          return (
-            <SpotlightCard
-              className="flex flex-col justify-between p-8 border-none"
-              spotlightColor={experience.companyColor?.hex}
-              spotlightOpacity={0.15}
-              key={experience.id}
-              style={{
-                gridColumn: generateColSpanByIndex(index),
-              }}
-            >
-              <div className="flex">
-                <figure
-                  className="rounded-lg overflow-hidden relative w-16 h-16 flex items-center justify-center"
-                  style={{ backgroundColor: experience.companyColor?.hex }}
-                >
-                  <img
-                    src={experience.companyLogo?.url}
-                    alt={experience.companyName}
-                    className="w-[65px] h-[65px]"
-                    loading="lazy"
-                  />
-                </figure>
-              </div>
-
-              <div className="mt-6 space-y-2">
-                <h4 className="text-xs text-muted-foreground">
-                  {experience.companyName}
-
-                  <div className="mt-1 flex flex-col">
-                    <span className="mt-1">
-                      {startedAt} • {finishedAt} • {duration}
-                    </span>
-                    <span className="mt-1">
-                      {experience.description} • {experience.typeJob}
-                    </span>
-                  </div>
-                </h4>
-
-                <h5 className="font-bold text-xl">{experience.role}</h5>
-              </div>
-            </SpotlightCard>
-          );
-        })}
+          </div>
+        </div>
       </section>
 
-      <section className="mt-8 flex-col gap-4 flex">
-        <h3 className="text-2xl font-bold">Contribuições</h3>
+      <CareerSection experiences={experiences} />
 
-        <h2 className="text-muted-foreground mb-4">
-          Contribuições feitas por mim no GitHub.
-        </h2>
-        <GithubCalendar />
+      {/* Moments Section */}
+      <section className="py-12 border-t border-border/50">
+        <div className="flex items-center gap-3 mb-2">
+          <h2 className="text-2xl font-bold">Momentos</h2>
+          <span className="h-px flex-1 bg-border/50" />
+        </div>
+        <p className="text-muted-foreground mb-8">
+          Momentos marcantes da minha vida pessoal, que me fizeram ser quem sou
+          hoje
+        </p>
+        <FocusMoments moments={moments} />
+      </section>
+
+      {/* GitHub Contributions Section */}
+      <section className="py-12 border-t border-border/50">
+        <div className="flex items-center gap-3 mb-2">
+          <h2 className="text-2xl font-bold">Contribuições</h2>
+          <span className="h-px flex-1 bg-border/50" />
+        </div>
+        <p className="text-muted-foreground mb-8">
+          Minha atividade no GitHub ao longo do ano
+        </p>
+        <div className="rounded-2xl border border-border/50 bg-card/30 p-6 overflow-hidden">
+          <GithubCalendar />
+        </div>
       </section>
     </main>
   );
