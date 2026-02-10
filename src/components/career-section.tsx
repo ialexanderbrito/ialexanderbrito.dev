@@ -68,7 +68,7 @@ function ExperienceCard({ experience }: { experience: Experience }) {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
               <h3 className="font-bold text-lg">{experience.role}</h3>
               {isCurrentJob && (
-                <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-medium w-fit">
+                <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-500/15 text-green-700 dark:text-green-300 text-xs font-medium w-fit">
                   <span className="w-1.5 h-1.5 rounded-full bg-current" />
                   Atual
                 </span>
@@ -126,10 +126,10 @@ export function CareerSection({ experiences }: CareerSectionProps) {
       {currentJobs.length > 0 && (
         <div className="relative mb-8">
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-sm font-medium text-green-600 dark:text-green-400">
+            <span className="text-sm font-medium text-green-700 dark:text-green-300">
               Atualmente
             </span>
-            <span className="px-2 py-0.5 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-medium">
+            <span className="px-2 py-0.5 rounded-full bg-green-500/15 text-green-700 dark:text-green-300 text-xs font-medium">
               {currentJobs.length}
             </span>
           </div>
