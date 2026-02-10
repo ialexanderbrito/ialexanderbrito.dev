@@ -15,6 +15,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Send } from 'lucide-react';
 import { z } from 'zod';
 
 import { LoadingSpinner } from './ui/spinner';
@@ -87,6 +88,7 @@ export function ContactForm() {
       });
 
       form.reset();
+      setMessageLength(0);
     }
   }
 
@@ -95,60 +97,65 @@ export function ContactForm() {
       <form
         action={onSubmit}
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-full space-y-2"
+        className="space-y-4"
       >
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Nome</FormLabel>
-              <FormControl>
-                <Input
-                  required
-                  placeholder="Seu nome"
-                  {...field}
-                  className={cn(
-                    form.formState.errors.name && 'border-destructive',
-                  )}
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
+        <div className="grid sm:grid-cols-2 gap-4">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Nome</FormLabel>
+                <FormControl>
+                  <Input
+                    required
+                    placeholder="Como posso te chamar?"
+                    {...field}
+                    className={cn(
+                      'h-11',
+                      form.formState.errors.name && 'border-destructive',
+                    )}
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input
-                  required
-                  placeholder="Seu email"
-                  {...field}
-                  className={cn(
-                    form.formState.errors.email && 'border-destructive',
-                  )}
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input
+                    required
+                    placeholder="seu@email.com"
+                    {...field}
+                    className={cn(
+                      'h-11',
+                      form.formState.errors.email && 'border-destructive',
+                    )}
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+        </div>
 
         <FormField
           control={form.control}
           name="subject"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Assunto *</FormLabel>
+              <FormLabel>Assunto</FormLabel>
               <FormControl>
                 <Input
                   required
-                  placeholder="Assunto"
+                  placeholder="Sobre o que você quer conversar?"
                   {...field}
                   className={cn(
+                    'h-11',
                     form.formState.errors.subject && 'border-destructive',
                   )}
                 />
@@ -162,12 +169,13 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Mensagem *</FormLabel>
+              <FormLabel>Mensagem</FormLabel>
               <FormControl>
                 <Textarea
                   required
-                  placeholder="O que você gostaria de falar comigo?"
+                  placeholder="Conte mais sobre seu projeto, ideia ou pergunta..."
                   {...field}
+                  rows={5}
                   maxLength={500}
                   onChange={(e) => {
                     field.onChange(e);
@@ -180,14 +188,26 @@ export function ContactForm() {
                 />
               </FormControl>
               <div className="text-xs text-muted-foreground text-right">
-                {500 - messageLength}{' '}
-                {messageLength > 0 ? 'caracteres restantes' : 'caracteres'}
+                {messageLength}/500 caracteres
               </div>
             </FormItem>
           )}
         />
-        <Button type="submit">
-          {form.formState.isSubmitting ? <LoadingSpinner /> : 'Enviar'}
+
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full cursor-pointer gap-2 h-12"
+          disabled={form.formState.isSubmitting}
+        >
+          {form.formState.isSubmitting ? (
+            <LoadingSpinner />
+          ) : (
+            <>
+              Enviar mensagem
+              <Send size={16} />
+            </>
+          )}
         </Button>
       </form>
     </Form>
