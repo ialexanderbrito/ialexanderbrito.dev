@@ -85,7 +85,7 @@ export function MobileNav() {
                       : 'text-muted-foreground hover:text-foreground hover:bg-accent/50',
                   )}
                 >
-                  <Link href={item.href}>
+                  <Link href={item.href} aria-label={item.title}>
                     <motion.div
                       variants={iconVariants}
                       initial="initial"
