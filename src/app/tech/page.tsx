@@ -1,4 +1,4 @@
-import RenderStacks from '@/components/render-stacks';
+import { StackSection } from '@/components/stack-section';
 import { fetchHygraph } from '@/graphql/client';
 import { GET_STACKS } from '@/graphql/queries';
 import { StacksResponse } from '@/interfaces/stack';
@@ -34,6 +34,26 @@ export const metadata: Metadata = {
   },
 };
 
+const categories = [
+  { id: 'frontend', title: 'Frontend', defaultOpen: true },
+  { id: 'design', title: 'Design', defaultOpen: false },
+  { id: 'backend', title: 'Backend', defaultOpen: false },
+  { id: 'bancoDeDados', title: 'Banco de Dados', defaultOpen: false },
+  { id: 'infraestrutura', title: 'Infraestrutura', defaultOpen: false },
+  {
+    id: 'observabilidadeEAnalytics',
+    title: 'Observabilidade e Analytics',
+    defaultOpen: false,
+  },
+  { id: 'controleDeVersao', title: 'Controle de Versões', defaultOpen: false },
+  {
+    id: 'extensoesPluginsETemas',
+    title: 'Extensões, Plugins e Temas',
+    defaultOpen: false,
+  },
+  { id: 'aplicativos', title: 'Aplicativos', defaultOpen: false },
+];
+
 const getStacks = async (): Promise<StacksResponse> => fetchHygraph(GET_STACKS);
 
 export default async function Technologies() {
@@ -41,47 +61,30 @@ export default async function Technologies() {
 
   return (
     <main className="max-w-(--breakpoint-lg) mx-auto px-4">
-      <h1 className="text-4xl font-bold mt-8 mb-4">
-        Tecnologias e Ferramentas
-      </h1>
+      {/* Hero Section */}
+      <section className="flex flex-col justify-center py-12 md:py-16">
+        <h1 className="text-4xl md:text-5xl font-bold">
+          Tecnologias e Ferramentas
+        </h1>
+        <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
+          Explore as {stacks.length} tecnologias e ferramentas que impulsionam a
+          minha experiência em desenvolvimento. Selecionadas com cuidado para
+          criar soluções robustas e eficientes.
+        </p>
+      </section>
 
-      <span className="flex-row gap-1 flex text-muted-foreground">
-        Explore as tecnologias e ferramentas que impulsionam a minha experiência
-        em desenvolvimento. Eu seleciono e uso meticulosamente essas ferramentas
-        para criar soluções robustas e eficientes, priorizando sempre a
-        experiência do usuário.
-      </span>
-
-      <h3 className="text-2xl font-bold mt-8 mb-4">Frontend</h3>
-      <RenderStacks stacks={stacks} category="frontend" />
-
-      <h3 className="text-2xl font-bold mt-8 mb-4">Design</h3>
-      <RenderStacks stacks={stacks} category="design" />
-
-      <h3 className="text-2xl font-bold mt-8 mb-4">Backend</h3>
-      <RenderStacks stacks={stacks} category="backend" />
-
-      <h3 className="text-2xl font-bold mt-8 mb-4">Banco de Dados</h3>
-      <RenderStacks stacks={stacks} category="bancoDeDados" />
-
-      <h3 className="text-2xl font-bold mt-8 mb-4">Infraestrutura</h3>
-      <RenderStacks stacks={stacks} category="infraestrutura" />
-
-      <h3 className="text-2xl font-bold mt-8 mb-4">
-        Observabilidade e analytics
-      </h3>
-      <RenderStacks stacks={stacks} category="observabilidadeEAnalytics" />
-
-      <h3 className="text-2xl font-bold mt-8 mb-4">Controle de versões</h3>
-      <RenderStacks stacks={stacks} category="controleDeVersao" />
-
-      <h3 className="text-2xl font-bold mt-8 mb-4">
-        Extensões, plugins e temas
-      </h3>
-      <RenderStacks stacks={stacks} category="extensoesPluginsETemas" />
-
-      <h3 className="text-2xl font-bold mt-8 mb-4">Aplicativos</h3>
-      <RenderStacks stacks={stacks} category="aplicativos" />
+      {/* Stack Sections */}
+      <section className="pb-12">
+        {categories.map((cat) => (
+          <StackSection
+            key={cat.id}
+            title={cat.title}
+            stacks={stacks}
+            category={cat.id}
+            defaultOpen={cat.defaultOpen}
+          />
+        ))}
+      </section>
     </main>
   );
 }
