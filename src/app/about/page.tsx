@@ -115,9 +115,9 @@ export default async function Resume() {
 
             {/* Skills & CTA */}
             <div className="rounded-xl border border-border/50 bg-card/30 p-5">
-              <h3 className="text-sm font-semibold mb-3">
+              <p className="text-sm font-semibold mb-3">
                 Principais tecnologias
-              </h3>
+              </p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {[
                   'React',
