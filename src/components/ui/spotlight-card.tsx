@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { useTheme } from 'next-themes';
 
@@ -27,9 +27,14 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState<number>(0);
-  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
 
-  const isLightTheme = theme === 'light';
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isLightTheme = mounted && resolvedTheme === 'light';
 
   const defaultSpotlightColor = isLightTheme
     ? 'rgba(0, 0, 0, 0.1)'
@@ -62,11 +67,6 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
     setOpacity(0);
   };
 
-  // Classes e estilos condicionais com base no tema
-  const cardBgClass = isLightTheme
-    ? 'bg-neutral-50 border-neutral-200'
-    : 'bg-neutral-900 border-neutral-800';
-
   return (
     <div
       ref={divRef}
@@ -75,7 +75,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative rounded-3xl border overflow-hidden p-8 ${cardBgClass} ${className}`}
+      className={`relative rounded-3xl border overflow-hidden p-8 bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 ${className}`}
       style={style}
     >
       <div
