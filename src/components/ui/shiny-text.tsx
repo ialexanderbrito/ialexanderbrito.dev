@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
@@ -18,28 +18,38 @@ const ShinyText: React.FC<ShinyTextProps> = ({
   speed = 5,
   className = '',
 }) => {
-  const { theme } = useTheme();
-  const isLightTheme = theme === 'light';
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isLightTheme = mounted && resolvedTheme === 'light';
+
+  // Only apply gradient after mount to avoid hydration mismatch
+  const backgroundImage = mounted
+    ? `linear-gradient(
+        to right,
+        ${isLightTheme ? '#505050' : '#b5b5b5'} 20%,
+        ${isLightTheme ? '#000000' : '#ffffff'} 40%,
+        ${isLightTheme ? '#000000' : '#ffffff'} 60%,
+        ${isLightTheme ? '#505050' : '#b5b5b5'} 80%
+      )`
+    : undefined;
 
   return (
     <div
       className={cn(
         'bg-clip-text inline-block',
         !disabled && 'animate-shine',
-        isLightTheme ? 'text-[#505050a4]' : 'text-[#b5b5b5a4]',
+        'text-[#505050a4] dark:text-[#b5b5b5a4]',
         disabled && 'shiny-text disabled',
         className,
       )}
       style={{
         animationDuration: `${speed}s`,
-        backgroundImage: `linear-gradient(
-          to right,
-          ${isLightTheme && '#505050'} 20%,
-          ${isLightTheme && '#000000'} 40%,
-          ${isLightTheme && '#000000'} 60%,
-          ${isLightTheme && '#505050'} 80%
-        )`,
-        // backgroundSize: '200% auto',
+        backgroundImage,
       }}
     >
       {text}
