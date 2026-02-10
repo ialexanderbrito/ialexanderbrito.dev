@@ -22,14 +22,17 @@ export function Navbar() {
   const [scrolled, setScrolled] = React.useState(false);
 
   React.useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 30);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -38,49 +41,59 @@ export function Navbar() {
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{
+          type: 'spring',
+          stiffness: 260,
+          damping: 20,
+        }}
         className="mx-auto sm:hidden max-w-5xl items-center justify-between px-5 py-4 xl:px-0 flex-row sm:flex-row flex"
       >
         <MobileNav />
         <ModeToggle />
       </motion.header>
       <motion.header
-        initial={{ opacity: 0, y: -20, scale: 1, maxWidth: 1120 }}
+        initial={{ opacity: 0, y: -30 }}
         animate={{
           opacity: 1,
           y: 0,
-          scale: scrolled ? 0.95 : 1,
-          boxShadow: scrolled
-            ? '0 2px 16px 0 rgba(0,0,0,0.10)'
-            : '0 1px 4px 0 rgba(0,0,0,0.05)',
-          maxWidth: scrolled ? 800 : 1120,
+          scale: scrolled ? 0.92 : 1,
+          maxWidth: scrolled ? 720 : 1120,
         }}
-        transition={{ duration: 0.5 }}
+        transition={{
+          type: 'spring',
+          stiffness: 300,
+          damping: 30,
+          mass: 0.8,
+        }}
         className={cn(
-          'mx-auto hidden max-w-5xl items-center justify-between gap-20 px-5 xl:px-0 sm:flex-row sm:flex backdrop-blur-sm bg-background/70 sticky top-4 z-50 rounded-full border border-border/40 shadow-sm',
-          scrolled ? 'py-2 scale-95' : 'py-4 scale-100',
+          'mx-auto hidden max-w-5xl items-center justify-between gap-20 px-5 xl:px-0 sm:flex-row sm:flex backdrop-blur-md bg-background/80 sticky top-4 z-50 rounded-full border border-border/50 will-change-transform',
+          scrolled
+            ? 'py-2 shadow-lg shadow-black/5 dark:shadow-black/20'
+            : 'py-4 shadow-sm',
         )}
-        style={{
-          transition: 'all 0.3s cubic-bezier(0.4,0,0.2,1)',
-        }}
       >
         <motion.div
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+          whileHover={{ scale: 1.15, rotate: 5 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{
+            type: 'spring',
+            stiffness: 500,
+            damping: 15,
+            mass: 0.5,
+          }}
           className="ml-4"
         >
           <Link href="/" passHref>
             <img
               src="/favicon.png"
               alt="Logo"
-              className="w-6 h-6"
+              className="w-6 h-6 transition-all duration-200"
               loading="lazy"
             />
           </Link>
         </motion.div>
         <NavigationMenu>
-          <NavigationMenuList>
+          <NavigationMenuList className="gap-1">
             {[
               { href: '/about', label: 'Sobre' },
               { href: '/projects', label: 'Projetos' },
@@ -88,29 +101,40 @@ export function Navbar() {
               { href: '/contact', label: 'Contato' },
             ].map((item) => (
               <NavigationMenuItem key={item.href}>
-                <NavigationMenuLink
-                  href={item.href}
-                  className={cn(
-                    navigationMenuTriggerStyle(),
-                    'relative transition-colors duration-300 bg-transparent',
-                    pathname === item.href
-                      ? 'text-foreground font-medium'
-                      : 'text-muted-foreground',
-                  )}
+                <motion.div
+                  whileHover={{ y: -2 }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 400,
+                    damping: 20,
+                  }}
                 >
-                  {item.label}
-                  {pathname === item.href && (
-                    <motion.div
-                      layoutId="navbar-indicator"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
-                      transition={{
-                        type: 'spring',
-                        stiffness: 400,
-                        damping: 30,
-                      }}
-                    />
-                  )}
-                </NavigationMenuLink>
+                  <NavigationMenuLink
+                    href={item.href}
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      'relative transition-all duration-200 bg-transparent hover:bg-accent/50 rounded-full',
+                      pathname === item.href
+                        ? 'text-foreground font-medium'
+                        : 'text-muted-foreground hover:text-foreground',
+                    )}
+                  >
+                    {item.label}
+                    {pathname === item.href && (
+                      <motion.div
+                        layoutId="navbar-indicator"
+                        className="absolute -bottom-1 left-3 right-3 h-0.5 bg-primary rounded-full"
+                        initial={false}
+                        transition={{
+                          type: 'spring',
+                          stiffness: 500,
+                          damping: 30,
+                          mass: 0.5,
+                        }}
+                      />
+                    )}
+                  </NavigationMenuLink>
+                </motion.div>
               </NavigationMenuItem>
             ))}
           </NavigationMenuList>
