@@ -44,12 +44,7 @@ export default function RootLayout({
           crawlSpeed={200}
           height={4}
         />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           {children}
           <Footer />

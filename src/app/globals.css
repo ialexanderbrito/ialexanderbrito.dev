@@ -269,3 +269,10 @@
 .animate-fade-in {
   animation: fade-in 0.8s ease-out forwards;
 }
+
+/* View Transition for Theme Toggle */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
