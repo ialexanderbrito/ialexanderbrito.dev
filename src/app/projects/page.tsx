@@ -45,7 +45,7 @@ export default async function Projects() {
   return (
     <main className="max-w-(--breakpoint-lg) mx-auto px-4">
       {/* Hero Section */}
-      <section className="flex flex-col justify-center py-12 md:py-16 border-b border-muted/20">
+      <section className="flex flex-col justify-center py-12 md:py-16">
         <h1 className="text-4xl md:text-5xl font-bold">Projetos</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
           Explorando {projects.length} projetos desenvolvidos ao longo da minha
@@ -58,54 +58,79 @@ export default async function Projects() {
             <Link
               href="https://github.com/ialexanderbrito?tab=repositories"
               target="_blank"
-              className="underline"
+              className="underline hover:text-foreground transition-colors"
             >
               Github
             </Link>
           </span>
         </div>
-      </section>
 
-      {/* Filter Section */}
-      <section className="py-6">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <h2 className="text-2xl font-semibold">Filtrar por categoria</h2>
+        <div className="mt-8">
           <FilterProjects
             category={projects.map((project) => project.category)}
           />
         </div>
       </section>
 
-      {/* Showcase Section - Recent Project */}
-      <section id="recent" className="py-8 border-t border-muted/20">
-        <h3 className="text-2xl font-bold mb-6">Projeto em destaque</h3>
-        <RenderProjects projects={projects} recent />
-      </section>
-
       {/* Project Categories */}
-      <section id="uollet" className="py-8 border-t border-muted/20">
-        <h3 className="text-2xl font-bold mb-6">uollet</h3>
+      <section id="uollet" className="py-10">
+        <div className="flex items-center gap-3 mb-2">
+          <h3 className="text-2xl font-bold">uollet</h3>
+          <span className="h-px flex-1 bg-border/50" />
+        </div>
+        <p className="text-sm text-muted-foreground mb-8">
+          Meu SaaS de finanças pessoais em constante evolução
+        </p>
         <RenderProjects projects={projects} category="uollet" />
       </section>
 
-      <section id="Pessoal" className="py-8 border-t border-muted/20">
-        <h3 className="text-2xl font-bold mb-6">Pessoais</h3>
+      <section id="Pessoal" className="py-10">
+        <div className="flex items-center gap-3 mb-2">
+          <h3 className="text-2xl font-bold">Pessoais</h3>
+          <span className="h-px flex-1 bg-border/50" />
+        </div>
+        <p className="text-sm text-muted-foreground mb-8">
+          Projetos side que mantenho ativamente
+        </p>
         <RenderProjects projects={projects} category="Pessoal" />
       </section>
 
-      <section id="Rocketseat" className="py-8 border-t border-muted/20">
-        <h3 className="text-2xl font-bold mb-6">Rocketseat</h3>
-        <RenderProjects projects={projects} category="Rocketseat" />
-      </section>
-
-      <section id="Celular" className="py-8 border-t border-muted/20">
-        <h3 className="text-2xl font-bold mb-6">Mobile</h3>
-        <RenderProjects projects={projects} category="Celular" />
-      </section>
-
-      <section id="IK" className="py-8 border-t border-muted/20">
-        <h3 className="text-2xl font-bold mb-6">IK</h3>
+      <section id="IK" className="py-10">
+        <div className="flex items-center gap-3 mb-2">
+          <h3 className="text-2xl font-bold">IK Solution</h3>
+          <span className="h-px flex-1 bg-border/50" />
+        </div>
+        <p className="text-sm text-muted-foreground mb-8">
+          Projetos desenvolvidos profissionalmente
+        </p>
         <RenderProjects projects={projects} category="IK" />
+      </section>
+
+      {/* Legacy Projects - Compact View */}
+      <section className="py-10">
+        <div className="flex items-center gap-3 mb-2">
+          <h3 className="text-2xl font-bold text-muted-foreground">Arquivo</h3>
+          <span className="h-px flex-1 bg-border/30" />
+        </div>
+        <p className="text-sm text-muted-foreground mb-8">
+          Projetos de estudo e aprendizado que não estão mais em manutenção
+        </p>
+
+        <div className="space-y-8">
+          <div id="Rocketseat">
+            <h4 className="text-base font-medium mb-4 text-muted-foreground">
+              Rocketseat
+            </h4>
+            <RenderProjects projects={projects} category="Rocketseat" compact />
+          </div>
+
+          <div id="Celular">
+            <h4 className="text-base font-medium mb-4 text-muted-foreground">
+              Mobile
+            </h4>
+            <RenderProjects projects={projects} category="Celular" compact />
+          </div>
+        </div>
       </section>
     </main>
   );
