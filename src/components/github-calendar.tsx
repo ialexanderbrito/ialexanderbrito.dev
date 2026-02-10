@@ -7,7 +7,6 @@ import { useTheme } from 'next-themes';
 export function GithubCalendar() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const currentYear = new Date().getFullYear();
   const colorScheme = theme === 'dark' ? 'dark' : 'light';
 
   useEffect(() => {
@@ -19,7 +18,7 @@ export function GithubCalendar() {
       less: 'menos',
       more: 'mais',
     },
-    totalCount: '{{count}} contribuições em {{year}}',
+    totalCount: '{{count}} contribuições no último ano',
   };
 
   const explicitTheme = {
@@ -33,15 +32,15 @@ export function GithubCalendar() {
 
   return (
     <div className="w-full">
-      <div className="overflow-x-auto">
+      <div className="[&>div]:w-full [&_svg]:w-full [&_svg]:max-w-full">
         <GitHubCalendar
           showMonthLabels={false}
-          blockMargin={6}
+          blockMargin={4}
+          blockSize={12}
           theme={explicitTheme}
           labels={labels}
           colorScheme={colorScheme}
           username="ialexanderbrito"
-          year={currentYear}
         />
       </div>
     </div>
