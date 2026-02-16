@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
@@ -25,7 +25,7 @@ export function ContactForm() {
     name: z.string().min(2, {
       message: 'Nome deve ter pelo menos 2 caracteres.',
     }),
-    email: z.string().email({
+    email: z.email({
       message: 'Email inválido.',
     }),
     subject: z.string().min(2, {
@@ -52,6 +52,8 @@ export function ContactForm() {
   });
 
   const [messageLength, setMessageLength] = useState(0);
+  const [honeypot, setHoneypot] = useState('');
+  const formLoadedAt = useRef(Date.now());
 
   async function onSubmit() {
     const response = await fetch('/api/send', {
@@ -59,7 +61,11 @@ export function ContactForm() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(form.getValues()),
+      body: JSON.stringify({
+        ...form.getValues(),
+        honeypot,
+        formLoadedAt: formLoadedAt.current,
+      }),
     });
 
     if (response.status === 429) {
@@ -99,6 +105,17 @@ export function ContactForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-4"
       >
+        <input
+          type="text"
+          name="honeypot"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="absolute opacity-0 h-0 w-0 overflow-hidden pointer-events-none"
+        />
+
         <div className="grid sm:grid-cols-2 gap-4">
           <FormField
             control={form.control}
