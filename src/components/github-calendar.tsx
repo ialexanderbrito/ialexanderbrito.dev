@@ -7,13 +7,34 @@ import { useTheme } from 'next-themes';
 export function GithubCalendar() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const colorScheme = theme === 'dark' ? 'dark' : 'light';
 
   useEffect(() => {
     setMounted(true);
+
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const labels = {
+    months: [
+      'Jan',
+      'Fev',
+      'Mar',
+      'Abr',
+      'Mai',
+      'Jun',
+      'Jul',
+      'Ago',
+      'Set',
+      'Out',
+      'Nov',
+      'Dez',
+    ],
+    weekdays: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
     legend: {
       less: 'menos',
       more: 'mais',
@@ -31,12 +52,12 @@ export function GithubCalendar() {
   }
 
   return (
-    <div className="w-full">
-      <div className="[&>div]:w-full [&_svg]:w-full [&_svg]:max-w-full">
+    <div className="w-full overflow-x-auto scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
+      <div className="min-w-fit [&>div]:w-full [&_svg]:w-full [&_svg]:max-w-full">
         <GitHubCalendar
-          showMonthLabels={false}
-          blockMargin={4}
-          blockSize={12}
+          showMonthLabels
+          blockMargin={isMobile ? 3 : 4}
+          blockSize={isMobile ? 10 : 12}
           theme={explicitTheme}
           labels={labels}
           colorScheme={colorScheme}
