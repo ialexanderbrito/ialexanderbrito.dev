@@ -60,7 +60,7 @@ export function AnimatedStats({
             format={{ notation: 'standard' }}
             transformTiming={{ duration: 750, easing: 'ease-out' }}
           />
-          k+
+          K+
         </div>
         <div className="text-xs text-muted-foreground mt-1">
           Commits no GitHub
