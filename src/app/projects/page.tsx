@@ -1,5 +1,6 @@
 import { FilterProjects } from '@/components/filter-projects';
 import RenderProjects from '@/components/render-projects';
+import { Accordion } from '@/components/ui/accordion';
 import { fetchHygraph } from '@/graphql/client';
 import { GET_PROJECTS } from '@/graphql/queries';
 import { ProjectsResponse } from '@/interfaces/project';
@@ -41,6 +42,19 @@ const getProjects = async (): Promise<ProjectsResponse> =>
 
 export default async function Projects() {
   const { projects } = await getProjects();
+
+  const pessoaisRecentes = projects.filter(
+    (project) =>
+      project.category === 'Pessoal' &&
+      (new Date(project.createdAt).getFullYear() >= 2025 ||
+        project.name === 'Beatriz & Alexander'),
+  );
+  const pessoaisAntigos = projects.filter(
+    (project) =>
+      project.category === 'Pessoal' &&
+      new Date(project.createdAt).getFullYear() < 2025 &&
+      project.name !== 'Beatriz & Alexander',
+  );
 
   return (
     <main className="max-w-(--breakpoint-lg) mx-auto px-4">
@@ -90,9 +104,67 @@ export default async function Projects() {
           <span className="h-px flex-1 bg-border/50" />
         </div>
         <p className="text-sm text-muted-foreground mb-8">
-          Projetos side que mantenho ativamente
+          Projetos pessoais recentes que são mantidos e atualizados regularmente
         </p>
-        <RenderProjects projects={projects} category="Pessoal" />
+        <RenderProjects projects={pessoaisRecentes} category="Pessoal" />
+      </section>
+
+      {/* Legacy Projects - Compact View */}
+      <section className="py-10">
+        <div className="flex items-center gap-3 mb-2">
+          <h3 className="text-2xl font-bold text-muted-foreground">Arquivo</h3>
+          <span className="h-px flex-1 bg-border/30" />
+        </div>
+        <p className="text-sm text-muted-foreground mb-8">
+          Projetos de estudo, aprendizado e pessoais antigos que não estão mais
+          em manutenção
+        </p>
+
+        <div className="space-y-8">
+          <Accordion
+            title={
+              <span className="flex items-center gap-2">
+                Pessoais antigos
+                <span className="px-2 py-0.5 rounded-full bg-muted text-xs text-muted-foreground">
+                  {pessoaisAntigos.length}
+                </span>
+              </span>
+            }
+            defaultOpen={true}
+          >
+            <RenderProjects
+              projects={pessoaisAntigos}
+              category="Pessoal"
+              compact
+            />
+          </Accordion>
+          <Accordion
+            title={
+              <span className="flex items-center gap-2">
+                Rocketseat
+                <span className="px-2 py-0.5 rounded-full bg-muted text-xs text-muted-foreground">
+                  {projects.filter((p) => p.category === 'Rocketseat').length}
+                </span>
+              </span>
+            }
+            defaultOpen={false}
+          >
+            <RenderProjects projects={projects} category="Rocketseat" compact />
+          </Accordion>
+          <Accordion
+            title={
+              <span className="flex items-center gap-2">
+                Mobile
+                <span className="px-2 py-0.5 rounded-full bg-muted text-xs text-muted-foreground">
+                  {projects.filter((p) => p.category === 'Celular').length}
+                </span>
+              </span>
+            }
+            defaultOpen={false}
+          >
+            <RenderProjects projects={projects} category="Celular" compact />
+          </Accordion>
+        </div>
       </section>
 
       <section id="IK" className="py-10">
@@ -104,33 +176,6 @@ export default async function Projects() {
           Projetos desenvolvidos profissionalmente
         </p>
         <RenderProjects projects={projects} category="IK" />
-      </section>
-
-      {/* Legacy Projects - Compact View */}
-      <section className="py-10">
-        <div className="flex items-center gap-3 mb-2">
-          <h3 className="text-2xl font-bold text-muted-foreground">Arquivo</h3>
-          <span className="h-px flex-1 bg-border/30" />
-        </div>
-        <p className="text-sm text-muted-foreground mb-8">
-          Projetos de estudo e aprendizado que não estão mais em manutenção
-        </p>
-
-        <div className="space-y-8">
-          <div id="Rocketseat">
-            <h4 className="text-base font-medium mb-4 text-muted-foreground">
-              Rocketseat
-            </h4>
-            <RenderProjects projects={projects} category="Rocketseat" compact />
-          </div>
-
-          <div id="Celular">
-            <h4 className="text-base font-medium mb-4 text-muted-foreground">
-              Mobile
-            </h4>
-            <RenderProjects projects={projects} category="Celular" compact />
-          </div>
-        </div>
       </section>
     </main>
   );
