@@ -8,6 +8,7 @@ query getProjects {
     urlProject
     urlRepo
     category
+    createdAt
     thumbnail {
       id
       url

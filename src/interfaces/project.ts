@@ -12,6 +12,7 @@ export interface Project {
   category: string;
   thumbnail: Thumbnail;
   technologies: Technology[];
+  createdAt: string;
 }
 
 export interface Technology {
