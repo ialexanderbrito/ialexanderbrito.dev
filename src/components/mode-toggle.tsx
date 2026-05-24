@@ -1,53 +1,33 @@
 'use client';
 
-import * as React from 'react';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import { flushSync } from 'react-dom';
 
 export function ModeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
   const buttonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const updateTheme = () => {
-      setIsDark(document.documentElement.classList.contains('dark'));
-    };
-
-    updateTheme();
-
-    const observer = new MutationObserver(updateTheme);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   const toggleTheme = useCallback(async () => {
     if (!buttonRef.current) return;
 
-    const newTheme = !isDark;
+    const isDark = resolvedTheme === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
 
-    // Check if View Transitions API is supported
     if (
       !document.startViewTransition ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
     ) {
-      setIsDark(newTheme);
-      document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+      setTheme(newTheme);
       return;
     }
 
     await document.startViewTransition(() => {
       flushSync(() => {
-        setIsDark(newTheme);
-        document.documentElement.classList.toggle('dark');
-        localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+        setTheme(newTheme);
       });
     }).ready;
 
@@ -73,7 +53,7 @@ export function ModeToggle() {
         pseudoElement: '::view-transition-new(root)',
       },
     );
-  }, [isDark]);
+  }, [resolvedTheme, setTheme]);
 
   return (
     <Button
