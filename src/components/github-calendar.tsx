@@ -5,10 +5,10 @@ import { GitHubCalendar } from 'react-github-calendar';
 import { useTheme } from 'next-themes';
 
 export function GithubCalendar() {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const colorScheme = theme === 'dark' ? 'dark' : 'light';
+  const colorScheme = resolvedTheme === 'dark' ? 'dark' : 'light';
 
   useEffect(() => {
     setMounted(true);
@@ -43,8 +43,8 @@ export function GithubCalendar() {
   };
 
   const explicitTheme = {
-    light: ['#e4e4e4', '#d3d3d3', '#b2b2b2', '#7a7a7a', '#525252'],
-    dark: ['#383838', '#606060', '#8c8c8c', '#bababa', '#ebebeb'],
+    light: ['#ececee', '#e3e3e5', '#d8d8db', '#c7c7cb', '#8d8d96'],
+    dark: ['#27272a', '#3d3d42', '#4d4e54', '#696970', '#84848c'],
   };
 
   if (!mounted) {
@@ -55,6 +55,7 @@ export function GithubCalendar() {
     <div className="w-full overflow-x-auto scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
       <div className="min-w-fit [&>div]:w-full [&_svg]:w-full [&_svg]:max-w-full">
         <GitHubCalendar
+          key={colorScheme}
           showMonthLabels
           blockMargin={isMobile ? 3 : 4}
           blockSize={isMobile ? 10 : 12}
