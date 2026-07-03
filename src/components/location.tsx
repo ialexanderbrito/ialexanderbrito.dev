@@ -38,7 +38,7 @@ const Location = memo(function Location() {
   const effectiveTheme = theme === 'system' ? resolvedTheme : theme;
   const mapStyle = useMemo(
     () =>
-      `mapbox://styles/mapbox/${effectiveTheme === 'dark' ? 'dark-v11' : 'streets-v12'}`,
+      `mapbox://styles/mapbox/${effectiveTheme === 'dark' ? 'dark-v11' : 'light-v11'}`,
     [effectiveTheme],
   );
 
@@ -81,7 +81,7 @@ const Location = memo(function Location() {
   );
 
   return (
-    <div className="rounded-lg overflow-hidden">
+    <div className="relative h-full w-full rounded-2xl overflow-hidden border border-border/50 shadow-sm group bg-muted/20">
       <div className="relative size-full">
         <Map
           mapboxAccessToken={mapboxToken}
@@ -103,55 +103,83 @@ const Location = memo(function Location() {
           onMove={handleMove}
         >
           <Pinned />
-          <div className="animate-animated-cloud absolute inset-0 z-30">
+
+          {/* Clouds Layer */}
+          <div className="animate-animated-cloud absolute inset-0 z-20 pointer-events-none">
             <div className="relative">
               <img
-                className="absolute z-20 opacity-75 h-auto w-[480px]"
+                className="absolute z-20 opacity-70 h-auto w-[480px]"
                 src="/cloud.png"
                 alt=""
                 loading="lazy"
               />
               <img
-                className="absolute z-10 -translate-x-16 translate-y-28 opacity-15 blur-xs brightness-0 h-auto w-[480px]"
+                className="absolute z-10 -translate-x-16 translate-y-28 opacity-20 blur-sm brightness-0 h-auto w-[480px]"
                 src="/cloud.png"
-                alt="Nuvem"
+                alt=""
                 loading="lazy"
               />
             </div>
           </div>
 
+          {/* Plane Layer */}
           <img
-            className="absolute -top-32 animated-plane z-10 object-contain h-auto w-10"
+            className="absolute -top-32 animated-plane z-10 object-contain h-auto w-10 pointer-events-none"
             src="/plane.png"
-            alt="Avião"
+            alt=""
             loading="lazy"
           />
 
+          {/* Premium Vignette/Gradient overlay for depth */}
+          <div className="absolute inset-0 z-30 pointer-events-none shadow-[inset_0_0_40px_rgba(0,0,0,0.05)] dark:shadow-[inset_0_0_40px_rgba(0,0,0,0.4)]" />
+
           {isMapLoaded && (
-            <div className="absolute inset-x-3 bottom-3 flex items-center justify-between z-30">
-              <Button
-                onClick={() => handleZoom(false)}
-                aria-label="Zoom Out"
-                size="icon"
-                variant="outline"
-                className={cn(
-                  currentZoom > MIN_ZOOM ? 'cancel-drag' : 'invisible',
-                )}
-              >
-                <Minus />
-              </Button>
-              <Button
-                onClick={() => handleZoom(true)}
-                aria-label="Zoom In"
-                size="icon"
-                variant="outline"
-                className={cn(
-                  currentZoom < MAX_ZOOM ? 'cancel-drag' : 'invisible',
-                )}
-              >
-                <Plus />
-              </Button>
-            </div>
+            <>
+              {/* Modern Glassmorphism Badge */}
+              <div className="absolute top-3 left-3 z-40 pointer-events-none">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md bg-background/70 border border-border/50 shadow-sm text-xs font-medium text-foreground transition-transform hover:scale-105">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                  </span>
+                  Rio de Janeiro, BR
+                </div>
+              </div>
+
+              {/* Stacked Glassmorphic Controls */}
+              <div className="absolute right-3 bottom-3 flex flex-col gap-1.5 z-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <Button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleZoom(true);
+                  }}
+                  aria-label="Zoom In"
+                  size="icon"
+                  variant="outline"
+                  className={cn(
+                    'backdrop-blur-md bg-background/70 border-border/50 hover:bg-background/90 rounded-full h-8 w-8 shadow-sm transition-transform active:scale-95',
+                    currentZoom < MAX_ZOOM ? 'cancel-drag' : 'hidden',
+                  )}
+                >
+                  <Plus className="h-4 w-4" />
+                </Button>
+                <Button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleZoom(false);
+                  }}
+                  aria-label="Zoom Out"
+                  size="icon"
+                  variant="outline"
+                  className={cn(
+                    'backdrop-blur-md bg-background/70 border-border/50 hover:bg-background/90 rounded-full h-8 w-8 shadow-sm transition-transform active:scale-95',
+                    currentZoom > MIN_ZOOM ? 'cancel-drag' : 'hidden',
+                  )}
+                >
+                  <Minus className="h-4 w-4" />
+                </Button>
+              </div>
+            </>
           )}
         </Map>
       </div>
