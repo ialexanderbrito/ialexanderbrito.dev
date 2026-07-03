@@ -21,20 +21,27 @@ export function HomeContent() {
 
         {/* Subtitle with Highlighter */}
         <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-xl mx-auto">
-          Desenvolvedor apaixonado por criar{' '}
+          Especialista em{' '}
           <Highlighter action="highlight" color="#a1a1aa40" isView>
-            interfaces
+            frontend
           </Highlighter>{' '}
-          e{' '}
+          com{' '}
           <Highlighter action="underline" color="#a1a1aa" isView>
-            experiências incríveis
+            +7 anos de experiência
           </Highlighter>
-          .
+          . Ajudando grandes empresas a construírem aplicações robustas,
+          escaláveis e de alta performance.
         </p>
 
         {/* Role Tags */}
         <div className="flex flex-wrap justify-center gap-2 pt-2">
-          {['Front-end', 'Mobile', 'React', 'Next.js'].map((tag) => (
+          {[
+            'Arquitetura Front-end',
+            'Mobile',
+            'React',
+            'Next.js',
+            'Performance',
+          ].map((tag) => (
             <span
               key={tag}
               className="px-3 py-1 text-xs font-medium rounded-full bg-muted/50 text-muted-foreground border border-border/50"
@@ -46,21 +53,21 @@ export function HomeContent() {
 
         {/* CTA */}
         <div className="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/projects">
+          <Link href="/contact">
             <Button
               variant="default"
               className="group rounded-full px-6 py-6 text-base transition-all hover:shadow-lg cursor-pointer"
             >
-              Ver projetos
+              Vamos conversar
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
-          <Link href="/about">
+          <Link href="/projects">
             <Button
               variant="outline"
-              className="rounded-full px-6 py-6 text-base transition-all hover:bg-muted/50 cursor-pointer"
+              className="group rounded-full px-6 py-6 text-base transition-all hover:bg-muted/50 cursor-pointer"
             >
-              Sobre mim
+              Ver projetos
             </Button>
           </Link>
         </div>
