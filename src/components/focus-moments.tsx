@@ -12,7 +12,7 @@ export function FocusMoments({ moments }: FocusMomentsProps) {
   const cards = moments.map((moment) => ({
     title: `${moment.local}${moment.codigoDoPais ? ` • ${getFlagEmoji(moment.codigoDoPais)}` : ''}`,
     src: moment.imagem.url,
-    pillPosition: moment.isPillTop ? 'top' : 'bottom',
+    pillPosition: moment.isPillTop ? 'top' as const : 'bottom' as const,
   }));
 
   // Se não tiver exatamente 10, faz um fallback seguro
