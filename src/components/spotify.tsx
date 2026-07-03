@@ -6,8 +6,6 @@ import { Pulse } from '@/components/ui/pulse';
 import { formatLastPlayed } from '@/utils/formatLastPlayed';
 import useSWR, { mutate } from 'swr';
 
-import TiltedCard from './ui/tilted-card';
-
 interface SpotifyTrack {
   isPlaying: boolean;
   title: string;
@@ -47,134 +45,118 @@ export default function Spotify() {
 
   if (isLoading) {
     return (
-      <div className="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 bg-accent/50 w-full">
-        <div className="absolute inset-0 h-full w-full bg-accent/50" />
-        <div className="absolute inset-0 bg-muted" />
-        <div className="z-10 absolute top-0 left-0 p-4 flex items-center gap-2">
-          <div className="h-4 w-4 rounded-full bg-gray-400" />
-          <div className="h-4 w-20 rounded bg-gray-400 sm:w-32 md:w-40 lg:w-48" />
+      <div className="group relative flex flex-col overflow-hidden rounded-[15px] w-full h-[176px] bg-muted/20 animate-pulse border border-border/50">
+        <div className="absolute top-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md bg-black/10 dark:bg-white/10 border border-black/10 dark:border-white/10">
+          <div className="h-2 w-2 rounded-full bg-muted-foreground/50" />
+          <div className="h-3 w-24 rounded bg-muted-foreground/30" />
         </div>
-        <div className="z-10 absolute bottom-0 left-0 p-4 flex items-center gap-2">
-          <div className="h-4 w-28 rounded bg-gray-400 sm:w-32 md:w-40 lg:w-48" />
-        </div>
+        <div className="absolute bottom-4 right-4 h-8 w-32 rounded-full bg-black/10 dark:bg-white/10 backdrop-blur-md border border-black/10 dark:border-white/10" />
       </div>
     );
   }
 
-  if (error) {
+  if (error || data?.message || data?.error) {
     return (
-      <TiltedCard
-        imageSrc={'/case.png'}
-        altText={`Capa do álbum ${data?.album}`}
-        captionText={`${data?.title}, ${data?.artist}`}
-        containerHeight={176}
-        containerWidth={'100%'}
-        imageHeight={176}
-        imageWidth={'100%'}
-        rotateAmplitude={12}
-        scaleOnHover={1.05}
-        showMobileWarning={false}
-        showTooltip={false}
-        displayOverlayContent={true}
-        showSpotifyButton={false}
-        disabled={true}
-        overlayContent={
-          <div className="pt-4 pl-2 pr-2 w-full">
-            <span className="flex items-center gap-2 text-white">
-              <Pulse color="red" />
-              Algo deu errado. Tente novamente mais tarde.
-            </span>
+      <div className="relative flex flex-col overflow-hidden rounded-[15px] w-full h-[176px] border border-border/50 group bg-muted/20">
+        <img
+          src="/case.png"
+          alt="Capa do álbum de erro"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 grayscale"
+        />
+        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        <div className="absolute top-3 left-3 pr-3 w-full z-10 pointer-events-none">
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md bg-black/60 border border-white/20 shadow-sm text-xs font-medium text-white w-fit max-w-[95%]">
+            <Pulse color="red" />
+            <span className="truncate">Algo deu errado. Tente mais tarde.</span>
           </div>
-        }
-      />
-    );
-  }
-
-  if (data?.message || data?.error) {
-    return (
-      <TiltedCard
-        imageSrc={'/case.png'}
-        altText={`Capa do álbum ${data?.album}`}
-        captionText={`${data?.title}, ${data?.artist}`}
-        containerHeight={176}
-        containerWidth={'100%'}
-        imageHeight={176}
-        imageWidth={'100%'}
-        rotateAmplitude={12}
-        scaleOnHover={1.05}
-        showMobileWarning={false}
-        showTooltip={false}
-        displayOverlayContent={true}
-        showSpotifyButton={false}
-        disabled={true}
-        overlayContent={
-          <div className="pt-4 pl-2 pr-2 w-full">
-            <span className="flex items-center gap-2 text-white">
-              <Pulse color="red" />
-              Algo deu errado. Tente novamente mais tarde.
-            </span>
-          </div>
-        }
-      />
+        </div>
+      </div>
     );
   }
 
   return (
     <>
       {data && data.isPlaying ? (
-        <TiltedCard
-          imageSrc={data?.albumImageUrl || '/case.png'}
-          altText={`Capa do álbum ${data?.album}`}
-          captionText={`${data?.title}, ${data?.artist}`}
-          containerHeight={176}
-          containerWidth={'100%'}
-          imageHeight={176}
-          imageWidth={'100%'}
-          rotateAmplitude={12}
-          scaleOnHover={1.05}
-          showMobileWarning={false}
-          showTooltip={false}
-          displayOverlayContent={true}
-          spotifyUrl={data?.songUrl}
-          spotifyTitle={data?.title}
-          showSpotifyButton={true}
-          overlayContent={
-            <div className="pt-4 pl-2 pr-2 w-full">
-              <span className="flex items-center gap-2 text-white">
-                <Pulse color="green" />
-                Tocando agora: {data?.title}, {data?.artist}
+        <div className="relative flex flex-col overflow-hidden rounded-[15px] w-full h-[176px] border border-border/50 group bg-muted/20">
+          <img
+            src={data?.albumImageUrl || '/case.png'}
+            alt={`Capa do álbum ${data?.album}`}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+
+          <div className="absolute top-3 left-3 pr-3 w-full z-10 pointer-events-none">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md bg-black/60 border border-white/20 shadow-sm text-xs font-medium text-white w-fit max-w-[95%]">
+              <Pulse color="green" />
+              <span className="truncate">
+                Tocando: {data?.title} • {data?.artist}
               </span>
             </div>
-          }
-        />
+          </div>
+
+          {data?.songUrl && (
+            <div className="absolute bottom-4 right-4 z-20">
+              <a
+                href={data.songUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`Abrir ${data.title} no Spotify`}
+                className="flex items-center justify-center h-9 w-9 rounded-full backdrop-blur-md bg-black/40 border border-white/20 text-white/90 hover:text-[#1DB954] hover:bg-black/60 transition-all shadow-sm hover:scale-105 active:scale-95"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+                </svg>
+              </a>
+            </div>
+          )}
+        </div>
       ) : (
-        <TiltedCard
-          imageSrc={data?.albumImageUrl || '/case.png'}
-          altText={`Capa do álbum ${data?.album}`}
-          captionText={`${data?.title}, ${data?.artist}`}
-          containerHeight={176}
-          containerWidth={'100%'}
-          imageHeight={176}
-          imageWidth={'100%'}
-          rotateAmplitude={12}
-          scaleOnHover={1.05}
-          showMobileWarning={false}
-          showTooltip={false}
-          displayOverlayContent={true}
-          spotifyUrl={data?.songUrl}
-          spotifyTitle={data?.title}
-          showSpotifyButton={true}
-          disabled={true}
-          overlayContent={
-            <div className="pt-4 pl-2 pr-2 w-full">
-              <span className="flex items-center gap-2 text-white">
-                <Pulse color="red" />
-                Última música: {data?.title}, {data?.artist} •{' '}
-                {formatLastPlayed(data?.lastPlayed)}
+        <div className="relative flex flex-col overflow-hidden rounded-[15px] w-full h-[176px] border border-border/50 group bg-muted/20">
+          <img
+            src={data?.albumImageUrl || '/case.png'}
+            alt={`Capa do álbum ${data?.album}`}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 grayscale"
+          />
+          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+
+          <div className="absolute top-3 left-3 pr-3 w-full flex flex-col gap-1.5 z-10 pointer-events-none">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md bg-black/60 border border-white/20 shadow-sm text-xs font-medium text-white w-fit max-w-[95%]">
+              <Pulse color="red" />
+              <span className="truncate">
+                Última: {data?.title} • {data?.artist}
               </span>
             </div>
-          }
-        />
+            <div className="flex items-center px-3 py-1.5 rounded-full backdrop-blur-md bg-black/60 border border-white/20 shadow-sm text-[10px] font-medium text-white/80 w-fit">
+              {formatLastPlayed(data?.lastPlayed)}
+            </div>
+          </div>
+
+          {data?.songUrl && (
+            <div className="absolute bottom-4 right-4 z-20">
+              <a
+                href={data.songUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`Abrir ${data.title} no Spotify`}
+                className="flex items-center justify-center h-9 w-9 rounded-full backdrop-blur-md bg-black/40 border border-white/20 text-white/90 hover:text-[#1DB954] hover:bg-black/60 transition-all shadow-sm hover:scale-105 active:scale-95"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+                </svg>
+              </a>
+            </div>
+          )}
+        </div>
       )}
     </>
   );
