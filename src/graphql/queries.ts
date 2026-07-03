@@ -89,6 +89,7 @@ query getMoment {
   moments {
     local,
     codigoDoPais,
+    isPillTop,
     imagem {
       url
     }
