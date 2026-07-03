@@ -40,7 +40,7 @@ function ExperienceCard({ experience }: { experience: Experience }) {
     <div className="relative group">
       {/* Timeline dot */}
       <div
-        className="absolute left-4 top-6 w-4 h-4 rounded-full border-2 border-background hidden md:flex items-center justify-center z-10"
+        className="absolute left-4 top-8 w-4 h-4 rounded-full border-2 border-background hidden md:flex items-center justify-center z-10 shadow-sm"
         style={{
           backgroundColor: experience.companyColor?.hex || 'var(--muted)',
         }}
@@ -51,51 +51,53 @@ function ExperienceCard({ experience }: { experience: Experience }) {
       </div>
 
       {/* Card */}
-      <div className="md:ml-16 rounded-2xl border border-border/50 bg-card/30 p-6 hover:bg-card/50 hover:border-border transition-all duration-300 group-hover:shadow-lg">
-        <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+      <div className="md:ml-16 rounded-[15px] border border-border/50 bg-muted/10 backdrop-blur-md p-6 hover:bg-muted/20 transition-colors duration-300">
+        <div className="flex flex-col sm:flex-row sm:items-start gap-5">
           {/* Company Logo */}
-          <div className="shrink-0 w-14 h-14 rounded-xl flex items-center justify-center overflow-hidden">
+          <div className="shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-[12px] flex items-center justify-center overflow-hidden border border-border/50 bg-white/80 dark:bg-white/5 backdrop-blur-md shadow-sm">
             <img
               src={experience.companyLogo?.url}
               alt={experience.companyName}
-              className="w-14 h-14 object-contain"
+              className="w-full h-full object-cover"
               loading="lazy"
             />
           </div>
 
           {/* Content */}
           <div className="flex-1 min-w-0">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-              <h3 className="font-bold text-lg">{experience.role}</h3>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-1">
+              <h3 className="font-bold text-lg text-foreground/90">
+                {experience.role}
+              </h3>
               {isCurrentJob && (
-                <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-500/15 text-green-700 dark:text-green-300 text-xs font-medium w-fit">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full backdrop-blur-md bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 text-[10px] font-semibold tracking-wide uppercase shadow-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-current" />
                   Atual
                 </span>
               )}
             </div>
 
-            <p className="text-muted-foreground font-medium mb-3">
+            <p className="text-muted-foreground/80 font-medium mb-4">
               {experience.companyName}
             </p>
 
-            <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5">
-                <Calendar size={14} />
+            <div className="flex flex-wrap gap-2 text-[11px] sm:text-xs text-muted-foreground mb-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full backdrop-blur-md bg-muted/20 border border-border/50">
+                <Calendar size={14} className="opacity-70" />
                 {startedAt} - {finishedAt}
               </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Briefcase size={14} />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full backdrop-blur-md bg-muted/20 border border-border/50">
+                <Briefcase size={14} className="opacity-70" />
                 {duration}
               </span>
-              <span className="inline-flex items-center gap-1.5">
-                <MapPin size={14} />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full backdrop-blur-md bg-muted/20 border border-border/50">
+                <MapPin size={14} className="opacity-70" />
                 {experience.typeJob}
               </span>
             </div>
 
             {experience.description && (
-              <p className="mt-3 text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground/90 leading-relaxed">
                 {experience.description}
               </p>
             )}
@@ -124,18 +126,18 @@ export function CareerSection({ experiences }: CareerSectionProps) {
 
       {/* Current Jobs */}
       {currentJobs.length > 0 && (
-        <div className="relative mb-8">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-sm font-medium text-green-700 dark:text-green-300">
+        <div className="relative mb-10">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-sm font-semibold tracking-wide uppercase text-green-700 dark:text-green-400">
               Atualmente
             </span>
-            <span className="px-2 py-0.5 rounded-full bg-green-500/15 text-green-700 dark:text-green-300 text-xs font-medium">
+            <span className="px-2 py-0.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-700 dark:text-green-400 text-[10px] font-bold shadow-sm">
               {currentJobs.length}
             </span>
           </div>
 
           {/* Timeline line */}
-          <div className="absolute left-6 top-8 bottom-0 w-px bg-border/50 hidden md:block" />
+          <div className="absolute left-6 top-10 bottom-0 w-px bg-border/50 hidden md:block" />
 
           <div className="space-y-6">
             {currentJobs.map((experience) => (
@@ -150,7 +152,7 @@ export function CareerSection({ experiences }: CareerSectionProps) {
         <div className="relative">
           <button
             onClick={() => setShowPrevious(!showPrevious)}
-            className="flex items-center gap-2 mb-4 group cursor-pointer"
+            className="flex items-center gap-2 mb-6 group cursor-pointer"
           >
             <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
               Experiências anteriores
