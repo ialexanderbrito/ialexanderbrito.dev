@@ -70,7 +70,7 @@ export function MobileNav() {
           />
         </Link>
       </motion.div>
-      <NavigationMenu className="backdrop-blur-md bg-background/60 p-1.5 rounded-full border border-border/50 shadow-lg shadow-black/5 dark:shadow-black/20">
+      <NavigationMenu className="p-0">
         <NavigationMenuList>
           {navigationItems.map((item) => (
             <TooltipMessage key={item.href} title={item.title}>
@@ -79,10 +79,10 @@ export function MobileNav() {
                   asChild
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    'relative transition-all duration-200 p-2.5 rounded-full',
+                    'relative transition-all duration-200 p-2.5 rounded-full bg-transparent hover:bg-transparent focus:bg-transparent',
                     pathname === item.href
-                      ? 'text-primary bg-primary/15'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-accent/50',
+                      ? 'text-foreground'
+                      : 'text-muted-foreground hover:text-foreground',
                   )}
                 >
                   <Link href={item.href} aria-label={item.title}>
