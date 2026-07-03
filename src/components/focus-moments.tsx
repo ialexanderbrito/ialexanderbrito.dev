@@ -1,7 +1,5 @@
 'use client';
 
-import { useState } from 'react';
-
 import { Card } from '@/components/ui/focus-cards';
 import { Moment } from '@/interfaces/moments';
 import { getFlagEmoji } from '@/utils/getFlagEmoji';
@@ -11,139 +9,57 @@ interface FocusMomentsProps {
 }
 
 export function FocusMoments({ moments }: FocusMomentsProps) {
-  const [hovered, setHovered] = useState<number | null>(null);
-
   const cards = moments.map((moment) => ({
     title: `${moment.local}${moment.codigoDoPais ? ` • ${getFlagEmoji(moment.codigoDoPais)}` : ''}`,
     src: moment.imagem.url,
+    pillPosition: moment.isPillTop ? 'top' : 'bottom',
   }));
+
+  // Se não tiver exatamente 10, faz um fallback seguro
+  if (cards.length < 10) return null;
 
   return (
     <div className="mt-8 mb-16">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
-        <div className="col-span-2 sm:col-span-1 md:col-span-2 flex flex-col">
-          {cards[0] && (
-            <div className="h-72 md:h-96">
-              <Card
-                card={cards[0]}
-                index={0}
-                hovered={hovered}
-                setHovered={setHovered}
-              />
-            </div>
-          )}
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-4">
+        {/* PRIMEIRA LINHA DO MOSAICO (Altura total: 400px no desktop) */}
+        {/* Coluna 1-2: Foto Grande */}
+        <div className="md:col-span-2">
+          <Card card={cards[0]} className="w-full h-[250px] md:h-[300px]" />
         </div>
-        <div className="col-span-2 sm:col-span-1 md:col-span-2">
-          {cards[1] && (
-            <div className="h-44 md:h-44 mb-4">
-              <Card
-                card={cards[1]}
-                index={1}
-                hovered={hovered}
-                setHovered={setHovered}
-              />
-            </div>
-          )}
-          <div className="grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2">
-            {cards[2] && (
-              <div className="h-44">
-                <Card
-                  card={cards[2]}
-                  index={2}
-                  hovered={hovered}
-                  setHovered={setHovered}
-                />
-              </div>
-            )}
-            {cards[3] && (
-              <div className="h-44">
-                <Card
-                  card={cards[3]}
-                  index={3}
-                  hovered={hovered}
-                  setHovered={setHovered}
-                />
-              </div>
-            )}
+
+        {/* Coluna 3-4: Larga em cima, duas pequenas embaixo */}
+        <div className="md:col-span-2 flex flex-col gap-3 md:gap-4">
+          <Card card={cards[1]} className="w-full h-[120px] md:h-[142px]" />
+          <div className="grid grid-cols-2 gap-3 md:gap-4">
+            <Card card={cards[2]} className="w-full h-[118px] md:h-[142px]" />
+            <Card card={cards[3]} className="w-full h-[118px] md:h-[142px]" />
           </div>
         </div>
-        <div className="col-span-2 sm:col-span-1 md:col-span-1 flex flex-col">
-          {cards[4] && (
-            <div className="h-72 md:h-96">
-              <Card
-                card={cards[4]}
-                index={4}
-                hovered={hovered}
-                setHovered={setHovered}
-              />
-            </div>
-          )}
+
+        {/* Coluna 5: Retrato Alto */}
+        <div className="md:col-span-1">
+          <Card card={cards[4]} className="w-full h-[250px] md:h-[300px]" />
         </div>
 
-        <div className="col-span-2 sm:col-span-1 md:col-span-2">
-          <div className="grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 mb-4">
-            {cards[5] && (
-              <div className="h-44">
-                <Card
-                  card={cards[5]}
-                  index={5}
-                  hovered={hovered}
-                  setHovered={setHovered}
-                />
-              </div>
-            )}
-            {cards[6] && (
-              <div className="h-44">
-                <Card
-                  card={cards[6]}
-                  index={6}
-                  hovered={hovered}
-                  setHovered={setHovered}
-                />
-              </div>
-            )}
+        {/* SEGUNDA LINHA DO MOSAICO (Altura total: 400px no desktop) */}
+        {/* Coluna 1-2: Duas pequenas em cima, larga embaixo */}
+        <div className="md:col-span-2 flex flex-col gap-3 md:gap-4">
+          <div className="grid grid-cols-2 gap-3 md:gap-4">
+            <Card card={cards[5]} className="w-full h-[118px] md:h-[142px]" />
+            <Card card={cards[6]} className="w-full h-[118px] md:h-[142px]" />
           </div>
-          {cards[7] && (
-            <div className="h-44">
-              <Card
-                card={cards[7]}
-                index={7}
-                hovered={hovered}
-                setHovered={setHovered}
-              />
-            </div>
-          )}
+          <Card card={cards[7]} className="w-full h-[120px] md:h-[142px]" />
         </div>
 
-        {cards.length >= 10 && (
-          <>
-            <div className="col-span-2 sm:col-span-1 md:col-span-1 flex flex-col">
-              {cards[8] && (
-                <div className="h-72 md:h-96">
-                  <Card
-                    card={cards[8]}
-                    index={8}
-                    hovered={hovered}
-                    setHovered={setHovered}
-                  />
-                </div>
-              )}
-            </div>
+        {/* Coluna 3: Retrato Alto */}
+        <div className="md:col-span-1">
+          <Card card={cards[8]} className="w-full h-[250px] md:h-[300px]" />
+        </div>
 
-            <div className="col-span-2 sm:col-span-1 md:col-span-2 flex flex-col">
-              {cards[9] && (
-                <div className="h-72 md:h-96">
-                  <Card
-                    card={cards[9]}
-                    index={9}
-                    hovered={hovered}
-                    setHovered={setHovered}
-                  />
-                </div>
-              )}
-            </div>
-          </>
-        )}
+        {/* Coluna 4-5: Foto Grande */}
+        <div className="md:col-span-2">
+          <Card card={cards[9]} className="w-full h-[250px] md:h-[300px]" />
+        </div>
       </div>
     </div>
   );
