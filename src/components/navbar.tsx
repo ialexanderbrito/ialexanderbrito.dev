@@ -46,7 +46,10 @@ export function Navbar() {
           stiffness: 260,
           damping: 20,
         }}
-        className="mx-auto sm:hidden max-w-5xl items-center justify-between px-5 py-4 xl:px-0 flex-row sm:flex-row flex"
+        className={cn(
+          'mx-4 sm:hidden items-center justify-between px-4 py-3 flex-row flex sticky top-4 z-50 rounded-full',
+          'backdrop-blur-xl backdrop-saturate-150 bg-background/30 border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.02)]',
+        )}
       >
         <MobileNav />
         <ModeToggle />
@@ -56,8 +59,8 @@ export function Navbar() {
         animate={{
           opacity: 1,
           y: 0,
-          scale: scrolled ? 0.92 : 1,
-          maxWidth: scrolled ? 720 : 1120,
+          scale: scrolled ? 0.85 : 1,
+          maxWidth: scrolled ? 640 : 1120,
         }}
         transition={{
           type: 'spring',
@@ -66,10 +69,9 @@ export function Navbar() {
           mass: 0.8,
         }}
         className={cn(
-          'mx-auto hidden max-w-5xl items-center justify-between gap-20 px-5 xl:px-0 sm:flex-row sm:flex backdrop-blur-md bg-background/80 sticky top-4 z-50 rounded-full border border-border/50 will-change-transform',
-          scrolled
-            ? 'py-2 shadow-lg shadow-black/5 dark:shadow-black/20'
-            : 'py-4 shadow-sm',
+          'mx-auto hidden max-w-5xl items-center justify-between gap-20 px-5 xl:px-0 sm:flex-row sm:flex sticky top-4 z-50 rounded-full will-change-transform',
+          'backdrop-blur-xl backdrop-saturate-150 bg-background/30 border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.02)]',
+          scrolled ? 'py-2 bg-background/50' : 'py-4',
         )}
       >
         <motion.div
@@ -113,23 +115,23 @@ export function Navbar() {
                     href={item.href}
                     className={cn(
                       navigationMenuTriggerStyle(),
-                      'relative transition-all duration-200 bg-transparent hover:bg-accent/50 rounded-full',
+                      'relative transition-all duration-200 bg-transparent hover:bg-transparent rounded-full',
                       pathname === item.href
                         ? 'text-foreground font-medium'
-                        : 'text-muted-foreground hover:text-foreground',
+                        : 'text-muted-foreground hover:text-foreground hover:bg-accent/30',
                     )}
                   >
-                    {item.label}
+                    <span className="relative z-10">{item.label}</span>
                     {pathname === item.href && (
                       <motion.div
                         layoutId="navbar-indicator"
-                        className="absolute -bottom-1 left-3 right-3 h-0.5 bg-primary rounded-full"
+                        className="absolute inset-0 bg-accent/80 dark:bg-accent/40 rounded-full z-0 border border-border/50"
                         initial={false}
                         transition={{
                           type: 'spring',
-                          stiffness: 500,
+                          stiffness: 400,
                           damping: 30,
-                          mass: 0.5,
+                          mass: 0.8,
                         }}
                       />
                     )}
