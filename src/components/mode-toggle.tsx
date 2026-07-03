@@ -61,10 +61,10 @@ export function ModeToggle() {
       onClick={toggleTheme}
       variant="ghost"
       size="icon"
-      className="relative"
+      className="relative rounded-full w-9 h-9 hover:bg-accent/40 dark:hover:bg-white/10 transition-colors border border-transparent hover:border-border/50 cursor-pointer"
     >
-      <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-muted-foreground hover:text-foreground" />
+      <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-muted-foreground hover:text-foreground" />
       <span className="sr-only">Alternar tema</span>
     </Button>
   );
