@@ -8,14 +8,15 @@ import {
 interface TooltipProps {
   children: React.ReactNode;
   title: string;
+  asChild?: boolean;
 }
 
-export function TooltipMessage({ children, title }: TooltipProps) {
+export function TooltipMessage({ children, title, asChild }: TooltipProps) {
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger>
-          <span>{children}</span>
+        <TooltipTrigger asChild={asChild}>
+          {asChild ? children : <span>{children}</span>}
         </TooltipTrigger>
         <TooltipContent>
           <p>{title}</p>
