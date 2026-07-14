@@ -89,7 +89,7 @@ export default async function Projects() {
       {/* Project Categories */}
       <section id="uollet" className="py-10">
         <div className="flex items-center gap-3 mb-2">
-          <h3 className="text-2xl font-bold">uollet</h3>
+          <h2 className="text-2xl font-bold">uollet</h2>
           <span className="h-px flex-1 bg-border/50" />
         </div>
         <p className="text-sm text-muted-foreground mb-8">
@@ -100,7 +100,7 @@ export default async function Projects() {
 
       <section id="Pessoal" className="py-10">
         <div className="flex items-center gap-3 mb-2">
-          <h3 className="text-2xl font-bold">Pessoais</h3>
+          <h2 className="text-2xl font-bold">Pessoais</h2>
           <span className="h-px flex-1 bg-border/50" />
         </div>
         <p className="text-sm text-muted-foreground mb-8">
@@ -112,7 +112,7 @@ export default async function Projects() {
       {/* Legacy Projects - Compact View */}
       <section className="py-10">
         <div className="flex items-center gap-3 mb-2">
-          <h3 className="text-2xl font-bold text-muted-foreground">Arquivo</h3>
+          <h2 className="text-2xl font-bold text-muted-foreground">Arquivo</h2>
           <span className="h-px flex-1 bg-border/30" />
         </div>
         <p className="text-sm text-muted-foreground mb-8">
@@ -169,7 +169,7 @@ export default async function Projects() {
 
       <section id="IK" className="py-10">
         <div className="flex items-center gap-3 mb-2">
-          <h3 className="text-2xl font-bold">IK Solution</h3>
+          <h2 className="text-2xl font-bold">IK Solution</h2>
           <span className="h-px flex-1 bg-border/50" />
         </div>
         <p className="text-sm text-muted-foreground mb-8">
