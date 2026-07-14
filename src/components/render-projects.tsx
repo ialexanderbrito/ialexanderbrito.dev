@@ -54,7 +54,7 @@ export default function RenderProjects({
             <div className="flex items-center gap-3 min-w-0">
               <Folder className="h-5 w-5 text-muted-foreground shrink-0" />
               <div className="min-w-0">
-                <h5 className="font-medium text-sm truncate">{project.name}</h5>
+                <h3 className="font-medium text-sm truncate">{project.name}</h3>
                 <p className="text-xs text-muted-foreground line-clamp-1">
                   {project.description}
                 </p>
@@ -228,9 +228,9 @@ export default function RenderProjects({
                 </div>
               )}
               <div className="min-w-0">
-                <h5 className="font-semibold text-lg truncate">
+                <h3 className="font-semibold text-lg truncate">
                   {project.name}
-                </h5>
+                </h3>
                 <p className="text-sm text-muted-foreground line-clamp-2 mt-1">
                   {project.description}
                 </p>
@@ -330,9 +330,9 @@ export default function RenderProjects({
 
             {/* Content */}
             <div className="flex flex-col grow p-5">
-              <h5 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
+              <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">
                 {project.name}
-              </h5>
+              </h3>
               <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
                 {project.description}
               </p>
