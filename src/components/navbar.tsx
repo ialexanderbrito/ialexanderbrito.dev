@@ -88,6 +88,8 @@ export function Navbar() {
             <img
               src="/favicon.png"
               alt="Logo"
+              width="24"
+              height="24"
               className="w-6 h-6 transition-all duration-200"
               loading="lazy"
             />
