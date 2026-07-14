@@ -61,7 +61,7 @@ export function MobileNav() {
           mass: 0.5,
         }}
       >
-        <Link href="/" passHref>
+        <Link href="/" passHref className="flex items-center justify-center w-12 h-12">
           <img
             src="/favicon.png"
             alt="Logo"
@@ -73,13 +73,13 @@ export function MobileNav() {
       <NavigationMenu className="p-0">
         <NavigationMenuList>
           {navigationItems.map((item) => (
-            <TooltipMessage key={item.href} title={item.title}>
-              <NavigationMenuItem>
+            <NavigationMenuItem key={item.href}>
+              <TooltipMessage title={item.title} asChild>
                 <NavigationMenuLink
                   asChild
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    'relative transition-all duration-200 p-2.5 rounded-full bg-transparent hover:bg-transparent focus:bg-transparent',
+                    'relative transition-all duration-200 h-12 w-12 flex items-center justify-center rounded-full bg-transparent hover:bg-transparent focus:bg-transparent',
                     pathname === item.href
                       ? 'text-foreground'
                       : 'text-muted-foreground hover:text-foreground',
@@ -109,8 +109,8 @@ export function MobileNav() {
                     )}
                   </Link>
                 </NavigationMenuLink>
-              </NavigationMenuItem>
-            </TooltipMessage>
+              </TooltipMessage>
+            </NavigationMenuItem>
           ))}
         </NavigationMenuList>
       </NavigationMenu>
