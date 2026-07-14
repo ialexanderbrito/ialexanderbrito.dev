@@ -60,7 +60,6 @@ export function Navbar() {
           opacity: 1,
           y: 0,
           scale: scrolled ? 0.85 : 1,
-          maxWidth: scrolled ? 640 : 1120,
         }}
         transition={{
           type: 'spring',
@@ -69,9 +68,9 @@ export function Navbar() {
           mass: 0.8,
         }}
         className={cn(
-          'mx-auto hidden max-w-5xl items-center justify-between gap-20 px-5 xl:px-0 sm:flex-row sm:flex sticky top-4 z-50 rounded-full will-change-transform',
+          'mx-auto hidden items-center justify-between gap-20 px-5 xl:px-0 sm:flex-row sm:flex sticky top-4 z-50 rounded-full will-change-transform transition-[max-width,padding,background-color] duration-500 ease-in-out',
           'backdrop-blur-xl backdrop-saturate-150 bg-background/30 border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_0_rgba(255,255,255,0.02)]',
-          scrolled ? 'py-2 bg-background/50' : 'py-4',
+          scrolled ? 'py-2 bg-background/50 max-w-[640px]' : 'py-4 max-w-[1120px]',
         )}
       >
         <motion.div
@@ -150,26 +149,3 @@ export function Navbar() {
   );
 }
 
-const ListItem = React.forwardRef<
-  React.ElementRef<'a'>,
-  React.ComponentPropsWithoutRef<'a'>
->(({ className, title, children, ...props }, ref) => (
-  <li>
-    <NavigationMenuLink asChild>
-      <a
-        ref={ref}
-        className={cn(
-          'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-          className,
-        )}
-        {...props}
-      >
-        <div className="text-sm font-medium leading-none">{title}</div>
-        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-          {children}
-        </p>
-      </a>
-    </NavigationMenuLink>
-  </li>
-));
-ListItem.displayName = 'ListItem';
