@@ -53,23 +53,25 @@ export function HomeContent() {
 
         {/* CTA */}
         <div className="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/contact">
-            <Button
-              variant="default"
-              className="group rounded-full px-6 py-6 text-base transition-all hover:shadow-lg cursor-pointer"
-            >
+          <Button
+            asChild
+            variant="default"
+            className="group rounded-full px-6 py-6 text-base transition-all hover:shadow-lg cursor-pointer"
+          >
+            <Link href="/contact">
               Vamos conversar
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </Link>
-          <Link href="/projects">
-            <Button
-              variant="outline"
-              className="group rounded-full px-6 py-6 text-base transition-all hover:bg-muted/50 cursor-pointer"
-            >
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="group rounded-full px-6 py-6 text-base transition-all hover:bg-muted/50 cursor-pointer"
+          >
+            <Link href="/projects">
               Ver projetos
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
