@@ -10,8 +10,8 @@
     "typescript"
   ],
   "engines": {
-    "node": ">=22.14.0",
-    "npm": ">=10.4.0"
+    "node": "24.x",
+    "npm": ">=11.11.0"
   },
   "scripts": {
     "dev": "next",
