@@ -92,7 +92,7 @@ export default async function Contact() {
         <div className="lg:col-span-2 space-y-8">
           {/* Reasons to contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Como posso ajudar?</h3>
+            <h2 className="text-lg font-semibold mb-4">Como posso ajudar?</h2>
             <ul className="space-y-3">
               {reasons.map((reason, index) => (
                 <li
@@ -108,9 +108,9 @@ export default async function Contact() {
 
           {/* Social Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">
+            <h2 className="text-lg font-semibold mb-4">
               Outras formas de contato
-            </h3>
+            </h2>
             <div className="grid gap-3">
               {socials.map((social) => (
                 <Link
@@ -141,7 +141,7 @@ export default async function Contact() {
         {/* Right Side - Form */}
         <div className="lg:col-span-3">
           <div className="rounded-2xl border border-border/50 bg-card/30 p-6 md:p-8">
-            <h3 className="text-xl font-semibold mb-2">Envie uma mensagem</h3>
+            <h2 className="text-xl font-semibold mb-2">Envie uma mensagem</h2>
             <p className="text-sm text-muted-foreground mb-6">
               Respondo geralmente em até 24 horas.
             </p>
