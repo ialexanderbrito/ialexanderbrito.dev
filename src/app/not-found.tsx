@@ -54,9 +54,9 @@ export default function Custom404() {
 
         {/* Suggestions Card */}
         <div className="mt-12 rounded-xl border border-border/50 bg-card/30 p-6 max-w-md w-full">
-          <h3 className="text-sm font-semibold mb-3">
+          <h2 className="text-sm font-semibold mb-3">
             Talvez você esteja procurando:
-          </h3>
+          </h2>
           <div className="flex flex-wrap gap-2">
             {[
               { label: 'Sobre mim', href: '/about' },
