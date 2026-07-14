@@ -24,10 +24,12 @@ export async function Footer() {
                 <img
                   src="/favicon.png"
                   alt="Logo"
+                  width="32"
+                  height="32"
                   className="w-8 h-8"
                   loading="lazy"
                 />
-                <h3 className="text-lg font-semibold">Alexander</h3>
+                <span className="text-lg font-semibold text-foreground">Alexander</span>
               </div>
               <p className="text-sm text-muted-foreground">
                 Front-end Developer & Mobile Developer
