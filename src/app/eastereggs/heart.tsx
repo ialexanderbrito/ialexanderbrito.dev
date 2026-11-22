@@ -2,11 +2,14 @@
 
 import { useEffect, useState } from 'react';
 
+import { useLanguage } from '@/context/language';
 import { toast } from '@/hooks';
 import { getSessionStorageItem } from '@/utils/getSessionStorageItem';
-import { Heart } from 'lucide-react';
+import { FavouriteIcon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 
 export function HeartEasterEgg() {
+  const { locale } = useLanguage();
   const currentYear = new Date().getFullYear();
   const [clickCount, setClickCount] = useState(0);
   const [isFilled, setIsFilled] = useState(false);
@@ -25,8 +28,14 @@ export function HeartEasterEgg() {
       setIsFilled(true);
       sessionStorage.setItem(heartFoundKey, 'true');
       toast({
-        title: '💖 Easter Egg Encontrado!',
-        description: 'Você encontrou o coração secreto com 7 cliques!',
+        title:
+          locale === 'en'
+            ? '💖 Easter Egg Discovered!'
+            : '💖 Easter Egg Encontrado!',
+        description:
+          locale === 'en'
+            ? 'You discovered the secret heart in 7 clicks!'
+            : 'Você encontrou o coração secreto com 7 cliques!',
         duration: 5000,
       });
     }
@@ -39,13 +48,18 @@ export function HeartEasterEgg() {
   }, []);
 
   return (
-    <div className="flex items-center gap-2 text-sm text-muted-foreground animate-fade-in">
-      <span>Feito com</span>
-      <Heart
-        className={`w-4 h-4 ${isFilled ? 'fill-red-500' : ''} text-red-500 animate-pulse`}
+    <div className="flex items-center gap-1.5 text-xs text-muted-foreground select-none">
+      <span>{locale === 'en' ? 'Made with' : 'Feito com'}</span>
+      <HugeiconsIcon
+        icon={FavouriteIcon}
+        size={14}
+        strokeWidth={1.5}
+        className={`cursor-pointer ${isFilled ? 'fill-red-500' : ''} text-red-500 transition-transform active:scale-125`}
         onClick={handleHeartClick}
       />
-      <span>por Alexander © {currentYear}</span>
+      <span>
+        {locale === 'en' ? 'by Alexander' : 'por Alexander'} © {currentYear}
+      </span>
     </div>
   );
 }

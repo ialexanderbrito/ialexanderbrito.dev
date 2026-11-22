@@ -3,7 +3,8 @@
 import { useCallback, useRef } from 'react';
 
 import { Button } from '@/components/ui/button';
-import { Moon, Sun } from 'lucide-react';
+import { Moon02Icon, Sun02Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 import { useTheme } from 'next-themes';
 import { flushSync } from 'react-dom';
 
@@ -61,10 +62,20 @@ export function ModeToggle() {
       onClick={toggleTheme}
       variant="ghost"
       size="icon"
-      className="relative rounded-full w-12 h-12 sm:w-9 sm:h-9 hover:bg-accent/40 dark:hover:bg-white/10 transition-colors border border-transparent hover:border-border/50 cursor-pointer"
+      className="relative rounded-full h-8 w-8 sm:h-8.5 sm:w-8.5 hover:bg-accent/40 dark:hover:bg-white/10 transition-colors border border-border/40 hover:border-border/70 cursor-pointer shrink-0 touch-manipulation after:absolute after:-inset-1.5 after:content-['']"
     >
-      <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-muted-foreground hover:text-foreground" />
-      <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-muted-foreground hover:text-foreground" />
+      <HugeiconsIcon
+        icon={Sun02Icon}
+        size={16}
+        strokeWidth={1.5}
+        className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-muted-foreground hover:text-foreground"
+      />
+      <HugeiconsIcon
+        icon={Moon02Icon}
+        size={16}
+        strokeWidth={1.5}
+        className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-muted-foreground hover:text-foreground"
+      />
       <span className="sr-only">Alternar tema</span>
     </Button>
   );

@@ -1,64 +1,24 @@
-const Checkered = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="100"
-    height="100"
-    viewBox="0 0 100 100"
-  >
-    <g fillRule="evenodd">
-      <g className="fill-muted-foreground">
-        <path
-          opacity=".5"
-          d="M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z"
-        />
-        <path d="M6 5V0H5v5H0v1h5v94h1V6h94V5H6z" />
-      </g>
-    </g>
-  </svg>
-);
+import * as React from 'react';
 
-const Dots = () => (
-  <rect
-    x="0"
-    y="0"
-    width="4"
-    height="4"
-    className="text-muted-foreground"
-    fill="currentColor"
-  />
-);
+type PatternProps = {
+  variant?: 'radial' | 'dots' | 'checkered';
+};
 
-type PatternProps = { variant: 'dots' | 'checkered' };
-
-export const PatternBackground = ({ variant }: PatternProps) => {
-  const pattern: Record<PatternProps['variant'], () => React.ReactElement> = {
-    dots: Dots,
-    checkered: Checkered,
-  };
-
+export const PatternBackground = ({ variant = 'radial' }: PatternProps) => {
   return (
-    <>
-      <div className="absolute right-0 top-0 -z-40 h-screen w-screen bg-linear-to-b from-transparent to-background" />
+    <div
+      aria-hidden="true"
+      data-variant={variant}
+      className="pointer-events-none fixed inset-0 -z-50 overflow-hidden"
+    >
+      {/* Top subtle radial spotlight */}
+      <div className="absolute -top-[300px] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(161,161,170,0.08),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.05),transparent_70%)] blur-2xl" />
 
-      <svg
-        className="absolute right-0 top-0 -z-50 h-screen w-screen opacity-10 dark:opacity-5"
-        fill="none"
-      >
-        <defs>
-          <pattern
-            id={variant}
-            x="0"
-            y="0"
-            width="20"
-            height="20"
-            patternUnits="userSpaceOnUse"
-          >
-            {pattern[variant]()}
-          </pattern>
-        </defs>
+      {/* Subtle vignette/secondary ambient glow */}
+      <div className="absolute top-[40%] right-[-200px] w-[600px] h-[600px] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(161,161,170,0.04),transparent_70%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.02),transparent_70%)] blur-3xl" />
 
-        <rect width="100vw" height="100vh" fill={`url(#${variant}`} />
-      </svg>
-    </>
+      {/* Optional ultra-fine ambient dot grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(#a1a1aa_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.12] dark:opacity-[0.06] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+    </div>
   );
 };

@@ -1,4 +1,3 @@
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import Script from 'next/script';
 
 const GA_MEASUREMENT_ID = process.env.GA_MEASUREMENT_ID;
@@ -42,8 +41,6 @@ export function Analytics() {
           </Script>
         </>
       ) : null}
-
-      <SpeedInsights />
     </>
   );
 }

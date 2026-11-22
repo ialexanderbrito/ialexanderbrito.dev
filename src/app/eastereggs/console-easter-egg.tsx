@@ -10,9 +10,6 @@ export function ConsoleEasterEgg() {
   const timeOfDay = useTimeOfDay();
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'development') return;
-    if (!timeOfDay) return;
-
     function greetingMessage() {
       if (timeOfDay === 'dia') {
         return 'um bom dia 🌞';
@@ -23,9 +20,10 @@ export function ConsoleEasterEgg() {
       }
     }
 
+    // Print developer welcome to console
     console.log(
-      `%c Opa, o que você tá fazendo aqui? 🤪`,
-      'font-size: 2rem; font-weight: bold;',
+      `%cOpa, o que você tá fazendo aqui? 🤪`,
+      'font-size: 1.5rem; font-weight: bold; color: #a1a1aa;',
     );
     console.log(
       '💻 Você pode visualizar o código-fonte deste site em https://github.com/ialexanderbrito/ialexanderbrito.dev',
@@ -35,19 +33,16 @@ export function ConsoleEasterEgg() {
     );
     console.log(`Tenha ${greetingMessage()}!`);
 
-    console.log = () => {};
-    console.warn = () => {};
-    console.error = () => {};
-
     function showEasterEggUnlockedAlert() {
-      if (getSessionStorageItem('@ialexanderbrito:unlockedConsoleEasterEgg'))
+      if (getSessionStorageItem('@ialexanderbrito:unlockedConsoleEasterEgg')) {
         return;
+      }
 
       toast({
         title: '🔍👀 Você é um curioso, hein?',
         description:
           'Um novo easter egg foi encontrado! Abra o console para descobrir.',
-        duration: 10000,
+        duration: 8000,
       });
       sessionStorage.setItem(
         '@ialexanderbrito:unlockedConsoleEasterEgg',
