@@ -5,6 +5,7 @@
 @theme {
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
@@ -37,8 +38,12 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  --animate-accordion-down: accordion-down 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  --animate-accordion-up: accordion-up 0.2s cubic-bezier(0.23, 1, 0.32, 1);
   --animate-ping-static: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
   --animate-animated-cloud: cloud 60s linear infinite;
   --animate-shine: shine 5s linear infinite;
