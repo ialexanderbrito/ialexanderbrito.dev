@@ -19,6 +19,25 @@ const nextConfig = {
     ],
     dangerouslyAllowSVG: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/craft',
+        destination: '/projects',
+        permanent: false,
+      },
+      {
+        source: '/tech',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/contact',
+        destination: '/',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
