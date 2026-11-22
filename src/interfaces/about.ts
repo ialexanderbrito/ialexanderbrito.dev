@@ -3,7 +3,7 @@ export interface AboutResponse {
 }
 
 export interface About {
-  slug: string;
+  slug?: string;
   introduction: Introduction;
   profilePicture: ProfilePicture;
 }

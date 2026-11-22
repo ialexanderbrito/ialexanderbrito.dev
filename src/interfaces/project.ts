@@ -4,7 +4,7 @@ export interface ProjectsResponse {
 
 export interface Project {
   id: string;
-  order: number;
+  order?: number;
   name: string;
   description: string;
   urlProject: string;
@@ -22,6 +22,6 @@ export interface Technology {
 }
 
 export interface Thumbnail {
-  id: string;
+  id?: string;
   url: string;
 }

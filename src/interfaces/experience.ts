@@ -4,14 +4,14 @@ export interface ExperienceResponse {
 
 export interface Experience {
   id: string;
-  companyColor: CompanyColor;
   companyName: string;
   typeJob: string;
   role: string;
   description: string;
   startedAt: string;
   finishedAt?: string;
-  companyLogo: CompanyLogo;
+  companyColor?: CompanyColor;
+  companyLogo?: CompanyLogo;
 }
 
 export interface CompanyLogo {

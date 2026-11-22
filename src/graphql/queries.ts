@@ -1,8 +1,7 @@
-export const GET_PROJECTS = `
-query getProjects {
-  projects(first: 100, orderBy: order_DESC) {
+export const GET_PORTFOLIO_DATA = `
+query getPortfolioData($locales: [Locale!] = [pt_BR, en]) {
+  projects(first: 100, orderBy: createdAt_DESC, locales: $locales) {
     id
-    order
     name
     description
     urlProject
@@ -10,7 +9,45 @@ query getProjects {
     category
     createdAt
     thumbnail {
+      url
+    }
+    technologies {
       id
+      name
+      iconSvg
+    }
+  }
+  experiences(orderBy: finishedAt_DESC, locales: $locales) {
+    id
+    companyName
+    typeJob
+    role
+    description
+    startedAt
+    finishedAt
+  }
+  about(where: {id: "clvmwke3c098907kgbf6stv1t"}, locales: $locales) {
+    introduction {
+      html
+    }
+    profilePicture {
+      url
+    }
+  }
+}
+`;
+
+export const GET_PROJECTS = `
+query getProjects($locales: [Locale!] = [pt_BR, en]) {
+  projects(first: 100, orderBy: createdAt_DESC, locales: $locales) {
+    id
+    name
+    description
+    urlProject
+    urlRepo
+    category
+    createdAt
+    thumbnail {
       url
     }
     technologies {
@@ -23,74 +60,26 @@ query getProjects {
 `;
 
 export const GET_EXPERIENCES = `
-query getExperiences {
-  experiences(orderBy: finishedAt_DESC) {
+query getExperiences($locales: [Locale!] = [pt_BR, en]) {
+  experiences(orderBy: finishedAt_DESC, locales: $locales) {
     id
-    companyColor {
-      hex
-    }
     companyName
     typeJob
     role
     description
     startedAt
     finishedAt
-    companyLogo {
-      url
-    }
   }
 }
 `;
 
 export const GET_ABOUT = `
-query getAbout {
-  about(where: {id: "clvmwke3c098907kgbf6stv1t"}) {
-    slug
+query getAbout($locales: [Locale!] = [pt_BR, en]) {
+  about(where: {id: "clvmwke3c098907kgbf6stv1t"}, locales: $locales) {
     introduction {
       html
     }
     profilePicture {
-      url
-    }
-  }
-}
-`;
-
-export const GET_SOCIALS = `
-query getSocial {
-  socials(first: 50, orderBy: order_ASC) {
-    id
-    name
-    url
-    order
-    logoSvg
-    target
-  }
-}
-`;
-
-export const GET_STACKS = `
-query getStacks {
-  stacks(first: 100, orderBy: name_ASC) {
-    id
-    name
-    urlSite
-    invert
-    icon {
-      url
-    }
-    category
-  }
-}
-`;
-
-export const GET_MOMENTS = `
-query getMoment {
-  moments {
-    local,
-    codigoDoPais,
-    isPillTop,
-    imagem {
       url
     }
   }
