@@ -1,0 +1,71 @@
+# DESIGN.md · ialexanderbrito.dev
+
+> Se este arquivo e o código discordarem, o código prevalece até decisão explícita. Registre conflitos em Open questions.
+
+## Product
+Portfólio pessoal e workstation para Alexander (Especialista em Frontend, Mobile & Inteligência Artificial). Apresenta sua biografia técnica, projetos desenvolvidos, trajetória de carreira e links de redes.
+Job principal: Permitir que visitantes compreendam com clareza o perfil de engenharia de Alexander e naveguem com velocidade direta para Projetos e Sobre.
+
+## Audience and voice
+Recrutadores de tecnologia, líderes de engenharia, desenvolvedores e clientes potenciais.
+Tom direto, técnico e moderno: Português (Brasil) com terminologias técnicas consolidadas em inglês, conciso, profissional e sem enrolação.
+
+## Mood
+Palavras-chave: Refinado, Dark-mode, Artesanal ("Craft").
+Nunca parecer: Template genérico, exagero neon, ou site institucional corporativo cansativo.
+
+## Brand
+- Identidade: Monograma e favicon oficial (`public/favicon.png`).
+- Design system source: `src/app/globals.css` (Tailwind CSS v4 `@theme`) e `src/components/ui/` (24 componentes shadcn/ui + Radix).
+- Cores: Base escura em HSL/Zinc, contraste marcado preto/branco e superfícies com bordas finas (`--color-border`).
+- Tipografia: Sans (`--font-sans`) para interface e Mono (`--font-mono`) para código e termos técnicos.
+
+## References
+- Vercel: Pegar o contraste marcante preto/branco, tipografia com peso e precisão geométrica.
+- GitHub Next: Pegar o foco evidente em código, ferramentas e tecnologia interativa; evitar visual puramente frio ou impessoal.
+
+## Constraints
+- Plataformas: Mix responsivo completo de telas mobile (390px) a desktops amplos (1400px).
+- Acessibilidade: Diretrizes WCAG AA, navegação fluida por teclado e leitores de tela.
+- Tema: Dark mode prioritário com suporte a light mode via variáveis CSS nativas.
+- Ícones: Hugeicons (@hugeicons/react e @hugeicons/core-free-icons) unificado com strokeWidth={1.5} no estilo Stroke Rounded para toda a UI e marcas sociais.
+- Movimento: Animações spring sutis via Framer Motion, respeitando performance e zero layout shifts.
+
+## Decisions log
+- 2026-11-21 — Instalação da suíte de skills `diego3g/craft` (8 skills) no diretório `.agents/skills/`.
+- 2026-11-21 — Entrevista `/craft-setup` concluída e aprovação do brief oficial de design.
+- 2026-11-21 — Integração de tokens e inventário de 24 componentes sincronizados em `design-sync.json`.
+- 2026-11-21 — Tela principal (Home) desenhada no estilo Minimalista/Editorial (Opção B) com biografia técnica de alto impacto, lista de projetos selecionados em linhas limpas e resumo de experiência recente, evitando monopolização visual por um único produto.
+- 2026-11-21 — Unificação do Navbar em Floating Pill no layout.tsx com suporte a rotas, Command Menu (⌘K), contato e tema, removendo barra duplicada da Workstation.
+- 2026-11-21 — Redesenho do Footer para o padrão Minimalista/Editorial em linha única, removendo banner pesado e links redundantes.
+- 2026-11-21 — Simplificação editorial profunda: padronização do nome 'Alexander' em todo o projeto, remoção das tags de disponibilidade, remoção dos botões/diálogos de contato, foco da Home exclusivamente na bio e direcionamento para Projetos/Sobre, e eliminação da seção repetida de redes/e-mail no final da Home (resolvendo a sensação de duplo footer).
+- 2026-11-21 — Ajuste de altura e layout flexbox: Home estruturada com centralização vertical no espaço disponível entre Navbar e Footer (100dvh), eliminando barras de scroll desnecessárias na visualização inicial.
+- 2026-11-21 — Redesenho completo da tela Sobre no padrão minimalista/editorial: foto de perfil integrada de forma limpa, texto narrativo coeso, histórico de carreira em linhas cronológicas e princípios de engenharia, removendo widgets ruidosos (Spotify, Location, Momentos e stats animados).
+- 2026-11-21 — Simplificação do Navbar: foco estrito em Logo/Alexander, links principais (Início, Projetos, Sobre) e tema, eliminando totalmente o atalho e interface de Ctrl + K (Command Menu).
+- 2026-11-21 — Tela Sobre ajustada para renderizar o texto narrativo 100% via Hygraph (about.introduction.html), removendo parágrafos estáticos duplicados do código e centralizando a edição exclusivamente no CMS.
+- 2026-11-21 — Tela Sobre atualizada com abertura amigável ('Opa, sou Alexander') e subtítulo de posicionamento sênior ('Front-end & Design Engineer especializado em produtos digitais escaláveis, arquitetura web/mobile e interfaces táteis').
+- 2026-11-21 — Subtítulo do Sobre encurtado cirurgicamente para 'Front-end & Design Engineer' em linha única, eliminando peso visual antes da biografia.
+- 2026-11-21 — Seção 'Princípios de Engenharia' removida da tela Sobre para manter foco estrito na biografia e na linha do tempo profissional.
+- 2026-11-21 — Navbar simplificado para modelo ultra-limpo: contém exclusivamente o Logo + 'Alexander' à esquerda e o Switch Dark/Light à direita, unificando mobile e desktop e removendo os links de navegação.
+- 2026-11-21 — Navbar ajustado para composição equilibrada de 3 polos: Logo isolado à esquerda (sem texto), links centrais essenciais (Início, Projetos, Sobre) com indicador deslizante fluido, e alternador Dark/Light à direita, restabelecendo a navegação direta entre as telas.
+- 2026-11-21 — Simplificação cirúrgica da tela de Projetos (/projects): remoção de todas as tags/badges ao lado dos títulos dos projetos e eliminação das abas/filtros redundantes; organização direta na página em duas seções limpas ('SaaS' e 'Outros projetos'), priorizando tipografia pura, foco no nome do projeto, tecnologias, ano e busca textual.
+- 2026-11-21 — Auditoria completa de Responsive Design (320px a 1920px+): transição do layout para 100dvh (evitando quebras com a barra de endereços móvel); ampliação dos touch targets da Navbar (h-8); refinamento mobile da timeline de experiência no Sobre (empilhamento vertical de período e cargo em telas estreitas eliminando indentação forçada); prevenção de overflow no Footer para telas a partir de 320px; e correção de pointer-events no botão de scroll to top.
+- 2026-11-21 — Modernização do Modal de Boas-Vindas à Empresa (CompanyThanksDialog) com padrão responsivo híbrido via Vaul: Bottom Drawer com gestos de arrasto e cantos arredondados no mobile (< 640px) e Dialog centralizado no desktop; reescrita do texto no padrão sênior/editorial sem emojis infantis; correção de erro de hidratação HTML (asChild em DialogDescription/DrawerDescription evitando aninhamento de <p>); restauração do console easter egg ativo tanto em dev quanto em produção; e redesign dos Toasts para formato minimalista flutuante centralizado (bottom-center) com bordas arredondadas (rounded-2xl) e backdrop blur.
+- 2026-11-21 — Calibração do posicionamento profissional: remoção do termo 'Design Engineer' e padronização em 'Especialista em Frontend, Mobile & IA' em todo o site (Home, Sobre, modal de empresa e metadados OpenGraph), refletindo com exatidão a expertise técnica de mais de 7 anos em React, Next.js, React Native/Expo e integração de soluções com Inteligência Artificial.
+- 2026-11-21 — Suporte a Internacionalização (Português & Inglês): arquitetura híbrida de Cookie (NEXT_LOCALE) + Contexto reativo e SSR no App Router, integração dinâmica com Hygraph GraphQL através de queries parametrizadas com $locales: [en, pt_BR] e fallback automático; botão compacto de alternância de idioma (LanguageToggle) adicionado à Navbar com micro-animação spring e transição visual fluida; e dicionário de traduções completo para todas as telas (Home, Sobre, Projetos, Navbar, Footer e modais).
+- 2026-11-21 — Mapeamento de modelo de trabalho (Selects do Hygraph): implementada função utilitária formatJobType para converter valores enumerados fixos ('Remoto' -> 'Remote', 'Híbrido' -> 'Hybrid', 'Presencial' -> 'On-site') conforme o idioma ativo, garantindo consistência em toda a linha do tempo profissional.
+- 2026-11-21 — Limpeza profunda de Dead Code e Atualização de Dependências: remoção de 46 arquivos legados e não utilizados (23 componentes em src/components, 20 componentes shadcn/ui em src/components/ui, e 3 utilitários órfãos em src/utils); desinstalação de 16 pacotes pesados não referenciados (como mapbox-gl, swr, react-hook-form, zod, etc.) reduzindo 74 pacotes de node_modules; atualização de dependências ativas via npm update; e sincronização de design-sync.json para catalogar com precisão estrita apenas os 5 componentes de UI em uso ativo (Button, Dialog, Drawer, Input, Toast).
+- 2026-11-21 — Redesenho minimalista/editorial da tela 404 (src/app/not-found.tsx): substituição da ilustração caricata (404 gigante com lupa e links desatualizados) por composição tipográfica refinada em conformidade com o brief do DESIGN.md; centralização vertical flexbox integrada ao espaço entre Navbar e Footer sem scrollbars parasitas; suporte multilíngue nativo (PT/EN); e botões de ação consistentes ('Voltar ao início' e 'Ver projetos').
+- 2026-11-21 — Otimização de Responsividade da Navbar para telas pequenas (320px–390px): correção do overflow horizontal; ajuste do ModeToggle de w-12 para h-8 w-8 em mobile (eliminando descompasso com os demais pills); ocultação do prefixo 'LANG' no LanguageToggle em telas móveis exibindo apenas 'PT'/'EN'; e calibração dos paddings do container e das abas de navegação (px-2.5 com texto 11px), garantindo largura total inferior a 270px e total conforto em telas a partir de 320px.
+- 2026-11-21 — Auditoria completa de Responsive Design (WCAG 2.2 / Mobile-First): implementação de Viewport export em src/app/layout.tsx com themeColor nativo para browsers móveis; contenção estrita de overflow-x no body; adoção de touch-manipulation e pseudo-elementos after para touch targets de 44x44px em todos os controles interativos compactos (LanguageToggle, ModeToggle, abas centrais e botão de retorno ao topo); e calibração de paddings de links no Footer.
+- 2026-11-21 — Redesenho artesanal do ButtonTop (src/components/button-top.tsx): substituição do botão estático genérico por elemento flutuante em glassmorphism refinado (bg-background/80 com backdrop blur e border-border/50); animações spring de entrada, saída, hover e tap via Framer Motion com AnimatePresence; scroll listener otimizado com requestAnimationFrame e { passive: true }; suporte multilíngue nativo (PT/EN); e ícone ArrowUp de traço fino em substituição ao chevron volumoso.
+- 2026-11-21 — Unificação do Design System de Ícones com Hugeicons (@hugeicons/react e @hugeicons/core-free-icons): eliminação completa da fragmentação anterior (que misturava lucide-react e @phosphor-icons/react); adoção do padrão Stroke Rounded com strokeWidth={1.5} cirúrgico em todos os componentes (ModeToggle, Footer com redes sociais, CraftProjectsList, CraftHomeView, ButtonTop, Custom404, Dialog, Toast, Heart e CompanyThanksDialog); e desinstalação definitiva dos pacotes legados lucide-react e @phosphor-icons/react.
+- 2026-11-21 — Atualização geral de dependências (minor & patch): atualização segura de Next.js (16.2 -> 16.4.6 Turbopack), React/React-DOM (19.2 -> 19.3.1), Tailwind CSS & PostCSS (4.3.2 -> 4.3.5), Radix UI (Dialog/Slot/Toast), ESLint (10.6 -> 10.15), Types e utilitários; scripts de linting adaptados para ESLint 10; validação com zero erros em type-check, lint e build de produção.
+- 2026-11-21 — Limpeza profunda de dependências órfãs e telemetria redundante: desinstalação de resend, @react-email/components, @upstash/ratelimit, @vercel/analytics e @vercel/speed-insights (removendo 46 pacotes do node_modules); exclusão dos arquivos órfãos de backend (src/app/api/send/, src/components/email-template.tsx, src/utils/spamDetection.ts); e consolidação do rastreamento exclusivamente em Google Analytics + Microsoft Clarity no componente Analytics.
+- 2026-11-21 — Simplificação e padronização do Seletor de Idioma (src/components/language-toggle.tsx): remoção de fontes mono, prefixo 'LANG' e animações verticais com overflow; adoção de tipografia padrão (Geist Sans, font-sans) exibindo a sigla do idioma de forma limpa ('PT' / 'EN') em um botão circular (h-8 w-8) idêntico e perfeitamente simétrico ao alternador de tema ao lado.
+- 2026-11-21 — Ordenação de Projetos por Data Recente (createdAt_DESC): alinhamento do GraphQL (GET_PROJECTS) e filtragem do CraftProjectsList para ordenação decrescente estrita por data de criação (`createdAt`). O projeto mais recente ('mirio - whiteboard', adicionado em 2026) agora assume a 1ª posição no topo da seção 'Outros projetos', mantendo a estrutura de seções ('SaaS' e 'Outros projetos') conforme alinhado e adicionando redirecionamento seguro da rota /craft para /projects.
+- 2026-11-21 — Otimização e Consolidação de Queries GraphQL: eliminação de 2 requisições órfãs (GET_MOMENTS e GET_SOCIALS) e campos legados não renderizados (companyLogo, companyColor, slug, order e thumbnail.id); unificação do carregamento de dados em uma única query GraphQL raíz (GET_PORTFOLIO_DATA), reduzindo as chamadas de rede de 5 requisições paralelas para 1 único roundtrip HTTP direto ao Hygraph; remoção de interfaces mortas (moments.ts, socials.ts, stack.ts) e props fantasmas dos componentes CraftWorkstation, CraftAboutView e CraftHomeView.
+- 2026-11-21 — Atualização de Ícones de Tema no ModeToggle: substituição de Sun01Icon e Moon01Icon por Sun02Icon e Moon02Icon (@hugeicons/core-free-icons), mantendo o padrão Stroke Rounded com strokeWidth={1.5} e micro-transição visual fluida com View Transitions.
+
+## Open questions
+- Nenhuma pendência em aberto no momento.

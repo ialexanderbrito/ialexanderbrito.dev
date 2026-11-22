@@ -1,0 +1,33 @@
+{
+  "source": "src/app/globals.css",
+  "tool": "code",
+  "naming": "CSS custom property names as written in the source",
+  "synced": "2026-11-21",
+  "tokens": {
+    "--color-background": "hsl(var(--background))",
+    "--color-foreground": "hsl(var(--foreground))",
+    "--color-primary": "hsl(var(--primary))",
+    "--color-primary-foreground": "hsl(var(--primary-foreground))",
+    "--color-secondary": "hsl(var(--secondary))",
+    "--color-secondary-foreground": "hsl(var(--secondary-foreground))",
+    "--color-muted": "hsl(var(--muted))",
+    "--color-muted-foreground": "hsl(var(--muted-foreground))",
+    "--color-accent": "hsl(var(--accent))",
+    "--color-accent-foreground": "hsl(var(--accent-foreground))",
+    "--color-destructive": "hsl(var(--destructive))",
+    "--color-destructive-foreground": "hsl(var(--destructive-foreground))",
+    "--color-border": "hsl(var(--border))",
+    "--color-input": "hsl(var(--input))",
+    "--color-ring": "hsl(var(--ring))",
+    "--radius-lg": "var(--radius)",
+    "--radius-md": "calc(var(--radius) - 2px)",
+    "--radius-sm": "calc(var(--radius) - 4px)"
+  },
+  "components": {
+    "Button": "in code only",
+    "Dialog": "in code only",
+    "Drawer": "in code only",
+    "Input": "in code only",
+    "Toast": "in code only"
+  }
+}
