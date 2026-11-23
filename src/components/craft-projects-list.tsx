@@ -115,7 +115,7 @@ export function CraftProjectsList({ projects }: CraftProjectsListProps) {
         key={project.id}
         onMouseEnter={() => setHoveredProject(project)}
         onMouseLeave={() => setHoveredProject(null)}
-        className="group transition-colors duration-150 hover:bg-muted/15"
+        className="group transition-colors duration-150 hover:bg-muted/15 rounded-lg -mx-2 sm:-mx-3"
       >
         {/* Row Header */}
         <div

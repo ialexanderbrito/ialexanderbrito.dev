@@ -20,14 +20,14 @@ export function CraftAboutView({
   const { locale, t } = useLanguage();
 
   return (
-    <div className="space-y-16 md:space-y-20 py-4 sm:py-8 select-none max-w-3xl">
+    <div className="space-y-16 md:space-y-20 select-none max-w-3xl">
       {/* 1. Header & Bio Narrative (Dados 100% via Hygraph) */}
       <section className="space-y-8">
         <div className="space-y-2">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground text-balance">
             {t.about.greeting}
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed text-balance">
             {t.about.subtitle}
           </p>
         </div>

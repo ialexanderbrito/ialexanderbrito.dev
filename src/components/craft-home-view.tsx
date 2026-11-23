@@ -16,7 +16,7 @@ export function CraftHomeView({ onNavigateTab }: CraftHomeViewProps) {
   const { t } = useLanguage();
 
   return (
-    <div className="select-none max-w-2xl w-full my-auto py-2 sm:py-4">
+    <div className="select-none max-w-2xl w-full my-auto">
       <motion.section
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -24,10 +24,10 @@ export function CraftHomeView({ onNavigateTab }: CraftHomeViewProps) {
         className="space-y-6 sm:space-y-7"
       >
         <div className="space-y-3">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground text-balance">
             {t.home.title}
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed text-balance">
             {t.home.subtitle}
           </p>
         </div>
