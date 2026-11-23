@@ -1,4 +1,5 @@
 import { CraftWorkstation } from '@/components/craft-workstation';
+import { siteConfig } from '@/config/site';
 import { Locale } from '@/config/translations';
 import { getPortfolioData } from '@/lib/portfolio-data';
 import type { Metadata } from 'next';
@@ -9,28 +10,39 @@ const thumbnail = {
   width: 1200,
   height: 630,
   alt: 'Sobre • Alexander',
-};
-
-const defaultMetadata = {
-  title: 'Sobre',
-  description:
-    'Trajetória profissional, filosofia de desenvolvimento, stack e momentos marcantes de Alexander.',
-  images: [thumbnail],
+  type: 'image/jpeg',
 };
 
 export const metadata: Metadata = {
-  ...defaultMetadata,
-  twitter: {
-    ...defaultMetadata,
-    card: 'summary_large_image',
-    site: '@ialexanderbrito',
-    creator: '@ialexanderbrito',
+  title: 'Sobre',
+  description:
+    'Trajetória profissional, filosofia de desenvolvimento, stack e momentos marcantes de Alexander.',
+  alternates: {
+    canonical: 'https://ialexanderbrito.dev/about',
+    languages: {
+      'pt-BR': 'https://ialexanderbrito.dev/about',
+      'en-US': 'https://ialexanderbrito.dev/about',
+    },
   },
   openGraph: {
-    ...defaultMetadata,
-    type: 'website',
+    title: 'Sobre • Alexander',
+    description:
+      'Trajetória profissional, filosofia de desenvolvimento, stack e momentos marcantes de Alexander.',
+    type: 'profile',
     url: 'https://ialexanderbrito.dev/about',
-    siteName: 'Alexander • Sobre',
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    alternateLocale: siteConfig.localeAlternate,
+    images: [thumbnail],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sobre • Alexander',
+    description:
+      'Trajetória profissional, filosofia de desenvolvimento, stack e momentos marcantes de Alexander.',
+    site: '@ialexanderbrito',
+    creator: '@ialexanderbrito',
+    images: [thumbnail.url],
   },
 };
 

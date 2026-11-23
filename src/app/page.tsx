@@ -1,4 +1,5 @@
 import { CraftWorkstation } from '@/components/craft-workstation';
+import { siteConfig } from '@/config/site';
 import { Locale } from '@/config/translations';
 import { getPortfolioData } from '@/lib/portfolio-data';
 import type { Metadata } from 'next';
@@ -9,28 +10,36 @@ const thumbnail = {
   width: 1200,
   height: 630,
   alt: 'Alexander • Especialista Frontend, Mobile & IA',
-};
-
-const defaultMetadata = {
-  title: 'Alexander • Especialista Frontend, Mobile & IA',
-  description:
-    'Portfólio de engenharia de software de Alexander. Especialista no ecossistema React, Next.js, Mobile (React Native) e soluções com Inteligência Artificial.',
-  images: [thumbnail],
+  type: 'image/jpeg',
 };
 
 export const metadata: Metadata = {
-  ...defaultMetadata,
-  twitter: {
-    ...defaultMetadata,
-    card: 'summary_large_image',
-    site: '@ialexanderbrito',
-    creator: '@ialexanderbrito',
+  title: siteConfig.title,
+  description: siteConfig.description,
+  alternates: {
+    canonical: 'https://ialexanderbrito.dev',
+    languages: {
+      'pt-BR': 'https://ialexanderbrito.dev',
+      'en-US': 'https://ialexanderbrito.dev',
+    },
   },
   openGraph: {
-    ...defaultMetadata,
-    type: 'website',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    type: 'profile',
     url: 'https://ialexanderbrito.dev',
-    siteName: 'Alexander',
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    alternateLocale: siteConfig.localeAlternate,
+    images: [thumbnail],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    site: '@ialexanderbrito',
+    creator: '@ialexanderbrito',
+    images: [thumbnail.url],
   },
 };
 

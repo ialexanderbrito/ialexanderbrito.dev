@@ -24,6 +24,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="p-2 sm:p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors touch-manipulation"
               title="GitHub"
+              aria-label="GitHub de Alexander"
             >
               <HugeiconsIcon icon={Github01Icon} size={16} strokeWidth={1.5} />
             </Link>
@@ -33,6 +34,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="p-2 sm:p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors touch-manipulation"
               title="LinkedIn"
+              aria-label="LinkedIn de Alexander"
             >
               <HugeiconsIcon
                 icon={Linkedin02Icon}
@@ -46,6 +48,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="p-2 sm:p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors touch-manipulation"
               title="X / Twitter"
+              aria-label="Perfil no X (Twitter) de Alexander"
             >
               <HugeiconsIcon
                 icon={NewTwitterIcon}
@@ -57,6 +60,7 @@ export function Footer() {
               href="mailto:eu@ialexanderbrito.dev"
               className="p-2 sm:p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors touch-manipulation"
               title="E-mail"
+              aria-label="Enviar e-mail para Alexander"
             >
               <HugeiconsIcon icon={Mail01Icon} size={16} strokeWidth={1.5} />
             </Link>

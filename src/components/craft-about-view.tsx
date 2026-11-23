@@ -20,7 +20,7 @@ export function CraftAboutView({
   const { locale, t } = useLanguage();
 
   return (
-    <div className="space-y-16 md:space-y-20 select-none max-w-3xl">
+    <div className="space-y-16 md:space-y-20 max-w-3xl">
       {/* 1. Header & Bio Narrative (Dados 100% via Hygraph) */}
       <section className="space-y-8">
         <div className="space-y-2">

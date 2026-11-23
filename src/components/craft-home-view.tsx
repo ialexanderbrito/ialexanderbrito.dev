@@ -16,7 +16,7 @@ export function CraftHomeView({ onNavigateTab }: CraftHomeViewProps) {
   const { t } = useLanguage();
 
   return (
-    <div className="select-none max-w-2xl w-full my-auto">
+    <div className="max-w-2xl w-full my-auto">
       <motion.section
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}

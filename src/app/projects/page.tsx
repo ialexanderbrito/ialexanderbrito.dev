@@ -1,4 +1,5 @@
 import { CraftWorkstation } from '@/components/craft-workstation';
+import { siteConfig } from '@/config/site';
 import { Locale } from '@/config/translations';
 import { getPortfolioData } from '@/lib/portfolio-data';
 import type { Metadata } from 'next';
@@ -9,28 +10,39 @@ const thumbnail = {
   width: 1200,
   height: 630,
   alt: 'Projetos • Alexander',
-};
-
-const defaultMetadata = {
-  title: 'Projetos',
-  description:
-    'Obras selecionadas, produtos digitais, SaaS e iniciativas em código aberto desenvolvidas com foco em alta performance e design engineering.',
-  images: [thumbnail],
+  type: 'image/jpeg',
 };
 
 export const metadata: Metadata = {
-  ...defaultMetadata,
-  twitter: {
-    ...defaultMetadata,
-    card: 'summary_large_image',
-    site: '@ialexanderbrito',
-    creator: '@ialexanderbrito',
+  title: 'Projetos',
+  description:
+    'Produtos digitais, SaaS, aplicações web e mobile, e projetos de código aberto desenvolvidos por Alexander.',
+  alternates: {
+    canonical: 'https://ialexanderbrito.dev/projects',
+    languages: {
+      'pt-BR': 'https://ialexanderbrito.dev/projects',
+      'en-US': 'https://ialexanderbrito.dev/projects',
+    },
   },
   openGraph: {
-    ...defaultMetadata,
+    title: 'Projetos • Alexander',
+    description:
+      'Produtos digitais, SaaS, aplicações web e mobile, e projetos de código aberto desenvolvidos por Alexander.',
     type: 'website',
     url: 'https://ialexanderbrito.dev/projects',
-    siteName: 'Alexander • Projetos',
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    alternateLocale: siteConfig.localeAlternate,
+    images: [thumbnail],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Projetos • Alexander',
+    description:
+      'Produtos digitais, SaaS, aplicações web e mobile, e projetos de código aberto desenvolvidos por Alexander.',
+    site: '@ialexanderbrito',
+    creator: '@ialexanderbrito',
+    images: [thumbnail.url],
   },
 };
 
