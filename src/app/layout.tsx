@@ -2,6 +2,7 @@ import { EasterEggs } from '@/app/eastereggs';
 import { Analytics } from '@/components/analytics';
 import { ButtonTop } from '@/components/button-top';
 import { Footer } from '@/components/footer';
+import { JsonLd } from '@/components/json-ld';
 import { Navbar } from '@/components/navbar';
 import { PatternBackground } from '@/components/pattern-bg';
 import { ThemeProvider } from '@/components/theme-provider';
@@ -17,11 +18,77 @@ import NextTopLoader from 'nextjs-toploader';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.name,
-    template: `${siteConfig.name} • %s`,
+    default: siteConfig.title,
+    template: `%s • ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  generator: 'Next.js',
+  keywords: siteConfig.keywords,
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: 'technology',
+  alternates: {
+    canonical: '/',
+    languages: {
+      'pt-BR': '/',
+      'en-US': '/',
+    },
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.png', sizes: '192x192', type: 'image/png' },
+    ],
+    shortcut: '/favicon.png',
+    apple: [{ url: '/favicon.png', sizes: '180x180', type: 'image/png' }],
+  },
+  manifest: '/manifest.webmanifest',
+  openGraph: {
+    type: 'profile',
+    locale: siteConfig.locale,
+    alternateLocale: siteConfig.localeAlternate,
+    url: siteConfig.url,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.title,
+        type: 'image/jpeg',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    site: '@ialexanderbrito',
+    creator: '@ialexanderbrito',
+    images: [siteConfig.ogImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  other: {
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'black-translucent',
+    'format-detection': 'telephone=no',
+  },
 };
 
 export const viewport: Viewport = {
@@ -55,6 +122,19 @@ export default async function RootLayout({
     >
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" />
+        <link
+          rel="alternate"
+          type="text/plain"
+          href="/llms.txt"
+          title="LLMs.txt"
+        />
+        <link
+          rel="alternate"
+          type="text/plain"
+          href="/llms-full.txt"
+          title="LLMs-full.txt"
+        />
+        <JsonLd />
         <Analytics />
       </head>
       <body className="bg-background antialiased overflow-x-hidden min-h-[100dvh]">
