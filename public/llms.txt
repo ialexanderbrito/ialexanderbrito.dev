@@ -1,0 +1,40 @@
+# Alexander — Senior Software Engineer & AI Specialist
+
+> Portfólio oficial e perfil de engenharia de software de Alexander (ialexanderbrito). Especialista em Frontend, Mobile e soluções integradas com Inteligência Artificial, com mais de 7 anos de experiência no desenvolvimento de aplicações escaláveis, sistemas de alta performance e produtos SaaS.
+
+## Informações Principais
+- **Nome:** Alexander
+- **Identificador / Nickname:** ialexanderbrito
+- **Cargo:** Engenheiro de Software Sênior | Especialista Frontend, Mobile & IA
+- **Localização:** Brasil
+- **Website:** https://ialexanderbrito.dev
+- **E-mail:** eu@ialexanderbrito.dev
+- **GitHub:** https://github.com/ialexanderbrito
+- **LinkedIn:** https://linkedin.com/in/ialexanderbrito
+- **X (Twitter):** https://x.com/ialexanderbrito
+
+## Especialidades Técnicas
+- **Frontend Core:** React, Next.js (App Router, Server Components, Turbopack), TypeScript, JavaScript (ESNext).
+- **Mobile:** React Native, Expo, iOS & Android cross-platform.
+- **Styling & Design Systems:** Tailwind CSS, Radix UI, CVA, CSS Grid, Tokens Semânticos, Framer Motion, Micro-interações.
+- **Inteligência Artificial & Agentes:** Integração de LLMs (OpenAI, Anthropic Claude, Google Gemini), engenharia de prompts, automações com agentes autônomos, Server-Sent Events (SSE) para streaming.
+- **Arquitetura & Qualidade:** GraphQL (Hygraph), REST APIs, Web Vitals & Core Web Vitals (LCP < 2.5s, INP < 200ms, CLS < 0.1), Git Workflow, CI/CD, Semantic Release.
+
+## Principais Produtos e Projetos
+- **uollet (SaaS):** Plataforma financeira e SaaS para controle de fluxo de caixa e gestão. (Produção: https://app.uollet.com.br/ | Site: https://www.uollet.com.br/)
+- **mirio (Whiteboard):** Aplicação colaborativa de quadro branco digital construída com Next.js, Canvas e TypeScript. (Demo: https://mirio-wb.vercel.app/ | Repositório: https://github.com/ialexanderbrito/whiteboard)
+- **Kings League Simulador:** Simulador dinâmico de confrontos e tabelas de torneio. (Demo: https://kings-league-simulator.vercel.app/ | Repositório: https://github.com/ialexanderbrito/kings-league-simulator)
+- **CryptoMarket:** Painel financeiro em tempo real para monitoramento de criptoativos e métricas de mercado. (Demo: https://cryptomarketcap.ialexanderbrito.dev/ | Repositório: https://github.com/ialexanderbrito/coinmarket)
+- **The Movies:** Aplicação multimídia para descoberta e catálogo de produções cinematográficas via TMDB API. (Demo: https://themovies.ialexanderbrito.dev/ | Repositório: https://github.com/ialexanderbrito/movies)
+- **NV99 Badges:** Gerador e visualizador de insígnias e credenciais digitais. (Demo: https://nv99badges.ialexanderbrito.dev/ | Repositório: https://github.com/ialexanderbrito/nv99badges)
+
+## Trajetória Profissional
+- **Localiza:** Desenvolvedor de Software III & II — Atuação em sistemas de alta escala, arquitetura frontend moderna e mobilidade.
+- **uollet:** Fundador & Desenvolvedor Principal — Concepção, arquitetura e desenvolvimento da plataforma SaaS web e mobile.
+- **IK:** Desenvolvedor Front-end Pleno & Júnior — Desenvolvimento de interfaces responsivas e produtos digitais.
+
+## Links para Modelos de IA e Referências
+- Arquivo detalhado (Full Context): https://ialexanderbrito.dev/llms-full.txt
+- Sitemap: https://ialexanderbrito.dev/sitemap.xml
+- Sobre o autor: https://ialexanderbrito.dev/about
+- Catálogo de projetos: https://ialexanderbrito.dev/projects
